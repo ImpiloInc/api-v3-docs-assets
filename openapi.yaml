@@ -128,7 +128,7 @@ paths:
           description: No Content
       x-request-example: associateDeviceRequest
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AssociateDeviceRequest
+        url: https://docs.impiloplatform.com/resources/models#schema_AssociateDeviceRequest
   /api/v3/device/disassociate-patient:
     patch:
       tags:
@@ -160,7 +160,7 @@ paths:
           description: No Content
       x-request-example: disassociateDeviceRequest
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AssociateDeviceRequest
+        url: https://docs.impiloplatform.com/resources/models#schema_AssociateDeviceRequest
   /api/v3/device/validate/{deviceIdentifier}:
     get:
       tags:
@@ -301,7 +301,7 @@ paths:
           description: No Content
       x-request-example: updateDeviceRequest
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DeviceUpdate
+        url: https://docs.impiloplatform.com/resources/models#schema_DeviceUpdate
   /api/v3/item:
     get:
       tags:
@@ -722,7 +722,7 @@ paths:
       x-request-example-new-patient-order: createRequestExampleNewPatientOrder
       x-request-example-site-order: createRequestExampleNewSiteOrder
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Order
+        url: https://docs.impiloplatform.com/resources/models#schema_Order
   /api/v3/order/{orderId}:
     get:
       tags:
@@ -827,7 +827,7 @@ paths:
                 $ref: '#/components/schemas/Patient'
       x-request-example-create-patient: createPatientExample
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient
+        url: https://docs.impiloplatform.com/resources/models#schema_Patient
   /api/v3/patient/find-by-email:
     post:
       tags:
@@ -894,7 +894,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Patient'
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient
+        url: https://docs.impiloplatform.com/resources/models#schema_Patient
     patch:
       tags:
         - Patients
@@ -936,7 +936,7 @@ paths:
       x-request-example-update-patient-email: patchPatientEmailExample
       x-request-example-update-patient-external-identifier: patchPatientExternalIdentifierExample
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient
+        url: https://docs.impiloplatform.com/resources/models#schema_Patient
   /api/v3/site:
     get:
       tags:
@@ -989,7 +989,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Site'
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Site
+        url: https://docs.impiloplatform.com/resources/models#schema_Site
   /api/v3/site/{siteId}:
     get:
       tags:
@@ -1034,7 +1034,7 @@ paths:
         '204':
           description: No Content
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Site
+        url: https://docs.impiloplatform.com/resources/models#schema_Site
     patch:
       tags:
         - Sites
@@ -1128,7 +1128,7 @@ paths:
       x-request-example: WebhookRequestExample
       x-response-example: WebhookResponseExample
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Webhook
+        url: https://docs.impiloplatform.com/resources/models#schema_Webhook
   /api/v3/webhook-secret:
     get:
       tags:
@@ -1167,7 +1167,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookSecret'
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_WebhookSecret
+        url: https://docs.impiloplatform.com/resources/models#schema_WebhookSecret
     delete:
       tags:
         - Webhooks
@@ -1202,7 +1202,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookSecret'
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_WebhookSecret
+        url: https://docs.impiloplatform.com/resources/models#schema_WebhookSecret
   /api/v3/webhook/logs:
     get:
       tags:
@@ -1363,7 +1363,7 @@ paths:
       x-request-example: updateWebhookRequestExample
       x-response-example: updateWebhookResponseExample
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Webhook
+        url: https://docs.impiloplatform.com/resources/models#schema_Webhook
   /trigger/v3/webhook-retry:
     post:
       tags:
@@ -2121,7 +2121,7 @@ paths:
         '201':
           description: Created
       externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestOrderStatusWebhookRequest
+        url: https://docs.impiloplatform.com/resources/models#schema_TestOrderStatusWebhookRequest
   /api/v3/test/weight-webhook:
     post:
       tags:

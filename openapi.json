@@ -159,7 +159,7 @@
         },
         "x-request-example" : "associateDeviceRequest",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AssociateDeviceRequest"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_AssociateDeviceRequest"
         }
       }
     },
@@ -192,7 +192,7 @@
         },
         "x-request-example" : "disassociateDeviceRequest",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AssociateDeviceRequest"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_AssociateDeviceRequest"
         }
       }
     },
@@ -373,7 +373,7 @@
         },
         "x-request-example" : "updateDeviceRequest",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DeviceUpdate"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_DeviceUpdate"
         }
       }
     },
@@ -928,7 +928,7 @@
         "x-request-example-new-patient-order" : "createRequestExampleNewPatientOrder",
         "x-request-example-site-order" : "createRequestExampleNewSiteOrder",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Order"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_Order"
         }
       }
     },
@@ -1067,7 +1067,7 @@
         },
         "x-request-example-create-patient" : "createPatientExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_Patient"
         }
       }
     },
@@ -1153,7 +1153,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_Patient"
         }
       },
       "patch" : {
@@ -1209,7 +1209,7 @@
         "x-request-example-update-patient-email" : "patchPatientEmailExample",
         "x-request-example-update-patient-external-identifier" : "patchPatientExternalIdentifierExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_Patient"
         }
       }
     },
@@ -1272,7 +1272,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Site"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_Site"
         }
       }
     },
@@ -1331,7 +1331,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Site"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_Site"
         }
       },
       "patch" : {
@@ -1456,7 +1456,7 @@
         "x-request-example" : "WebhookRequestExample",
         "x-response-example" : "WebhookResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Webhook"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_Webhook"
         }
       }
     },
@@ -1504,7 +1504,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_WebhookSecret"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_WebhookSecret"
         }
       },
       "delete" : {
@@ -1543,7 +1543,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_WebhookSecret"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_WebhookSecret"
         }
       }
     },
@@ -1754,7 +1754,7 @@
         "x-request-example" : "updateWebhookRequestExample",
         "x-response-example" : "updateWebhookResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Webhook"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_Webhook"
         }
       }
     },
@@ -2728,7 +2728,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestOrderStatusWebhookRequest"
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_TestOrderStatusWebhookRequest"
         }
       }
     },
