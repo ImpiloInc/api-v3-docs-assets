@@ -2,6 +2,13 @@ openapi: 3.0.0
 info:
   title: Impilo API
   version: '3.0'
+servers:
+  - url: https://app.impiloplatform.com
+    description: Production server
+  - url: https://staging.impiloplatform.com
+    description: Staging server
+security:
+  - ApiKeyAuth: []
 tags:
   - name: Devices
   - name: Items
@@ -2171,6 +2178,11 @@ paths:
         '201':
           description: Created
 components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Impilo-API-Key
   schemas:
     Address:
       description: Represents a physical address, including information such as street
@@ -3667,15 +3679,3 @@ components:
         manual:
           description: True if the reading value was entered manually, false otherwise.
           type: boolean
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: Impilo-API-Key
-servers:
-  - url: https://app.impiloplatform.com
-    description: Production server
-  - url: https://staging.impiloplatform.com
-    description: Staging server
-security:
-  - ApiKeyAuth: []
