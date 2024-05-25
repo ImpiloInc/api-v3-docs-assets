@@ -1,11 +1,11 @@
 {
 	"info": {
-		"name": "Generated API",
+		"name": "Impilo API",
 		"description": {
 		    "content": "",
 		    "type": "text/markdown"
 		},
-		"version": "1.0",
+		"version": "3.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -221,7 +221,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/order",
-                "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management).",
+                "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management). *** For more information see the [Order Model](/resources/models#schema_Order).",
                  "item": [
                             {
                                 "name": "existing-patient-order",
@@ -265,7 +265,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management)."
+                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management). *** For more information see the [Order Model](/resources/models#schema_Order)."
                                 }
                             },
                             {
@@ -310,7 +310,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management)."
+                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management). *** For more information see the [Order Model](/resources/models#schema_Order)."
                                 }
                             },
                             {
@@ -355,7 +355,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management)."
+                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management). *** For more information see the [Order Model](/resources/models#schema_Order)."
                                 }
                             }
                             ]
@@ -1380,7 +1380,7 @@
                         },
 	                        {
     "name": "/api/v3/device/:deviceId",
-                "description": "This endpoint updates details for a device identified by the device ID provided in the path. It supports various updates, including changing device status, and adding notes regarding the update. ",
+                "description": "This endpoint updates details for a device identified by the device ID provided in the path. It supports various updates, including changing device status, and adding notes regarding the update. *** For more information see the [DeviceUpdate Model](/resources/models#schema_DeviceUpdate).",
                  "item": [
                             {
                                 "name": "updateDeviceRequest",
@@ -1424,14 +1424,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint updates details for a device identified by the device ID provided in the path. It supports various updates, including changing device status, and adding notes regarding the update. "
+                                    "description": "This endpoint updates details for a device identified by the device ID provided in the path. It supports various updates, including changing device status, and adding notes regarding the update. *** For more information see the [DeviceUpdate Model](/resources/models#schema_DeviceUpdate)."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/device/associate-patient",
-                "description": "This endpoint associates the device to the patient provided in the Request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"availableAtSite\" ",
+                "description": "This endpoint associates the device to the patient provided in the Request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"availableAtSite\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).",
                  "item": [
                             {
                                 "name": "associateDeviceRequest",
@@ -1470,14 +1470,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint associates the device to the patient provided in the Request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"availableAtSite\" "
+                                    "description": "This endpoint associates the device to the patient provided in the Request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"availableAtSite\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest)."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/device/disassociate-patient",
-                "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"withPatient\" ",
+                "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"withPatient\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).",
                  "item": [
                             {
                                 "name": "disassociateDeviceRequest",
@@ -1516,7 +1516,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"withPatient\" "
+                                    "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"withPatient\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest)."
                                 }
                             }
                             ]
@@ -1580,7 +1580,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/patient",
-                "description": "Creates a new patient record with the provided details.",
+                "description": "Creates a new patient record with the provided details. *** For more information see the [Patient Model](/resources/models#schema_Patient).",
                  "item": [
                             {
                                 "name": "create-patient",
@@ -1602,7 +1602,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"id\" : 1,\n  \"externalIdentifier\" : \"1234abcd\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"dateOfBirth\" : \"1980-01-01\",\n  \"email\" : \"john.doe@example.com\",\n  \"phoneNumber\" : \"+1234567890\",\n  \"address\" : {\n    \"lineOne\" : \"123 Main St\",\n    \"lineTwo\" : \"Apt 4B\",\n    \"lineThree\" : \"\",\n    \"city\" : \"Springfield\",\n    \"state\" : \"IL\",\n    \"zipCode\" : \"62704\",\n    \"country\" : \"USA\",\n    \"note\" : \"Near the park\"\n  },\n  \"sex\" : \"male\"\n}",
+                                        "raw": "{\n  \"id\" : 1,\n  \"externalIdentifier\" : \"1234abcd\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"dateOfBirth\" : \"1980-01-01T00:00:00Z\",\n  \"email\" : \"john.doe@example.com\",\n  \"phoneNumber\" : \"+1234567890\",\n  \"address\" : {\n    \"lineOne\" : \"123 Main St\",\n    \"lineTwo\" : \"Apt 4B\",\n    \"lineThree\" : \"\",\n    \"city\" : \"Springfield\",\n    \"state\" : \"IL\",\n    \"zipCode\" : \"62704\",\n    \"country\" : \"USA\",\n    \"note\" : \"Near the park\"\n  },\n  \"sex\" : \"male\"\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1624,7 +1624,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a new patient record with the provided details."
+                                    "description": "Creates a new patient record with the provided details. *** For more information see the [Patient Model](/resources/models#schema_Patient)."
                                 }
                             }
                             ]
@@ -1745,7 +1745,7 @@
                         },
 	                        {
     "name": "/api/v3/patient/:patientId",
-                "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body.",
+                "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body. *** For more information see the [Patient Model](/resources/models#schema_Patient).",
                  "item": [
                             {
                                 "name": "update-patient-email",
@@ -1795,7 +1795,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body."
+                                    "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body. *** For more information see the [Patient Model](/resources/models#schema_Patient)."
                                 }
                             },
                             {
@@ -1846,14 +1846,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body."
+                                    "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body. *** For more information see the [Patient Model](/resources/models#schema_Patient)."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/patient/:patientId",
-                "description": "Updates an existing patient record with new details provided in the request body.",
+                "description": "Updates an existing patient record with new details provided in the request body. *** For more information see the [Patient Model](/resources/models#schema_Patient).",
                  "item": [
                             {
                                 "name": "updatePatient",
@@ -1903,7 +1903,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Updates an existing patient record with new details provided in the request body."
+                                    "description": "Updates an existing patient record with new details provided in the request body. *** For more information see the [Patient Model](/resources/models#schema_Patient)."
                                 }
                             }
                             ]
@@ -2201,7 +2201,7 @@
                         },
 	                        {
     "name": "/api/v3/test/order-status-webhook",
-                "description": "Send a test order status webhook",
+                "description": "Send a test order status webhook *** For more information see the [TestOrderStatusWebhookRequest Model](/resources/models#schema_TestOrderStatusWebhookRequest).",
                  "item": [
                             {
                                 "name": "triggerOrderStatusWebhook",
@@ -2240,7 +2240,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Send a test order status webhook"
+                                    "description": "Send a test order status webhook *** For more information see the [TestOrderStatusWebhookRequest Model](/resources/models#schema_TestOrderStatusWebhookRequest)."
                                 }
                             }
                             ]
@@ -2481,7 +2481,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/site",
-                "description": "Creates a new site with the provided details.  Returns the site. ",
+                "description": "Creates a new site with the provided details.  Returns the site. *** For more information see the [Site Model](/resources/models#schema_Site).",
                  "item": [
                             {
                                 "name": "createSite",
@@ -2525,7 +2525,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a new site with the provided details.  Returns the site. "
+                                    "description": "Creates a new site with the provided details.  Returns the site. *** For more information see the [Site Model](/resources/models#schema_Site)."
                                 }
                             }
                             ]
@@ -2691,7 +2691,7 @@
                         },
 	                        {
     "name": "/api/v3/site/:siteId",
-                "description": "Update the site specified by the ID in the URL path with a new site object.",
+                "description": "Update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site).",
                  "item": [
                             {
                                 "name": "updateSite",
@@ -2735,7 +2735,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Update the site specified by the ID in the URL path with a new site object."
+                                    "description": "Update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site)."
                                 }
                             }
                             ]
@@ -2954,7 +2954,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/webhook",
-                "description": "This endpoint creates a V3 webhook subscription of the type provided in the ***type*** attribute of the Webhook object. > Note: This endpoint will create a V3 webhook -- you cannot view V3 webhooks from the V1 or V2 endpoints. ",
+                "description": "This endpoint creates a V3 webhook subscription of the type provided in the ***type*** attribute of the Webhook object. > Note: This endpoint will create a V3 webhook -- you cannot view V3 webhooks from the V1 or V2 endpoints. *** For more information see the [Webhook Model](/resources/models#schema_Webhook).",
                  "item": [
                             {
                                 "name": "WebhookRequestExample",
@@ -2998,7 +2998,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint creates a V3 webhook subscription of the type provided in the ***type*** attribute of the Webhook object. > Note: This endpoint will create a V3 webhook -- you cannot view V3 webhooks from the V1 or V2 endpoints. "
+                                    "description": "This endpoint creates a V3 webhook subscription of the type provided in the ***type*** attribute of the Webhook object. > Note: This endpoint will create a V3 webhook -- you cannot view V3 webhooks from the V1 or V2 endpoints. *** For more information see the [Webhook Model](/resources/models#schema_Webhook)."
                                 }
                             }
                             ]
@@ -3062,7 +3062,7 @@
                         },
 	                        {
     "name": "/api/v3/webhook-secret",
-                "description": "Creates a Webhook Secret to use with the Impilo Platform with the provides `secret`. The secret will be passed along as a header with Webhooks sent from Impilo.  Returns an error if you already have a Webhook secret created. ",
+                "description": "Creates a Webhook Secret to use with the Impilo Platform with the provides `secret`. The secret will be passed along as a header with Webhooks sent from Impilo.  Returns an error if you already have a Webhook secret created. *** For more information see the [WebhookSecret Model](/resources/models#schema_WebhookSecret).",
                  "item": [
                             {
                                 "name": "createWebhookSecret",
@@ -3106,7 +3106,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a Webhook Secret to use with the Impilo Platform with the provides `secret`. The secret will be passed along as a header with Webhooks sent from Impilo.  Returns an error if you already have a Webhook secret created. "
+                                    "description": "Creates a Webhook Secret to use with the Impilo Platform with the provides `secret`. The secret will be passed along as a header with Webhooks sent from Impilo.  Returns an error if you already have a Webhook secret created. *** For more information see the [WebhookSecret Model](/resources/models#schema_WebhookSecret)."
                                 }
                             }
                             ]
@@ -3197,7 +3197,7 @@
                         },
 	                        {
     "name": "/api/v3/webhook-secret",
-                "description": "Updates your Webhook Secret if it exists. Requires a `secret` parameter.  Returns an error if you don't have a secret configured. ",
+                "description": "Updates your Webhook Secret if it exists. Requires a `secret` parameter.  Returns an error if you don't have a secret configured. *** For more information see the [WebhookSecret Model](/resources/models#schema_WebhookSecret).",
                  "item": [
                             {
                                 "name": "updateWebhookSecret",
@@ -3241,7 +3241,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Updates your Webhook Secret if it exists. Requires a `secret` parameter.  Returns an error if you don't have a secret configured. "
+                                    "description": "Updates your Webhook Secret if it exists. Requires a `secret` parameter.  Returns an error if you don't have a secret configured. *** For more information see the [WebhookSecret Model](/resources/models#schema_WebhookSecret)."
                                 }
                             }
                             ]
@@ -3344,7 +3344,7 @@
                         },
 	                        {
     "name": "/api/v3/webhook/:webhookId",
-                "description": "This endpoint updates the specified Webhook with a new URL provided in the request body. > Note: The provided URL must be different than the existing URL of the webhook or a 400 response will be returned. ",
+                "description": "This endpoint updates the specified Webhook with a new URL provided in the request body. > Note: The provided URL must be different than the existing URL of the webhook or a 400 response will be returned. *** For more information see the [Webhook Model](/resources/models#schema_Webhook).",
                  "item": [
                             {
                                 "name": "updateWebhookRequestExample",
@@ -3394,7 +3394,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint updates the specified Webhook with a new URL provided in the request body. > Note: The provided URL must be different than the existing URL of the webhook or a 400 response will be returned. "
+                                    "description": "This endpoint updates the specified Webhook with a new URL provided in the request body. > Note: The provided URL must be different than the existing URL of the webhook or a 400 response will be returned. *** For more information see the [Webhook Model](/resources/models#schema_Webhook)."
                                 }
                             }
                             ]
@@ -3791,12 +3791,31 @@
 	                    ]
 	        }
     ],
-    
+    "auth": {
+    		"type": "apikey",
+    		"apikey": [
+    			{
+    				"key": "value",
+    				"value": "{{Impilo-API-Key}}",
+    				"type": "string"
+    			},
+    			{
+    				"key": "key",
+    				"value": "Impilo-API-Key",
+    				"type": "string"
+    			}
+    		]
+    	},
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "",
+			"value": "https://app.impiloplatform.com",
 			"type": "string"
+        },
+        {
+            "key": "Impilo-API-Key",
+            "value": "",
+            "type": "string"
         }
 	]
 }
