@@ -40,6 +40,8 @@
     "name" : "Readings - Temperature"
   }, {
     "name" : "Readings - Weight"
+  }, {
+    "name" : "Tests"
   } ],
   "paths" : {
     "/api/v3/device" : {
@@ -2652,6 +2654,7 @@
     },
     "/api/v3/test/blood-glucose-webhook" : {
       "post" : {
+        "tags" : [ "Tests" ],
         "description" : "Trigger a test blood glucose webhook\n***\nFor more information see the [TestBloodGlucoseWebhookRequest Model](/resources/models#schema_TestBloodGlucoseWebhookRequest).",
         "operationId" : "triggerBloodGlucoseWebhook",
         "requestBody" : {
@@ -2675,6 +2678,7 @@
     },
     "/api/v3/test/blood-oxygen-webhook" : {
       "post" : {
+        "tags" : [ "Tests" ],
         "description" : "Trigger a test blood oxygen webhook\n***\nFor more information see the [TestBloodOxygenWebhookRequest Model](/resources/models#schema_TestBloodOxygenWebhookRequest).",
         "operationId" : "triggerBloodOxygenWebhook",
         "requestBody" : {
@@ -2698,6 +2702,7 @@
     },
     "/api/v3/test/blood-pressure-webhook" : {
       "post" : {
+        "tags" : [ "Tests" ],
         "description" : "Trigger a test blood pressure webhook\n***\nFor more information see the [TestBloodPressureWebhookRequest Model](/resources/models#schema_TestBloodPressureWebhookRequest).",
         "operationId" : "triggerBloodPressureWebhook",
         "requestBody" : {
@@ -2721,6 +2726,7 @@
     },
     "/api/v3/test/device-association-created" : {
       "post" : {
+        "tags" : [ "Tests" ],
         "description" : "Trigger a test device association created webhook\n***\nFor more information see the [TestDeviceAssociationWebhook Model](/resources/models#schema_TestDeviceAssociationWebhook).",
         "operationId" : "triggerDeviceAssociationCreated",
         "requestBody" : {
@@ -2744,6 +2750,7 @@
     },
     "/api/v3/test/device-association-removed" : {
       "post" : {
+        "tags" : [ "Tests" ],
         "description" : "Trigger a test device association removed webhook\n***\nFor more information see the [TestDeviceAssociationWebhook Model](/resources/models#schema_TestDeviceAssociationWebhook).",
         "operationId" : "triggerDeviceAssociationRemoved",
         "requestBody" : {
@@ -2767,6 +2774,7 @@
     },
     "/api/v3/test/order-status-full-webhook" : {
       "post" : {
+        "tags" : [ "Tests" ],
         "description" : "Trigger a test order status full webhook\n***\nFor more information see the [TestOrderStatusFullWebhook Model](/resources/models#schema_TestOrderStatusFullWebhook).",
         "operationId" : "orderStatusFullWebhook",
         "requestBody" : {
@@ -2790,6 +2798,7 @@
     },
     "/api/v3/test/order-status-webhook" : {
       "post" : {
+        "tags" : [ "Tests" ],
         "description" : "Send a test order status webhook\n***\nFor more information see the [TestOrderStatusWebhookRequest Model](/resources/models#schema_TestOrderStatusWebhookRequest).",
         "operationId" : "triggerOrderStatusWebhook",
         "requestBody" : {
@@ -2813,6 +2822,7 @@
     },
     "/api/v3/test/weight-webhook" : {
       "post" : {
+        "tags" : [ "Tests" ],
         "description" : "Trigger a test weight webhook\n***\nFor more information see the [TestWeightWebhookRequest Model](/resources/models#schema_TestWeightWebhookRequest).",
         "operationId" : "triggerWeightWebhook",
         "requestBody" : {

@@ -1957,273 +1957,7 @@
 	                    ]
 	        },
 	        {
-	            "name": "Sites",
-	            "item": [
-	                        {
-    "name": "/api/v3/site",
-                "description": "Creates a new site with the provided details.  Returns the site. *** For more information see the [Site Model](/resources/models#schema_Site).",
-                 "item": [
-                            {
-                                "name": "createSite",
-                                "request": {
-                                    "method": "POST",
-                                    "header": [
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        },
-                                        {
-                                            "key": "Accept",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "{\n \"id\": \"<number>\",\n \"name\": \"<string>\",\n \"active\": \"<string>\",\n \"address\": \"<string>\"\n}",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/v3/site",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            "v3",
-                                            "site"
-                                        ],
-                                        "variable": [
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "Creates a new site with the provided details.  Returns the site. *** For more information see the [Site Model](/resources/models#schema_Site)."
-                                }
-                            }
-                            ]
-                        },
-	                        {
-    "name": "/api/v3/site",
-                "description": "Returns a paginated list of your sites.  Optional query parameters:     - page (integer) -- The page number of the sites returned.     - size (integer) -- The number of sites returned per page. ",
-                 "item": [
-                            {
-                                "name": "listSites",
-                                "request": {
-                                    "method": "GET",
-                                    "header": [
-                                        {
-                                            "key": "Accept",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/v3/site",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            "v3",
-                                            "site"
-                                        ],
-                                        "variable": [
-                                        ],
-                                        "query": [
-                                            {
-                                                "key": "page",
-                                                "value": "56",
-                                                "description": "",
-                                                "disabled": true
-                                            },
-                                            {
-                                                "key": "size",
-                                                "value": "56",
-                                                "description": "",
-                                                "disabled": true
-                                            }
-                                        ]
-                                    },
-                                    "description": "Returns a paginated list of your sites.  Optional query parameters:     - page (integer) -- The page number of the sites returned.     - size (integer) -- The number of sites returned per page. "
-                                }
-                            }
-                            ]
-                        },
-	                        {
-    "name": "/api/v3/site/:siteId",
-                "description": "Returns the site specified by the ID in the URL path.",
-                 "item": [
-                            {
-                                "name": "fetchSite",
-                                "request": {
-                                    "method": "GET",
-                                    "header": [
-                                        {
-                                            "key": "Accept",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/v3/site/:siteId",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            "v3",
-                                            "site",
-                                            ":siteId"
-                                        ],
-                                        "variable": [
-                                            {
-                                                "key": "siteId",
-                                                "value": "",
-                                                "description": ""
-                                            }
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "Returns the site specified by the ID in the URL path."
-                                }
-                            }
-                            ]
-                        },
-	                        {
-    "name": "/api/v3/site/:siteId",
-                "description": "Partially update the site specified by the ID in the URL path with a new site object.",
-                 "item": [
-                            {
-                                "name": "patchSite",
-                                "request": {
-                                    "method": "PATCH",
-                                    "header": [
-                                        {
-                                            "key": "Accept",
-                                            "value": "*/*",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/v3/site/:siteId",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            "v3",
-                                            "site",
-                                            ":siteId"
-                                        ],
-                                        "variable": [
-                                            {
-                                                "key": "siteId",
-                                                "value": "",
-                                                "description": ""
-                                            }
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "Partially update the site specified by the ID in the URL path with a new site object."
-                                }
-                            }
-                            ]
-                        },
-	                        {
-    "name": "/api/v3/site/:siteId",
-                "description": "Update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site).",
-                 "item": [
-                            {
-                                "name": "updateSite",
-                                "request": {
-                                    "method": "PUT",
-                                    "header": [
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "{\n \"id\": \"<number>\",\n \"name\": \"<string>\",\n \"active\": \"<string>\",\n \"address\": \"<string>\"\n}",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/v3/site/:siteId",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            "v3",
-                                            "site",
-                                            ":siteId"
-                                        ],
-                                        "variable": [
-                                            {
-                                                "key": "siteId",
-                                                "value": "",
-                                                "description": ""
-                                            }
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "Update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site)."
-                                }
-                            }
-                            ]
-                        }
-	                    ]
-	        },
-	        {
-	            "name": "default",
+	            "name": "Tests",
 	            "item": [
 	                        {
     "name": "/api/v3/test/blood-glucose-webhook",
@@ -2589,6 +2323,272 @@
                                         ]
                                     },
                                     "description": "Trigger a test weight webhook *** For more information see the [TestWeightWebhookRequest Model](/resources/models#schema_TestWeightWebhookRequest)."
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "Sites",
+	            "item": [
+	                        {
+    "name": "/api/v3/site",
+                "description": "Creates a new site with the provided details.  Returns the site. *** For more information see the [Site Model](/resources/models#schema_Site).",
+                 "item": [
+                            {
+                                "name": "createSite",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n \"id\": \"<number>\",\n \"name\": \"<string>\",\n \"active\": \"<string>\",\n \"address\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/site",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "site"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Creates a new site with the provided details.  Returns the site. *** For more information see the [Site Model](/resources/models#schema_Site)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/site",
+                "description": "Returns a paginated list of your sites.  Optional query parameters:     - page (integer) -- The page number of the sites returned.     - size (integer) -- The number of sites returned per page. ",
+                 "item": [
+                            {
+                                "name": "listSites",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/site",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "site"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Returns a paginated list of your sites.  Optional query parameters:     - page (integer) -- The page number of the sites returned.     - size (integer) -- The number of sites returned per page. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/site/:siteId",
+                "description": "Returns the site specified by the ID in the URL path.",
+                 "item": [
+                            {
+                                "name": "fetchSite",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/site/:siteId",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "site",
+                                            ":siteId"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "siteId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Returns the site specified by the ID in the URL path."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/site/:siteId",
+                "description": "Partially update the site specified by the ID in the URL path with a new site object.",
+                 "item": [
+                            {
+                                "name": "patchSite",
+                                "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "*/*",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/site/:siteId",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "site",
+                                            ":siteId"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "siteId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Partially update the site specified by the ID in the URL path with a new site object."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/site/:siteId",
+                "description": "Update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site).",
+                 "item": [
+                            {
+                                "name": "updateSite",
+                                "request": {
+                                    "method": "PUT",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n \"id\": \"<number>\",\n \"name\": \"<string>\",\n \"active\": \"<string>\",\n \"address\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/site/:siteId",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "site",
+                                            ":siteId"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "siteId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site)."
                                 }
                             }
                             ]

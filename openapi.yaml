@@ -23,6 +23,7 @@ tags:
   - name: Readings - Blood Pressure
   - name: Readings - Temperature
   - name: Readings - Weight
+  - name: Tests
 paths:
   /api/v3/device:
     get:
@@ -2063,6 +2064,8 @@ paths:
                 $ref: '#/components/schemas/WeightReading'
   /api/v3/test/blood-glucose-webhook:
     post:
+      tags:
+        - Tests
       description: |-
         Trigger a test blood glucose webhook
         ***
@@ -2080,6 +2083,8 @@ paths:
         url: https://docs.impiloplatform.com/resources/models#schema_TestBloodGlucoseWebhookRequest
   /api/v3/test/blood-oxygen-webhook:
     post:
+      tags:
+        - Tests
       description: |-
         Trigger a test blood oxygen webhook
         ***
@@ -2097,6 +2102,8 @@ paths:
         url: https://docs.impiloplatform.com/resources/models#schema_TestBloodOxygenWebhookRequest
   /api/v3/test/blood-pressure-webhook:
     post:
+      tags:
+        - Tests
       description: |-
         Trigger a test blood pressure webhook
         ***
@@ -2114,6 +2121,8 @@ paths:
         url: https://docs.impiloplatform.com/resources/models#schema_TestBloodPressureWebhookRequest
   /api/v3/test/device-association-created:
     post:
+      tags:
+        - Tests
       description: |-
         Trigger a test device association created webhook
         ***
@@ -2131,6 +2140,8 @@ paths:
         url: https://docs.impiloplatform.com/resources/models#schema_TestDeviceAssociationWebhook
   /api/v3/test/device-association-removed:
     post:
+      tags:
+        - Tests
       description: |-
         Trigger a test device association removed webhook
         ***
@@ -2148,6 +2159,8 @@ paths:
         url: https://docs.impiloplatform.com/resources/models#schema_TestDeviceAssociationWebhook
   /api/v3/test/order-status-full-webhook:
     post:
+      tags:
+        - Tests
       description: |-
         Trigger a test order status full webhook
         ***
@@ -2165,6 +2178,8 @@ paths:
         url: https://docs.impiloplatform.com/resources/models#schema_TestOrderStatusFullWebhook
   /api/v3/test/order-status-webhook:
     post:
+      tags:
+        - Tests
       description: |-
         Send a test order status webhook
         ***
@@ -2182,6 +2197,8 @@ paths:
         url: https://docs.impiloplatform.com/resources/models#schema_TestOrderStatusWebhookRequest
   /api/v3/test/weight-webhook:
     post:
+      tags:
+        - Tests
       description: |-
         Trigger a test weight webhook
         ***
