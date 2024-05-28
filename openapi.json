@@ -40,8 +40,6 @@
     "name" : "Readings - Temperature"
   }, {
     "name" : "Readings - Weight"
-  }, {
-    "name" : "Tests"
   } ],
   "paths" : {
     "/api/v3/device" : {
@@ -2654,73 +2652,144 @@
     },
     "/api/v3/test/blood-glucose-webhook" : {
       "post" : {
-        "tags" : [ "Tests" ],
+        "description" : "Trigger a test blood glucose webhook\n***\nFor more information see the [TestBloodGlucoseWebhookRequest Model](/resources/models#schema_TestBloodGlucoseWebhookRequest).",
         "operationId" : "triggerBloodGlucoseWebhook",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TestBloodGlucoseWebhookRequest"
+              }
+            }
+          }
+        },
         "responses" : {
           "201" : {
             "description" : "Created"
           }
+        },
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_TestBloodGlucoseWebhookRequest"
         }
       }
     },
     "/api/v3/test/blood-oxygen-webhook" : {
       "post" : {
-        "tags" : [ "Tests" ],
+        "description" : "Trigger a test blood oxygen webhook\n***\nFor more information see the [TestBloodOxygenWebhookRequest Model](/resources/models#schema_TestBloodOxygenWebhookRequest).",
         "operationId" : "triggerBloodOxygenWebhook",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TestBloodOxygenWebhookRequest"
+              }
+            }
+          }
+        },
         "responses" : {
           "201" : {
             "description" : "Created"
           }
+        },
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_TestBloodOxygenWebhookRequest"
         }
       }
     },
     "/api/v3/test/blood-pressure-webhook" : {
       "post" : {
-        "tags" : [ "Tests" ],
+        "description" : "Trigger a test blood pressure webhook\n***\nFor more information see the [TestBloodPressureWebhookRequest Model](/resources/models#schema_TestBloodPressureWebhookRequest).",
         "operationId" : "triggerBloodPressureWebhook",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TestBloodPressureWebhookRequest"
+              }
+            }
+          }
+        },
         "responses" : {
           "201" : {
             "description" : "Created"
           }
+        },
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_TestBloodPressureWebhookRequest"
         }
       }
     },
     "/api/v3/test/device-association-created" : {
       "post" : {
-        "tags" : [ "Tests" ],
+        "description" : "Trigger a test device association created webhook\n***\nFor more information see the [TestDeviceAssociationWebhook Model](/resources/models#schema_TestDeviceAssociationWebhook).",
         "operationId" : "triggerDeviceAssociationCreated",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TestDeviceAssociationWebhook"
+              }
+            }
+          }
+        },
         "responses" : {
           "201" : {
             "description" : "Created"
           }
+        },
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_TestDeviceAssociationWebhook"
         }
       }
     },
     "/api/v3/test/device-association-removed" : {
       "post" : {
-        "tags" : [ "Tests" ],
+        "description" : "Trigger a test device association removed webhook\n***\nFor more information see the [TestDeviceAssociationWebhook Model](/resources/models#schema_TestDeviceAssociationWebhook).",
         "operationId" : "triggerDeviceAssociationRemoved",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TestDeviceAssociationWebhook"
+              }
+            }
+          }
+        },
         "responses" : {
           "201" : {
             "description" : "Created"
           }
+        },
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_TestDeviceAssociationWebhook"
         }
       }
     },
     "/api/v3/test/order-status-full-webhook" : {
       "post" : {
-        "tags" : [ "Tests" ],
+        "description" : "Trigger a test order status full webhook\n***\nFor more information see the [TestOrderStatusFullWebhook Model](/resources/models#schema_TestOrderStatusFullWebhook).",
         "operationId" : "orderStatusFullWebhook",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TestOrderStatusFullWebhook"
+              }
+            }
+          }
+        },
         "responses" : {
           "201" : {
             "description" : "Created"
           }
+        },
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_TestOrderStatusFullWebhook"
         }
       }
     },
     "/api/v3/test/order-status-webhook" : {
       "post" : {
-        "tags" : [ "Tests" ],
         "description" : "Send a test order status webhook\n***\nFor more information see the [TestOrderStatusWebhookRequest Model](/resources/models#schema_TestOrderStatusWebhookRequest).",
         "operationId" : "triggerOrderStatusWebhook",
         "requestBody" : {
@@ -2744,67 +2813,24 @@
     },
     "/api/v3/test/weight-webhook" : {
       "post" : {
-        "tags" : [ "Tests" ],
+        "description" : "Trigger a test weight webhook\n***\nFor more information see the [TestWeightWebhookRequest Model](/resources/models#schema_TestWeightWebhookRequest).",
         "operationId" : "triggerWeightWebhook",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TestWeightWebhookRequest"
+              }
+            }
+          }
+        },
         "responses" : {
           "201" : {
             "description" : "Created"
           }
-        }
-      }
-    },
-    "/bp-webhook-test" : {
-      "post" : {
-        "tags" : [ "Tests" ],
-        "operationId" : "receiveTest",
-        "responses" : {
-          "201" : {
-            "description" : "Created"
-          }
-        }
-      }
-    },
-    "/receive-test/bg" : {
-      "post" : {
-        "tags" : [ "Tests" ],
-        "operationId" : "receiveBgTest",
-        "responses" : {
-          "201" : {
-            "description" : "Created"
-          }
-        }
-      }
-    },
-    "/receive-test/bp" : {
-      "post" : {
-        "tags" : [ "Tests" ],
-        "operationId" : "receiveBpTest",
-        "responses" : {
-          "201" : {
-            "description" : "Created"
-          }
-        }
-      }
-    },
-    "/receive-test/order" : {
-      "post" : {
-        "tags" : [ "Tests" ],
-        "operationId" : "receiveOrderTest",
-        "responses" : {
-          "201" : {
-            "description" : "Created"
-          }
-        }
-      }
-    },
-    "/receive-test/weight" : {
-      "post" : {
-        "tags" : [ "Tests" ],
-        "operationId" : "receiveWeightTest",
-        "responses" : {
-          "201" : {
-            "description" : "Created"
-          }
+        },
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_TestWeightWebhookRequest"
         }
       }
     }
@@ -4310,6 +4336,98 @@
           }
         }
       },
+      "TestBloodGlucoseWebhookRequest" : {
+        "type" : "object",
+        "properties" : {
+          "patientId" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "glucose" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }
+      },
+      "TestBloodOxygenWebhookRequest" : {
+        "type" : "object",
+        "properties" : {
+          "patientId" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "bloodOxygen" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "heartRate" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }
+      },
+      "TestBloodPressureWebhookRequest" : {
+        "type" : "object",
+        "properties" : {
+          "patientId" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "systolic" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "diastolic" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "heartRate" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }
+      },
+      "TestDeviceAssociationWebhook" : {
+        "type" : "object",
+        "properties" : {
+          "patientId" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "deviceId" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "deviceIdentifier" : {
+            "type" : "string"
+          }
+        }
+      },
+      "TestOrderStatusFullWebhook" : {
+        "type" : "object",
+        "properties" : {
+          "orderId" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "externalOrderIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "patientId" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "orderStatus" : {
+            "type" : "string"
+          },
+          "trackingNumber" : {
+            "type" : "string"
+          }
+        }
+      },
       "TestOrderStatusWebhookRequest" : {
         "required" : [ "orderStatusName" ],
         "type" : "object",
@@ -4333,6 +4451,19 @@
             "description" : "Order status name",
             "type" : "string",
             "example" : "ORDER_PLACED"
+          }
+        }
+      },
+      "TestWeightWebhookRequest" : {
+        "type" : "object",
+        "properties" : {
+          "patientId" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "weight" : {
+            "format" : "double",
+            "type" : "number"
           }
         }
       },
