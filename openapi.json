@@ -50,20 +50,6 @@
         "description" : "This endpoint returns a paginated list of all devices associated with the customer.\n\nYou can filter by the following parameters as query params:\n- page (integer) -- The page number of the content returned.\n- size (integer) -- The size of the page of content returned.\n- itemId (long) -- Lists only devices with the provided Item ID type.\n- manufacturerId (long) -- Lists only devices created by the Manufacturer ID provided.\n",
         "operationId" : "listDevices",
         "parameters" : [ {
-          "name" : "itemId",
-          "in" : "query",
-          "schema" : {
-            "format" : "int64",
-            "type" : "integer"
-          }
-        }, {
-          "name" : "manufacturerId",
-          "in" : "query",
-          "schema" : {
-            "format" : "int64",
-            "type" : "integer"
-          }
-        }, {
           "name" : "page",
           "in" : "query",
           "schema" : {
@@ -75,6 +61,20 @@
           "in" : "query",
           "schema" : {
             "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "itemId",
+          "in" : "query",
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "manufacturerId",
+          "in" : "query",
+          "schema" : {
+            "format" : "int64",
             "type" : "integer"
           }
         } ],
@@ -393,13 +393,6 @@
         "description" : "This endpoint returns a paginated list of all items in a customer's catalog.\n\nYou can filter by the following parameters as query params:\n- page (integer) -- The page number of the content returned.\n- size (integer) -- The size of the page of content returned.\n- manufacturerId (long) -- Lists only items created by the Manufacturer ID provided.\n",
         "operationId" : "listItems",
         "parameters" : [ {
-          "name" : "manufacturerId",
-          "in" : "query",
-          "schema" : {
-            "format" : "int64",
-            "type" : "integer"
-          }
-        }, {
           "name" : "page",
           "in" : "query",
           "schema" : {
@@ -411,6 +404,13 @@
           "in" : "query",
           "schema" : {
             "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "manufacturerId",
+          "in" : "query",
+          "schema" : {
+            "format" : "int64",
             "type" : "integer"
           }
         } ],
@@ -499,19 +499,6 @@
         "description" : "This endpoint returns a paginated list of all kits belonging to a customer.\n\nYou can filter by the following parameters as query params:\n- page (integer) -- The page number of the content returned.\n- size (integer) -- The size of the page of content returned.\n- itemId (long) -- Shows only kits that contain the specified Item ID.\n- archived (bool) -- Shows kits that are/aren't archived, based on provided boolean value.\n",
         "operationId" : "listKits",
         "parameters" : [ {
-          "name" : "archived",
-          "in" : "query",
-          "schema" : {
-            "type" : "boolean"
-          }
-        }, {
-          "name" : "itemId",
-          "in" : "query",
-          "schema" : {
-            "format" : "int64",
-            "type" : "integer"
-          }
-        }, {
           "name" : "page",
           "in" : "query",
           "schema" : {
@@ -524,6 +511,19 @@
           "schema" : {
             "format" : "int32",
             "type" : "integer"
+          }
+        }, {
+          "name" : "itemId",
+          "in" : "query",
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "archived",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
           }
         } ],
         "responses" : {
@@ -720,17 +720,17 @@
             "type" : "integer"
           }
         }, {
-          "name" : "patientId",
-          "in" : "query",
-          "schema" : {
-            "format" : "int64",
-            "type" : "integer"
-          }
-        }, {
           "name" : "size",
           "in" : "query",
           "schema" : {
             "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "patientId",
+          "in" : "query",
+          "schema" : {
+            "format" : "int64",
             "type" : "integer"
           }
         } ],
@@ -993,12 +993,6 @@
         "description" : "Retrieves a paginated list of patients. Optional parameters allow specifying the page number and page size.",
         "operationId" : "listPatients",
         "parameters" : [ {
-          "name" : "archived",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "page",
           "in" : "query",
           "schema" : {
@@ -1011,6 +1005,12 @@
           "schema" : {
             "format" : "int32",
             "type" : "integer"
+          }
+        }, {
+          "name" : "archived",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
           }
         } ],
         "responses" : {
@@ -1563,34 +1563,16 @@
         "description" : "Retrieves a paginated list of webhook logs that record historical attempts to send webhook payloads to a customer's servers. This endpoint allows filtering logs based on webhook type, creation timestamp range, retry attempts range, last response status, last retry timestamp range, and pagination settings. It is useful for auditing and debugging purposes.",
         "operationId" : "listWebhookLogs",
         "parameters" : [ {
-          "name" : "endLastRetryTimestamp",
+          "name" : "webhookType",
           "in" : "query",
-          "description" : "The maximum last retry timestamp",
+          "description" : "The webhook type",
           "schema" : {
-            "$ref" : "#/components/schemas/Instant"
+            "$ref" : "#/components/schemas/WebhookType"
           }
         }, {
-          "name" : "endTimestamp",
+          "name" : "retryAttemptsMin",
           "in" : "query",
-          "description" : "The maximum timestamp (exclusive)",
-          "schema" : {
-            "$ref" : "#/components/schemas/Instant"
-          }
-        }, {
-          "name" : "lastResponseStatus",
-          "in" : "query",
-          "description" : "The last response status",
-          "schema" : {
-            "type" : "array",
-            "items" : {
-              "format" : "int32",
-              "type" : "integer"
-            }
-          }
-        }, {
-          "name" : "page",
-          "in" : "query",
-          "description" : "The number of the page to retrieve (1 based)",
+          "description" : "The minimum retry attempts",
           "schema" : {
             "format" : "int32",
             "type" : "integer"
@@ -1604,25 +1586,27 @@
             "type" : "integer"
           }
         }, {
-          "name" : "retryAttemptsMin",
+          "name" : "lastResponseStatus",
           "in" : "query",
-          "description" : "The minimum retry attempts",
+          "description" : "The last response status",
           "schema" : {
-            "format" : "int32",
-            "type" : "integer"
-          }
-        }, {
-          "name" : "size",
-          "in" : "query",
-          "description" : "The number of items per page",
-          "schema" : {
-            "format" : "int32",
-            "type" : "integer"
+            "type" : "array",
+            "items" : {
+              "format" : "int32",
+              "type" : "integer"
+            }
           }
         }, {
           "name" : "startLastRetryTimestamp",
           "in" : "query",
           "description" : "The minimum last retry timestamp",
+          "schema" : {
+            "$ref" : "#/components/schemas/Instant"
+          }
+        }, {
+          "name" : "endLastRetryTimestamp",
+          "in" : "query",
+          "description" : "The maximum last retry timestamp",
           "schema" : {
             "$ref" : "#/components/schemas/Instant"
           }
@@ -1634,11 +1618,27 @@
             "$ref" : "#/components/schemas/Instant"
           }
         }, {
-          "name" : "webhookType",
+          "name" : "endTimestamp",
           "in" : "query",
-          "description" : "The webhook type",
+          "description" : "The maximum timestamp (exclusive)",
           "schema" : {
-            "$ref" : "#/components/schemas/WebhookType"
+            "$ref" : "#/components/schemas/Instant"
+          }
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The number of the page to retrieve (1 based)",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "The number of items per page",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -1786,19 +1786,14 @@
         "description" : "This endpoint returns a paginated list of Blood Glucose Readings for the patients associated with a Customer.\n\nFiltering can be done by any of the following query parameters:\n- page (integer) -- The page number of the content returned.\n- size (integer) -- The size of the page of content returned.\n- patientId (long) -- The patient's Impilo identifier.\n- externalId (string) -- Any external identifier associated with this patient.\n- startTimestamp (string) -- An ISO-formatted string with an applicable timezone, such as 2024-01-25T13:50:50.0Z\n- endTimestamp (string) -- An ISO-formatted string with an applicable timezone, such as 2024-01-27T13:50:50.0Z\n",
         "operationId" : "listBloodGlucoseReadings",
         "parameters" : [ {
-          "name" : "endTimestamp",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "externalIdentifier",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "page",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
           "in" : "query",
           "schema" : {
             "format" : "int32",
@@ -1812,14 +1807,19 @@
             "type" : "integer"
           }
         }, {
-          "name" : "size",
+          "name" : "externalIdentifier",
           "in" : "query",
           "schema" : {
-            "format" : "int32",
-            "type" : "integer"
+            "type" : "string"
           }
         }, {
           "name" : "startTimestamp",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "endTimestamp",
           "in" : "query",
           "schema" : {
             "type" : "string"
@@ -1929,13 +1929,6 @@
         "description" : "Exports blood glucose readings for a specified patient within a given date range as either an Excel spreadsheet or a CSV file. This endpoint allows clients to specify a patient ID, and optional start and end dates to filter the readings by date. If no patient ID is provided, readings for all patients may be exported depending on the implementation. The 'excel' parameter determines the format of the export: if true, the data is returned in Excel format; otherwise, it is returned as CSV. The response is directly streamed to the client as either 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' for Excel or 'text/csv' for CSV format.\n",
         "operationId" : "exportBloodGlucoseReadings",
         "parameters" : [ {
-          "name" : "end",
-          "in" : "query",
-          "description" : "The end date for filtering blood glucose readings. Only readings before this date will be included.",
-          "schema" : {
-            "$ref" : "#/components/schemas/Instant"
-          }
-        }, {
           "name" : "excel",
           "in" : "query",
           "description" : "Determines the format of the export: if true, the data is returned in Excel format; otherwise, it is returned as CSV.",
@@ -1955,6 +1948,13 @@
           "name" : "start",
           "in" : "query",
           "description" : "The start date for filtering blood glucose readings. Only readings after or equal to this date will be included.",
+          "schema" : {
+            "$ref" : "#/components/schemas/Instant"
+          }
+        }, {
+          "name" : "end",
+          "in" : "query",
+          "description" : "The end date for filtering blood glucose readings. Only readings before this date will be included.",
           "schema" : {
             "$ref" : "#/components/schemas/Instant"
           }
@@ -2090,19 +2090,14 @@
         "description" : "Retrieves a paginated list of blood oxygen readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
         "operationId" : "listBloodOxygenReadings",
         "parameters" : [ {
-          "name" : "endTimestamp",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "externalIdentifier",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "page",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
           "in" : "query",
           "schema" : {
             "format" : "int32",
@@ -2116,14 +2111,19 @@
             "type" : "integer"
           }
         }, {
-          "name" : "size",
+          "name" : "externalIdentifier",
           "in" : "query",
           "schema" : {
-            "format" : "int32",
-            "type" : "integer"
+            "type" : "string"
           }
         }, {
           "name" : "startTimestamp",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "endTimestamp",
           "in" : "query",
           "schema" : {
             "type" : "string"
@@ -2149,13 +2149,6 @@
         "description" : "Exports blood oxygen readings for a specified patient within a given date range as either an Excel spreadsheet or a CSV file. This endpoint facilitates the retrieval of blood oxygen data by allowing the specification of a patient ID and optional start and end dates to narrow down the readings. If no patient ID is specified, the service may return readings for all patients, contingent on the service's implementation details. The 'excel' parameter controls the output format: if set to true, the data is delivered in Excel format; if false, it is delivered in CSV format. The data is streamed directly to the client and can be consumed in the specified format.\n",
         "operationId" : "exportBloodOxygenReadings",
         "parameters" : [ {
-          "name" : "end",
-          "in" : "query",
-          "description" : "The end date for filtering blood oxygen readings. Only readings before this date will be included.",
-          "schema" : {
-            "$ref" : "#/components/schemas/Instant"
-          }
-        }, {
           "name" : "excel",
           "in" : "query",
           "description" : "Determines the format of the export: if true, the data is returned in Excel format; otherwise, it is returned as CSV.",
@@ -2175,6 +2168,13 @@
           "name" : "start",
           "in" : "query",
           "description" : "The start date for filtering blood oxygen readings. Only readings after or equal to this date will be included.",
+          "schema" : {
+            "$ref" : "#/components/schemas/Instant"
+          }
+        }, {
+          "name" : "end",
+          "in" : "query",
+          "description" : "The end date for filtering blood oxygen readings. Only readings before this date will be included.",
           "schema" : {
             "$ref" : "#/components/schemas/Instant"
           }
@@ -2233,30 +2233,11 @@
         "description" : "Retrieves a paginated list of blood pressure readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
         "operationId" : "listBloodPressureReadings",
         "parameters" : [ {
-          "name" : "endTimestamp",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "externalIdentifier",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "page",
           "in" : "query",
           "schema" : {
             "format" : "int32",
             "minimum" : 1,
-            "type" : "integer"
-          }
-        }, {
-          "name" : "patientId",
-          "in" : "query",
-          "schema" : {
-            "format" : "int64",
             "type" : "integer"
           }
         }, {
@@ -2267,7 +2248,26 @@
             "type" : "integer"
           }
         }, {
+          "name" : "patientId",
+          "in" : "query",
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "externalIdentifier",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "startTimestamp",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "endTimestamp",
           "in" : "query",
           "schema" : {
             "type" : "string"
@@ -2293,13 +2293,6 @@
         "description" : "Provides an export of blood pressure readings for a specified patient over a selected date range, available in either Excel or CSV format. Users can specify a patient ID to retrieve data for a particular individual, or leave the parameter empty to potentially export data for all patients, depending on service implementation. Optional start and end date parameters allow for filtering the data by the desired timeframe. The 'excel' flag determines the format of the output; when true, the data is exported in Excel format, otherwise, it is provided as a CSV file. The response consists of a direct stream of the chosen data format to the client.\n",
         "operationId" : "exportBloodPressureReadings",
         "parameters" : [ {
-          "name" : "end",
-          "in" : "query",
-          "description" : "The end date for filtering blood pressure readings. Only readings before this date will be included.",
-          "schema" : {
-            "$ref" : "#/components/schemas/Instant"
-          }
-        }, {
           "name" : "excel",
           "in" : "query",
           "description" : "Determines the format of the export: if true, the data is returned in Excel format; otherwise, it is returned as CSV.",
@@ -2319,6 +2312,13 @@
           "name" : "start",
           "in" : "query",
           "description" : "The start date for filtering blood pressure readings. Only readings after or equal to this date will be included.",
+          "schema" : {
+            "$ref" : "#/components/schemas/Instant"
+          }
+        }, {
+          "name" : "end",
+          "in" : "query",
+          "description" : "The end date for filtering blood pressure readings. Only readings before this date will be included.",
           "schema" : {
             "$ref" : "#/components/schemas/Instant"
           }
@@ -2377,19 +2377,14 @@
         "description" : "Retrieves a paginated list of temperature readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
         "operationId" : "listTemperatureReadings",
         "parameters" : [ {
-          "name" : "endTimestamp",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "externalIdentifier",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "page",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
           "in" : "query",
           "schema" : {
             "format" : "int32",
@@ -2403,14 +2398,19 @@
             "type" : "integer"
           }
         }, {
-          "name" : "size",
+          "name" : "externalIdentifier",
           "in" : "query",
           "schema" : {
-            "format" : "int32",
-            "type" : "integer"
+            "type" : "string"
           }
         }, {
           "name" : "startTimestamp",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "endTimestamp",
           "in" : "query",
           "schema" : {
             "type" : "string"
@@ -2436,13 +2436,6 @@
         "description" : "Facilitates the export of temperature readings for a specified patient within a chosen date range, in either Excel or CSV format. This endpoint allows the selection of a patient ID for targeted data retrieval, or can provide readings for all patients if no specific ID is provided, subject to service implementation. The start and end dates are optional and can be used to filter the readings to a specific period. The 'excel' parameter decides the output format: setting this to true returns the data in Excel format, while false yields CSV format. The endpoint streams the output directly to the client in the specified format.\n",
         "operationId" : "exportTemperatureReadings",
         "parameters" : [ {
-          "name" : "end",
-          "in" : "query",
-          "description" : "The end date for filtering temperature readings. Only readings before this date will be included.",
-          "schema" : {
-            "$ref" : "#/components/schemas/Instant"
-          }
-        }, {
           "name" : "excel",
           "in" : "query",
           "description" : "Determines the format of the export: if true, the data is returned in Excel format; otherwise, it is returned as CSV.",
@@ -2462,6 +2455,13 @@
           "name" : "start",
           "in" : "query",
           "description" : "The start date for filtering temperature readings. Only readings after or equal to this date will be included.",
+          "schema" : {
+            "$ref" : "#/components/schemas/Instant"
+          }
+        }, {
+          "name" : "end",
+          "in" : "query",
+          "description" : "The end date for filtering temperature readings. Only readings before this date will be included.",
           "schema" : {
             "$ref" : "#/components/schemas/Instant"
           }
@@ -2520,30 +2520,11 @@
         "description" : "Retrieves a paginated list of weight readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
         "operationId" : "listWeightReadings",
         "parameters" : [ {
-          "name" : "endTimestamp",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "externalIdentifier",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
           "name" : "page",
           "in" : "query",
           "schema" : {
             "format" : "int32",
             "minimum" : 1,
-            "type" : "integer"
-          }
-        }, {
-          "name" : "patientId",
-          "in" : "query",
-          "schema" : {
-            "format" : "int64",
             "type" : "integer"
           }
         }, {
@@ -2554,7 +2535,26 @@
             "type" : "integer"
           }
         }, {
+          "name" : "patientId",
+          "in" : "query",
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "externalIdentifier",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "startTimestamp",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "endTimestamp",
           "in" : "query",
           "schema" : {
             "type" : "string"
@@ -2580,13 +2580,6 @@
         "description" : "Exports weight readings for a specified patient over a selected date range, available in either Excel or CSV format. This endpoint allows the specification of a patient ID, enabling the retrieval of weight data for an individual patient. Alternatively, if no patient ID is provided, it may export readings for all patients, dependent on the implementation details of the service. Users can also specify start and end dates to filter the export to a specific timeframe. The 'excel' parameter dictates the format of the output; if set to true, the readings are exported in Excel format, otherwise in CSV format\n",
         "operationId" : "exportWeightReadings",
         "parameters" : [ {
-          "name" : "end",
-          "in" : "query",
-          "description" : "The end date for filtering weight readings. Only readings before this date will be included.",
-          "schema" : {
-            "$ref" : "#/components/schemas/Instant"
-          }
-        }, {
           "name" : "excel",
           "in" : "query",
           "description" : "Determines the format of the export: if true, the data is returned in Excel format; otherwise, it is returned as CSV.",
@@ -2606,6 +2599,13 @@
           "name" : "start",
           "in" : "query",
           "description" : "The start date for filtering weight readings. Only readings after or equal to this date will be included.",
+          "schema" : {
+            "$ref" : "#/components/schemas/Instant"
+          }
+        }, {
+          "name" : "end",
+          "in" : "query",
+          "description" : "The end date for filtering weight readings. Only readings before this date will be included.",
           "schema" : {
             "$ref" : "#/components/schemas/Instant"
           }
