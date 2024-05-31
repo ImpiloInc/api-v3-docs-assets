@@ -2662,6 +2662,14 @@
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TestBloodGlucoseWebhookRequest"
+              },
+              "examples" : {
+                "createTestBloodGlucoseWebhookRequestExample" : {
+                  "value" : {
+                    "patientId" : 1,
+                    "glucose" : 95
+                  }
+                }
               }
             }
           }
@@ -2671,6 +2679,7 @@
             "description" : "Created"
           }
         },
+        "x-request-example" : "createTestBloodGlucoseWebhookRequestExample",
         "externalDocs" : {
           "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestBloodGlucoseWebhookRequest"
         }
@@ -2686,6 +2695,15 @@
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TestBloodOxygenWebhookRequest"
+              },
+              "examples" : {
+                "createTestBloodOxygenWebhookRequestExample" : {
+                  "value" : {
+                    "patientId" : 1,
+                    "bloodOxygen" : 98,
+                    "heartRate" : 75
+                  }
+                }
               }
             }
           }
@@ -2695,6 +2713,7 @@
             "description" : "Created"
           }
         },
+        "x-request-example" : "createTestBloodOxygenWebhookRequestExample",
         "externalDocs" : {
           "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestBloodOxygenWebhookRequest"
         }
@@ -2710,6 +2729,16 @@
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TestBloodPressureWebhookRequest"
+              },
+              "examples" : {
+                "createTestBloodPressureWebhookRequestExample" : {
+                  "value" : {
+                    "patientId" : 1,
+                    "systolic" : 120,
+                    "diastolic" : 80,
+                    "heartRate" : 100
+                  }
+                }
               }
             }
           }
@@ -2719,6 +2748,7 @@
             "description" : "Created"
           }
         },
+        "x-request-example" : "createTestBloodPressureWebhookRequestExample",
         "externalDocs" : {
           "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestBloodPressureWebhookRequest"
         }
@@ -2734,6 +2764,15 @@
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TestDeviceAssociationWebhook"
+              },
+              "examples" : {
+                "createTestDeviceAssociationWebhookExample" : {
+                  "value" : {
+                    "patientId" : 1,
+                    "deviceId" : 1,
+                    "deviceIdentifier" : "DEVICE123"
+                  }
+                }
               }
             }
           }
@@ -2743,6 +2782,7 @@
             "description" : "Created"
           }
         },
+        "x-request-example" : "createTestDeviceAssociationWebhookExample",
         "externalDocs" : {
           "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestDeviceAssociationWebhook"
         }
@@ -2758,6 +2798,15 @@
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TestDeviceAssociationWebhook"
+              },
+              "examples" : {
+                "createTestDeviceAssociationWebhookExample" : {
+                  "value" : {
+                    "patientId" : 1,
+                    "deviceId" : 1,
+                    "deviceIdentifier" : "DEVICE123"
+                  }
+                }
               }
             }
           }
@@ -2767,6 +2816,7 @@
             "description" : "Created"
           }
         },
+        "x-request-example" : "createTestDeviceAssociationWebhookExample",
         "externalDocs" : {
           "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestDeviceAssociationWebhook"
         }
@@ -2782,6 +2832,17 @@
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TestOrderStatusFullWebhook"
+              },
+              "examples" : {
+                "createTestOrderStatusFullWebhookExample" : {
+                  "value" : {
+                    "orderId" : 1,
+                    "externalOrderIds" : [ "123", "456" ],
+                    "patientId" : 1,
+                    "orderStatus" : "shipped",
+                    "trackingNumber" : "TRACK123"
+                  }
+                }
               }
             }
           }
@@ -2791,6 +2852,7 @@
             "description" : "Created"
           }
         },
+        "x-request-example" : "createTestOrderStatusFullWebhookExample",
         "externalDocs" : {
           "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestOrderStatusFullWebhook"
         }
@@ -2806,6 +2868,15 @@
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TestOrderStatusWebhookRequest"
+              },
+              "examples" : {
+                "createTestOrderStatusWebhookRequestExample" : {
+                  "value" : {
+                    "orderId" : 1,
+                    "externalOrderIds" : [ "123", "456" ],
+                    "orderStatusName" : "orderPlaced"
+                  }
+                }
               }
             }
           }
@@ -2815,6 +2886,7 @@
             "description" : "Created"
           }
         },
+        "x-request-example" : "createTestOrderStatusWebhookRequestExample",
         "externalDocs" : {
           "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestOrderStatusWebhookRequest"
         }
@@ -2830,6 +2902,14 @@
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TestWeightWebhookRequest"
+              },
+              "examples" : {
+                "createTestWeightWebhookRequestExample" : {
+                  "value" : {
+                    "patientId" : 1,
+                    "weight" : 70.5
+                  }
+                }
               }
             }
           }
@@ -2839,6 +2919,7 @@
             "description" : "Created"
           }
         },
+        "x-request-example" : "createTestWeightWebhookRequestExample",
         "externalDocs" : {
           "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestWeightWebhookRequest"
         }
@@ -3070,6 +3151,28 @@
           "manual" : {
             "description" : "True if the reading value was entered manually, false otherwise.",
             "type" : "boolean"
+          }
+        }
+      },
+      "BloodPressureReadingWebhook" : {
+        "description" : "Represents a webhook for blood pressure reading notifications.",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "description" : "Unique identifier for the webhook.",
+            "type" : "integer"
+          },
+          "type" : {
+            "description" : "Type of the webhook event.",
+            "type" : "string"
+          },
+          "bloodPressureReading" : {
+            "description" : "The blood pressure reading associated with the webhook event.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/BloodPressureReading"
+            } ]
           }
         }
       },
@@ -4347,80 +4450,99 @@
         }
       },
       "TestBloodGlucoseWebhookRequest" : {
+        "description" : "Request model for testing blood glucose webhook.",
         "type" : "object",
         "properties" : {
           "patientId" : {
             "format" : "int64",
+            "description" : "Unique identifier for the patient.",
             "type" : "integer"
           },
           "glucose" : {
             "format" : "int32",
+            "description" : "The blood glucose measurement value.",
             "type" : "integer"
           }
         }
       },
       "TestBloodOxygenWebhookRequest" : {
+        "description" : "Request model for testing blood oxygen webhook.",
         "type" : "object",
         "properties" : {
           "patientId" : {
             "format" : "int64",
+            "description" : "Unique identifier for the patient.",
             "type" : "integer"
           },
           "bloodOxygen" : {
             "format" : "int32",
+            "description" : "The blood oxygen (spo2) measurement value.",
             "type" : "integer"
           },
           "heartRate" : {
             "format" : "int32",
+            "description" : "The heart rate measurement value.",
             "type" : "integer"
           }
         }
       },
       "TestBloodPressureWebhookRequest" : {
+        "description" : "Request model for testing blood pressure webhook.",
         "type" : "object",
         "properties" : {
           "patientId" : {
             "format" : "int64",
+            "description" : "Unique identifier for the patient.",
             "type" : "integer"
           },
           "systolic" : {
             "format" : "int32",
+            "description" : "The systolic blood pressure measurement value.",
             "type" : "integer"
           },
           "diastolic" : {
             "format" : "int32",
+            "description" : "The diastolic blood pressure measurement value.",
             "type" : "integer"
           },
           "heartRate" : {
             "format" : "int32",
+            "description" : "The heart rate measurement value.",
             "type" : "integer"
           }
         }
       },
       "TestDeviceAssociationWebhook" : {
+        "description" : "Request model for testing device association webhook.",
         "type" : "object",
         "properties" : {
           "patientId" : {
             "format" : "int64",
+            "description" : "Unique identifier for the patient.",
             "type" : "integer"
           },
           "deviceId" : {
             "format" : "int64",
+            "description" : "Unique identifier for the device.",
             "type" : "integer"
           },
           "deviceIdentifier" : {
+            "description" : "The identifier of the device.",
             "type" : "string"
           }
         }
       },
       "TestOrderStatusFullWebhook" : {
+        "description" : "Request model for testing order status webhook.",
         "type" : "object",
         "properties" : {
           "orderId" : {
             "format" : "int64",
+            "description" : "Unique identifier for the order.",
             "type" : "integer"
           },
           "externalOrderIds" : {
+            "description" : "List of external order identifiers.",
             "type" : "array",
             "items" : {
               "type" : "string"
@@ -4428,12 +4550,15 @@
           },
           "patientId" : {
             "format" : "int64",
+            "description" : "Unique identifier for the patient.",
             "type" : "integer"
           },
           "orderStatus" : {
+            "description" : "Current status of the order.",
             "type" : "string"
           },
           "trackingNumber" : {
+            "description" : "Tracking number for the order shipment.",
             "type" : "string"
           }
         }
@@ -4465,14 +4590,17 @@
         }
       },
       "TestWeightWebhookRequest" : {
+        "description" : "Request model for testing weight webhook.",
         "type" : "object",
         "properties" : {
           "patientId" : {
             "format" : "int64",
+            "description" : "Unique identifier for the patient.",
             "type" : "integer"
           },
           "weight" : {
             "format" : "double",
+            "description" : "The weight measurement value.",
             "type" : "number"
           }
         }
