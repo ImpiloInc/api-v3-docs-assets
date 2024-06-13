@@ -2596,6 +2596,114 @@
 	                    ]
 	        },
 	        {
+	            "name": "default",
+	            "item": [
+	                        {
+    "name": "/api/v3/procurement",
+                "description": "Creates a new procurement with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
+                 "item": [
+                            {
+                                "name": "createProcurementRequest",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n \"id\": \"<number>\",\n \"currentStatus\": \"<string>\",\n \"procurementItems\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/procurement",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "procurement"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Creates a new procurement with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/procurement/receipt",
+                "description": "Creates a new procurement shipping receipt with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
+                 "item": [
+                            {
+                                "name": "createShippingNotice",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n \"id\": \"<number>\",\n \"currentStatus\": \"<string>\",\n \"procurementItems\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/procurement/receipt",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "procurement",
+                                            "receipt"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Creates a new procurement shipping receipt with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
 	            "name": "Readings - Weight",
 	            "item": [
 	                        {
@@ -3354,45 +3462,6 @@
                                         ]
                                     },
                                     "description": "Retrieves a paginated list of webhook logs that record historical attempts to send webhook payloads to a customer's servers. This endpoint allows filtering logs based on webhook type, creation timestamp range, retry attempts range, last response status, last retry timestamp range, and pagination settings. It is useful for auditing and debugging purposes."
-                                }
-                            }
-                            ]
-                        },
-	                        {
-    "name": "/trigger/v3/webhook-retry",
-                "description": "This endpoint is used to trigger retries for stored failed webhook requests.",
-                 "item": [
-                            {
-                                "name": "triggerRetries",
-                                "request": {
-                                    "method": "POST",
-                                    "header": [
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/trigger/v3/webhook-retry",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "trigger",
-                                            "v3",
-                                            "webhook-retry"
-                                        ],
-                                        "variable": [
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "This endpoint is used to trigger retries for stored failed webhook requests."
                                 }
                             }
                             ]

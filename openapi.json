@@ -1768,18 +1768,6 @@
         }
       }
     },
-    "/trigger/v3/webhook-retry" : {
-      "post" : {
-        "tags" : [ "Webhooks" ],
-        "description" : "This endpoint is used to trigger retries for stored failed webhook requests.",
-        "operationId" : "triggerRetries",
-        "responses" : {
-          "201" : {
-            "description" : "Created"
-          }
-        }
-      }
-    },
     "/api/v3/blood-glucose-reading" : {
       "get" : {
         "tags" : [ "Readings - Blood Glucose" ],
@@ -2922,6 +2910,68 @@
         "x-request-example" : "createTestWeightWebhookRequestExample",
         "externalDocs" : {
           "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestWeightWebhookRequest"
+        }
+      }
+    },
+    "/api/v3/procurement" : {
+      "post" : {
+        "description" : "Creates a new procurement with the provided details.\n\nReturns a 201 Created.\n***\nFor more information see the [Procurement Model](/resources/models#schema_Procurement).",
+        "operationId" : "createProcurementRequest",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Procurement"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "format" : "int64",
+                  "type" : "integer"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Procurement"
+        }
+      }
+    },
+    "/api/v3/procurement/receipt" : {
+      "post" : {
+        "description" : "Creates a new procurement shipping receipt with the provided details.\n\nReturns a 201 Created.\n***\nFor more information see the [Procurement Model](/resources/models#schema_Procurement).",
+        "operationId" : "createShippingNotice",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Procurement"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "format" : "int64",
+                  "type" : "integer"
+                }
+              }
+            }
+          }
+        },
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Procurement"
         }
       }
     }
@@ -4225,6 +4275,56 @@
               "$ref" : "#/components/schemas/Sex"
             } ],
             "example" : "female"
+          }
+        }
+      },
+      "Procurement" : {
+        "description" : "A procurement is a procurement of devices by a customer.",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "description" : "Unique identifier for the site, managed by Impilo.",
+            "type" : "integer",
+            "readOnly" : true,
+            "example" : 1
+          },
+          "currentStatus" : {
+            "description" : "The current status of the procurement",
+            "type" : "string"
+          },
+          "procurementItems" : {
+            "description" : "List of items on the procurement",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ProcurementItem"
+            }
+          }
+        }
+      },
+      "ProcurementItem" : {
+        "type" : "object",
+        "properties" : {
+          "item" : {
+            "$ref" : "#/components/schemas/Item"
+          },
+          "quantityRequested" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "quantityApproved" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "costPerItem" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "trackingNumbers" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/TrackingNumber"
+            }
           }
         }
       },
