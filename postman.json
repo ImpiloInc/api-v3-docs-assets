@@ -1789,7 +1789,7 @@
                                     "header": [
                                         {
                                             "key": "Accept",
-                                            "value": "*/*",
+                                            "value": "application/json",
                                             "description": "",
                                             "disabled": false
                                         }
@@ -2642,23 +2642,29 @@
                         },
 	                        {
     "name": "/api/v3/site/:siteId",
-                "description": "Partially update the site specified by the ID in the URL path with a new site object.",
+                "description": "Partially update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site).",
                  "item": [
                             {
-                                "name": "patchSite",
+                                "name": "patch-site",
                                 "request": {
                                     "method": "PATCH",
                                     "header": [
                                         {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
                                             "key": "Accept",
-                                            "value": "*/*",
+                                            "value": "application/json",
                                             "description": "",
                                             "disabled": false
                                         }
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "",
+                                        "raw": "{\n  \"id\" : 561,\n  \"name\" : \"Building B\",\n  \"active\" : true,\n  \"address\" : {\n    \"lineOne\" : \"1234 Market Street\",\n    \"lineTwo\" : \"Suite 110\",\n    \"city\" : \"Philadelphia\",\n    \"state\" : \"PA\",\n    \"zipCode\" : \"19137\",\n    \"country\" : \"USA\"\n  }\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -2686,7 +2692,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Partially update the site specified by the ID in the URL path with a new site object."
+                                    "description": "Partially update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site)."
                                 }
                             }
                             ]
@@ -3361,7 +3367,7 @@
                                         },
                                         {
                                             "key": "Accept",
-                                            "value": "*/*",
+                                            "value": "application/json",
                                             "description": "",
                                             "disabled": false
                                         }
