@@ -16,6 +16,7 @@ tags:
   - name: Manufacturers
   - name: Orders
   - name: Patients
+  - name: Procurements
   - name: Sites
   - name: Webhooks
   - name: Readings - Blood Glucose
@@ -67,12 +68,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/PageDevice'
               examples:
-                listDevicesResponse:
+                listDevicesResponseExample:
                   value:
                     content:
-                      - id: 3
+                      - id: 599
                         item:
-                          id: 1
+                          id: 791
                           manufacturer:
                             id: 2
                             name: Custom Manufacturer
@@ -85,7 +86,7 @@ paths:
                           externalIdentifier: external-identifier-123
                           firstName: John
                           lastName: Doe
-                          dateOfBirth: 01-01-2000
+                          dateOfBirth: 1987-09-13T00:00:00Z
                           email: email@example.com
                           phoneNumber: 111-222-3333
                           address:
@@ -97,26 +98,167 @@ paths:
                             country: USA
                           sex: unknown
                         deviceIdentifiers:
+                          - type: imei
+                            value: '354833969951611'
                           - type: serial
-                            value: abc
+                            value: A44-A0623930
+                          - type: macAddress
+                            value: f51da43314fc
+                        disabledReadings: false
+                      - id: 600
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        currentStatus: withPatient
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        deviceIdentifiers:
+                          - type: imei
+                            value: '354833969951611'
+                          - type: serial
+                            value: A44-A0623930
+                          - type: macAddress
+                            value: f51da43314fc
+                        disabledReadings: false
+                      - id: 601
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        currentStatus: withPatient
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        deviceIdentifiers:
+                          - type: imei
+                            value: '354833969951611'
+                          - type: serial
+                            value: A44-A0623930
+                          - type: macAddress
+                            value: f51da43314fc
+                        disabledReadings: false
+                      - id: 602
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        currentStatus: withPatient
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        deviceIdentifiers:
+                          - type: imei
+                            value: '354833969951611'
+                          - type: serial
+                            value: A44-A0623930
+                          - type: macAddress
+                            value: f51da43314fc
+                        disabledReadings: false
+                      - id: 603
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        currentStatus: withPatient
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        deviceIdentifiers:
+                          - type: imei
+                            value: '354833969951611'
+                          - type: serial
+                            value: A44-A0623930
+                          - type: macAddress
+                            value: f51da43314fc
+                        disabledReadings: false
                     page: 1
-                    size: 15
-                    total: 1
+                    size: 5
+                    total: 10
                     first: true
-                    last: true
-      x-response-example: listDevicesResponse
+                    last: false
+      x-response-example: listDevicesResponseExample
   /api/v3/device/associate-patient:
     patch:
       tags:
         - Devices
       description: |-
-        This endpoint associates the device to the patient provided in the Request body.
+        This endpoint associates the device to the patient provided in the request body.
 
         In order to associate a device with a patient, all of the following must apply:
         - The Patient must be associated with the Customer making the request
         - The Device must be owned by the Customer making the request
         - The Device must be associated with a non-Impilo site
-        - The Device must have a curent status of "availableAtSite"
+        - The Device must have a current status of "availableAtSite"
         ***
         For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).
       operationId: associateDevice
@@ -136,6 +278,30 @@ paths:
       x-request-example: associateDeviceRequest
       externalDocs:
         url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AssociateDeviceRequest
+  /api/v3/device/disable-readings:
+    patch:
+      tags:
+        - Devices
+      description: |-
+        This endpoint disables readings for the device provided in the request body. Readings received while
+        in this status will not be processed or saved. No alerts or webhooks will be triggered for these readings.
+
+        In order to disable readings for a device, all of the following must apply:
+        - The Device must be owned by the Customer making the request
+        - The Device's "disabledReadings" field must be false
+        ***
+        For more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest).
+      operationId: disableReadings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceReferenceRequest'
+      responses:
+        '204':
+          description: No Content
+      externalDocs:
+        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DeviceReferenceRequest
   /api/v3/device/disassociate-patient:
     patch:
       tags:
@@ -148,7 +314,7 @@ paths:
         - The Device must be owned by the Customer making the request
         - The Device must already be associated with the provided Patient
         - The Device must be associated with a non-Impilo site
-        - The Device must have a curent status of "withPatient"
+        - The Device must have a current status of "withPatient"
         ***
         For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).
       operationId: disassociateDevice
@@ -158,16 +324,39 @@ paths:
             schema:
               $ref: '#/components/schemas/AssociateDeviceRequest'
             examples:
-              disassociateDeviceRequest:
+              disassociateDeviceRequestExample:
                 value:
                   deviceId: 1
                   patientExternalIdentifier: external-identifier
       responses:
         '204':
           description: No Content
-      x-request-example: disassociateDeviceRequest
+      x-request-example: disassociateDeviceRequestExample
       externalDocs:
         url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AssociateDeviceRequest
+  /api/v3/device/enable-readings:
+    patch:
+      tags:
+        - Devices
+      description: |-
+        This endpoint re-enables readings for the device provided in the request body.
+
+        In order to re-enable readings for a device, all of the following must apply:
+        - The Device must be owned by the Customer making the request
+        - The Device's "disabledReadings" field must be true
+        ***
+        For more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest).
+      operationId: enableReadings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceReferenceRequest'
+      responses:
+        '204':
+          description: No Content
+      externalDocs:
+        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DeviceReferenceRequest
   /api/v3/device/validate/{deviceIdentifier}:
     get:
       tags:
@@ -189,13 +378,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidateDeviceResponse'
               examples:
-                validateDeviceResponse:
+                validateDeviceResponseExample:
                   value:
                     valid: true
                     device:
-                      id: 3
+                      id: 599
                       item:
-                        id: 1
+                        id: 791
                         manufacturer:
                           id: 2
                           name: Custom Manufacturer
@@ -208,7 +397,7 @@ paths:
                         externalIdentifier: external-identifier-123
                         firstName: John
                         lastName: Doe
-                        dateOfBirth: 01-01-2000
+                        dateOfBirth: 1987-09-13T00:00:00Z
                         email: email@example.com
                         phoneNumber: 111-222-3333
                         address:
@@ -220,9 +409,14 @@ paths:
                           country: USA
                         sex: unknown
                       deviceIdentifiers:
+                        - type: imei
+                          value: '354833969951611'
                         - type: serial
-                          value: abc
-      x-response-example: validateDeviceResponse
+                          value: A44-A0623930
+                        - type: macAddress
+                          value: f51da43314fc
+                      disabledReadings: false
+      x-response-example: validateDeviceResponseExample
   /api/v3/device/{deviceId}:
     get:
       tags:
@@ -245,11 +439,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Device'
               examples:
-                fetchDeviceResponse:
+                device:
                   value:
-                    id: 3
+                    id: 599
                     item:
-                      id: 1
+                      id: 791
                       manufacturer:
                         id: 2
                         name: Custom Manufacturer
@@ -262,7 +456,7 @@ paths:
                       externalIdentifier: external-identifier-123
                       firstName: John
                       lastName: Doe
-                      dateOfBirth: 01-01-2000
+                      dateOfBirth: 1987-09-13T00:00:00Z
                       email: email@example.com
                       phoneNumber: 111-222-3333
                       address:
@@ -274,41 +468,14 @@ paths:
                         country: USA
                       sex: unknown
                     deviceIdentifiers:
+                      - type: imei
+                        value: '354833969951611'
                       - type: serial
-                        value: abc
-      x-response-example: fetchDeviceResponse
-    patch:
-      tags:
-        - Devices
-      description: |-
-        This endpoint updates details for a device identified by the device ID provided in the path. It supports various updates, including changing device status, and adding notes regarding the update.
-        ***
-        For more information see the [DeviceUpdate Model](/resources/models#schema_DeviceUpdate).
-      operationId: updateDevice
-      parameters:
-        - name: deviceId
-          in: path
-          description: ID of the device to be updated
-          required: true
-          schema:
-            format: int64
-            type: integer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DeviceUpdate'
-            examples:
-              updateDeviceRequest:
-                value:
-                  deviceStatus: decommissioned
-                  note: Decommissioned device, patient relocated
-      responses:
-        '204':
-          description: No Content
-      x-request-example: updateDeviceRequest
-      externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DeviceUpdate
+                        value: A44-A0623930
+                      - type: macAddress
+                        value: f51da43314fc
+                    disabledReadings: false
+      x-response-example: ApiV3ControllerExamples.device
   /api/v3/item:
     get:
       tags:
@@ -345,10 +512,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/PageItem'
               examples:
-                listItemsResponse:
+                listItemsResponseExample:
                   value:
                     content:
-                      - id: 1
+                      - id: 791
+                        manufacturer:
+                          id: 2
+                          name: Custom Manufacturer
+                        name: Blood Pressure Monitor
+                        model: iBloodPressureMonitor123
+                        sku: '0000001'
+                      - id: 792
+                        manufacturer:
+                          id: 2
+                          name: Custom Manufacturer
+                        name: Blood Pressure Monitor
+                        model: iBloodPressureMonitor123
+                        sku: '0000001'
+                      - id: 793
+                        manufacturer:
+                          id: 2
+                          name: Custom Manufacturer
+                        name: Blood Pressure Monitor
+                        model: iBloodPressureMonitor123
+                        sku: '0000001'
+                      - id: 794
+                        manufacturer:
+                          id: 2
+                          name: Custom Manufacturer
+                        name: Blood Pressure Monitor
+                        model: iBloodPressureMonitor123
+                        sku: '0000001'
+                      - id: 795
                         manufacturer:
                           id: 2
                           name: Custom Manufacturer
@@ -356,11 +551,11 @@ paths:
                         model: iBloodPressureMonitor123
                         sku: '0000001'
                     page: 1
-                    size: 15
-                    total: 1
+                    size: 5
+                    total: 10
                     first: true
-                    last: true
-      x-response-example: listItemsResponse
+                    last: false
+      x-response-example: listItemsResponseExample
   /api/v3/item/{itemId}:
     get:
       tags:
@@ -383,16 +578,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Item'
               examples:
-                fetchItemResponse:
+                item:
                   value:
-                    id: 1
+                    id: 791
                     manufacturer:
                       id: 2
                       name: Custom Manufacturer
                     name: Blood Pressure Monitor
                     model: iBloodPressureMonitor123
                     sku: '0000001'
-      x-response-example: fetchItemResponse
+      x-response-example: ApiV3ControllerExamples.item
   /api/v3/kit:
     get:
       tags:
@@ -792,6 +987,91 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagePatient'
+              examples:
+                patientPagedResponseExample:
+                  value:
+                    content:
+                      - id: 456
+                        externalIdentifier: external-identifier-123
+                        firstName: John
+                        lastName: Doe
+                        dateOfBirth: 1987-09-13T00:00:00Z
+                        email: email@example.com
+                        phoneNumber: 111-222-3333
+                        address:
+                          lineOne: 1234 Market Street
+                          lineTwo: Suite 110
+                          city: Philadelphia
+                          state: PA
+                          zipCode: '19137'
+                          country: USA
+                        sex: unknown
+                      - id: 456
+                        externalIdentifier: external-identifier-123
+                        firstName: John
+                        lastName: Doe
+                        dateOfBirth: 1987-09-13T00:00:00Z
+                        email: email@example.com
+                        phoneNumber: 111-222-3333
+                        address:
+                          lineOne: 1234 Market Street
+                          lineTwo: Suite 110
+                          city: Philadelphia
+                          state: PA
+                          zipCode: '19137'
+                          country: USA
+                        sex: unknown
+                      - id: 456
+                        externalIdentifier: external-identifier-123
+                        firstName: John
+                        lastName: Doe
+                        dateOfBirth: 1987-09-13T00:00:00Z
+                        email: email@example.com
+                        phoneNumber: 111-222-3333
+                        address:
+                          lineOne: 1234 Market Street
+                          lineTwo: Suite 110
+                          city: Philadelphia
+                          state: PA
+                          zipCode: '19137'
+                          country: USA
+                        sex: unknown
+                      - id: 456
+                        externalIdentifier: external-identifier-123
+                        firstName: John
+                        lastName: Doe
+                        dateOfBirth: 1987-09-13T00:00:00Z
+                        email: email@example.com
+                        phoneNumber: 111-222-3333
+                        address:
+                          lineOne: 1234 Market Street
+                          lineTwo: Suite 110
+                          city: Philadelphia
+                          state: PA
+                          zipCode: '19137'
+                          country: USA
+                        sex: unknown
+                      - id: 456
+                        externalIdentifier: external-identifier-123
+                        firstName: John
+                        lastName: Doe
+                        dateOfBirth: 1987-09-13T00:00:00Z
+                        email: email@example.com
+                        phoneNumber: 111-222-3333
+                        address:
+                          lineOne: 1234 Market Street
+                          lineTwo: Suite 110
+                          city: Philadelphia
+                          state: PA
+                          zipCode: '19137'
+                          country: USA
+                        sex: unknown
+                    page: 1
+                    size: 5
+                    total: 10
+                    first: true
+                    last: false
+      x-response-example: patientPagedResponseExample
     post:
       tags:
         - Patients
@@ -808,23 +1088,21 @@ paths:
             examples:
               create-patient:
                 value:
-                  id: 1
-                  externalIdentifier: 1234abcd
+                  id: 456
+                  externalIdentifier: external-identifier-123
                   firstName: John
                   lastName: Doe
-                  dateOfBirth: 1980-01-01T00:00:00Z
-                  email: john.doe@example.com
-                  phoneNumber: '+1234567890'
+                  dateOfBirth: 1987-09-13T00:00:00Z
+                  email: email@example.com
+                  phoneNumber: 111-222-3333
                   address:
-                    lineOne: 123 Main St
-                    lineTwo: Apt 4B
-                    lineThree: ''
-                    city: Springfield
-                    state: IL
-                    zipCode: '62704'
+                    lineOne: 1234 Market Street
+                    lineTwo: Suite 110
+                    city: Philadelphia
+                    state: PA
+                    zipCode: '19137'
                     country: USA
-                    note: Near the park
-                  sex: male
+                  sex: unknown
       responses:
         '200':
           description: OK
@@ -832,7 +1110,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Patient'
-      x-request-example-create-patient: createPatientExample
+      x-request-example-create-patient: ApiV3ControllerExamples.patient
       externalDocs:
         url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient
   /api/v3/patient/find-by-email:
@@ -873,6 +1151,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Patient'
+              examples:
+                patient:
+                  value:
+                    id: 456
+                    externalIdentifier: external-identifier-123
+                    firstName: John
+                    lastName: Doe
+                    dateOfBirth: 1987-09-13T00:00:00Z
+                    email: email@example.com
+                    phoneNumber: 111-222-3333
+                    address:
+                      lineOne: 1234 Market Street
+                      lineTwo: Suite 110
+                      city: Philadelphia
+                      state: PA
+                      zipCode: '19137'
+                      country: USA
+                    sex: unknown
+      x-response-example: ApiV3ControllerExamples.patient
     put:
       tags:
         - Patients
@@ -925,13 +1222,11 @@ paths:
             examples:
               update-patient-email:
                 value:
-                  id: 1
-                  email: new.email.address@example.com
+                  email: new-email@example.com
                   sex: unknown
               update-patient-external-identifier:
                 value:
-                  id: 1
-                  externalIdentifier: id-abc-123
+                  externalIdentifier: new-external-id-123
                   sex: unknown
       responses:
         '200':
@@ -944,6 +1239,58 @@ paths:
       x-request-example-update-patient-external-identifier: patchPatientExternalIdentifierExample
       externalDocs:
         url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient
+  /api/v3/procurement:
+    post:
+      tags:
+        - Procurements
+      description: |-
+        Creates a new procurement with the provided details.
+
+        Returns a 201 Created.
+        ***
+        For more information see the [Procurement Model](/resources/models#schema_Procurement).
+      operationId: createProcurementRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Procurement'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+      externalDocs:
+        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Procurement
+  /api/v3/procurement/receipt:
+    post:
+      tags:
+        - Procurements
+      description: |-
+        Creates a new procurement shipping receipt with the provided details.
+
+        Returns a 201 Created.
+        ***
+        For more information see the [Procurement Model](/resources/models#schema_Procurement).
+      operationId: createShippingNotice
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Procurement'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+      externalDocs:
+        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Procurement
   /api/v3/site:
     get:
       tags:
@@ -973,6 +1320,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PageSite'
+              examples:
+                site:
+                  value:
+                    id: 561
+                    name: Building B
+                    active: true
+                    address:
+                      lineOne: 1234 Market Street
+                      lineTwo: Suite 110
+                      city: Philadelphia
+                      state: PA
+                      zipCode: '19137'
+                      country: USA
+      x-response-example: ApiV3ControllerExamples.site
     post:
       tags:
         - Sites
@@ -988,6 +1349,19 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Site'
+            examples:
+              create-site:
+                value:
+                  id: 561
+                  name: Building B
+                  active: true
+                  address:
+                    lineOne: 1234 Market Street
+                    lineTwo: Suite 110
+                    city: Philadelphia
+                    state: PA
+                    zipCode: '19137'
+                    country: USA
       responses:
         '200':
           description: OK
@@ -995,6 +1369,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
+              examples:
+                site:
+                  value:
+                    id: 561
+                    name: Building B
+                    active: true
+                    address:
+                      lineOne: 1234 Market Street
+                      lineTwo: Suite 110
+                      city: Philadelphia
+                      state: PA
+                      zipCode: '19137'
+                      country: USA
+      x-request-example-create-site: ApiV3ControllerExamples.site
+      x-response-example: ApiV3ControllerExamples.site
       externalDocs:
         url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Site
   /api/v3/site/{siteId}:
@@ -1017,6 +1406,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
+              examples:
+                site:
+                  value:
+                    id: 561
+                    name: Building B
+                    active: true
+                    address:
+                      lineOne: 1234 Market Street
+                      lineTwo: Suite 110
+                      city: Philadelphia
+                      state: PA
+                      zipCode: '19137'
+                      country: USA
+      x-response-example: ApiV3ControllerExamples.site
     put:
       tags:
         - Sites
@@ -1037,9 +1440,23 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Site'
+            examples:
+              update-site:
+                value:
+                  id: 561
+                  name: Building B
+                  active: true
+                  address:
+                    lineOne: 1234 Market Street
+                    lineTwo: Suite 110
+                    city: Philadelphia
+                    state: PA
+                    zipCode: '19137'
+                    country: USA
       responses:
         '204':
           description: No Content
+      x-request-example-update-site: ApiV3ControllerExamples.site
       externalDocs:
         url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Site
     patch:
@@ -1062,6 +1479,21 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Site'
+              examples:
+                site:
+                  value:
+                    id: 561
+                    name: Building B
+                    active: true
+                    address:
+                      lineOne: 1234 Market Street
+                      lineTwo: Suite 110
+                      city: Philadelphia
+                      state: PA
+                      zipCode: '19137'
+                      country: USA
+      x-request-example-patch-site: ApiV3ControllerExamples.site
+      x-response-example: ApiV3ControllerExamples.site
   /api/v3/webhook:
     get:
       tags:
@@ -1422,16 +1854,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/PageBloodGlucoseReading'
               examples:
-                listReadingResponse:
+                bloodGlucoseReadingPagedResponseExample:
                   value:
                     content:
-                      - id: 123
+                      - id: 42
                         patient:
                           id: 456
                           externalIdentifier: external-identifier-123
                           firstName: John
                           lastName: Doe
-                          dateOfBirth: 01-01-2000
+                          dateOfBirth: 1987-09-13T00:00:00Z
                           email: email@example.com
                           phoneNumber: 111-222-3333
                           address:
@@ -1443,7 +1875,7 @@ paths:
                             country: USA
                           sex: unknown
                         item:
-                          id: 1
+                          id: 791
                           manufacturer:
                             id: 2
                             name: Custom Manufacturer
@@ -1451,9 +1883,9 @@ paths:
                           model: iBloodPressureMonitor123
                           sku: '0000001'
                         device:
-                          id: 3
+                          id: 599
                           item:
-                            id: 1
+                            id: 791
                             manufacturer:
                               id: 2
                               name: Custom Manufacturer
@@ -1466,7 +1898,7 @@ paths:
                             externalIdentifier: external-identifier-123
                             firstName: John
                             lastName: Doe
-                            dateOfBirth: 01-01-2000
+                            dateOfBirth: 1987-09-13T00:00:00Z
                             email: email@example.com
                             phoneNumber: 111-222-3333
                             address:
@@ -1478,19 +1910,284 @@ paths:
                               country: USA
                             sex: unknown
                           deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
                             - type: serial
-                              value: abc
-                        readingTimestamp: 2024-04-15T18:20:36Z
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        glucose: 88
+                        manual: false
+                        beforeMeal: false
+                        afterMeal: false
+                      - id: 43
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        glucose: 88
+                        manual: false
+                        beforeMeal: false
+                        afterMeal: false
+                      - id: 44
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        glucose: 88
+                        manual: false
+                        beforeMeal: false
+                        afterMeal: false
+                      - id: 45
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        glucose: 88
+                        manual: false
+                        beforeMeal: false
+                        afterMeal: false
+                      - id: 46
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
                         glucose: 88
                         manual: false
                         beforeMeal: false
                         afterMeal: false
                     page: 1
-                    size: 15
-                    total: 1
+                    size: 5
+                    total: 10
                     first: true
-                    last: true
-      x-response-example: listReadingResponse
+                    last: false
+      x-response-example: bloodGlucoseReadingPagedResponseExample
   /api/v3/blood-glucose-reading/export:
     get:
       tags:
@@ -1558,15 +2255,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/BloodGlucoseReading'
               examples:
-                fetchReadingResponse:
+                bloodGlucoseReadingResponseExample:
                   value:
-                    id: 123
+                    id: 42
                     patient:
                       id: 456
                       externalIdentifier: external-identifier-123
                       firstName: John
                       lastName: Doe
-                      dateOfBirth: 01-01-2000
+                      dateOfBirth: 1987-09-13T00:00:00Z
                       email: email@example.com
                       phoneNumber: 111-222-3333
                       address:
@@ -1578,7 +2275,7 @@ paths:
                         country: USA
                       sex: unknown
                     item:
-                      id: 1
+                      id: 791
                       manufacturer:
                         id: 2
                         name: Custom Manufacturer
@@ -1586,9 +2283,9 @@ paths:
                       model: iBloodPressureMonitor123
                       sku: '0000001'
                     device:
-                      id: 3
+                      id: 599
                       item:
-                        id: 1
+                        id: 791
                         manufacturer:
                           id: 2
                           name: Custom Manufacturer
@@ -1601,7 +2298,7 @@ paths:
                         externalIdentifier: external-identifier-123
                         firstName: John
                         lastName: Doe
-                        dateOfBirth: 01-01-2000
+                        dateOfBirth: 1987-09-13T00:00:00Z
                         email: email@example.com
                         phoneNumber: 111-222-3333
                         address:
@@ -1613,21 +2310,25 @@ paths:
                           country: USA
                         sex: unknown
                       deviceIdentifiers:
+                        - type: imei
+                          value: '354833969951611'
                         - type: serial
-                          value: abc
-                    readingTimestamp: 2024-04-15T18:20:36Z
+                          value: A44-A0623930
+                        - type: macAddress
+                          value: f51da43314fc
+                      disabledReadings: false
+                    readingTimestamp: 2024-07-04T00:00:00Z
                     glucose: 88
                     manual: false
                     beforeMeal: false
                     afterMeal: false
-      x-response-example: fetchReadingResponse
+      x-response-example: bloodGlucoseReadingResponseExample
   /api/v3/blood-oxygen-reading:
     get:
       tags:
         - Readings - Blood Oxygen
-      description: Retrieves a paginated list of blood oxygen readings from the Impilo
-        platform. Optional parameters can be used to filter the results by page number,
-        page size, patient ID, external ID, start timestamp, and end timestamp.
+      description: |
+        Retrieves a paginated list of blood oxygen readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.
       operationId: listBloodOxygenReadings
       parameters:
         - name: page
@@ -1664,6 +2365,336 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PageBloodOxygenReading'
+              examples:
+                bloodOxygenReadingPagedResponseExample:
+                  value:
+                    content:
+                      - id: 42
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        bloodOxygen: 95
+                        heartRate: 90
+                        manual: false
+                      - id: 43
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        bloodOxygen: 95
+                        heartRate: 90
+                        manual: false
+                      - id: 44
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        bloodOxygen: 95
+                        heartRate: 90
+                        manual: false
+                      - id: 45
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        bloodOxygen: 95
+                        heartRate: 90
+                        manual: false
+                      - id: 46
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        bloodOxygen: 95
+                        heartRate: 90
+                        manual: false
+                    page: 1
+                    size: 5
+                    total: 10
+                    first: true
+                    last: false
+      x-response-example: bloodOxygenReadingPagedResponseExample
   /api/v3/blood-oxygen-reading/export:
     get:
       tags:
@@ -1713,7 +2744,8 @@ paths:
     get:
       tags:
         - Readings - Blood Oxygen
-      description: Fetches a specific Impilo blood oxygen reading by its ID.
+      description: |
+        Fetches a specific Impilo blood oxygen reading by its ID.
       operationId: fetchBloodOxygenReading
       parameters:
         - name: readingId
@@ -1729,6 +2761,74 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BloodOxygenReading'
+              examples:
+                bloodOxygenReadingResponseExample:
+                  value:
+                    id: 42
+                    patient:
+                      id: 456
+                      externalIdentifier: external-identifier-123
+                      firstName: John
+                      lastName: Doe
+                      dateOfBirth: 1987-09-13T00:00:00Z
+                      email: email@example.com
+                      phoneNumber: 111-222-3333
+                      address:
+                        lineOne: 1234 Market Street
+                        lineTwo: Suite 110
+                        city: Philadelphia
+                        state: PA
+                        zipCode: '19137'
+                        country: USA
+                      sex: unknown
+                    item:
+                      id: 791
+                      manufacturer:
+                        id: 2
+                        name: Custom Manufacturer
+                      name: Blood Pressure Monitor
+                      model: iBloodPressureMonitor123
+                      sku: '0000001'
+                    device:
+                      id: 599
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: Custom Manufacturer
+                        name: Blood Pressure Monitor
+                        model: iBloodPressureMonitor123
+                        sku: '0000001'
+                      currentStatus: withPatient
+                      currentPatient:
+                        id: 456
+                        externalIdentifier: external-identifier-123
+                        firstName: John
+                        lastName: Doe
+                        dateOfBirth: 1987-09-13T00:00:00Z
+                        email: email@example.com
+                        phoneNumber: 111-222-3333
+                        address:
+                          lineOne: 1234 Market Street
+                          lineTwo: Suite 110
+                          city: Philadelphia
+                          state: PA
+                          zipCode: '19137'
+                          country: USA
+                        sex: unknown
+                      deviceIdentifiers:
+                        - type: imei
+                          value: '354833969951611'
+                        - type: serial
+                          value: A44-A0623930
+                        - type: macAddress
+                          value: f51da43314fc
+                      disabledReadings: false
+                    readingTimestamp: 2024-07-04T00:00:00Z
+                    bloodOxygen: 95
+                    heartRate: 90
+                    manual: false
+      x-response-example: bloodOxygenReadingResponseExample
   /api/v3/blood-pressure-reading:
     get:
       tags:
@@ -1774,6 +2874,341 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PageBloodPressureReading'
+              examples:
+                bloodPressureReadingPagedResponseExample:
+                  value:
+                    content:
+                      - id: 42
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        systolic: 120
+                        diastolic: 80
+                        heartRate: 70
+                        manual: false
+                      - id: 43
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        systolic: 120
+                        diastolic: 80
+                        heartRate: 70
+                        manual: false
+                      - id: 44
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        systolic: 120
+                        diastolic: 80
+                        heartRate: 70
+                        manual: false
+                      - id: 45
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        systolic: 120
+                        diastolic: 80
+                        heartRate: 70
+                        manual: false
+                      - id: 46
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        systolic: 120
+                        diastolic: 80
+                        heartRate: 70
+                        manual: false
+                    page: 1
+                    size: 5
+                    total: 10
+                    first: true
+                    last: false
+      x-response-example: bloodPressureReadingPagedResponseExample
   /api/v3/blood-pressure-reading/export:
     get:
       tags:
@@ -1839,6 +3274,75 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BloodPressureReading'
+              examples:
+                bloodPressureReadingResponseExample:
+                  value:
+                    id: 42
+                    patient:
+                      id: 456
+                      externalIdentifier: external-identifier-123
+                      firstName: John
+                      lastName: Doe
+                      dateOfBirth: 1987-09-13T00:00:00Z
+                      email: email@example.com
+                      phoneNumber: 111-222-3333
+                      address:
+                        lineOne: 1234 Market Street
+                        lineTwo: Suite 110
+                        city: Philadelphia
+                        state: PA
+                        zipCode: '19137'
+                        country: USA
+                      sex: unknown
+                    item:
+                      id: 791
+                      manufacturer:
+                        id: 2
+                        name: Custom Manufacturer
+                      name: Blood Pressure Monitor
+                      model: iBloodPressureMonitor123
+                      sku: '0000001'
+                    device:
+                      id: 599
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: Custom Manufacturer
+                        name: Blood Pressure Monitor
+                        model: iBloodPressureMonitor123
+                        sku: '0000001'
+                      currentStatus: withPatient
+                      currentPatient:
+                        id: 456
+                        externalIdentifier: external-identifier-123
+                        firstName: John
+                        lastName: Doe
+                        dateOfBirth: 1987-09-13T00:00:00Z
+                        email: email@example.com
+                        phoneNumber: 111-222-3333
+                        address:
+                          lineOne: 1234 Market Street
+                          lineTwo: Suite 110
+                          city: Philadelphia
+                          state: PA
+                          zipCode: '19137'
+                          country: USA
+                        sex: unknown
+                      deviceIdentifiers:
+                        - type: imei
+                          value: '354833969951611'
+                        - type: serial
+                          value: A44-A0623930
+                        - type: macAddress
+                          value: f51da43314fc
+                      disabledReadings: false
+                    readingTimestamp: 2024-07-04T00:00:00Z
+                    systolic: 120
+                    diastolic: 80
+                    heartRate: 70
+                    manual: false
+      x-response-example: bloodPressureReadingResponseExample
   /api/v3/temperature-reading:
     get:
       tags:
@@ -1882,6 +3386,331 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PageTemperatureReading'
+              examples:
+                temperatureReadingPagedResponseExample:
+                  value:
+                    content:
+                      - id: 42
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        temperatureUnit: Fahrenheit
+                        temperature: 98.6
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                      - id: 43
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        temperatureUnit: Fahrenheit
+                        temperature: 98.6
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                      - id: 44
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        temperatureUnit: Fahrenheit
+                        temperature: 98.6
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                      - id: 45
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        temperatureUnit: Fahrenheit
+                        temperature: 98.6
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                      - id: 46
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        temperatureUnit: Fahrenheit
+                        temperature: 98.6
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                    page: 1
+                    size: 5
+                    total: 10
+                    first: true
+                    last: false
+      x-response-example: temperatureReadingPagedResponseExample
   /api/v3/temperature-reading/export:
     get:
       tags:
@@ -1947,6 +3776,73 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TemperatureReading'
+              examples:
+                temperatureReadingResponseExample:
+                  value:
+                    id: 42
+                    patient:
+                      id: 456
+                      externalIdentifier: external-identifier-123
+                      firstName: John
+                      lastName: Doe
+                      dateOfBirth: 1987-09-13T00:00:00Z
+                      email: email@example.com
+                      phoneNumber: 111-222-3333
+                      address:
+                        lineOne: 1234 Market Street
+                        lineTwo: Suite 110
+                        city: Philadelphia
+                        state: PA
+                        zipCode: '19137'
+                        country: USA
+                      sex: unknown
+                    item:
+                      id: 791
+                      manufacturer:
+                        id: 2
+                        name: Custom Manufacturer
+                      name: Blood Pressure Monitor
+                      model: iBloodPressureMonitor123
+                      sku: '0000001'
+                    device:
+                      id: 599
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: Custom Manufacturer
+                        name: Blood Pressure Monitor
+                        model: iBloodPressureMonitor123
+                        sku: '0000001'
+                      currentStatus: withPatient
+                      currentPatient:
+                        id: 456
+                        externalIdentifier: external-identifier-123
+                        firstName: John
+                        lastName: Doe
+                        dateOfBirth: 1987-09-13T00:00:00Z
+                        email: email@example.com
+                        phoneNumber: 111-222-3333
+                        address:
+                          lineOne: 1234 Market Street
+                          lineTwo: Suite 110
+                          city: Philadelphia
+                          state: PA
+                          zipCode: '19137'
+                          country: USA
+                        sex: unknown
+                      deviceIdentifiers:
+                        - type: imei
+                          value: '354833969951611'
+                        - type: serial
+                          value: A44-A0623930
+                        - type: macAddress
+                          value: f51da43314fc
+                      disabledReadings: false
+                    temperatureUnit: Fahrenheit
+                    temperature: 98.6
+                    readingTimestamp: 2024-07-04T00:00:00Z
+      x-response-example: temperatureReadingResponseExample
   /api/v3/weight-reading:
     get:
       tags:
@@ -1991,6 +3887,331 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PageWeightReading'
+              examples:
+                weightReadingPagedResponseExample:
+                  value:
+                    content:
+                      - id: 42
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        weight: 140.4
+                        manual: false
+                      - id: 43
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        weight: 140.4
+                        manual: false
+                      - id: 44
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        weight: 140.4
+                        manual: false
+                      - id: 45
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        weight: 140.4
+                        manual: false
+                      - id: 46
+                        patient:
+                          id: 456
+                          externalIdentifier: external-identifier-123
+                          firstName: John
+                          lastName: Doe
+                          dateOfBirth: 1987-09-13T00:00:00Z
+                          email: email@example.com
+                          phoneNumber: 111-222-3333
+                          address:
+                            lineOne: 1234 Market Street
+                            lineTwo: Suite 110
+                            city: Philadelphia
+                            state: PA
+                            zipCode: '19137'
+                            country: USA
+                          sex: unknown
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: Custom Manufacturer
+                          name: Blood Pressure Monitor
+                          model: iBloodPressureMonitor123
+                          sku: '0000001'
+                        device:
+                          id: 599
+                          item:
+                            id: 791
+                            manufacturer:
+                              id: 2
+                              name: Custom Manufacturer
+                            name: Blood Pressure Monitor
+                            model: iBloodPressureMonitor123
+                            sku: '0000001'
+                          currentStatus: withPatient
+                          currentPatient:
+                            id: 456
+                            externalIdentifier: external-identifier-123
+                            firstName: John
+                            lastName: Doe
+                            dateOfBirth: 1987-09-13T00:00:00Z
+                            email: email@example.com
+                            phoneNumber: 111-222-3333
+                            address:
+                              lineOne: 1234 Market Street
+                              lineTwo: Suite 110
+                              city: Philadelphia
+                              state: PA
+                              zipCode: '19137'
+                              country: USA
+                            sex: unknown
+                          deviceIdentifiers:
+                            - type: imei
+                              value: '354833969951611'
+                            - type: serial
+                              value: A44-A0623930
+                            - type: macAddress
+                              value: f51da43314fc
+                          disabledReadings: false
+                        readingTimestamp: 2024-07-04T00:00:00Z
+                        weight: 140.4
+                        manual: false
+                    page: 1
+                    size: 5
+                    total: 10
+                    first: true
+                    last: false
+      x-response-example: weightReadingPagedResponseExample
   /api/v3/weight-reading/export:
     get:
       tags:
@@ -2052,6 +4273,73 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WeightReading'
+              examples:
+                weightReadingResponseExample:
+                  value:
+                    id: 42
+                    patient:
+                      id: 456
+                      externalIdentifier: external-identifier-123
+                      firstName: John
+                      lastName: Doe
+                      dateOfBirth: 1987-09-13T00:00:00Z
+                      email: email@example.com
+                      phoneNumber: 111-222-3333
+                      address:
+                        lineOne: 1234 Market Street
+                        lineTwo: Suite 110
+                        city: Philadelphia
+                        state: PA
+                        zipCode: '19137'
+                        country: USA
+                      sex: unknown
+                    item:
+                      id: 791
+                      manufacturer:
+                        id: 2
+                        name: Custom Manufacturer
+                      name: Blood Pressure Monitor
+                      model: iBloodPressureMonitor123
+                      sku: '0000001'
+                    device:
+                      id: 599
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: Custom Manufacturer
+                        name: Blood Pressure Monitor
+                        model: iBloodPressureMonitor123
+                        sku: '0000001'
+                      currentStatus: withPatient
+                      currentPatient:
+                        id: 456
+                        externalIdentifier: external-identifier-123
+                        firstName: John
+                        lastName: Doe
+                        dateOfBirth: 1987-09-13T00:00:00Z
+                        email: email@example.com
+                        phoneNumber: 111-222-3333
+                        address:
+                          lineOne: 1234 Market Street
+                          lineTwo: Suite 110
+                          city: Philadelphia
+                          state: PA
+                          zipCode: '19137'
+                          country: USA
+                        sex: unknown
+                      deviceIdentifiers:
+                        - type: imei
+                          value: '354833969951611'
+                        - type: serial
+                          value: A44-A0623930
+                        - type: macAddress
+                          value: f51da43314fc
+                      disabledReadings: false
+                    readingTimestamp: 2024-07-04T00:00:00Z
+                    weight: 140.4
+                    manual: false
+      x-response-example: weightReadingResponseExample
   /api/v3/test/blood-glucose-webhook:
     post:
       tags:
@@ -2265,54 +4553,6 @@ paths:
       x-request-example: createTestWeightWebhookRequestExample
       externalDocs:
         url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestWeightWebhookRequest
-  /api/v3/procurement:
-    post:
-      description: |-
-        Creates a new procurement with the provided details.
-
-        Returns a 201 Created.
-        ***
-        For more information see the [Procurement Model](/resources/models#schema_Procurement).
-      operationId: createProcurementRequest
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Procurement'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                format: int64
-                type: integer
-      externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Procurement
-  /api/v3/procurement/receipt:
-    post:
-      description: |-
-        Creates a new procurement shipping receipt with the provided details.
-
-        Returns a 201 Created.
-        ***
-        For more information see the [Procurement Model](/resources/models#schema_Procurement).
-      operationId: createShippingNotice
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Procurement'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                format: int64
-                type: integer
-      externalDocs:
-        url: https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Procurement
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -2355,20 +4595,21 @@ components:
       properties:
         deviceId:
           format: int64
-          description: The ID of the device to be associated. Either this value or
-            a Device Identifier are required to identify the Device to be (dis)associated.
+          description: The ID of the device. Either this value or a Device Identifier
+            are required to identify the Device.
           type: integer
+          example: 1
+        deviceIdentifier:
+          description: The Identifier, such as a Serial Number, of the device. Either
+            this value or a Device Id are required to identify the Device.
+          type: string
+          example: ABC123
         patientId:
           format: int64
           description: The ID of the patient to have the Device associated to. Either
             this value or a Patient External Identifier are required to identify who
             should be (dis)associated with the device.
           type: integer
-        deviceIdentifier:
-          description: The Identifier, such as a Serial Number, of the device to be
-            (dis)associated. Either this value or a Device Id are required to identify
-            the Device to be (dis)associated.
-          type: string
         patientExternalIdentifier:
           description: The External Identifier of the patient to have the Device (dis)associated
             to. Either this value or a Patient Id are required to identify who should
@@ -2556,7 +4797,13 @@ components:
           items:
             $ref: '#/components/schemas/DeviceEvent'
         externalIdentifier:
+          description: The external identifier for this device.
           type: string
+        disabledReadings:
+          description: True if readings from this device are disabled, false otherwise.
+            If true, Impilo will not save or process readings from this device. Webhooks
+            and alerts will not be triggered for readings taken on this device.
+          type: boolean
     DeviceAssociationWebhookPayload:
       description: The webhook payload sent when a Device is either Associated or
         Disassociated with a patient.
@@ -2606,58 +4853,21 @@ components:
         value:
           description: The value of the Device Identifier, based on it's type.
           type: string
-    DeviceUpdate:
-      description: Update request for modifying a device.
+    DeviceReferenceRequest:
+      description: A request to reference a device by either its ID or Identifier.
       type: object
       properties:
-        deviceStatus:
-          description: Override a device status
-          enum:
-            - used
-            - refurbishing
-            - decommissioned
-            - shipped
-            - availableRepacked
-            - returnedManufacturer
-            - awaitingShipment
-            - delivered
-            - available
-            - initiated
-            - withPatient
-            - availableAtSite
-            - packed
+        deviceId:
+          format: int64
+          description: The ID of the device. Either this value or a Device Identifier
+            are required to identify the Device.
+          type: integer
+          example: 1
+        deviceIdentifier:
+          description: The Identifier, such as a Serial Number, of the device. Either
+            this value or a Device Id are required to identify the Device.
           type: string
-          x-fern-enum:
-            used:
-              description: Device is currently in use.
-            refurbishing:
-              description: Device is being refurbished.
-            decommissioned:
-              description: Device has been decommissioned.
-            shipped:
-              description: Device has been shipped.
-            availableRepacked:
-              description: Device is available and repacked.
-            returnedManufacturer:
-              description: Device has been returned to the manufacturer.
-            awaitingShipment:
-              description: Device is awaiting shipment.
-            delivered:
-              description: Device has been delivered.
-            available:
-              description: Device is available for use.
-            initiated:
-              description: Device initialization has been initiated.
-            withPatient:
-              description: Device is currently with a patient.
-            availableAtSite:
-              description: Device is available at a site.
-            packed:
-              description: Device is packed and ready for shipment or use.
-        note:
-          description: Note explaining the update
-          type: string
-          example: Device decommissioned due to patient relocation.
+          example: ABC123
     Instant:
       format: date-time
       type: string
@@ -2761,49 +4971,49 @@ components:
           description: The current status of the order
           enum:
             - reconfirmAddress
-            - shipped
-            - voided
-            - returnIssued
-            - delivered
-            - orderPlaced
-            - awaitingShipment
-            - pendingAdditionalInformation
             - unableToFulfill
+            - orderPlaced
+            - shipped
             - onHold
-            - pendingInventory
             - unsuccessfulDelivery
+            - awaitingShipment
+            - returnIssued
+            - pendingInventory
+            - voided
+            - delivered
+            - pendingAdditionalInformation
           type: string
           readOnly: true
           x-fern-enum:
             reconfirmAddress:
               description: Customer needs to reconfirm their address.
-            shipped:
-              description: Order has been shipped to the recipient.
-            voided:
-              description: Order has been canceled and is no longer valid.
-            returnIssued:
-              description: A return process has been initiated for the order.
-            delivered:
-              description: Order has been successfully delivered to the recipient.
-            orderPlaced:
-              description: Order has been successfully placed and is in the system.
-            awaitingShipment:
-              description: Order is ready to be shipped but is waiting for the next
-                shipment cycle.
-            pendingAdditionalInformation:
-              description: Order is pending as additional information is required
-                from the recipient.
             unableToFulfill:
               description: Order cannot be fulfilled due to current limitations or
                 issues.
+            orderPlaced:
+              description: Order has been successfully placed and is in the system.
+            shipped:
+              description: Order has been shipped to the recipient.
             onHold:
               description: Order is on hold, possibly due to inventory or internal
                 reviews.
+            unsuccessfulDelivery:
+              description: Delivery of the order was attempted but unsuccessful.
+            awaitingShipment:
+              description: Order is ready to be shipped but is waiting for the next
+                shipment cycle.
+            returnIssued:
+              description: A return process has been initiated for the order.
             pendingInventory:
               description: Order is waiting for inventory to become available before
                 it can be fulfilled.
-            unsuccessfulDelivery:
-              description: Delivery of the order was attempted but unsuccessful.
+            voided:
+              description: Order has been canceled and is no longer valid.
+            delivered:
+              description: Order has been successfully delivered to the recipient.
+            pendingAdditionalInformation:
+              description: Order is pending as additional information is required
+                from the recipient.
         orderItems:
           description: Array of items on the order. At least one of orderItems or
             orderKits must be not null.
@@ -3462,58 +5672,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TrackingNumber'
-    Record:
-      description: Record implementation of DeviceUpdate
-      type: object
-      properties:
-        deviceStatus:
-          description: Override a device status
-          enum:
-            - used
-            - refurbishing
-            - decommissioned
-            - shipped
-            - availableRepacked
-            - returnedManufacturer
-            - awaitingShipment
-            - delivered
-            - available
-            - initiated
-            - withPatient
-            - availableAtSite
-            - packed
-          type: string
-          x-fern-enum:
-            used:
-              description: Device is currently in use.
-            refurbishing:
-              description: Device is being refurbished.
-            decommissioned:
-              description: Device has been decommissioned.
-            shipped:
-              description: Device has been shipped.
-            availableRepacked:
-              description: Device is available and repacked.
-            returnedManufacturer:
-              description: Device has been returned to the manufacturer.
-            awaitingShipment:
-              description: Device is awaiting shipment.
-            delivered:
-              description: Device has been delivered.
-            available:
-              description: Device is available for use.
-            initiated:
-              description: Device initialization has been initiated.
-            withPatient:
-              description: Device is currently with a patient.
-            availableAtSite:
-              description: Device is available at a site.
-            packed:
-              description: Device is packed and ready for shipment or use.
-        note:
-          description: Note explaining the update
-          type: string
-          example: Device decommissioned due to patient relocation.
     Return:
       description: A return is an occurrence of a device(s) or non-tracked item(s)
         being returned by a Patient.
@@ -3580,11 +5738,20 @@ components:
           type: integer
     Sex:
       enum:
-        - unknown
+        - other
         - female
         - male
-        - other
+        - unknown
       type: string
+      x-fern-enum:
+        other:
+          description: Sex other than male or female.
+        female:
+          description: Female sex.
+        male:
+          description: Male sex.
+        unknown:
+          description: Sex is unknown.
     Site:
       description: A site is a customer-managed location that interacts with Impilo's
         services. Patient may be associated with a site, and a customer may order
@@ -3877,58 +6044,58 @@ components:
           type: string
     WebhookType:
       enum:
+        - supportTicket.event
+        - reading.bloodOxygen
+        - order.status
+        - device.lowBattery
+        - return.statusFull
+        - patient.updated
+        - reading.bloodPressure
         - device.associationCreated
         - device.associationRemoved
-        - device.lowBattery
-        - device.weakSignal
-        - order.status
-        - order.statusFull
         - patient.created
-        - patient.updated
-        - reading.bloodGlucose
-        - reading.bloodOxygen
-        - reading.bloodPressure
-        - reading.temperature
         - reading.weight
+        - reading.temperature
         - return.status
-        - return.statusFull
-        - supportTicket.event
+        - reading.bloodGlucose
+        - device.weakSignal
+        - order.statusFull
       type: string
       x-fern-enum:
+        supportTicket.event:
+          description: A support ticket event took place.
+        reading.bloodOxygen:
+          description: A reading of blood oxygen was taken.
+        order.status:
+          description: An order status event occurred. The payload only includes order
+            id and order event type.
+        device.lowBattery:
+          description: A device sent a low battery signal.
+        return.statusFull:
+          description: A return status event was triggered.
+        patient.updated:
+          description: A patient’s details were updated.
+        reading.bloodPressure:
+          description: A reading of blood pressure was taken.
         device.associationCreated:
           description: A patient-device association was created.
         device.associationRemoved:
           description: A patient-device association was removed.
-        device.lowBattery:
-          description: A device sent a low battery signal.
+        patient.created:
+          description: A new patient was created.
+        reading.weight:
+          description: A body weight reading was taken.
+        reading.temperature:
+          description: A body temperature reading was taken.
+        return.status:
+          description: A return status event was triggered.
+        reading.bloodGlucose:
+          description: A reading of blood glucose was taken.
         device.weakSignal:
           description: A device sent a weak signal.
-        order.status:
-          description: An order status event occurred. The payload only includes order
-            id and order event type.
         order.statusFull:
           description: An order status event occurred. The payload includes the full
             order model.
-        patient.created:
-          description: A new patient was created.
-        patient.updated:
-          description: A patient’s details were updated.
-        reading.bloodGlucose:
-          description: A reading of blood glucose was taken.
-        reading.bloodOxygen:
-          description: A reading of blood oxygen was taken.
-        reading.bloodPressure:
-          description: A reading of blood pressure was taken.
-        reading.temperature:
-          description: A body temperature reading was taken.
-        reading.weight:
-          description: A body weight reading was taken.
-        return.status:
-          description: A return status event was triggered.
-        return.statusFull:
-          description: A return status event was triggered.
-        supportTicket.event:
-          description: A support ticket event took place.
     WeightReading:
       description: This page describes Impilo's weight reading model.
       required:

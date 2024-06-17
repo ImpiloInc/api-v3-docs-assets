@@ -10,6 +10,114 @@
 	},
 	"item": [
 	        {
+	            "name": "Procurements",
+	            "item": [
+	                        {
+    "name": "/api/v3/procurement",
+                "description": "Creates a new procurement with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
+                 "item": [
+                            {
+                                "name": "createProcurementRequest",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n \"id\": \"<number>\",\n \"currentStatus\": \"<string>\",\n \"procurementItems\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/procurement",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "procurement"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Creates a new procurement with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/procurement/receipt",
+                "description": "Creates a new procurement shipping receipt with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
+                 "item": [
+                            {
+                                "name": "createShippingNotice",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n \"id\": \"<number>\",\n \"currentStatus\": \"<string>\",\n \"procurementItems\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/procurement/receipt",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "procurement",
+                                            "receipt"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Creates a new procurement shipping receipt with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
 	            "name": "Readings - Blood Glucose",
 	            "item": [
 	                        {
@@ -1053,7 +1161,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/blood-oxygen-reading",
-                "description": "Retrieves a paginated list of blood oxygen readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
+                "description": "Retrieves a paginated list of blood oxygen readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp. ",
                  "item": [
                             {
                                 "name": "listBloodOxygenReadings",
@@ -1127,14 +1235,14 @@
                                             }
                                         ]
                                     },
-                                    "description": "Retrieves a paginated list of blood oxygen readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp."
+                                    "description": "Retrieves a paginated list of blood oxygen readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp. "
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/blood-oxygen-reading/:readingId",
-                "description": "Fetches a specific Impilo blood oxygen reading by its ID.",
+                "description": "Fetches a specific Impilo blood oxygen reading by its ID. ",
                  "item": [
                             {
                                 "name": "fetchBloodOxygenReading",
@@ -1178,7 +1286,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Fetches a specific Impilo blood oxygen reading by its ID."
+                                    "description": "Fetches a specific Impilo blood oxygen reading by its ID. "
                                 }
                             }
                             ]
@@ -1379,59 +1487,8 @@
                             ]
                         },
 	                        {
-    "name": "/api/v3/device/:deviceId",
-                "description": "This endpoint updates details for a device identified by the device ID provided in the path. It supports various updates, including changing device status, and adding notes regarding the update. *** For more information see the [DeviceUpdate Model](/resources/models#schema_DeviceUpdate).",
-                 "item": [
-                            {
-                                "name": "updateDeviceRequest",
-                                "request": {
-                                    "method": "PATCH",
-                                    "header": [
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "{\n  \"deviceStatus\" : \"decommissioned\",\n  \"note\" : \"Decommissioned device, patient relocated\"\n}",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/v3/device/:deviceId",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            "v3",
-                                            "device",
-                                            ":deviceId"
-                                        ],
-                                        "variable": [
-                                            {
-                                                "key": "deviceId",
-                                                "value": "",
-                                                "description": "ID of the device to be updated"
-                                            }
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "This endpoint updates details for a device identified by the device ID provided in the path. It supports various updates, including changing device status, and adding notes regarding the update. *** For more information see the [DeviceUpdate Model](/resources/models#schema_DeviceUpdate)."
-                                }
-                            }
-                            ]
-                        },
-	                        {
     "name": "/api/v3/device/associate-patient",
-                "description": "This endpoint associates the device to the patient provided in the Request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"availableAtSite\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).",
+                "description": "This endpoint associates the device to the patient provided in the request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a current status of \"availableAtSite\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).",
                  "item": [
                             {
                                 "name": "associateDeviceRequest",
@@ -1470,17 +1527,63 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint associates the device to the patient provided in the Request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"availableAtSite\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest)."
+                                    "description": "This endpoint associates the device to the patient provided in the request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a current status of \"availableAtSite\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/device/disable-readings",
+                "description": "This endpoint disables readings for the device provided in the request body. Readings received while in this status will not be processed or saved. No alerts or webhooks will be triggered for these readings.  In order to disable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be false *** For more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest).",
+                 "item": [
+                            {
+                                "name": "disableReadings",
+                                "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n \"deviceId\": \"<number>\",\n \"deviceIdentifier\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/device/disable-readings",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "device",
+                                            "disable-readings"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "This endpoint disables readings for the device provided in the request body. Readings received while in this status will not be processed or saved. No alerts or webhooks will be triggered for these readings.  In order to disable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be false *** For more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest)."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/device/disassociate-patient",
-                "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"withPatient\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).",
+                "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a current status of \"withPatient\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).",
                  "item": [
                             {
-                                "name": "disassociateDeviceRequest",
+                                "name": "disassociateDeviceRequestExample",
                                 "request": {
                                     "method": "PATCH",
                                     "header": [
@@ -1516,7 +1619,53 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a curent status of \"withPatient\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest)."
+                                    "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a current status of \"withPatient\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/device/enable-readings",
+                "description": "This endpoint re-enables readings for the device provided in the request body.  In order to re-enable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be true *** For more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest).",
+                 "item": [
+                            {
+                                "name": "enableReadings",
+                                "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n \"deviceId\": \"<number>\",\n \"deviceIdentifier\": \"<string>\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/device/enable-readings",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "device",
+                                            "enable-readings"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "This endpoint re-enables readings for the device provided in the request body.  In order to re-enable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be true *** For more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest)."
                                 }
                             }
                             ]
@@ -1602,7 +1751,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"id\" : 1,\n  \"externalIdentifier\" : \"1234abcd\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"dateOfBirth\" : \"1980-01-01T00:00:00Z\",\n  \"email\" : \"john.doe@example.com\",\n  \"phoneNumber\" : \"+1234567890\",\n  \"address\" : {\n    \"lineOne\" : \"123 Main St\",\n    \"lineTwo\" : \"Apt 4B\",\n    \"lineThree\" : \"\",\n    \"city\" : \"Springfield\",\n    \"state\" : \"IL\",\n    \"zipCode\" : \"62704\",\n    \"country\" : \"USA\",\n    \"note\" : \"Near the park\"\n  },\n  \"sex\" : \"male\"\n}",
+                                        "raw": "{\n  \"id\" : 456,\n  \"externalIdentifier\" : \"external-identifier-123\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"dateOfBirth\" : \"1987-09-13T00:00:00Z\",\n  \"email\" : \"email@example.com\",\n  \"phoneNumber\" : \"111-222-3333\",\n  \"address\" : {\n    \"lineOne\" : \"1234 Market Street\",\n    \"lineTwo\" : \"Suite 110\",\n    \"city\" : \"Philadelphia\",\n    \"state\" : \"PA\",\n    \"zipCode\" : \"19137\",\n    \"country\" : \"USA\"\n  },\n  \"sex\" : \"unknown\"\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1767,7 +1916,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"id\" : 1,\n  \"email\" : \"new.email.address@example.com\",\n  \"sex\" : \"unknown\"\n}",
+                                        "raw": "{\n  \"email\" : \"new-email@example.com\",\n  \"sex\" : \"unknown\"\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1818,7 +1967,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"id\" : 1,\n  \"externalIdentifier\" : \"id-abc-123\",\n  \"sex\" : \"unknown\"\n}",
+                                        "raw": "{\n  \"externalIdentifier\" : \"new-external-id-123\",\n  \"sex\" : \"unknown\"\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -2337,7 +2486,7 @@
                 "description": "Creates a new site with the provided details.  Returns the site. *** For more information see the [Site Model](/resources/models#schema_Site).",
                  "item": [
                             {
-                                "name": "createSite",
+                                "name": "create-site",
                                 "request": {
                                     "method": "POST",
                                     "header": [
@@ -2356,7 +2505,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n \"id\": \"<number>\",\n \"name\": \"<string>\",\n \"active\": \"<string>\",\n \"address\": \"<string>\"\n}",
+                                        "raw": "{\n  \"id\" : 561,\n  \"name\" : \"Building B\",\n  \"active\" : true,\n  \"address\" : {\n    \"lineOne\" : \"1234 Market Street\",\n    \"lineTwo\" : \"Suite 110\",\n    \"city\" : \"Philadelphia\",\n    \"state\" : \"PA\",\n    \"zipCode\" : \"19137\",\n    \"country\" : \"USA\"\n  }\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -2547,7 +2696,7 @@
                 "description": "Update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site).",
                  "item": [
                             {
-                                "name": "updateSite",
+                                "name": "update-site",
                                 "request": {
                                     "method": "PUT",
                                     "header": [
@@ -2560,7 +2709,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n \"id\": \"<number>\",\n \"name\": \"<string>\",\n \"active\": \"<string>\",\n \"address\": \"<string>\"\n}",
+                                        "raw": "{\n  \"id\" : 561,\n  \"name\" : \"Building B\",\n  \"active\" : true,\n  \"address\" : {\n    \"lineOne\" : \"1234 Market Street\",\n    \"lineTwo\" : \"Suite 110\",\n    \"city\" : \"Philadelphia\",\n    \"state\" : \"PA\",\n    \"zipCode\" : \"19137\",\n    \"country\" : \"USA\"\n  }\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -2589,114 +2738,6 @@
                                         ]
                                     },
                                     "description": "Update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site)."
-                                }
-                            }
-                            ]
-                        }
-	                    ]
-	        },
-	        {
-	            "name": "default",
-	            "item": [
-	                        {
-    "name": "/api/v3/procurement",
-                "description": "Creates a new procurement with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
-                 "item": [
-                            {
-                                "name": "createProcurementRequest",
-                                "request": {
-                                    "method": "POST",
-                                    "header": [
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        },
-                                        {
-                                            "key": "Accept",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "{\n \"id\": \"<number>\",\n \"currentStatus\": \"<string>\",\n \"procurementItems\": \"<string>\"\n}",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/v3/procurement",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            "v3",
-                                            "procurement"
-                                        ],
-                                        "variable": [
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "Creates a new procurement with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
-                                }
-                            }
-                            ]
-                        },
-	                        {
-    "name": "/api/v3/procurement/receipt",
-                "description": "Creates a new procurement shipping receipt with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
-                 "item": [
-                            {
-                                "name": "createShippingNotice",
-                                "request": {
-                                    "method": "POST",
-                                    "header": [
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        },
-                                        {
-                                            "key": "Accept",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "{\n \"id\": \"<number>\",\n \"currentStatus\": \"<string>\",\n \"procurementItems\": \"<string>\"\n}",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/v3/procurement/receipt",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            "v3",
-                                            "procurement",
-                                            "receipt"
-                                        ],
-                                        "variable": [
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "Creates a new procurement shipping receipt with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
                                 }
                             }
                             ]
