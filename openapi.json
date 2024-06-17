@@ -1251,7 +1251,7 @@
           "200" : {
             "description" : "OK",
             "content" : {
-              "*/*" : {
+              "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/PagePatient"
                 },
@@ -1851,7 +1851,7 @@
       },
       "patch" : {
         "tags" : [ "Sites" ],
-        "description" : "Partially update the site specified by the ID in the URL path with a new site object.",
+        "description" : "Partially update the site specified by the ID in the URL path with a new site object.\n***\nFor more information see the [Site Model](/resources/models#schema_Site).",
         "operationId" : "patchSite",
         "parameters" : [ {
           "name" : "siteId",
@@ -1862,11 +1862,37 @@
             "type" : "integer"
           }
         } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Site"
+              },
+              "examples" : {
+                "patch-site" : {
+                  "value" : {
+                    "id" : 561,
+                    "name" : "Building B",
+                    "active" : true,
+                    "address" : {
+                      "lineOne" : "1234 Market Street",
+                      "lineTwo" : "Suite 110",
+                      "city" : "Philadelphia",
+                      "state" : "PA",
+                      "zipCode" : "19137",
+                      "country" : "USA"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses" : {
           "200" : {
             "description" : "OK",
             "content" : {
-              "*/*" : {
+              "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Site"
                 },
@@ -1892,7 +1918,10 @@
           }
         },
         "x-request-example-patch-site" : "ApiV3ControllerExamples.site",
-        "x-response-example" : "ApiV3ControllerExamples.site"
+        "x-response-example" : "ApiV3ControllerExamples.site",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Site"
+        }
       }
     },
     "/api/v3/webhook" : {
@@ -2268,7 +2297,7 @@
           "200" : {
             "description" : "OK",
             "content" : {
-              "*/*" : {
+              "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Webhook"
                 },
