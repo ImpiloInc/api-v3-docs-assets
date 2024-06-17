@@ -1751,7 +1751,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"id\" : 456,\n  \"externalIdentifier\" : \"external-identifier-123\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"dateOfBirth\" : \"1987-09-13T00:00:00Z\",\n  \"email\" : \"email@example.com\",\n  \"phoneNumber\" : \"111-222-3333\",\n  \"address\" : {\n    \"lineOne\" : \"1234 Market Street\",\n    \"lineTwo\" : \"Suite 110\",\n    \"city\" : \"Philadelphia\",\n    \"state\" : \"PA\",\n    \"zipCode\" : \"19137\",\n    \"country\" : \"USA\"\n  },\n  \"sex\" : \"unknown\"\n}",
+                                        "raw": "{\n  \"dateOfBirth\" : \"1987-09-13T00:00:00Z\"\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -2024,7 +2024,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n \"id\": \"<number>\",\n \"externalIdentifier\": \"<string>\",\n \"firstName\": \"<string>\",\n \"lastName\": \"<string>\",\n \"dateOfBirth\": \"<date>\",\n \"email\": \"<string>\",\n \"phoneNumber\": \"<string>\",\n \"archived\": \"<string>\",\n \"address\": \"<string>\",\n \"site\": \"<string>\",\n \"enrolled\": \"<string>\",\n \"sex\": \"<string>\"\n}",
+                                        "raw": "{\n \"dateOfBirth\": \"<date>\",\n \"id\": \"<number>\",\n \"externalIdentifier\": \"<string>\",\n \"firstName\": \"<string>\",\n \"lastName\": \"<string>\",\n \"email\": \"<string>\",\n \"phoneNumber\": \"<string>\",\n \"archived\": \"<string>\",\n \"address\": \"<string>\",\n \"site\": \"<string>\",\n \"enrolled\": \"<string>\",\n \"sex\": \"<string>\"\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"

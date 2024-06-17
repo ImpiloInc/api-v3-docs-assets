@@ -14,38 +14,182 @@
   "security" : [ {
     "ApiKeyAuth" : [ ]
   } ],
-  "tags" : [ {
-    "name" : "Devices"
-  }, {
-    "name" : "Items"
-  }, {
-    "name" : "Kits"
-  }, {
-    "name" : "Manufacturers"
-  }, {
-    "name" : "Orders"
-  }, {
-    "name" : "Patients"
-  }, {
-    "name" : "Procurements"
-  }, {
-    "name" : "Sites"
-  }, {
-    "name" : "Webhooks"
-  }, {
-    "name" : "Readings - Blood Glucose"
-  }, {
-    "name" : "Readings - Blood Oxygen"
-  }, {
-    "name" : "Readings - Blood Pressure"
-  }, {
-    "name" : "Readings - Temperature"
-  }, {
-    "name" : "Readings - Weight"
-  }, {
-    "name" : "Tests"
-  } ],
   "paths" : {
+    "/api/v3/patient" : {
+      "post" : {
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "examples" : {
+                "create-patient" : {
+                  "value" : {
+                    "dateOfBirth" : 558489600000
+                  }
+                }
+              },
+              "schema" : {
+                "$ref" : "#/components/schemas/Patient"
+              }
+            }
+          }
+        },
+        "tags" : [ "Patients" ],
+        "description" : "Creates a new patient record with the provided details.\n***\nFor more information see the [Patient Model](/resources/models#schema_Patient).",
+        "operationId" : "createPatient",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Patient"
+                }
+              }
+            }
+          }
+        },
+        "x-request-example-create-patient" : "ApiV3ControllerExamples.patient",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient"
+        }
+      },
+      "get" : {
+        "tags" : [ "Patients" ],
+        "description" : "Retrieves a paginated list of patients. Optional parameters allow specifying the page number and page size.",
+        "operationId" : "listPatients",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "archived",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagePatient"
+                },
+                "examples" : {
+                  "patientPagedResponseExample" : {
+                    "value" : {
+                      "content" : [ {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : 558489600000,
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      }, {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : 558489600000,
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      }, {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : 558489600000,
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      }, {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : 558489600000,
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      }, {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : 558489600000,
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      } ],
+                      "page" : 1,
+                      "size" : 5,
+                      "total" : 10,
+                      "first" : true,
+                      "last" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "patientPagedResponseExample"
+      }
+    },
     "/api/v3/device" : {
       "get" : {
         "tags" : [ "Devices" ],
@@ -1065,196 +1209,6 @@
           "204" : {
             "description" : "No Content"
           }
-        }
-      }
-    },
-    "/api/v3/patient" : {
-      "get" : {
-        "tags" : [ "Patients" ],
-        "description" : "Retrieves a paginated list of patients. Optional parameters allow specifying the page number and page size.",
-        "operationId" : "listPatients",
-        "parameters" : [ {
-          "name" : "page",
-          "in" : "query",
-          "schema" : {
-            "format" : "int32",
-            "type" : "integer"
-          }
-        }, {
-          "name" : "size",
-          "in" : "query",
-          "schema" : {
-            "format" : "int32",
-            "type" : "integer"
-          }
-        }, {
-          "name" : "archived",
-          "in" : "query",
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/PagePatient"
-                },
-                "examples" : {
-                  "patientPagedResponseExample" : {
-                    "value" : {
-                      "content" : [ {
-                        "id" : 456,
-                        "externalIdentifier" : "external-identifier-123",
-                        "firstName" : "John",
-                        "lastName" : "Doe",
-                        "dateOfBirth" : 558489600000,
-                        "email" : "email@example.com",
-                        "phoneNumber" : "111-222-3333",
-                        "address" : {
-                          "lineOne" : "1234 Market Street",
-                          "lineTwo" : "Suite 110",
-                          "city" : "Philadelphia",
-                          "state" : "PA",
-                          "zipCode" : "19137",
-                          "country" : "USA"
-                        },
-                        "sex" : "unknown"
-                      }, {
-                        "id" : 456,
-                        "externalIdentifier" : "external-identifier-123",
-                        "firstName" : "John",
-                        "lastName" : "Doe",
-                        "dateOfBirth" : 558489600000,
-                        "email" : "email@example.com",
-                        "phoneNumber" : "111-222-3333",
-                        "address" : {
-                          "lineOne" : "1234 Market Street",
-                          "lineTwo" : "Suite 110",
-                          "city" : "Philadelphia",
-                          "state" : "PA",
-                          "zipCode" : "19137",
-                          "country" : "USA"
-                        },
-                        "sex" : "unknown"
-                      }, {
-                        "id" : 456,
-                        "externalIdentifier" : "external-identifier-123",
-                        "firstName" : "John",
-                        "lastName" : "Doe",
-                        "dateOfBirth" : 558489600000,
-                        "email" : "email@example.com",
-                        "phoneNumber" : "111-222-3333",
-                        "address" : {
-                          "lineOne" : "1234 Market Street",
-                          "lineTwo" : "Suite 110",
-                          "city" : "Philadelphia",
-                          "state" : "PA",
-                          "zipCode" : "19137",
-                          "country" : "USA"
-                        },
-                        "sex" : "unknown"
-                      }, {
-                        "id" : 456,
-                        "externalIdentifier" : "external-identifier-123",
-                        "firstName" : "John",
-                        "lastName" : "Doe",
-                        "dateOfBirth" : 558489600000,
-                        "email" : "email@example.com",
-                        "phoneNumber" : "111-222-3333",
-                        "address" : {
-                          "lineOne" : "1234 Market Street",
-                          "lineTwo" : "Suite 110",
-                          "city" : "Philadelphia",
-                          "state" : "PA",
-                          "zipCode" : "19137",
-                          "country" : "USA"
-                        },
-                        "sex" : "unknown"
-                      }, {
-                        "id" : 456,
-                        "externalIdentifier" : "external-identifier-123",
-                        "firstName" : "John",
-                        "lastName" : "Doe",
-                        "dateOfBirth" : 558489600000,
-                        "email" : "email@example.com",
-                        "phoneNumber" : "111-222-3333",
-                        "address" : {
-                          "lineOne" : "1234 Market Street",
-                          "lineTwo" : "Suite 110",
-                          "city" : "Philadelphia",
-                          "state" : "PA",
-                          "zipCode" : "19137",
-                          "country" : "USA"
-                        },
-                        "sex" : "unknown"
-                      } ],
-                      "page" : 1,
-                      "size" : 5,
-                      "total" : 10,
-                      "first" : true,
-                      "last" : false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-response-example" : "patientPagedResponseExample"
-      },
-      "post" : {
-        "tags" : [ "Patients" ],
-        "description" : "Creates a new patient record with the provided details.\n***\nFor more information see the [Patient Model](/resources/models#schema_Patient).",
-        "operationId" : "createPatient",
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Patient"
-              },
-              "examples" : {
-                "create-patient" : {
-                  "value" : {
-                    "id" : 456,
-                    "externalIdentifier" : "external-identifier-123",
-                    "firstName" : "John",
-                    "lastName" : "Doe",
-                    "dateOfBirth" : 558489600000,
-                    "email" : "email@example.com",
-                    "phoneNumber" : "111-222-3333",
-                    "address" : {
-                      "lineOne" : "1234 Market Street",
-                      "lineTwo" : "Suite 110",
-                      "city" : "Philadelphia",
-                      "state" : "PA",
-                      "zipCode" : "19137",
-                      "country" : "USA"
-                    },
-                    "sex" : "unknown"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Patient"
-                }
-              }
-            }
-          }
-        },
-        "x-request-example-create-patient" : "ApiV3ControllerExamples.patient",
-        "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient"
         }
       }
     },
@@ -4403,6 +4357,37 @@
       }
     }
   },
+  "tags" : [ {
+    "name" : "Devices"
+  }, {
+    "name" : "Items"
+  }, {
+    "name" : "Kits"
+  }, {
+    "name" : "Manufacturers"
+  }, {
+    "name" : "Orders"
+  }, {
+    "name" : "Patients"
+  }, {
+    "name" : "Procurements"
+  }, {
+    "name" : "Sites"
+  }, {
+    "name" : "Webhooks"
+  }, {
+    "name" : "Readings - Blood Glucose"
+  }, {
+    "name" : "Readings - Blood Oxygen"
+  }, {
+    "name" : "Readings - Blood Pressure"
+  }, {
+    "name" : "Readings - Temperature"
+  }, {
+    "name" : "Readings - Weight"
+  }, {
+    "name" : "Tests"
+  } ],
   "components" : {
     "securitySchemes" : {
       "ApiKeyAuth" : {
@@ -4412,6 +4397,81 @@
       }
     },
     "schemas" : {
+      "Patient" : {
+        "properties" : {
+          "dateOfBirth" : {
+            "example" : 558489600000,
+            "format" : "date",
+            "description" : "The patient's date of birth in the format YYYY-MM-DD.",
+            "type" : "string"
+          },
+          "id" : {
+            "format" : "int64",
+            "description" : "Unique identifier for the patient, managed by Impilo.",
+            "type" : "integer",
+            "readOnly" : true,
+            "example" : 1
+          },
+          "externalIdentifier" : {
+            "description" : "Unique external identifier for the patient, managed by the customer.",
+            "type" : "string",
+            "example" : "1234abcd"
+          },
+          "firstName" : {
+            "description" : "The patient's first name.",
+            "type" : "string",
+            "example" : "John"
+          },
+          "lastName" : {
+            "description" : "The patient's last name.",
+            "type" : "string",
+            "example" : "Doe"
+          },
+          "email" : {
+            "format" : "email",
+            "description" : "The patient's email.",
+            "type" : "string",
+            "example" : "john.doe@example.com"
+          },
+          "phoneNumber" : {
+            "description" : "The patient's phone number.",
+            "type" : "string",
+            "example" : "+1234567890"
+          },
+          "archived" : {
+            "description" : "True if the patient is archived, false otherwise.",
+            "type" : "boolean",
+            "example" : true
+          },
+          "address" : {
+            "description" : "The patient's shipping address.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Address"
+            } ]
+          },
+          "site" : {
+            "description" : "The site responsible for this patient.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Site"
+            } ]
+          },
+          "enrolled" : {
+            "description" : "The enrollment status. False if disenrolled.",
+            "type" : "boolean"
+          },
+          "sex" : {
+            "description" : "Sex",
+            "type" : "string",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Sex"
+            } ],
+            "example" : "female"
+          }
+        },
+        "type" : "object"
+      },
       "Address" : {
         "description" : "Represents a physical address, including information such as street lines, city, state, zip code, country, and an optional note for additional details.",
         "type" : "object",
@@ -5594,81 +5654,6 @@
           "last" : {
             "description" : "True if this is the last page, false otherwise.",
             "type" : "boolean"
-          }
-        }
-      },
-      "Patient" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "format" : "int64",
-            "description" : "Unique identifier for the patient, managed by Impilo.",
-            "type" : "integer",
-            "readOnly" : true,
-            "example" : 1
-          },
-          "externalIdentifier" : {
-            "description" : "Unique external identifier for the patient, managed by the customer.",
-            "type" : "string",
-            "example" : "1234abcd"
-          },
-          "firstName" : {
-            "description" : "The patient's first name.",
-            "type" : "string",
-            "example" : "John"
-          },
-          "lastName" : {
-            "description" : "The patient's last name.",
-            "type" : "string",
-            "example" : "Doe"
-          },
-          "dateOfBirth" : {
-            "format" : "date",
-            "description" : "The patient's date of birth in the format YYYY-MM-DD.",
-            "type" : "string",
-            "example" : 315532800000
-          },
-          "email" : {
-            "format" : "email",
-            "description" : "The patient's email.",
-            "type" : "string",
-            "example" : "john.doe@example.com"
-          },
-          "phoneNumber" : {
-            "description" : "The patient's phone number.",
-            "type" : "string",
-            "example" : "+1234567890"
-          },
-          "archived" : {
-            "description" : "True if the patient is archived, false otherwise.",
-            "type" : "boolean",
-            "example" : true
-          },
-          "address" : {
-            "description" : "The patient's shipping address.",
-            "type" : "object",
-            "allOf" : [ {
-              "$ref" : "#/components/schemas/Address"
-            } ]
-          },
-          "site" : {
-            "description" : "The site responsible for this patient.",
-            "type" : "object",
-            "allOf" : [ {
-              "$ref" : "#/components/schemas/Site"
-            } ]
-          },
-          "enrolled" : {
-            "description" : "The enrollment status. False if disenrolled.",
-            "type" : "boolean"
-          },
-          "sex" : {
-            "description" : "Sex",
-            "type" : "string",
-            "allOf" : [ {
-              "$ref" : "#/components/schemas/Sex"
-            } ],
-            "example" : "female"
           }
         }
       },
