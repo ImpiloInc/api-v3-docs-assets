@@ -202,6 +202,147 @@
                             ]
                         },
 	                        {
+    "name": "/api/v3/blood-glucose-reading",
+                "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodGlucoseReadingRequest Model](/resources/models#schema_BloodGlucoseReadingRequest).",
+                 "item": [
+                            {
+                                "name": "device",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"glucose\" : 88,\n  \"manual\" : false,\n  \"beforeMeal\" : false,\n  \"afterMeal\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/blood-glucose-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "blood-glucose-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodGlucoseReadingRequest Model](/resources/models#schema_BloodGlucoseReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "device-identifier",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"glucose\" : 88,\n  \"manual\" : false,\n  \"beforeMeal\" : false,\n  \"afterMeal\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/blood-glucose-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "blood-glucose-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodGlucoseReadingRequest Model](/resources/models#schema_BloodGlucoseReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "patient",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"glucose\" : 88,\n  \"manual\" : false,\n  \"beforeMeal\" : false,\n  \"afterMeal\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/blood-glucose-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "blood-glucose-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodGlucoseReadingRequest Model](/resources/models#schema_BloodGlucoseReadingRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
     "name": "/api/v3/blood-glucose-reading/:readingId",
                 "description": "This endpoint returns a specific blood glucose reading based on the reading identifier provided in the path. ",
                  "item": [
@@ -714,6 +855,147 @@
                             ]
                         },
 	                        {
+    "name": "/api/v3/blood-pressure-reading",
+                "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodPressureReadingRequest Model](/resources/models#schema_BloodPressureReadingRequest).",
+                 "item": [
+                            {
+                                "name": "device",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"systolic\" : 132,\n  \"diastolic\" : 72,\n  \"heartRate\" : 78,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/blood-pressure-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "blood-pressure-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodPressureReadingRequest Model](/resources/models#schema_BloodPressureReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "device-identifier",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"systolic\" : 132,\n  \"diastolic\" : 72,\n  \"heartRate\" : 78,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/blood-pressure-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "blood-pressure-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodPressureReadingRequest Model](/resources/models#schema_BloodPressureReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "patient",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"systolic\" : 132,\n  \"diastolic\" : 72,\n  \"heartRate\" : 78,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/blood-pressure-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "blood-pressure-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodPressureReadingRequest Model](/resources/models#schema_BloodPressureReadingRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
     "name": "/api/v3/blood-pressure-reading/:readingId",
                 "description": "Fetches a specific Impilo blood pressure reading by its ID.",
                  "item": [
@@ -1034,6 +1316,147 @@
                             ]
                         },
 	                        {
+    "name": "/api/v3/temperature-reading",
+                "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [TemperatureReadingRequest Model](/resources/models#schema_TemperatureReadingRequest).",
+                 "item": [
+                            {
+                                "name": "device",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"temperatureUnit\" : \"F\",\n  \"temperature\" : 97.2,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/temperature-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "temperature-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [TemperatureReadingRequest Model](/resources/models#schema_TemperatureReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "device-identifier",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"temperatureUnit\" : \"F\",\n  \"temperature\" : 97.2,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/temperature-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "temperature-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [TemperatureReadingRequest Model](/resources/models#schema_TemperatureReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "patient",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"temperatureUnit\" : \"F\",\n  \"temperature\" : 97.2,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/temperature-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "temperature-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [TemperatureReadingRequest Model](/resources/models#schema_TemperatureReadingRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
     "name": "/api/v3/temperature-reading/:readingId",
                 "description": "Fetches a specific Impilo temperature reading by its ID.",
                  "item": [
@@ -1236,6 +1659,147 @@
                                         ]
                                     },
                                     "description": "Retrieves a paginated list of blood oxygen readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/blood-oxygen-reading",
+                "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodOxygenReadingRequest Model](/resources/models#schema_BloodOxygenReadingRequest).",
+                 "item": [
+                            {
+                                "name": "device",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"bloodOxygen\" : 88,\n  \"heartRate\" : 77,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/blood-oxygen-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "blood-oxygen-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodOxygenReadingRequest Model](/resources/models#schema_BloodOxygenReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "device-identifier",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"bloodOxygen\" : 88,\n  \"heartRate\" : 77,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/blood-oxygen-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "blood-oxygen-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodOxygenReadingRequest Model](/resources/models#schema_BloodOxygenReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "patient",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"bloodOxygen\" : 88,\n  \"heartRate\" : 77,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/blood-oxygen-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "blood-oxygen-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodOxygenReadingRequest Model](/resources/models#schema_BloodOxygenReadingRequest)."
                                 }
                             }
                             ]
@@ -2830,6 +3394,147 @@
                                         ]
                                     },
                                     "description": "Retrieves a paginated list of weight readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/weight-reading",
+                "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [WeightReadingRequest Model](/resources/models#schema_WeightReadingRequest).",
+                 "item": [
+                            {
+                                "name": "device",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"weight\" : 140.4,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/weight-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "weight-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [WeightReadingRequest Model](/resources/models#schema_WeightReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "device-identifier",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"weight\" : 140.4,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/weight-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "weight-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [WeightReadingRequest Model](/resources/models#schema_WeightReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "patient",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"weight\" : 140.4,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/weight-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "weight-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [WeightReadingRequest Model](/resources/models#schema_WeightReadingRequest)."
                                 }
                             }
                             ]

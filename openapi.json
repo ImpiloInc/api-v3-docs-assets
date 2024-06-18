@@ -1123,7 +1123,7 @@
                         },
                         "sex" : "unknown"
                       }, {
-                        "id" : 456,
+                        "id" : 457,
                         "externalIdentifier" : "external-identifier-123",
                         "firstName" : "John",
                         "lastName" : "Doe",
@@ -1140,7 +1140,7 @@
                         },
                         "sex" : "unknown"
                       }, {
-                        "id" : 456,
+                        "id" : 458,
                         "externalIdentifier" : "external-identifier-123",
                         "firstName" : "John",
                         "lastName" : "Doe",
@@ -1157,7 +1157,7 @@
                         },
                         "sex" : "unknown"
                       }, {
-                        "id" : 456,
+                        "id" : 459,
                         "externalIdentifier" : "external-identifier-123",
                         "firstName" : "John",
                         "lastName" : "Doe",
@@ -1174,7 +1174,7 @@
                         },
                         "sex" : "unknown"
                       }, {
-                        "id" : 456,
+                        "id" : 460,
                         "externalIdentifier" : "external-identifier-123",
                         "firstName" : "John",
                         "lastName" : "Doe",
@@ -2394,6 +2394,154 @@
           }
         },
         "x-response-example" : "bloodGlucoseReadingPagedResponseExample"
+      },
+      "post" : {
+        "tags" : [ "Readings - Blood Glucose" ],
+        "description" : "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [BloodGlucoseReadingRequest Model](/resources/models#schema_BloodGlucoseReadingRequest).",
+        "operationId" : "recordBloodGlucoseReading",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BloodGlucoseReadingRequest"
+              },
+              "examples" : {
+                "device" : {
+                  "value" : {
+                    "deviceId" : 599,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "glucose" : 88,
+                    "manual" : false,
+                    "beforeMeal" : false,
+                    "afterMeal" : false
+                  }
+                },
+                "device-identifier" : {
+                  "value" : {
+                    "deviceIdentifier" : "354833969951611",
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "glucose" : 88,
+                    "manual" : false,
+                    "beforeMeal" : false,
+                    "afterMeal" : false
+                  }
+                },
+                "patient" : {
+                  "value" : {
+                    "patientId" : 456,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "glucose" : 88,
+                    "manual" : false,
+                    "beforeMeal" : false,
+                    "afterMeal" : false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BloodGlucoseReading"
+                },
+                "examples" : {
+                  "bloodGlucoseReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "glucose" : 88,
+                      "manual" : false,
+                      "beforeMeal" : false,
+                      "afterMeal" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-request-example-device" : "bloodGlucoseReadingRequestDeviceExample",
+        "x-request-example-device-identifier" : "bloodGlucoseReadingRequestDeviceIdentifierExample",
+        "x-request-example-patient" : "bloodGlucoseReadingRequestPatientExample",
+        "x-response-example" : "bloodGlucoseReadingResponseExample",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_BloodGlucoseReadingRequest"
+        }
       }
     },
     "/api/v3/blood-glucose-reading/export" : {
@@ -2788,6 +2936,150 @@
           }
         },
         "x-response-example" : "bloodOxygenReadingPagedResponseExample"
+      },
+      "post" : {
+        "tags" : [ "Readings - Blood Oxygen" ],
+        "description" : "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [BloodOxygenReadingRequest Model](/resources/models#schema_BloodOxygenReadingRequest).",
+        "operationId" : "recordBloodOxygenReading",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BloodOxygenReadingRequest"
+              },
+              "examples" : {
+                "device" : {
+                  "value" : {
+                    "deviceId" : 599,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "bloodOxygen" : 88,
+                    "heartRate" : 77,
+                    "manual" : false
+                  }
+                },
+                "device-identifier" : {
+                  "value" : {
+                    "deviceIdentifier" : "354833969951611",
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "bloodOxygen" : 88,
+                    "heartRate" : 77,
+                    "manual" : false
+                  }
+                },
+                "patient" : {
+                  "value" : {
+                    "patientId" : 456,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "bloodOxygen" : 88,
+                    "heartRate" : 77,
+                    "manual" : false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BloodOxygenReading"
+                },
+                "examples" : {
+                  "bloodOxygenReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "bloodOxygen" : 95,
+                      "heartRate" : 90,
+                      "manual" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-request-example-device" : "bloodOxygenReadingRequestDeviceExample",
+        "x-request-example-device-identifier" : "bloodOxygenReadingRequestDeviceIdentifierExample",
+        "x-request-example-patient" : "bloodOxygenReadingRequestPatientExample",
+        "x-response-example" : "bloodOxygenReadingResponseExample",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_BloodOxygenReadingRequest"
+        }
       }
     },
     "/api/v3/blood-oxygen-reading/export" : {
@@ -3184,6 +3476,154 @@
           }
         },
         "x-response-example" : "bloodPressureReadingPagedResponseExample"
+      },
+      "post" : {
+        "tags" : [ "Readings - Blood Pressure" ],
+        "description" : "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [BloodPressureReadingRequest Model](/resources/models#schema_BloodPressureReadingRequest).",
+        "operationId" : "recordBloodPressureReading",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BloodPressureReadingRequest"
+              },
+              "examples" : {
+                "device" : {
+                  "value" : {
+                    "deviceId" : 599,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "systolic" : 132,
+                    "diastolic" : 72,
+                    "heartRate" : 78,
+                    "manual" : false
+                  }
+                },
+                "device-identifier" : {
+                  "value" : {
+                    "deviceIdentifier" : "354833969951611",
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "systolic" : 132,
+                    "diastolic" : 72,
+                    "heartRate" : 78,
+                    "manual" : false
+                  }
+                },
+                "patient" : {
+                  "value" : {
+                    "patientId" : 456,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "systolic" : 132,
+                    "diastolic" : 72,
+                    "heartRate" : 78,
+                    "manual" : false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BloodPressureReading"
+                },
+                "examples" : {
+                  "bloodPressureReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "systolic" : 120,
+                      "diastolic" : 80,
+                      "heartRate" : 70,
+                      "manual" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-request-example-device" : "bloodPressureReadingRequestDeviceExample",
+        "x-request-example-device-identifier" : "bloodPressureReadingRequestDeviceIdentifierExample",
+        "x-request-example-patient" : "bloodPressureReadingRequestPatientExample",
+        "x-response-example" : "bloodPressureReadingResponseExample",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_BloodPressureReadingRequest"
+        }
       }
     },
     "/api/v3/blood-pressure-reading/export" : {
@@ -3576,6 +4016,149 @@
           }
         },
         "x-response-example" : "temperatureReadingPagedResponseExample"
+      },
+      "post" : {
+        "tags" : [ "Readings - Temperature" ],
+        "description" : "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [TemperatureReadingRequest Model](/resources/models#schema_TemperatureReadingRequest).",
+        "operationId" : "recordTemperatureReading",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TemperatureReadingRequest"
+              },
+              "examples" : {
+                "device" : {
+                  "value" : {
+                    "deviceId" : 599,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "temperatureUnit" : "F",
+                    "temperature" : 97.2,
+                    "manual" : false
+                  }
+                },
+                "device-identifier" : {
+                  "value" : {
+                    "deviceIdentifier" : "354833969951611",
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "temperatureUnit" : "F",
+                    "temperature" : 97.2,
+                    "manual" : false
+                  }
+                },
+                "patient" : {
+                  "value" : {
+                    "patientId" : 456,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "temperatureUnit" : "F",
+                    "temperature" : 97.2,
+                    "manual" : false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TemperatureReading"
+                },
+                "examples" : {
+                  "temperatureReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "temperatureUnit" : "Fahrenheit",
+                      "temperature" : 98.6,
+                      "readingTimestamp" : "2024-07-04T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-request-example-device" : "temperatureReadingRequestDeviceExample",
+        "x-request-example-device-identifier" : "temperatureReadingRequestDeviceIdentifierExample",
+        "x-request-example-patient" : "temperatureReadingRequestPatientExample",
+        "x-response-example" : "temperatureReadingResponseExample",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TemperatureReadingRequest"
+        }
       }
     },
     "/api/v3/temperature-reading/export" : {
@@ -3967,6 +4550,146 @@
           }
         },
         "x-response-example" : "weightReadingPagedResponseExample"
+      },
+      "post" : {
+        "tags" : [ "Readings - Weight" ],
+        "description" : "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [WeightReadingRequest Model](/resources/models#schema_WeightReadingRequest).",
+        "operationId" : "recordWeightReading",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WeightReadingRequest"
+              },
+              "examples" : {
+                "device" : {
+                  "value" : {
+                    "deviceId" : 599,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "weight" : 140.4,
+                    "manual" : false
+                  }
+                },
+                "device-identifier" : {
+                  "value" : {
+                    "deviceIdentifier" : "354833969951611",
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "weight" : 140.4,
+                    "manual" : false
+                  }
+                },
+                "patient" : {
+                  "value" : {
+                    "patientId" : 456,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "weight" : 140.4,
+                    "manual" : false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WeightReading"
+                },
+                "examples" : {
+                  "weightReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "weight" : 140.4,
+                      "manual" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-request-example-device" : "weightReadingRequestDeviceExample",
+        "x-request-example-device-identifier" : "weightReadingRequestDeviceIdentifierExample",
+        "x-request-example-patient" : "weightReadingRequestPatientExample",
+        "x-response-example" : "weightReadingResponseExample",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_WeightReadingRequest"
+        }
       }
     },
     "/api/v3/weight-reading/export" : {
@@ -4528,6 +5251,50 @@
           }
         }
       },
+      "BloodGlucoseReadingRequest" : {
+        "description" : "This page describes Impilo's blood glucose reading model.",
+        "required" : [ "readingTimestamp", "glucose" ],
+        "type" : "object",
+        "properties" : {
+          "deviceId" : {
+            "format" : "int64",
+            "description" : "The id of the device that took the reading.",
+            "type" : "integer"
+          },
+          "deviceIdentifier" : {
+            "description" : "The device identifier of the device that took the reading.",
+            "type" : "string"
+          },
+          "patientId" : {
+            "format" : "int64",
+            "description" : "The id of the patient that took the reading.",
+            "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "format" : "date-time",
+            "description" : "The timestamp at which the reading was taken.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          },
+          "glucose" : {
+            "format" : "int32",
+            "description" : "The blood glucose measurement value.",
+            "type" : "integer"
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean"
+          },
+          "beforeMeal" : {
+            "description" : "True if the reading was taken before a meal, false otherwise.",
+            "type" : "boolean"
+          },
+          "afterMeal" : {
+            "description" : "True if the reading was taken after a meal, false otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
       "BloodOxygenReading" : {
         "description" : "This page describes Impilo's blood oxygen reading model.",
         "type" : "object",
@@ -4574,6 +5341,47 @@
           },
           "manual" : {
             "description" : "True if the reading value was entered manually, false otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
+      "BloodOxygenReadingRequest" : {
+        "description" : "This page describes Impilo's blood oxygen reading model.",
+        "required" : [ "readingTimestamp", "bloodOxygen", "heartRate" ],
+        "type" : "object",
+        "properties" : {
+          "deviceId" : {
+            "format" : "int64",
+            "description" : "The id of the device that took the reading.",
+            "type" : "integer"
+          },
+          "deviceIdentifier" : {
+            "description" : "The device identifier of the device that took the reading.",
+            "type" : "string"
+          },
+          "patientId" : {
+            "format" : "int64",
+            "description" : "The id of the patient that took the reading.",
+            "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "format" : "date-time",
+            "description" : "The timestamp at which the reading was taken.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          },
+          "bloodOxygen" : {
+            "format" : "int32",
+            "description" : "The blood oxygen (spo2) measurement value.",
+            "type" : "integer"
+          },
+          "heartRate" : {
+            "format" : "int32",
+            "description" : "The heart rate measurement value.",
+            "type" : "integer"
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
             "type" : "boolean"
           }
         }
@@ -4629,6 +5437,52 @@
           },
           "manual" : {
             "description" : "True if the reading value was entered manually, false otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
+      "BloodPressureReadingRequest" : {
+        "description" : "This page describes Impilo's blood pressure reading model.",
+        "required" : [ "readingTimestamp", "systolic", "diastolic" ],
+        "type" : "object",
+        "properties" : {
+          "deviceId" : {
+            "format" : "int64",
+            "description" : "The id of the device that took the reading.",
+            "type" : "integer"
+          },
+          "deviceIdentifier" : {
+            "description" : "The device identifier of the device that took the reading.",
+            "type" : "string"
+          },
+          "patientId" : {
+            "format" : "int64",
+            "description" : "The id of the patient that took the reading.",
+            "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "format" : "date-time",
+            "description" : "The timestamp at which the reading was taken.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          },
+          "systolic" : {
+            "format" : "int32",
+            "description" : "The systolic measurement value.",
+            "type" : "integer"
+          },
+          "diastolic" : {
+            "format" : "int32",
+            "description" : "The diastolic measurement value.",
+            "type" : "integer"
+          },
+          "heartRate" : {
+            "format" : "int32",
+            "description" : "The heart rate measurement value.",
+            "type" : "integer"
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
             "type" : "boolean"
           }
         }
@@ -5900,6 +6754,61 @@
           }
         }
       },
+      "TemperatureReadingRequest" : {
+        "description" : "This page describes Impilo's temperature reading model.",
+        "required" : [ "readingTimestamp", "temperatureUnit", "temperature" ],
+        "type" : "object",
+        "properties" : {
+          "deviceId" : {
+            "format" : "int64",
+            "description" : "The id of the device that took the reading.",
+            "type" : "integer"
+          },
+          "deviceIdentifier" : {
+            "description" : "The device identifier of the device that took the reading.",
+            "type" : "string"
+          },
+          "patientId" : {
+            "format" : "int64",
+            "description" : "The id of the patient that took the reading.",
+            "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "format" : "date-time",
+            "description" : "The timestamp at which the reading was taken.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          },
+          "temperatureUnit" : {
+            "description" : "The unit in which the temperature was measured.",
+            "type" : "string",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/TemperatureUnit"
+            } ]
+          },
+          "temperature" : {
+            "format" : "double",
+            "description" : "The temperature measurement value.",
+            "type" : "number"
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
+      "TemperatureUnit" : {
+        "enum" : [ "C", "F" ],
+        "type" : "string",
+        "x-fern-enum" : {
+          "C" : {
+            "description" : "Temperature unit of measurement is Celsius."
+          },
+          "F" : {
+            "description" : "Temperature unit of measurement is Fahrenheit."
+          }
+        }
+      },
       "TestBloodGlucoseWebhookRequest" : {
         "description" : "Request model for testing blood glucose webhook.",
         "type" : "object",
@@ -6290,6 +7199,43 @@
           },
           "manual" : {
             "description" : "True if the reading value was entered manually, false otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
+      "WeightReadingRequest" : {
+        "description" : "This page describes Impilo's weight reading model.",
+        "required" : [ "readingTimestamp", "weight" ],
+        "type" : "object",
+        "properties" : {
+          "deviceId" : {
+            "format" : "int64",
+            "description" : "The id of the device that took the reading.",
+            "type" : "integer"
+          },
+          "deviceIdentifier" : {
+            "description" : "The device identifier of the device that took the reading.",
+            "type" : "string"
+          },
+          "patientId" : {
+            "format" : "int64",
+            "description" : "The id of the patient that took the reading.",
+            "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "format" : "date-time",
+            "description" : "The timestamp at which the reading was taken.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          },
+          "weight" : {
+            "format" : "double",
+            "description" : "The weight reading in lbs.",
+            "minimum" : 0,
+            "type" : "number"
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
             "type" : "boolean"
           }
         }
