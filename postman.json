@@ -14,7 +14,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/procurement",
-                "description": "Creates a new procurement with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
+                "description": "Creates a new procurement with the provided details. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
                  "item": [
                             {
                                 "name": "createProcurementRequest",
@@ -58,14 +58,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a new procurement with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
+                                    "description": "Creates a new procurement with the provided details. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/procurement/receipt",
-                "description": "Creates a new procurement shipping receipt with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
+                "description": "Creates a new procurement shipping receipt with the provided details. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
                  "item": [
                             {
                                 "name": "createShippingNotice",
@@ -110,7 +110,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a new procurement shipping receipt with the provided details.  Returns a 201 Created. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
+                                    "description": "Creates a new procurement shipping receipt with the provided details. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
                                 }
                             }
                             ]

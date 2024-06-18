@@ -1424,7 +1424,7 @@
     "/api/v3/procurement" : {
       "post" : {
         "tags" : [ "Procurements" ],
-        "description" : "Creates a new procurement with the provided details.\n\nReturns a 201 Created.\n***\nFor more information see the [Procurement Model](/resources/models#schema_Procurement).",
+        "description" : "Creates a new procurement with the provided details.\n***\nFor more information see the [Procurement Model](/resources/models#schema_Procurement).",
         "operationId" : "createProcurementRequest",
         "requestBody" : {
           "content" : {
@@ -1436,8 +1436,8 @@
           }
         },
         "responses" : {
-          "200" : {
-            "description" : "OK",
+          "201" : {
+            "description" : "Created",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1456,7 +1456,7 @@
     "/api/v3/procurement/receipt" : {
       "post" : {
         "tags" : [ "Procurements" ],
-        "description" : "Creates a new procurement shipping receipt with the provided details.\n\nReturns a 201 Created.\n***\nFor more information see the [Procurement Model](/resources/models#schema_Procurement).",
+        "description" : "Creates a new procurement shipping receipt with the provided details.\n***\nFor more information see the [Procurement Model](/resources/models#schema_Procurement).",
         "operationId" : "createShippingNotice",
         "requestBody" : {
           "content" : {
@@ -1468,8 +1468,8 @@
           }
         },
         "responses" : {
-          "200" : {
-            "description" : "OK",
+          "201" : {
+            "description" : "Created",
             "content" : {
               "application/json" : {
                 "schema" : {
