@@ -12,6 +12,7 @@ security:
 - ApiKeyAuth: []
 tags:
 - name: "Devices"
+- name: "Inventory"
 - name: "Items"
 - name: "Kits"
 - name: "Manufacturers"
@@ -19,6 +20,7 @@ tags:
 - name: "Patients"
 - name: "Procurements"
 - name: "Sites"
+- name: "Transfers"
 - name: "Webhooks"
 - name: "Readings - Blood Glucose"
 - name: "Readings - Blood Oxygen"
@@ -31,34 +33,137 @@ paths:
     get:
       tags:
       - "Devices"
-      description: "This endpoint returns a paginated list of all devices associated\
-        \ with the customer.\n\nYou can filter by the following parameters as query\
-        \ params:\n- page (integer) -- The page number of the content returned.\n\
-        - size (integer) -- The size of the page of content returned.\n- itemId (long)\
-        \ -- Lists only devices with the provided Item ID type.\n- manufacturerId\
-        \ (long) -- Lists only devices created by the Manufacturer ID provided.\n"
+      description: "Returns a paginated list of all devices associated with the customer."
       operationId: "listDevices"
       parameters:
       - name: "page"
         in: "query"
+        description: "The page number of the content returned."
         schema:
           format: "int32"
           type: "integer"
       - name: "size"
         in: "query"
+        description: "The size of the page of content returned."
         schema:
           format: "int32"
           type: "integer"
+      - name: "sort"
+        in: "query"
+        description: "The attribute to sort on"
+        schema:
+          $ref: "#/components/schemas/DeviceSort"
+      - name: "sortDescending"
+        in: "query"
+        description: "True if the sort direction should be descending"
+        schema:
+          type: "boolean"
+      - name: "id"
+        in: "query"
+        description: "Lists only devices with the IDs provided."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "externalIdentifier"
+        in: "query"
+        description: "Lists only devices with the external IDs provided."
+        schema:
+          type: "array"
+          items:
+            type: "string"
+      - name: "identifierType"
+        in: "query"
+        description: "The device identifier type of the devices."
+        schema:
+          $ref: "#/components/schemas/DeviceIdentifierType"
+      - name: "identifier"
+        in: "query"
+        description: "Lists only devices with the device identifiers provided."
+        schema:
+          type: "array"
+          items:
+            type: "string"
+      - name: "status"
+        in: "query"
+        description: "The status of the devices."
+        schema:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/DeviceStatus"
       - name: "itemId"
         in: "query"
+        description: "Lists only devices with the provided Item ID type."
         schema:
-          format: "int64"
-          type: "integer"
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "itemName"
+        in: "query"
+        description: "The name of the item."
+        schema:
+          type: "string"
+      - name: "itemModel"
+        in: "query"
+        description: "The model of the item."
+        schema:
+          type: "string"
+      - name: "itemSku"
+        in: "query"
+        description: "The SKU of the item."
+        schema:
+          type: "string"
       - name: "manufacturerId"
         in: "query"
+        description: "Lists only devices created by the Manufacturer ID provided."
         schema:
-          format: "int64"
-          type: "integer"
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "siteId"
+        in: "query"
+        description: "The ID of the site."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "patientId"
+        in: "query"
+        description: "The ID of the patient."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "patientExternalIdentifier"
+        in: "query"
+        description: "The external identifier of the patient."
+        schema:
+          type: "array"
+          items:
+            type: "string"
+      - name: "patientEmail"
+        in: "query"
+        description: "The email of the patient."
+        schema:
+          type: "string"
+      - name: "patientName"
+        in: "query"
+        description: "The name of the patient."
+        schema:
+          type: "string"
+      - name: "patientSite"
+        in: "query"
+        description: "The ID of the patient site."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
       responses:
         "200":
           description: "OK"
@@ -362,6 +467,108 @@ paths:
                       value: "f51da43314fc"
                     disabledReadings: false
       x-response-example: "ApiV3ControllerExamples.device"
+  /api/v3/inventory:
+    get:
+      tags:
+      - "Inventory"
+      description: "Returns a paginated list that sums up all Used and New inventory\
+        \ across\nall sites associated with a Customer, such as Impilo PHL, Impilo\
+        \ PHX, and all\nCustomer sites with Inventory.\n"
+      operationId: "listInventorySummary"
+      parameters:
+      - name: "itemId"
+        in: "query"
+        schema:
+          format: "int64"
+          type: "integer"
+      - name: "page"
+        in: "query"
+        schema:
+          format: "int32"
+          default: "1"
+          type: "integer"
+      - name: "size"
+        in: "query"
+        schema:
+          format: "int32"
+          default: "15"
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PageInventorySummaryRecord"
+  /api/v3/inventory/impilo:
+    get:
+      tags:
+      - "Inventory"
+      description: "Returns a paginated list of a Customer's inventory by Item type\n\
+        across each of the Sites that there is inventory held.\n"
+      operationId: "listImpiloInventory"
+      parameters:
+      - name: "itemId"
+        in: "query"
+        schema:
+          format: "int64"
+          type: "integer"
+      - name: "page"
+        in: "query"
+        schema:
+          format: "int32"
+          default: "1"
+          type: "integer"
+      - name: "size"
+        in: "query"
+        schema:
+          format: "int32"
+          default: "15"
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PageInventoryRecord"
+  /api/v3/inventory/site:
+    get:
+      tags:
+      - "Inventory"
+      description: "Returns a paginated list of a Customer's inventory by Item type\n\
+        across each of the Sites that there is inventory held.\n"
+      operationId: "listSiteInventory"
+      parameters:
+      - name: "itemId"
+        in: "query"
+        schema:
+          format: "int64"
+          type: "integer"
+      - name: "siteId"
+        in: "query"
+        schema:
+          format: "int64"
+          type: "integer"
+      - name: "page"
+        in: "query"
+        schema:
+          format: "int32"
+          default: "1"
+          type: "integer"
+      - name: "size"
+        in: "query"
+        schema:
+          format: "int32"
+          default: "15"
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PageInventoryRecord"
   /api/v3/item:
     get:
       tags:
@@ -419,6 +626,23 @@ paths:
                     first: true
                     last: false
       x-response-example: "listItemsResponseExample"
+    post:
+      tags:
+      - "Items"
+      description: "This endpoint creates a new Item in the Impilo platform, assigning\
+        \ it a unique SKU identifier.\n\nTo create an item, include an ItemRequest\
+        \ object in the body of the request.\n\nItems created with this endpoint are\
+        \ not able to be ordered until approved manually by an Impilo Admin. Items\n\
+        can still be procured and received within Impilo's system without being orderable,\
+        \ though.\n"
+      operationId: "createItem"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Item"
   /api/v3/item/{itemId}:
     get:
       tags:
@@ -1137,6 +1361,61 @@ paths:
                 type: "integer"
       externalDocs:
         url: "https://docs.impiloplatform.com/resources/models#schema_Procurement"
+  /api/v3/procurement/{procId}/upload:
+    get:
+      tags:
+      - "Procurements"
+      description: "Fetches the uploaded file from the provided Procurement ID, if\
+        \ exists.\n"
+      operationId: "fetchProcurementDocument"
+      parameters:
+      - name: "procId"
+        in: "path"
+        required: true
+        schema:
+          format: "int64"
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                format: "binary"
+                type: "string"
+    post:
+      tags:
+      - "Procurements"
+      description: "Uploads a file to the provided Procurement ID and makes accessible\
+        \ to the Impilo Warehouse team for viewing.\n\nContent-Type must be set to\
+        \ form-data, with a parameter of 'file' containing the CSV.\n"
+      operationId: "uploadProcurementDocument"
+      parameters:
+      - name: "procId"
+        in: "path"
+        required: true
+        schema:
+          format: "int64"
+          type: "integer"
+      responses:
+        "201":
+          description: "Created"
+    delete:
+      tags:
+      - "Procurements"
+      description: "Deletes the uploaded file from the provided Procurement ID, if\
+        \ exists.\n"
+      operationId: "deleteProcurementDocument"
+      parameters:
+      - name: "procId"
+        in: "path"
+        required: true
+        schema:
+          format: "int64"
+          type: "integer"
+      responses:
+        "204":
+          description: "No Content"
   /api/v3/site:
     get:
       tags:
@@ -1351,6 +1630,124 @@ paths:
       x-response-example: "ApiV3ControllerExamples.site"
       externalDocs:
         url: "https://docs.impiloplatform.com/resources/models#schema_Site"
+  /api/v3/transfer/device-transfer-request:
+    post:
+      tags:
+      - "Transfers"
+      description: "Creates a Device Transfer Request, which specifies specific Device\
+        \ Identifiers (such as\nSerial Numbers, IMEIs, etc) to transfer from the Requesting\
+        \ customer-manufacturer to another\nCustomer account.\n\nTo complete the transfer\
+        \ request, the following must be true:\n- The Customer account must be designated\
+        \ as a Manufacturer\n- The Customer ID provided must be associated with the\
+        \ Customer-Manufacturer making the request\n- The deviceIdentifiers parameter\
+        \ must be a non-empty List of strings\n- All devices listed via the deviceIdentifiers\
+        \ parameter must belong to the requesting Customer-Manufacturer\n- The Devices\
+        \ listed via the deviceIdentifiers parameter must be in Available or Available\
+        \ - Repacked status\n- Devices must not have a Patient assigned to them.\n"
+      operationId: "createDeviceTransferRequest"
+      responses:
+        "201":
+          description: "Created"
+      x-request-example: "createDeviceTransferRequestExample"
+  /api/v3/transfer/item-transfer-request:
+    post:
+      tags:
+      - "Transfers"
+      description: "Creates an Item Transfer Request, which lists general Items and\
+        \ Quantities to transfer from a\nCustomer-Manufacturer account to another\
+        \ Customer account.\n\nTo complete the transfer request, the following must\
+        \ be true:\n- The Customer account must be designated as a Manufacturer\n\
+        - The Customer ID provided must be associated with the Customer-Manufacturer\
+        \ making the request\n- The transfers parameter must be a non-empty list of\
+        \ ItemTransfer objects\n- Each ItemTransfer's item parameter must include\
+        \ an ID for the Item to be transferred\n- Each itemTransfer's item parameter\
+        \ must be in both the Requesting AND Receiving customer catalogs\n- Each ItemTransfer's\
+        \ quantity parameter must be an integer value greater than 0\n\nThe only requirement\
+        \ for the ItemTransfer's item parameter is a JSON object that includes an\
+        \ ID of the Item requested.\n"
+      operationId: "createItemTransferRequest"
+      responses:
+        "201":
+          description: "Created"
+      x-request-example: "createItemTransferRequestExample"
+  /api/v3/transfer/transfer-request:
+    get:
+      tags:
+      - "Transfers"
+      description: "Retrieves a paginated list of Transfer Requests from the Impilo\
+        \ platform.\n\nOptional parameters can be used to filter the results by:\n\
+        \ - page: selects a page number\n - size: sets the page size. Max value of\
+        \ 100 allowed."
+      operationId: "listTransferRequests"
+      parameters:
+      - name: "page"
+        in: "query"
+        schema:
+          format: "int32"
+          default: "1"
+          type: "integer"
+      - name: "size"
+        in: "query"
+        schema:
+          format: "int32"
+          default: "15"
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PageTransferRequest"
+  /api/v3/transfer/transfer-request/{id}:
+    get:
+      tags:
+      - "Transfers"
+      description: "Fetches a Transfer Request by ID from the Impilo platform.\n"
+      operationId: "fetchTransferRequestById"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          format: "int64"
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/TransferRequest"
+              examples:
+                responseFetchTransferRequest:
+                  value:
+                    id: 123
+                    fromCustomer:
+                      id: 1
+                      name: "Customer 1"
+                    toCustomer:
+                      id: 2
+                      name: "Customer 2"
+                    currentStatus: "requested"
+                    createdAt: "2024-06-24T22:40:06.155800200Z"
+                    transferRequestNotes:
+                    - note: "Note Text Here"
+                      createdAt: "2024-06-24T22:40:06.158304200Z"
+                    transferRequestEvents:
+                    - eventTimestamp: "2024-06-24T22:40:06.157797100Z"
+                      name: "requested"
+                    requestedEntries:
+                    - item:
+                        id: 456
+                        manufacturer:
+                          id: 10
+                          name: "Manufacturer 10"
+                        name: "Blood Pressure Monitor"
+                        model: "Model ABC"
+                        sku: "000000456"
+                      quantity: 5
+      x-response-example: "responseFetchTransferRequest"
   /api/v3/webhook:
     get:
       tags:
@@ -4338,6 +4735,14 @@ components:
           type: "object"
           allOf:
           - $ref: "#/components/schemas/BloodPressureReading"
+    Customer:
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          type: "integer"
+        name:
+          type: "string"
     Device:
       description: "A device is an instance of an item. Impilo creates device records\
         \ for items that are serialized, i.e., items where each individual unit is\
@@ -4444,6 +4849,14 @@ components:
         value:
           description: "The value of the Device Identifier, based on it's type."
           type: "string"
+    DeviceIdentifierType:
+      enum:
+      - "simCardNumber"
+      - "macAddress"
+      - "iccid"
+      - "serial"
+      - "imei"
+      type: "string"
     DeviceReferenceRequest:
       description: "A request to reference a device by either its ID or Identifier."
       type: "object"
@@ -4459,10 +4872,84 @@ components:
             \ this value or a Device Id are required to identify the Device."
           type: "string"
           example: "ABC123"
+    DeviceSort:
+      enum:
+      - "itemName"
+      - "itemModel"
+      - "itemSku"
+      - "deviceId"
+      type: "string"
+    DeviceStatus:
+      enum:
+      - "initiated"
+      - "awaitingShipment"
+      - "available"
+      - "withPatient"
+      - "availableAtSite"
+      - "delivered"
+      - "used"
+      - "refurbishing"
+      - "decommissioned"
+      - "shipped"
+      - "availableRepacked"
+      - "returnedManufacturer"
+      - "packed"
+      type: "string"
+      x-fern-enum:
+        initiated:
+          description: "Device initialization has been initiated."
+        awaitingShipment:
+          description: "Device is awaiting shipment."
+        available:
+          description: "Device is available for use."
+        withPatient:
+          description: "Device is currently with a patient."
+        availableAtSite:
+          description: "Device is available at a site."
+        delivered:
+          description: "Device has been delivered."
+        used:
+          description: "Device is currently in use."
+        refurbishing:
+          description: "Device is being refurbished."
+        decommissioned:
+          description: "Device has been decommissioned."
+        shipped:
+          description: "Device has been shipped."
+        availableRepacked:
+          description: "Device is available and repacked."
+        returnedManufacturer:
+          description: "Device has been returned to the manufacturer."
+        packed:
+          description: "Device is packed and ready for shipment or use."
     Instant:
       format: "date-time"
       type: "string"
       example: "2022-03-10T16:15:50Z"
+    InventoryRecord:
+      type: "object"
+      properties:
+        item:
+          $ref: "#/components/schemas/Item"
+        newCount:
+          format: "int32"
+          type: "integer"
+        usedCount:
+          format: "int32"
+          type: "integer"
+        site:
+          $ref: "#/components/schemas/Site"
+    InventorySummaryRecord:
+      type: "object"
+      properties:
+        item:
+          $ref: "#/components/schemas/Item"
+        newCount:
+          format: "int32"
+          type: "integer"
+        usedCount:
+          format: "int32"
+          type: "integer"
     Item:
       description: "An item is any of the supplies handled by Impilo. Examples include\
         \ medical devices like a blood pressure monitor or weight scale, but the term\
@@ -4491,6 +4978,27 @@ components:
           type: "string"
         sku:
           description: "The Impilo-assigned SKU for this item."
+          type: "string"
+        orderable:
+          description: "Whether an Item is able to be ordered."
+          type: "boolean"
+    ItemRequest:
+      description: "An ItemRequest object consists of a name (required), a model,\
+        \ and (if applicable) a deviceIdentifierType that is being requested to be\
+        \ created by a Manufacturer.\n\nDevice Identifier Types must match one of\
+        \ the following:\n- serial\n- imei\n- simCardNumber\n- macAddress\n- iccid\n"
+      type: "object"
+      properties:
+        name:
+          description: "The name for this item."
+          type: "string"
+        model:
+          description: "The manufacturer-assigned model for this item."
+          type: "string"
+        deviceIdentifierType:
+          description: "The device identifier type for this item. Can be options such\
+            \ as:\n    - serial\n    - imei\n    - simCardNumber\n    - macAddress\n\
+            \    - iccid\n"
           type: "string"
     Kit:
       description: "A kit is a named collection of items that can be ordered as one\
@@ -4838,6 +5346,72 @@ components:
         last:
           description: "True if this is the last page, false otherwise."
           type: "boolean"
+    PageInventoryRecord:
+      description: "Pagination is supported whenever an API response returns a list\
+        \ of objects. In paginated responses, objects are nested in a content attribute\
+        \ and have first and last attributes indicating whether you are on the first\
+        \ or last page, respectively. Additionally, the pagination response includes\
+        \ a page attribute indicating the current page number, a size attribute indicating\
+        \ the current page size, and a total attribute indicating the number of objects\
+        \ matching the request."
+      type: "object"
+      properties:
+        content:
+          description: "The content of the page, consisting of a list of objects."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/InventoryRecord"
+        page:
+          format: "int32"
+          description: "The current page number. The first page has value 1."
+          type: "integer"
+        size:
+          format: "int32"
+          description: "The current page size. Default 15, maximum 250."
+          type: "integer"
+        total:
+          format: "int32"
+          description: "The number of objects matching the request."
+          type: "integer"
+        first:
+          description: "True if this is the first page, false otherwise."
+          type: "boolean"
+        last:
+          description: "True if this is the last page, false otherwise."
+          type: "boolean"
+    PageInventorySummaryRecord:
+      description: "Pagination is supported whenever an API response returns a list\
+        \ of objects. In paginated responses, objects are nested in a content attribute\
+        \ and have first and last attributes indicating whether you are on the first\
+        \ or last page, respectively. Additionally, the pagination response includes\
+        \ a page attribute indicating the current page number, a size attribute indicating\
+        \ the current page size, and a total attribute indicating the number of objects\
+        \ matching the request."
+      type: "object"
+      properties:
+        content:
+          description: "The content of the page, consisting of a list of objects."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/InventorySummaryRecord"
+        page:
+          format: "int32"
+          description: "The current page number. The first page has value 1."
+          type: "integer"
+        size:
+          format: "int32"
+          description: "The current page size. Default 15, maximum 250."
+          type: "integer"
+        total:
+          format: "int32"
+          description: "The number of objects matching the request."
+          type: "integer"
+        first:
+          description: "True if this is the first page, false otherwise."
+          type: "boolean"
+        last:
+          description: "True if this is the last page, false otherwise."
+          type: "boolean"
     PageItem:
       description: "Pagination is supported whenever an API response returns a list\
         \ of objects. In paginated responses, objects are nested in a content attribute\
@@ -5051,6 +5625,39 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/TemperatureReading"
+        page:
+          format: "int32"
+          description: "The current page number. The first page has value 1."
+          type: "integer"
+        size:
+          format: "int32"
+          description: "The current page size. Default 15, maximum 250."
+          type: "integer"
+        total:
+          format: "int32"
+          description: "The number of objects matching the request."
+          type: "integer"
+        first:
+          description: "True if this is the first page, false otherwise."
+          type: "boolean"
+        last:
+          description: "True if this is the last page, false otherwise."
+          type: "boolean"
+    PageTransferRequest:
+      description: "Pagination is supported whenever an API response returns a list\
+        \ of objects. In paginated responses, objects are nested in a content attribute\
+        \ and have first and last attributes indicating whether you are on the first\
+        \ or last page, respectively. Additionally, the pagination response includes\
+        \ a page attribute indicating the current page number, a size attribute indicating\
+        \ the current page size, and a total attribute indicating the number of objects\
+        \ matching the request."
+      type: "object"
+      properties:
+        content:
+          description: "The content of the page, consisting of a list of objects."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/TransferRequest"
         page:
           format: "int32"
           description: "The current page number. The first page has value 1."
@@ -5578,6 +6185,84 @@ components:
           type: "string"
         value:
           description: "The tracking number value."
+          type: "string"
+    TransferRequest:
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "Unique identifier for the TransferRequest."
+          type: "integer"
+        fromCustomer:
+          description: "Customer from which the Inventory will be transferred away\
+            \ from. Typically auto-set to the caller of the TransferRequest endpoints."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Customer"
+        toCustomer:
+          description: "The target Customer to send the requested Inventory to."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Customer"
+        currentStatus:
+          description: "The current status of the Transfer Request."
+          type: "string"
+        createdAt:
+          description: "The timestamp when the Transfer Request was first created."
+          type: "string"
+        transferRequestNotes:
+          description: "Notes attached to this Transfer Request."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/TransferRequestNote"
+        transferRequestEvents:
+          description: "The sequence of events that this Transfer Request has undergone.\
+            \ Sorted most recent event first."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/TransferRequestEvent"
+        requestedEntries:
+          description: "The Inventory that's being requested to transfer. Can consist\
+            \ of a Device, or a combination of an Item and a Quantity."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/TransferRequestEntry"
+    TransferRequestEntry:
+      type: "object"
+      properties:
+        device:
+          description: "The Device being requested to transfer to the target customer."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Device"
+        item:
+          description: "The Item type that's being requested to transfer to the target\
+            \ customer. Used in conjunction with the quantity parameter."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Item"
+        quantity:
+          format: "int32"
+          description: "The quantity of Item types to transfer to the target customer.\
+            \ Used in conjunction with the item parameter."
+          type: "integer"
+    TransferRequestEvent:
+      type: "object"
+      properties:
+        eventTimestamp:
+          description: "The timestamp when this event took place."
+          type: "string"
+        name:
+          description: "The name of the event that took place."
+          type: "string"
+    TransferRequestNote:
+      type: "object"
+      properties:
+        note:
+          description: "The note that is linked to a Transfer Request."
+          type: "string"
+        createdAt:
+          description: "The timestamp when the note was created."
           type: "string"
     ValidateDeviceResponse:
       type: "object"
