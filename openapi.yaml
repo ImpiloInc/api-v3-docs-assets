@@ -58,7 +58,7 @@ paths:
         description: "True if the sort direction should be descending"
         schema:
           type: "boolean"
-      - name: "ids"
+      - name: "id"
         in: "query"
         description: "Lists only devices with the IDs provided."
         schema:
@@ -66,7 +66,7 @@ paths:
           items:
             format: "int64"
             type: "integer"
-      - name: "externalIdentifiers"
+      - name: "externalIdentifier"
         in: "query"
         description: "Lists only devices with the external IDs provided."
         schema:
@@ -78,21 +78,21 @@ paths:
         description: "The device identifier type of the devices."
         schema:
           $ref: "#/components/schemas/DeviceIdentifierType"
-      - name: "identifiers"
+      - name: "identifier"
         in: "query"
         description: "Lists only devices with the device identifiers provided."
         schema:
           type: "array"
           items:
             type: "string"
-      - name: "statuses"
+      - name: "status"
         in: "query"
         description: "The status of the devices."
         schema:
           type: "array"
           items:
             $ref: "#/components/schemas/DeviceStatus"
-      - name: "itemIds"
+      - name: "itemId"
         in: "query"
         description: "Lists only devices with the provided Item ID type."
         schema:
@@ -115,7 +115,7 @@ paths:
         description: "The SKU of the item."
         schema:
           type: "string"
-      - name: "itemManufacturerIds"
+      - name: "manufacturerId"
         in: "query"
         description: "Lists only devices created by the Manufacturer ID provided."
         schema:
@@ -123,7 +123,7 @@ paths:
           items:
             format: "int64"
             type: "integer"
-      - name: "siteIds"
+      - name: "siteId"
         in: "query"
         description: "The ID of the site."
         schema:
@@ -131,7 +131,7 @@ paths:
           items:
             format: "int64"
             type: "integer"
-      - name: "patientIds"
+      - name: "patientId"
         in: "query"
         description: "The ID of the patient."
         schema:
@@ -139,7 +139,7 @@ paths:
           items:
             format: "int64"
             type: "integer"
-      - name: "patientExternalIdentifiers"
+      - name: "patientExternalIdentifier"
         in: "query"
         description: "The external identifier of the patient."
         schema:
@@ -156,7 +156,7 @@ paths:
         description: "The name of the patient."
         schema:
           type: "string"
-      - name: "patientSiteIds"
+      - name: "patientSite"
         in: "query"
         description: "The ID of the patient site."
         schema:
@@ -472,8 +472,8 @@ paths:
       tags:
       - "Inventory"
       description: "Returns a paginated list that sums up all Used and New inventory\
-        \ across\nall Impilo locations.\n\nFilterable by:\n- itemId: <long> The ID\
-        \ of the Item type to display\n"
+        \ across\nall sites associated with a Customer, such as Impilo PHL, Impilo\
+        \ PHX, and all\nCustomer sites with Inventory.\n"
       operationId: "listInventorySummary"
       parameters:
       - name: "itemId"
@@ -505,8 +505,7 @@ paths:
       tags:
       - "Inventory"
       description: "Returns a paginated list of a Customer's inventory by Item type\n\
-        across each of the Sites that there is inventory held.\n\nFilterable by:\n\
-        - itemId: <long> The ID of the Item type to display\n"
+        across each of the Sites that there is inventory held.\n"
       operationId: "listImpiloInventory"
       parameters:
       - name: "itemId"
@@ -1731,12 +1730,12 @@ paths:
                       id: 2
                       name: "Customer 2"
                     currentStatus: "requested"
-                    createdAt: "2024-06-24T22:15:04.771265800Z"
+                    createdAt: "2024-06-24T22:40:06.155800200Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-06-24T22:15:04.774248400Z"
+                      createdAt: "2024-06-24T22:40:06.158304200Z"
                     transferRequestEvents:
-                    - eventTimestamp: "2024-06-24T22:15:04.773248700Z"
+                    - eventTimestamp: "2024-06-24T22:40:06.157797100Z"
                       name: "requested"
                     requestedEntries:
                     - item:
