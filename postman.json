@@ -64,6 +64,150 @@
                             ]
                         },
 	                        {
+    "name": "/api/v3/procurement/:procId/upload",
+                "description": "Deletes the uploaded file from the provided Procurement ID, if exists. ",
+                 "item": [
+                            {
+                                "name": "deleteProcurementDocument",
+                                "request": {
+                                    "method": "DELETE",
+                                    "header": [
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/procurement/:procId/upload",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "procurement",
+                                            ":procId",
+                                            "upload"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "procId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Deletes the uploaded file from the provided Procurement ID, if exists. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/procurement/:procId/upload",
+                "description": "Fetches the uploaded file from the provided Procurement ID, if exists. ",
+                 "item": [
+                            {
+                                "name": "fetchProcurementDocument",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "*/*",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/procurement/:procId/upload",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "procurement",
+                                            ":procId",
+                                            "upload"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "procId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Fetches the uploaded file from the provided Procurement ID, if exists. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/procurement/:procId/upload",
+                "description": "Uploads a file to the provided Procurement ID and makes accessible to the Impilo Warehouse team for viewing.  Content-Type must be set to form-data, with a parameter of 'file' containing the CSV. ",
+                 "item": [
+                            {
+                                "name": "uploadProcurementDocument",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/procurement/:procId/upload",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "procurement",
+                                            ":procId",
+                                            "upload"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "procId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Uploads a file to the provided Procurement ID and makes accessible to the Impilo Warehouse team for viewing.  Content-Type must be set to form-data, with a parameter of 'file' containing the CSV. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
     "name": "/api/v3/procurement/receipt",
                 "description": "Creates a new procurement shipping receipt with the provided details. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
                  "item": [
@@ -1932,7 +2076,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/device",
-                "description": "This endpoint returns a paginated list of all devices associated with the customer.  You can filter by the following parameters as query params: - page (integer) -- The page number of the content returned. - size (integer) -- The size of the page of content returned. - itemId (long) -- Lists only devices with the provided Item ID type. - manufacturerId (long) -- Lists only devices created by the Manufacturer ID provided. ",
+                "description": "Returns a paginated list of all devices associated with the customer.",
                  "item": [
                             {
                                 "name": "listDevices",
@@ -1971,30 +2115,126 @@
                                             {
                                                 "key": "page",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The page number of the content returned.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "size",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The size of the page of content returned.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "itemId",
-                                                "value": "789",
-                                                "description": "",
+                                                "key": "sort",
+                                                "value": "",
+                                                "description": "The attribute to sort on",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "manufacturerId",
-                                                "value": "789",
-                                                "description": "",
+                                                "key": "sortDescending",
+                                                "value": "true",
+                                                "description": "True if the sort direction should be descending",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "ids",
+                                                "value": "",
+                                                "description": "Lists only devices with the IDs provided.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "externalIdentifiers",
+                                                "value": "",
+                                                "description": "Lists only devices with the external IDs provided.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "identifierType",
+                                                "value": "",
+                                                "description": "The device identifier type of the devices.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "identifiers",
+                                                "value": "",
+                                                "description": "Lists only devices with the device identifiers provided.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "statuses",
+                                                "value": "",
+                                                "description": "The status of the devices.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "itemIds",
+                                                "value": "",
+                                                "description": "Lists only devices with the provided Item ID type.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "itemName",
+                                                "value": "itemName_example",
+                                                "description": "The name of the item.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "itemModel",
+                                                "value": "itemModel_example",
+                                                "description": "The model of the item.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "itemSku",
+                                                "value": "itemSku_example",
+                                                "description": "The SKU of the item.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "itemManufacturerIds",
+                                                "value": "",
+                                                "description": "Lists only devices created by the Manufacturer ID provided.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "siteIds",
+                                                "value": "",
+                                                "description": "The ID of the site.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientIds",
+                                                "value": "",
+                                                "description": "The ID of the patient.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientExternalIdentifiers",
+                                                "value": "",
+                                                "description": "The external identifier of the patient.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientEmail",
+                                                "value": "patientEmail_example",
+                                                "description": "The email of the patient.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientName",
+                                                "value": "patientName_example",
+                                                "description": "The name of the patient.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientSiteIds",
+                                                "value": "",
+                                                "description": "The ID of the patient site.",
                                                 "disabled": true
                                             }
                                         ]
                                     },
-                                    "description": "This endpoint returns a paginated list of all devices associated with the customer.  You can filter by the following parameters as query params: - page (integer) -- The page number of the content returned. - size (integer) -- The size of the page of content returned. - itemId (long) -- Lists only devices with the provided Item ID type. - manufacturerId (long) -- Lists only devices created by the Manufacturer ID provided. "
+                                    "description": "Returns a paginated list of all devices associated with the customer."
                                 }
                             }
                             ]
@@ -3663,6 +3903,201 @@
 	                    ]
 	        },
 	        {
+	            "name": "Transfers",
+	            "item": [
+	                        {
+    "name": "/api/v3/transfer/device-transfer-request",
+                "description": "Creates a Device Transfer Request, which specifies specific Device Identifiers (such as Serial Numbers, IMEIs, etc) to transfer from the Requesting customer-manufacturer to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The deviceIdentifiers parameter must be a non-empty List of strings - All devices listed via the deviceIdentifiers parameter must belong to the requesting Customer-Manufacturer - The Devices listed via the deviceIdentifiers parameter must be in Available or Available - Repacked status - Devices must not have a Patient assigned to them. ",
+                 "item": [
+                            {
+                                "name": "createDeviceTransferRequest",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/transfer/device-transfer-request",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "transfer",
+                                            "device-transfer-request"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Creates a Device Transfer Request, which specifies specific Device Identifiers (such as Serial Numbers, IMEIs, etc) to transfer from the Requesting customer-manufacturer to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The deviceIdentifiers parameter must be a non-empty List of strings - All devices listed via the deviceIdentifiers parameter must belong to the requesting Customer-Manufacturer - The Devices listed via the deviceIdentifiers parameter must be in Available or Available - Repacked status - Devices must not have a Patient assigned to them. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/transfer/item-transfer-request",
+                "description": "Creates an Item Transfer Request, which lists general Items and Quantities to transfer from a Customer-Manufacturer account to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The transfers parameter must be a non-empty list of ItemTransfer objects - Each ItemTransfer's item parameter must include an ID for the Item to be transferred - Each itemTransfer's item parameter must be in both the Requesting AND Receiving customer catalogs - Each ItemTransfer's quantity parameter must be an integer value greater than 0  The only requirement for the ItemTransfer's item parameter is a JSON object that includes an ID of the Item requested. ",
+                 "item": [
+                            {
+                                "name": "createItemTransferRequest",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/transfer/item-transfer-request",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "transfer",
+                                            "item-transfer-request"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Creates an Item Transfer Request, which lists general Items and Quantities to transfer from a Customer-Manufacturer account to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The transfers parameter must be a non-empty list of ItemTransfer objects - Each ItemTransfer's item parameter must include an ID for the Item to be transferred - Each itemTransfer's item parameter must be in both the Requesting AND Receiving customer catalogs - Each ItemTransfer's quantity parameter must be an integer value greater than 0  The only requirement for the ItemTransfer's item parameter is a JSON object that includes an ID of the Item requested. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/transfer/transfer-request",
+                "description": "Retrieves a paginated list of Transfer Requests from the Impilo platform.  Optional parameters can be used to filter the results by:  - page: selects a page number  - size: sets the page size. Max value of 100 allowed.",
+                 "item": [
+                            {
+                                "name": "listTransferRequests",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "*/*",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/transfer/transfer-request",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "transfer",
+                                            "transfer-request"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Retrieves a paginated list of Transfer Requests from the Impilo platform.  Optional parameters can be used to filter the results by:  - page: selects a page number  - size: sets the page size. Max value of 100 allowed."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/transfer/transfer-request/:id",
+                "description": "Fetches a Transfer Request by ID from the Impilo platform. ",
+                 "item": [
+                            {
+                                "name": "fetchTransferRequestById",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "*/*",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/transfer/transfer-request/:id",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "transfer",
+                                            "transfer-request",
+                                            ":id"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Fetches a Transfer Request by ID from the Impilo platform. "
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
 	            "name": "Webhooks",
 	            "item": [
 	                        {
@@ -4225,6 +4660,51 @@
 	            "item": [
 	                        {
     "name": "/api/v3/item",
+                "description": "This endpoint creates a new Item in the Impilo platform, assigning it a unique SKU identifier.  To create an item, include an ItemRequest object in the body of the request.  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system without being orderable, though. ",
+                 "item": [
+                            {
+                                "name": "createItem",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "*/*",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/item",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "item"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "This endpoint creates a new Item in the Impilo platform, assigning it a unique SKU identifier.  To create an item, include an ItemRequest object in the body of the request.  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system without being orderable, though. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/item",
                 "description": "This endpoint returns a paginated list of all items in a customer's catalog.  You can filter by the following parameters as query params: - page (integer) -- The page number of the content returned. - size (integer) -- The size of the page of content returned. - manufacturerId (long) -- Lists only items created by the Manufacturer ID provided. ",
                  "item": [
                             {
@@ -4333,6 +4813,208 @@
                                         ]
                                     },
                                     "description": "This endpoint returns the Item specified by ID in the URL path. "
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "Inventory",
+	            "item": [
+	                        {
+    "name": "/api/v3/inventory",
+                "description": "Returns a paginated list that sums up all Used and New inventory across all Impilo locations.  Filterable by: - itemId: <long> The ID of the Item type to display ",
+                 "item": [
+                            {
+                                "name": "listInventorySummary",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "*/*",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/inventory",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "inventory"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "itemId",
+                                                "value": "789",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Returns a paginated list that sums up all Used and New inventory across all Impilo locations.  Filterable by: - itemId: <long> The ID of the Item type to display "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/inventory/impilo",
+                "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held.  Filterable by: - itemId: <long> The ID of the Item type to display ",
+                 "item": [
+                            {
+                                "name": "listImpiloInventory",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "*/*",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/inventory/impilo",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "inventory",
+                                            "impilo"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "itemId",
+                                                "value": "789",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held.  Filterable by: - itemId: <long> The ID of the Item type to display "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/inventory/site",
+                "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held. ",
+                 "item": [
+                            {
+                                "name": "listSiteInventory",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "*/*",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/inventory/site",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "inventory",
+                                            "site"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "itemId",
+                                                "value": "789",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "siteId",
+                                                "value": "789",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held. "
                                 }
                             }
                             ]
