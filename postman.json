@@ -2137,13 +2137,13 @@
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "id",
+                                                "key": "ids",
                                                 "value": "",
                                                 "description": "Lists only devices with the IDs provided.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "externalIdentifier",
+                                                "key": "externalIdentifiers",
                                                 "value": "",
                                                 "description": "Lists only devices with the external IDs provided.",
                                                 "disabled": true
@@ -2155,19 +2155,19 @@
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "identifier",
+                                                "key": "identifiers",
                                                 "value": "",
                                                 "description": "Lists only devices with the device identifiers provided.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "status",
+                                                "key": "statuses",
                                                 "value": "",
                                                 "description": "The status of the devices.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "itemId",
+                                                "key": "itemIds",
                                                 "value": "",
                                                 "description": "Lists only devices with the provided Item ID type.",
                                                 "disabled": true
@@ -2191,25 +2191,25 @@
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "manufacturerId",
+                                                "key": "itemManufacturerIds",
                                                 "value": "",
                                                 "description": "Lists only devices created by the Manufacturer ID provided.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "siteId",
+                                                "key": "siteIds",
                                                 "value": "",
                                                 "description": "The ID of the site.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "patientId",
+                                                "key": "patientIds",
                                                 "value": "",
                                                 "description": "The ID of the patient.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "patientExternalIdentifier",
+                                                "key": "patientExternalIdentifiers",
                                                 "value": "",
                                                 "description": "The external identifier of the patient.",
                                                 "disabled": true
@@ -2227,7 +2227,7 @@
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "patientSite",
+                                                "key": "patientSiteIds",
                                                 "value": "",
                                                 "description": "The ID of the patient site.",
                                                 "disabled": true
@@ -4824,7 +4824,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/inventory",
-                "description": "Returns a paginated list that sums up all Used and New inventory across all sites associated with a Customer, such as Impilo PHL, Impilo PHX, and all Customer sites with Inventory. ",
+                "description": "Returns a paginated list that sums up all Used and New inventory across all Impilo locations.  Filterable by: - itemId: (long) The ID of the Item type to display ",
                  "item": [
                             {
                                 "name": "listInventorySummary",
@@ -4880,14 +4880,14 @@
                                             }
                                         ]
                                     },
-                                    "description": "Returns a paginated list that sums up all Used and New inventory across all sites associated with a Customer, such as Impilo PHL, Impilo PHX, and all Customer sites with Inventory. "
+                                    "description": "Returns a paginated list that sums up all Used and New inventory across all Impilo locations.  Filterable by: - itemId: (long) The ID of the Item type to display "
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/inventory/impilo",
-                "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held. ",
+                "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held.  Filterable by: - itemId: (long) The ID of the Item type to display ",
                  "item": [
                             {
                                 "name": "listImpiloInventory",
@@ -4944,7 +4944,7 @@
                                             }
                                         ]
                                     },
-                                    "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held. "
+                                    "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held.  Filterable by: - itemId: (long) The ID of the Item type to display "
                                 }
                             }
                             ]

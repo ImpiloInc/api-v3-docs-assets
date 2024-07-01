@@ -86,7 +86,7 @@
             "type" : "boolean"
           }
         }, {
-          "name" : "id",
+          "name" : "ids",
           "in" : "query",
           "description" : "Lists only devices with the IDs provided.",
           "schema" : {
@@ -97,7 +97,7 @@
             }
           }
         }, {
-          "name" : "externalIdentifier",
+          "name" : "externalIdentifiers",
           "in" : "query",
           "description" : "Lists only devices with the external IDs provided.",
           "schema" : {
@@ -114,7 +114,7 @@
             "$ref" : "#/components/schemas/DeviceIdentifierType"
           }
         }, {
-          "name" : "identifier",
+          "name" : "identifiers",
           "in" : "query",
           "description" : "Lists only devices with the device identifiers provided.",
           "schema" : {
@@ -124,7 +124,7 @@
             }
           }
         }, {
-          "name" : "status",
+          "name" : "statuses",
           "in" : "query",
           "description" : "The status of the devices.",
           "schema" : {
@@ -134,7 +134,7 @@
             }
           }
         }, {
-          "name" : "itemId",
+          "name" : "itemIds",
           "in" : "query",
           "description" : "Lists only devices with the provided Item ID type.",
           "schema" : {
@@ -166,7 +166,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "manufacturerId",
+          "name" : "itemManufacturerIds",
           "in" : "query",
           "description" : "Lists only devices created by the Manufacturer ID provided.",
           "schema" : {
@@ -177,7 +177,7 @@
             }
           }
         }, {
-          "name" : "siteId",
+          "name" : "siteIds",
           "in" : "query",
           "description" : "The ID of the site.",
           "schema" : {
@@ -188,7 +188,7 @@
             }
           }
         }, {
-          "name" : "patientId",
+          "name" : "patientIds",
           "in" : "query",
           "description" : "The ID of the patient.",
           "schema" : {
@@ -199,7 +199,7 @@
             }
           }
         }, {
-          "name" : "patientExternalIdentifier",
+          "name" : "patientExternalIdentifiers",
           "in" : "query",
           "description" : "The external identifier of the patient.",
           "schema" : {
@@ -223,7 +223,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "patientSite",
+          "name" : "patientSiteIds",
           "in" : "query",
           "description" : "The ID of the patient site.",
           "schema" : {
@@ -616,7 +616,7 @@
     "/api/v3/inventory" : {
       "get" : {
         "tags" : [ "Inventory" ],
-        "description" : "Returns a paginated list that sums up all Used and New inventory across\nall sites associated with a Customer, such as Impilo PHL, Impilo PHX, and all\nCustomer sites with Inventory.\n",
+        "description" : "Returns a paginated list that sums up all Used and New inventory across\nall Impilo locations.\n\nFilterable by:\n- itemId: (long) The ID of the Item type to display\n",
         "operationId" : "listInventorySummary",
         "parameters" : [ {
           "name" : "itemId",
@@ -659,7 +659,7 @@
     "/api/v3/inventory/impilo" : {
       "get" : {
         "tags" : [ "Inventory" ],
-        "description" : "Returns a paginated list of a Customer's inventory by Item type\nacross each of the Sites that there is inventory held.\n",
+        "description" : "Returns a paginated list of a Customer's inventory by Item type\nacross each of the Sites that there is inventory held.\n\nFilterable by:\n- itemId: (long) The ID of the Item type to display\n",
         "operationId" : "listImpiloInventory",
         "parameters" : [ {
           "name" : "itemId",
@@ -2242,13 +2242,13 @@
                         "name" : "Customer 2"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-06-24T22:40:06.155800200Z",
+                      "createdAt" : "2024-07-01T16:12:50.575365300Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-06-24T22:40:06.158304200Z"
+                        "createdAt" : "2024-07-01T16:12:50.575365300Z"
                       } ],
                       "transferRequestEvents" : [ {
-                        "eventTimestamp" : "2024-06-24T22:40:06.157797100Z",
+                        "eventTimestamp" : "2024-07-01T16:12:50.575365300Z",
                         "name" : "requested"
                       } ],
                       "requestedEntries" : [ {
@@ -6296,7 +6296,7 @@
         }
       },
       "ItemRequest" : {
-        "description" : "An ItemRequest object consists of a name (required), a model, and (if applicable) a deviceIdentifierType that is being requested to be created by a Manufacturer.\n\nDevice Identifier Types must match one of the following:\n- serial\n- imei\n- simCardNumber\n- macAddress\n- iccid\n",
+        "description" : "An ItemRequest object consists of a name (required), a model, and (if applicable) a deviceIdentifierType that is being requested to be created by a Manufacturer.\n\nDevice Identifier Types must match the DeviceIdentifierType model.\n",
         "type" : "object",
         "properties" : {
           "name" : {
@@ -6308,7 +6308,7 @@
             "type" : "string"
           },
           "deviceIdentifierType" : {
-            "description" : "The device identifier type for this item. Can be options such as:\n    - serial\n    - imei\n    - simCardNumber\n    - macAddress\n    - iccid\n",
+            "description" : "The device identifier type for this item.\n",
             "type" : "string"
           }
         }
