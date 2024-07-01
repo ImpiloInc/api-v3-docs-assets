@@ -472,7 +472,7 @@ paths:
       tags:
       - "Inventory"
       description: "Returns a paginated list that sums up all Used and New inventory\
-        \ across\nall Impilo locations.\n\nFilterable by:\n- itemId: (long) The ID\
+        \ across\nall Impilo locations.\n\nFilterable by:\n- itemId: <long> The ID\
         \ of the Item type to display\n"
       operationId: "listInventorySummary"
       parameters:
@@ -506,7 +506,7 @@ paths:
       - "Inventory"
       description: "Returns a paginated list of a Customer's inventory by Item type\n\
         across each of the Sites that there is inventory held.\n\nFilterable by:\n\
-        - itemId: (long) The ID of the Item type to display\n"
+        - itemId: <long> The ID of the Item type to display\n"
       operationId: "listImpiloInventory"
       parameters:
       - name: "itemId"
@@ -1731,12 +1731,12 @@ paths:
                       id: 2
                       name: "Customer 2"
                     currentStatus: "requested"
-                    createdAt: "2024-07-01T16:12:50.575365300Z"
+                    createdAt: "2024-07-01T16:26:07.113985400Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-01T16:12:50.575365300Z"
+                      createdAt: "2024-07-01T16:26:07.113985400Z"
                     transferRequestEvents:
-                    - eventTimestamp: "2024-07-01T16:12:50.575365300Z"
+                    - eventTimestamp: "2024-07-01T16:26:07.113985400Z"
                       name: "requested"
                     requestedEntries:
                     - item:
@@ -4986,8 +4986,8 @@ components:
     ItemRequest:
       description: "An ItemRequest object consists of a name (required), a model,\
         \ and (if applicable) a deviceIdentifierType that is being requested to be\
-        \ created by a Manufacturer.\n\nDevice Identifier Types must match the DeviceIdentifierType\
-        \ model.\n"
+        \ created by a Manufacturer.\n\nDevice Identifier Types must match one of\
+        \ the following:\n- serial\n- imei\n- simCardNumber\n- macAddress\n- iccid\n"
       type: "object"
       properties:
         name:
@@ -4997,7 +4997,9 @@ components:
           description: "The manufacturer-assigned model for this item."
           type: "string"
         deviceIdentifierType:
-          description: "The device identifier type for this item.\n"
+          description: "The device identifier type for this item. Can be options such\
+            \ as:\n    - serial\n    - imei\n    - simCardNumber\n    - macAddress\n\
+            \    - iccid\n"
           type: "string"
     Kit:
       description: "A kit is a named collection of items that can be ordered as one\
