@@ -1731,12 +1731,12 @@ paths:
                       id: 2
                       name: "Customer 2"
                     currentStatus: "requested"
-                    createdAt: "2024-07-01T16:26:07.113985400Z"
+                    createdAt: "2024-07-02T16:07:19.534152100Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-01T16:26:07.113985400Z"
+                      createdAt: "2024-07-02T16:07:19.534152100Z"
                     transferRequestEvents:
-                    - eventTimestamp: "2024-07-01T16:26:07.113985400Z"
+                    - eventTimestamp: "2024-07-02T16:07:19.534152100Z"
                       name: "requested"
                     requestedEntries:
                     - item:
@@ -2253,6 +2253,7 @@ paths:
                 value:
                   deviceId: 599
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   glucose: 88
                   manual: false
                   beforeMeal: false
@@ -2261,6 +2262,7 @@ paths:
                 value:
                   deviceIdentifier: "354833969951611"
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   glucose: 88
                   manual: false
                   beforeMeal: false
@@ -2269,6 +2271,7 @@ paths:
                 value:
                   patientId: 456
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   glucose: 88
                   manual: false
                   beforeMeal: false
@@ -2694,6 +2697,7 @@ paths:
                 value:
                   deviceId: 599
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   bloodOxygen: 88
                   heartRate: 77
                   manual: false
@@ -2701,6 +2705,7 @@ paths:
                 value:
                   deviceIdentifier: "354833969951611"
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   bloodOxygen: 88
                   heartRate: 77
                   manual: false
@@ -2708,6 +2713,7 @@ paths:
                 value:
                   patientId: 456
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   bloodOxygen: 88
                   heartRate: 77
                   manual: false
@@ -3133,6 +3139,7 @@ paths:
                 value:
                   deviceId: 599
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   systolic: 132
                   diastolic: 72
                   heartRate: 78
@@ -3141,6 +3148,7 @@ paths:
                 value:
                   deviceIdentifier: "354833969951611"
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   systolic: 132
                   diastolic: 72
                   heartRate: 78
@@ -3149,6 +3157,7 @@ paths:
                 value:
                   patientId: 456
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   systolic: 132
                   diastolic: 72
                   heartRate: 78
@@ -3571,6 +3580,7 @@ paths:
                 value:
                   deviceId: 599
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   temperatureUnit: "F"
                   temperature: 97.2
                   manual: false
@@ -3578,6 +3588,7 @@ paths:
                 value:
                   deviceIdentifier: "354833969951611"
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   temperatureUnit: "F"
                   temperature: 97.2
                   manual: false
@@ -3585,6 +3596,7 @@ paths:
                 value:
                   patientId: 456
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   temperatureUnit: "F"
                   temperature: 97.2
                   manual: false
@@ -4003,18 +4015,21 @@ paths:
                 value:
                   deviceId: 599
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   weight: 140.4
                   manual: false
               device-identifier:
                 value:
                   deviceIdentifier: "354833969951611"
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   weight: 140.4
                   manual: false
               patient:
                 value:
                   patientId: 456
                   readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
                   weight: 140.4
                   manual: false
       responses:
@@ -4492,12 +4507,34 @@ components:
           type: "string"
     BloodGlucoseReading:
       description: "This page describes Impilo's blood glucose reading model."
+      required:
+      - "readingTimestamp"
       type: "object"
       properties:
         id:
           format: "int64"
           description: "Unique identifier for the reading."
           type: "integer"
+        readingTimestamp:
+          description: "The UTC timestamp at which the reading was taken."
+          type: "string"
+          writeOnly: true
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        patientTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the patient's timezone from UTC in seconds.\
+            \ Null if unavailable."
+          type: "integer"
+          example: -14400
         patient:
           description: "The patient who took the reading."
           type: "object"
@@ -4513,16 +4550,10 @@ components:
           type: "object"
           allOf:
           - $ref: "#/components/schemas/Device"
-        readingTimestamp:
-          description: "The timestamp at which the reading was taken."
-          type: "string"
         glucose:
           format: "int32"
           description: "The blood glucose measurement value."
           type: "integer"
-        manual:
-          description: "True if the reading value was entered manually, false otherwise."
-          type: "boolean"
         beforeMeal:
           description: "True if the reading was taken before a meal, false otherwise."
           type: "boolean"
@@ -4549,9 +4580,15 @@ components:
           type: "integer"
         readingTimestamp:
           format: "date-time"
-          description: "The timestamp at which the reading was taken."
+          description: "The UTC timestamp at which the reading was taken."
           type: "string"
           example: "2022-03-10T16:15:50Z"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
         glucose:
           format: "int32"
           description: "The blood glucose measurement value."
@@ -4568,12 +4605,34 @@ components:
           type: "boolean"
     BloodOxygenReading:
       description: "This page describes Impilo's blood oxygen reading model."
+      required:
+      - "readingTimestamp"
       type: "object"
       properties:
         id:
           format: "int64"
           description: "Unique identifier for the reading."
           type: "integer"
+        readingTimestamp:
+          description: "The UTC timestamp at which the reading was taken."
+          type: "string"
+          writeOnly: true
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        patientTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the patient's timezone from UTC in seconds.\
+            \ Null if unavailable."
+          type: "integer"
+          example: -14400
         patient:
           description: "The patient who took the reading."
           type: "object"
@@ -4589,9 +4648,6 @@ components:
           type: "object"
           allOf:
           - $ref: "#/components/schemas/Device"
-        readingTimestamp:
-          description: "The timestamp at which the reading was taken."
-          type: "string"
         bloodOxygen:
           format: "int32"
           description: "The blood oxygen (spo2) measurement value."
@@ -4600,9 +4656,6 @@ components:
           format: "int32"
           description: "The heart rate measurement value."
           type: "integer"
-        manual:
-          description: "True if the reading value was entered manually, false otherwise."
-          type: "boolean"
     BloodOxygenReadingRequest:
       description: "This page describes Impilo's blood oxygen reading model."
       required:
@@ -4624,9 +4677,15 @@ components:
           type: "integer"
         readingTimestamp:
           format: "date-time"
-          description: "The timestamp at which the reading was taken."
+          description: "The UTC timestamp at which the reading was taken."
           type: "string"
           example: "2022-03-10T16:15:50Z"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
         bloodOxygen:
           format: "int32"
           description: "The blood oxygen (spo2) measurement value."
@@ -4641,12 +4700,34 @@ components:
           type: "boolean"
     BloodPressureReading:
       description: "This page describes Impilo's blood pressure reading model."
+      required:
+      - "readingTimestamp"
       type: "object"
       properties:
         id:
           format: "int64"
           description: "Unique identifier for the reading."
           type: "integer"
+        readingTimestamp:
+          description: "The UTC timestamp at which the reading was taken."
+          type: "string"
+          writeOnly: true
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        patientTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the patient's timezone from UTC in seconds.\
+            \ Null if unavailable."
+          type: "integer"
+          example: -14400
         patient:
           description: "The patient who took the reading."
           type: "object"
@@ -4662,9 +4743,6 @@ components:
           type: "object"
           allOf:
           - $ref: "#/components/schemas/Device"
-        readingTimestamp:
-          description: "The timestamp at which the reading was taken."
-          type: "string"
         systolic:
           format: "int32"
           description: "The systolic measurement value."
@@ -4677,9 +4755,6 @@ components:
           format: "int32"
           description: "The heart rate measurement value."
           type: "integer"
-        manual:
-          description: "True if the reading value was entered manually, false otherwise."
-          type: "boolean"
     BloodPressureReadingRequest:
       description: "This page describes Impilo's blood pressure reading model."
       required:
@@ -4701,9 +4776,15 @@ components:
           type: "integer"
         readingTimestamp:
           format: "date-time"
-          description: "The timestamp at which the reading was taken."
+          description: "The UTC timestamp at which the reading was taken."
           type: "string"
           example: "2022-03-10T16:15:50Z"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
         systolic:
           format: "int32"
           description: "The systolic measurement value."
@@ -5976,12 +6057,35 @@ components:
           - $ref: "#/components/schemas/Address"
     TemperatureReading:
       description: "This page describes Impilo's temperature reading model."
+      required:
+      - "readingTimestamp"
       type: "object"
       properties:
         id:
           format: "int64"
           description: "Unique identifier for the reading."
           type: "integer"
+        readingTimestamp:
+          description: "The UTC timestamp at which the reading was taken."
+          type: "string"
+          writeOnly: true
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
+          writeOnly: true
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        patientTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the patient's timezone from UTC in seconds.\
+            \ Null if unavailable."
+          type: "integer"
+          example: -14400
         patient:
           description: "The patient who took the reading."
           type: "object"
@@ -6004,9 +6108,6 @@ components:
           format: "double"
           description: "The temperature measurement value."
           type: "number"
-        readingTimestamp:
-          description: "The timestamp at which the reading was taken."
-          type: "string"
     TemperatureReadingRequest:
       description: "This page describes Impilo's temperature reading model."
       required:
@@ -6028,9 +6129,15 @@ components:
           type: "integer"
         readingTimestamp:
           format: "date-time"
-          description: "The timestamp at which the reading was taken."
+          description: "The UTC timestamp at which the reading was taken."
           type: "string"
           example: "2022-03-10T16:15:50Z"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
         temperatureUnit:
           description: "The unit in which the temperature was measured."
           type: "string"
@@ -6423,6 +6530,7 @@ components:
     WeightReading:
       description: "This page describes Impilo's weight reading model."
       required:
+      - "readingTimestamp"
       - "weight"
       type: "object"
       properties:
@@ -6430,6 +6538,26 @@ components:
           format: "int64"
           description: "Unique identifier for the reading."
           type: "integer"
+        readingTimestamp:
+          description: "The UTC timestamp at which the reading was taken."
+          type: "string"
+          writeOnly: true
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        patientTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the patient's timezone from UTC in seconds.\
+            \ Null if unavailable."
+          type: "integer"
+          example: -14400
         patient:
           description: "The patient who took the reading."
           type: "object"
@@ -6445,17 +6573,11 @@ components:
           type: "object"
           allOf:
           - $ref: "#/components/schemas/Device"
-        readingTimestamp:
-          description: "The timestamp at which the reading was taken."
-          type: "string"
         weight:
           format: "double"
           description: "The weight reading in lbs."
           minimum: 0
           type: "number"
-        manual:
-          description: "True if the reading value was entered manually, false otherwise."
-          type: "boolean"
     WeightReadingRequest:
       description: "This page describes Impilo's weight reading model."
       required:
@@ -6476,9 +6598,15 @@ components:
           type: "integer"
         readingTimestamp:
           format: "date-time"
-          description: "The timestamp at which the reading was taken."
+          description: "The UTC timestamp at which the reading was taken."
           type: "string"
           example: "2022-03-10T16:15:50Z"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
         weight:
           format: "double"
           description: "The weight reading in lbs."

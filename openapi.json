@@ -2242,13 +2242,13 @@
                         "name" : "Customer 2"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-07-01T16:26:07.113985400Z",
+                      "createdAt" : "2024-07-02T16:07:19.534152100Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-07-01T16:26:07.113985400Z"
+                        "createdAt" : "2024-07-02T16:07:19.534152100Z"
                       } ],
                       "transferRequestEvents" : [ {
-                        "eventTimestamp" : "2024-07-01T16:26:07.113985400Z",
+                        "eventTimestamp" : "2024-07-02T16:07:19.534152100Z",
                         "name" : "requested"
                       } ],
                       "requestedEntries" : [ {
@@ -2913,6 +2913,7 @@
                   "value" : {
                     "deviceId" : 599,
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "glucose" : 88,
                     "manual" : false,
                     "beforeMeal" : false,
@@ -2923,6 +2924,7 @@
                   "value" : {
                     "deviceIdentifier" : "354833969951611",
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "glucose" : 88,
                     "manual" : false,
                     "beforeMeal" : false,
@@ -2933,6 +2935,7 @@
                   "value" : {
                     "patientId" : 456,
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "glucose" : 88,
                     "manual" : false,
                     "beforeMeal" : false,
@@ -3455,6 +3458,7 @@
                   "value" : {
                     "deviceId" : 599,
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "bloodOxygen" : 88,
                     "heartRate" : 77,
                     "manual" : false
@@ -3464,6 +3468,7 @@
                   "value" : {
                     "deviceIdentifier" : "354833969951611",
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "bloodOxygen" : 88,
                     "heartRate" : 77,
                     "manual" : false
@@ -3473,6 +3478,7 @@
                   "value" : {
                     "patientId" : 456,
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "bloodOxygen" : 88,
                     "heartRate" : 77,
                     "manual" : false
@@ -3995,6 +4001,7 @@
                   "value" : {
                     "deviceId" : 599,
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "systolic" : 132,
                     "diastolic" : 72,
                     "heartRate" : 78,
@@ -4005,6 +4012,7 @@
                   "value" : {
                     "deviceIdentifier" : "354833969951611",
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "systolic" : 132,
                     "diastolic" : 72,
                     "heartRate" : 78,
@@ -4015,6 +4023,7 @@
                   "value" : {
                     "patientId" : 456,
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "systolic" : 132,
                     "diastolic" : 72,
                     "heartRate" : 78,
@@ -4535,6 +4544,7 @@
                   "value" : {
                     "deviceId" : 599,
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "temperatureUnit" : "F",
                     "temperature" : 97.2,
                     "manual" : false
@@ -4544,6 +4554,7 @@
                   "value" : {
                     "deviceIdentifier" : "354833969951611",
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "temperatureUnit" : "F",
                     "temperature" : 97.2,
                     "manual" : false
@@ -4553,6 +4564,7 @@
                   "value" : {
                     "patientId" : 456,
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "temperatureUnit" : "F",
                     "temperature" : 97.2,
                     "manual" : false
@@ -5069,6 +5081,7 @@
                   "value" : {
                     "deviceId" : 599,
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "weight" : 140.4,
                     "manual" : false
                   }
@@ -5077,6 +5090,7 @@
                   "value" : {
                     "deviceIdentifier" : "354833969951611",
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "weight" : 140.4,
                     "manual" : false
                   }
@@ -5085,6 +5099,7 @@
                   "value" : {
                     "patientId" : 456,
                     "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
                     "weight" : 140.4,
                     "manual" : false
                   }
@@ -5703,12 +5718,34 @@
       },
       "BloodGlucoseReading" : {
         "description" : "This page describes Impilo's blood glucose reading model.",
+        "required" : [ "readingTimestamp" ],
         "type" : "object",
         "properties" : {
           "id" : {
             "format" : "int64",
             "description" : "Unique identifier for the reading.",
             "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "description" : "The UTC timestamp at which the reading was taken.",
+            "type" : "string",
+            "writeOnly" : true
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "patientTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the patient's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
           },
           "patient" : {
             "description" : "The patient who took the reading.",
@@ -5731,18 +5768,10 @@
               "$ref" : "#/components/schemas/Device"
             } ]
           },
-          "readingTimestamp" : {
-            "description" : "The timestamp at which the reading was taken.",
-            "type" : "string"
-          },
           "glucose" : {
             "format" : "int32",
             "description" : "The blood glucose measurement value.",
             "type" : "integer"
-          },
-          "manual" : {
-            "description" : "True if the reading value was entered manually, false otherwise.",
-            "type" : "boolean"
           },
           "beforeMeal" : {
             "description" : "True if the reading was taken before a meal, false otherwise.",
@@ -5775,9 +5804,15 @@
           },
           "readingTimestamp" : {
             "format" : "date-time",
-            "description" : "The timestamp at which the reading was taken.",
+            "description" : "The UTC timestamp at which the reading was taken.",
             "type" : "string",
             "example" : "2022-03-10T16:15:50Z"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
           },
           "glucose" : {
             "format" : "int32",
@@ -5800,12 +5835,34 @@
       },
       "BloodOxygenReading" : {
         "description" : "This page describes Impilo's blood oxygen reading model.",
+        "required" : [ "readingTimestamp" ],
         "type" : "object",
         "properties" : {
           "id" : {
             "format" : "int64",
             "description" : "Unique identifier for the reading.",
             "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "description" : "The UTC timestamp at which the reading was taken.",
+            "type" : "string",
+            "writeOnly" : true
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "patientTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the patient's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
           },
           "patient" : {
             "description" : "The patient who took the reading.",
@@ -5828,10 +5885,6 @@
               "$ref" : "#/components/schemas/Device"
             } ]
           },
-          "readingTimestamp" : {
-            "description" : "The timestamp at which the reading was taken.",
-            "type" : "string"
-          },
           "bloodOxygen" : {
             "format" : "int32",
             "description" : "The blood oxygen (spo2) measurement value.",
@@ -5841,10 +5894,6 @@
             "format" : "int32",
             "description" : "The heart rate measurement value.",
             "type" : "integer"
-          },
-          "manual" : {
-            "description" : "True if the reading value was entered manually, false otherwise.",
-            "type" : "boolean"
           }
         }
       },
@@ -5869,9 +5918,15 @@
           },
           "readingTimestamp" : {
             "format" : "date-time",
-            "description" : "The timestamp at which the reading was taken.",
+            "description" : "The UTC timestamp at which the reading was taken.",
             "type" : "string",
             "example" : "2022-03-10T16:15:50Z"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
           },
           "bloodOxygen" : {
             "format" : "int32",
@@ -5891,12 +5946,34 @@
       },
       "BloodPressureReading" : {
         "description" : "This page describes Impilo's blood pressure reading model.",
+        "required" : [ "readingTimestamp" ],
         "type" : "object",
         "properties" : {
           "id" : {
             "format" : "int64",
             "description" : "Unique identifier for the reading.",
             "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "description" : "The UTC timestamp at which the reading was taken.",
+            "type" : "string",
+            "writeOnly" : true
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "patientTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the patient's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
           },
           "patient" : {
             "description" : "The patient who took the reading.",
@@ -5919,10 +5996,6 @@
               "$ref" : "#/components/schemas/Device"
             } ]
           },
-          "readingTimestamp" : {
-            "description" : "The timestamp at which the reading was taken.",
-            "type" : "string"
-          },
           "systolic" : {
             "format" : "int32",
             "description" : "The systolic measurement value.",
@@ -5937,10 +6010,6 @@
             "format" : "int32",
             "description" : "The heart rate measurement value.",
             "type" : "integer"
-          },
-          "manual" : {
-            "description" : "True if the reading value was entered manually, false otherwise.",
-            "type" : "boolean"
           }
         }
       },
@@ -5965,9 +6034,15 @@
           },
           "readingTimestamp" : {
             "format" : "date-time",
-            "description" : "The timestamp at which the reading was taken.",
+            "description" : "The UTC timestamp at which the reading was taken.",
             "type" : "string",
             "example" : "2022-03-10T16:15:50Z"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
           },
           "systolic" : {
             "format" : "int32",
@@ -7444,12 +7519,35 @@
       },
       "TemperatureReading" : {
         "description" : "This page describes Impilo's temperature reading model.",
+        "required" : [ "readingTimestamp" ],
         "type" : "object",
         "properties" : {
           "id" : {
             "format" : "int64",
             "description" : "Unique identifier for the reading.",
             "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "description" : "The UTC timestamp at which the reading was taken.",
+            "type" : "string",
+            "writeOnly" : true
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean",
+            "writeOnly" : true
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "patientTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the patient's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
           },
           "patient" : {
             "description" : "The patient who took the reading.",
@@ -7480,10 +7578,6 @@
             "format" : "double",
             "description" : "The temperature measurement value.",
             "type" : "number"
-          },
-          "readingTimestamp" : {
-            "description" : "The timestamp at which the reading was taken.",
-            "type" : "string"
           }
         }
       },
@@ -7508,9 +7602,15 @@
           },
           "readingTimestamp" : {
             "format" : "date-time",
-            "description" : "The timestamp at which the reading was taken.",
+            "description" : "The UTC timestamp at which the reading was taken.",
             "type" : "string",
             "example" : "2022-03-10T16:15:50Z"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
           },
           "temperatureUnit" : {
             "description" : "The unit in which the temperature was measured.",
@@ -7994,13 +8094,34 @@
       },
       "WeightReading" : {
         "description" : "This page describes Impilo's weight reading model.",
-        "required" : [ "weight" ],
+        "required" : [ "readingTimestamp", "weight" ],
         "type" : "object",
         "properties" : {
           "id" : {
             "format" : "int64",
             "description" : "Unique identifier for the reading.",
             "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "description" : "The UTC timestamp at which the reading was taken.",
+            "type" : "string",
+            "writeOnly" : true
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "patientTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the patient's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
           },
           "patient" : {
             "description" : "The patient who took the reading.",
@@ -8023,19 +8144,11 @@
               "$ref" : "#/components/schemas/Device"
             } ]
           },
-          "readingTimestamp" : {
-            "description" : "The timestamp at which the reading was taken.",
-            "type" : "string"
-          },
           "weight" : {
             "format" : "double",
             "description" : "The weight reading in lbs.",
             "minimum" : 0,
             "type" : "number"
-          },
-          "manual" : {
-            "description" : "True if the reading value was entered manually, false otherwise.",
-            "type" : "boolean"
           }
         }
       },
@@ -8060,9 +8173,15 @@
           },
           "readingTimestamp" : {
             "format" : "date-time",
-            "description" : "The timestamp at which the reading was taken.",
+            "description" : "The UTC timestamp at which the reading was taken.",
             "type" : "string",
             "example" : "2022-03-10T16:15:50Z"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
           },
           "weight" : {
             "format" : "double",

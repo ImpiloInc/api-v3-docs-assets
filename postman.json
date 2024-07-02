@@ -369,7 +369,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"glucose\" : 88,\n  \"manual\" : false,\n  \"beforeMeal\" : false,\n  \"afterMeal\" : false\n}",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"glucose\" : 88,\n  \"manual\" : false,\n  \"beforeMeal\" : false,\n  \"afterMeal\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -414,7 +414,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"glucose\" : 88,\n  \"manual\" : false,\n  \"beforeMeal\" : false,\n  \"afterMeal\" : false\n}",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"glucose\" : 88,\n  \"manual\" : false,\n  \"beforeMeal\" : false,\n  \"afterMeal\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -459,7 +459,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"glucose\" : 88,\n  \"manual\" : false,\n  \"beforeMeal\" : false,\n  \"afterMeal\" : false\n}",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"glucose\" : 88,\n  \"manual\" : false,\n  \"beforeMeal\" : false,\n  \"afterMeal\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1022,7 +1022,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"systolic\" : 132,\n  \"diastolic\" : 72,\n  \"heartRate\" : 78,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"systolic\" : 132,\n  \"diastolic\" : 72,\n  \"heartRate\" : 78,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1067,7 +1067,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"systolic\" : 132,\n  \"diastolic\" : 72,\n  \"heartRate\" : 78,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"systolic\" : 132,\n  \"diastolic\" : 72,\n  \"heartRate\" : 78,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1112,7 +1112,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"systolic\" : 132,\n  \"diastolic\" : 72,\n  \"heartRate\" : 78,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"systolic\" : 132,\n  \"diastolic\" : 72,\n  \"heartRate\" : 78,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1483,7 +1483,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"temperatureUnit\" : \"F\",\n  \"temperature\" : 97.2,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"temperatureUnit\" : \"F\",\n  \"temperature\" : 97.2,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1528,7 +1528,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"temperatureUnit\" : \"F\",\n  \"temperature\" : 97.2,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"temperatureUnit\" : \"F\",\n  \"temperature\" : 97.2,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1573,7 +1573,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"temperatureUnit\" : \"F\",\n  \"temperature\" : 97.2,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"temperatureUnit\" : \"F\",\n  \"temperature\" : 97.2,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1831,7 +1831,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"bloodOxygen\" : 88,\n  \"heartRate\" : 77,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"bloodOxygen\" : 88,\n  \"heartRate\" : 77,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1876,7 +1876,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"bloodOxygen\" : 88,\n  \"heartRate\" : 77,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"bloodOxygen\" : 88,\n  \"heartRate\" : 77,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -1921,7 +1921,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"bloodOxygen\" : 88,\n  \"heartRate\" : 77,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"bloodOxygen\" : 88,\n  \"heartRate\" : 77,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -3662,7 +3662,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"weight\" : 140.4,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"weight\" : 140.4,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -3707,7 +3707,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"weight\" : 140.4,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"weight\" : 140.4,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -3752,7 +3752,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"weight\" : 140.4,\n  \"manual\" : false\n}",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"weight\" : 140.4,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
