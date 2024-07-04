@@ -1194,7 +1194,8 @@
                         "id" : 1003
                       },
                       "count" : 10
-                    } ]
+                    } ],
+                    "shippingOption" : "standard"
                   }
                 },
                 "new-patient-order" : {
@@ -1253,7 +1254,8 @@
                         "id" : 1003
                       },
                       "count" : 10
-                    } ]
+                    } ],
+                    "shippingOption" : "standard"
                   }
                 },
                 "site-order" : {
@@ -1303,7 +1305,8 @@
                         "id" : 1003
                       },
                       "count" : 10
-                    } ]
+                    } ],
+                    "shippingOption" : "standard"
                   }
                 }
               }
@@ -2242,13 +2245,13 @@
                         "name" : "Customer 2"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-07-02T16:07:19.534152100Z",
+                      "createdAt" : "2024-07-04T10:55:52.203639400Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-07-02T16:07:19.534152100Z"
+                        "createdAt" : "2024-07-04T10:55:52.203639400Z"
                       } ],
                       "transferRequestEvents" : [ {
-                        "eventTimestamp" : "2024-07-02T16:07:19.534152100Z",
+                        "eventTimestamp" : "2024-07-04T10:55:52.203639400Z",
                         "name" : "requested"
                       } ],
                       "requestedEntries" : [ {
@@ -6561,6 +6564,9 @@
               "$ref" : "#/components/schemas/PackedKit"
             },
             "readOnly" : true
+          },
+          "shippingOption" : {
+            "$ref" : "#/components/schemas/ShippingOption"
           }
         }
       },
@@ -7486,6 +7492,18 @@
           },
           "unknown" : {
             "description" : "Sex is unknown."
+          }
+        }
+      },
+      "ShippingOption" : {
+        "enum" : [ "standard", "overnight" ],
+        "type" : "string",
+        "x-fern-enum" : {
+          "standard" : {
+            "description" : "Standard shipping option."
+          },
+          "overnight" : {
+            "description" : "Overnight shipping option."
           }
         }
       },
