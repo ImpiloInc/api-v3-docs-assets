@@ -921,6 +921,7 @@ paths:
                   - kit:
                       id: 1003
                     count: 10
+                  shippingOption: "standard"
               new-patient-order:
                 value:
                   externalOrderIds:
@@ -964,6 +965,7 @@ paths:
                   - kit:
                       id: 1003
                     count: 10
+                  shippingOption: "standard"
               site-order:
                 value:
                   externalOrderIds:
@@ -999,6 +1001,7 @@ paths:
                   - kit:
                       id: 1003
                     count: 10
+                  shippingOption: "standard"
       responses:
         "200":
           description: "OK"
@@ -1731,12 +1734,12 @@ paths:
                       id: 2
                       name: "Customer 2"
                     currentStatus: "requested"
-                    createdAt: "2024-07-02T16:07:19.534152100Z"
+                    createdAt: "2024-07-04T10:55:52.203639400Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-02T16:07:19.534152100Z"
+                      createdAt: "2024-07-04T10:55:52.203639400Z"
                     transferRequestEvents:
-                    - eventTimestamp: "2024-07-02T16:07:19.534152100Z"
+                    - eventTimestamp: "2024-07-04T10:55:52.203639400Z"
                       name: "requested"
                     requestedEntries:
                     - item:
@@ -5232,6 +5235,8 @@ components:
           items:
             $ref: "#/components/schemas/PackedKit"
           readOnly: true
+        shippingOption:
+          $ref: "#/components/schemas/ShippingOption"
     OrderEvent:
       type: "object"
       properties:
@@ -6032,6 +6037,16 @@ components:
           description: "Male sex."
         unknown:
           description: "Sex is unknown."
+    ShippingOption:
+      enum:
+      - "standard"
+      - "overnight"
+      type: "string"
+      x-fern-enum:
+        standard:
+          description: "Standard shipping option."
+        overnight:
+          description: "Overnight shipping option."
     Site:
       description: "A site is a customer-managed location that interacts with Impilo's\
         \ services. Patient may be associated with a site, and a customer may order\
