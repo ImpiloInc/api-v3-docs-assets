@@ -58,7 +58,7 @@ paths:
         description: "True if the sort direction should be descending"
         schema:
           type: "boolean"
-      - name: "ids"
+      - name: "id"
         in: "query"
         description: "Lists only devices with the IDs provided."
         schema:
@@ -66,7 +66,7 @@ paths:
           items:
             format: "int64"
             type: "integer"
-      - name: "externalIdentifiers"
+      - name: "externalIdentifier"
         in: "query"
         description: "Lists only devices with the external IDs provided."
         schema:
@@ -78,21 +78,21 @@ paths:
         description: "The device identifier type of the devices."
         schema:
           $ref: "#/components/schemas/DeviceIdentifierType"
-      - name: "identifiers"
+      - name: "identifier"
         in: "query"
         description: "Lists only devices with the device identifiers provided."
         schema:
           type: "array"
           items:
             type: "string"
-      - name: "statuses"
+      - name: "status"
         in: "query"
         description: "The status of the devices."
         schema:
           type: "array"
           items:
             $ref: "#/components/schemas/DeviceStatus"
-      - name: "itemIds"
+      - name: "itemId"
         in: "query"
         description: "Lists only devices with the provided Item ID type."
         schema:
@@ -115,7 +115,7 @@ paths:
         description: "The SKU of the item."
         schema:
           type: "string"
-      - name: "itemManufacturerIds"
+      - name: "manufacturerId"
         in: "query"
         description: "Lists only devices created by the Manufacturer ID provided."
         schema:
@@ -123,7 +123,7 @@ paths:
           items:
             format: "int64"
             type: "integer"
-      - name: "siteIds"
+      - name: "siteId"
         in: "query"
         description: "The ID of the site."
         schema:
@@ -131,7 +131,7 @@ paths:
           items:
             format: "int64"
             type: "integer"
-      - name: "patientIds"
+      - name: "patientId"
         in: "query"
         description: "The ID of the patient."
         schema:
@@ -139,7 +139,7 @@ paths:
           items:
             format: "int64"
             type: "integer"
-      - name: "patientExternalIdentifiers"
+      - name: "patientExternalIdentifier"
         in: "query"
         description: "The external identifier of the patient."
         schema:
@@ -156,7 +156,7 @@ paths:
         description: "The name of the patient."
         schema:
           type: "string"
-      - name: "patientSiteIds"
+      - name: "patientSiteId"
         in: "query"
         description: "The ID of the patient site."
         schema:
@@ -471,24 +471,27 @@ paths:
     get:
       tags:
       - "Inventory"
-      description: "Returns a paginated list that sums up all Used and New inventory\
-        \ across\nall Impilo locations.\n\nFilterable by:\n- itemId: <long> The ID\
-        \ of the Item type to display\n"
+      description: "Returns a paginated list that aggregates all Used and New inventory\
+        \ across\nall Impilo and Customer locations by Item type. One entry per Item\
+        \ ID.\n"
       operationId: "listInventorySummary"
       parameters:
       - name: "itemId"
         in: "query"
+        description: "The Item ID to filter the content by."
         schema:
           format: "int64"
           type: "integer"
       - name: "page"
         in: "query"
+        description: "The page number of the content returned."
         schema:
           format: "int32"
           default: "1"
           type: "integer"
       - name: "size"
         in: "query"
+        description: "The size of the page returned. Max size is 100."
         schema:
           format: "int32"
           default: "15"
@@ -497,7 +500,7 @@ paths:
         "200":
           description: "OK"
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: "#/components/schemas/PageInventorySummaryRecord"
   /api/v3/inventory/impilo:
@@ -505,23 +508,25 @@ paths:
       tags:
       - "Inventory"
       description: "Returns a paginated list of a Customer's inventory by Item type\n\
-        across each of the Sites that there is inventory held.\n\nFilterable by:\n\
-        - itemId: <long> The ID of the Item type to display\n"
+        across each of the Impilo Sites. One record per Item-Site combination.\n"
       operationId: "listImpiloInventory"
       parameters:
       - name: "itemId"
         in: "query"
+        description: "The Item ID to filter the content by."
         schema:
           format: "int64"
           type: "integer"
       - name: "page"
         in: "query"
+        description: "The page number of the content returned."
         schema:
           format: "int32"
           default: "1"
           type: "integer"
       - name: "size"
         in: "query"
+        description: "The size of the page returned. Max size is 100."
         schema:
           format: "int32"
           default: "15"
@@ -530,7 +535,7 @@ paths:
         "200":
           description: "OK"
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: "#/components/schemas/PageInventoryRecord"
   /api/v3/inventory/site:
@@ -538,27 +543,32 @@ paths:
       tags:
       - "Inventory"
       description: "Returns a paginated list of a Customer's inventory by Item type\n\
-        across each of the Sites that there is inventory held.\n"
+        across each of the Customer Sites that there is inventory held. One record\
+        \ per Item-Site combination.\n"
       operationId: "listSiteInventory"
       parameters:
       - name: "itemId"
         in: "query"
+        description: "The Item ID to filter the content by."
         schema:
           format: "int64"
           type: "integer"
       - name: "siteId"
         in: "query"
+        description: "The Site ID to filter the content by."
         schema:
           format: "int64"
           type: "integer"
       - name: "page"
         in: "query"
+        description: "The page number of the content returned."
         schema:
           format: "int32"
           default: "1"
           type: "integer"
       - name: "size"
         in: "query"
+        description: "The size of the page returned. Max size is 100."
         schema:
           format: "int32"
           default: "15"
@@ -567,7 +577,7 @@ paths:
         "200":
           description: "OK"
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: "#/components/schemas/PageInventoryRecord"
   /api/v3/item:
@@ -575,24 +585,24 @@ paths:
       tags:
       - "Items"
       description: "This endpoint returns a paginated list of all items in a customer's\
-        \ catalog.\n\nYou can filter by the following parameters as query params:\n\
-        - page (integer) -- The page number of the content returned.\n- size (integer)\
-        \ -- The size of the page of content returned.\n- manufacturerId (long) --\
-        \ Lists only items created by the Manufacturer ID provided.\n"
+        \ catalog.\n"
       operationId: "listItems"
       parameters:
       - name: "page"
         in: "query"
+        description: "The page number of the content returned."
         schema:
           format: "int32"
           type: "integer"
       - name: "size"
         in: "query"
+        description: "The size of the page returned. Max size is 100."
         schema:
           format: "int32"
           type: "integer"
       - name: "manufacturerId"
         in: "query"
+        description: "The Manufacturer ID to filter the content by."
         schema:
           format: "int64"
           type: "integer"
@@ -630,20 +640,53 @@ paths:
     post:
       tags:
       - "Items"
-      description: "This endpoint creates a new Item in the Impilo platform, assigning\
-        \ it a unique SKU identifier.\n\nTo create an item, include an ItemRequest\
-        \ object in the body of the request.\n\nItems created with this endpoint are\
-        \ not able to be ordered until approved manually by an Impilo Admin. Items\n\
-        can still be procured and received within Impilo's system without being orderable,\
-        \ though.\n"
+      description: "This endpoint creates a new Item in the Impilo platform. This\
+        \ endpoint is only enabled for Customers that are also Manufacturer accounts.\n\
+        \nItems created via this endpoint will:\n- receive a generated SKU and ID\n\
+        - have a Manufacturer set to the requesting Customer\n- be set to an Orderable\
+        \ status of FALSE\n\nItems created with this endpoint are not able to be ordered\
+        \ until approved manually by an Impilo Admin.\nItems can still be procured\
+        \ and received within Impilo's system while the orderable parameter is false.\n\
+        ***\nFor more information see the [ItemRequest Model](/resources/models#schema_ItemRequest)."
       operationId: "createItem"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ItemRequest"
+            examples:
+              without-identifier:
+                value:
+                  name: "Blood Pressure Monitor"
+                  model: "iBloodPressureMonitor123"
+              with-identifier:
+                value:
+                  name: "Blood Pressure Monitor"
+                  model: "iBloodPressureMonitor123"
+                  deviceIdentifierType: "serial"
       responses:
         "200":
           description: "OK"
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: "#/components/schemas/Item"
+              examples:
+                itemRequestResponse:
+                  value:
+                    id: 791
+                    manufacturer:
+                      id: 2
+                      name: "Custom Manufacturer"
+                    name: "Blood Pressure Monitor"
+                    model: "iBloodPressureMonitor123"
+                    sku: "0000001"
+                    orderable: false
+      x-request-example-without-identifier: "itemRequestWithoutIdentifier"
+      x-request-example-with-identifier: "itemRequestWithIdentifier"
+      x-response-example: "itemRequestResponse"
+      externalDocs:
+        url: "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_ItemRequest"
   /api/v3/item/{itemId}:
     get:
       tags:
@@ -653,6 +696,7 @@ paths:
       parameters:
       - name: "itemId"
         in: "path"
+        description: "The ID of the Item to be returned."
         required: true
         schema:
           format: "int64"
@@ -1057,16 +1101,87 @@ paths:
       parameters:
       - name: "page"
         in: "query"
+        description: "The page number of the content returned."
         schema:
           format: "int32"
           type: "integer"
       - name: "size"
         in: "query"
+        description: "The size of the page of content returned."
         schema:
           format: "int32"
           type: "integer"
+      - name: "sort"
+        in: "query"
+        description: "The attribute to sort on."
+        schema:
+          $ref: "#/components/schemas/PatientSort"
+      - name: "sortDescending"
+        in: "query"
+        description: "True if the sort direction should be descending."
+        schema:
+          type: "boolean"
+      - name: "id"
+        in: "query"
+        description: "Lists only patients with the IDs provided."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "siteId"
+        in: "query"
+        description: "Lists only patients with the site IDs provided."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "externalIdentifier"
+        in: "query"
+        description: "Lists only patients with the external identifiers provided."
+        schema:
+          type: "array"
+          items:
+            type: "string"
+      - name: "email"
+        in: "query"
+        description: "Lists only patients with the provided email."
+        schema:
+          type: "string"
+      - name: "name"
+        in: "query"
+        description: "Lists only patients with the provided name."
+        schema:
+          type: "string"
       - name: "archived"
         in: "query"
+        description: "Lists only patients who are archived."
+        schema:
+          type: "boolean"
+      - name: "enrolled"
+        in: "query"
+        description: "Lists only patients who are enrolled."
+        schema:
+          type: "boolean"
+      - name: "dateOfBirthMin"
+        in: "query"
+        description: "Lists only patients born on or after the provided date."
+        schema:
+          $ref: "#/components/schemas/LocalDate"
+      - name: "dateOfBirthMax"
+        in: "query"
+        description: "Lists only patients born on or before the provided date."
+        schema:
+          $ref: "#/components/schemas/LocalDate"
+      - name: "postalCode"
+        in: "query"
+        description: "Lists only patients with the provided postal code."
+        schema:
+          type: "string"
+      - name: "country"
+        in: "query"
+        description: "Lists only patients with the provided country."
         schema:
           type: "string"
       responses:
@@ -1375,6 +1490,7 @@ paths:
       parameters:
       - name: "procId"
         in: "path"
+        description: "The Procurement ID to fetch the CSV from."
         required: true
         schema:
           format: "int64"
@@ -1397,10 +1513,16 @@ paths:
       parameters:
       - name: "procId"
         in: "path"
+        description: "The Procurement ID to attach the CSV to."
         required: true
         schema:
           format: "int64"
           type: "integer"
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: "object"
       responses:
         "201":
           description: "Created"
@@ -1413,6 +1535,7 @@ paths:
       parameters:
       - name: "procId"
         in: "path"
+        description: "The Procurement ID to delete the CSV from."
         required: true
         schema:
           format: "int64"
@@ -1647,12 +1770,28 @@ paths:
         \ must be a non-empty List of strings\n- All devices listed via the deviceIdentifiers\
         \ parameter must belong to the requesting Customer-Manufacturer\n- The Devices\
         \ listed via the deviceIdentifiers parameter must be in Available or Available\
-        \ - Repacked status\n- Devices must not have a Patient assigned to them.\n"
+        \ - Repacked status\n- Devices must not have a Patient assigned to them.\n\
+        ***\nFor more information see the [DeviceTransferRequest Model](/resources/models#schema_DeviceTransferRequest)."
       operationId: "createDeviceTransferRequest"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeviceTransferRequest"
+            examples:
+              createDeviceTransferRequestExample:
+                value:
+                  toCustomerId: 8
+                  deviceIdentifiers:
+                  - "354833969951611"
+                  - "A44-A0623930"
+                  - "f51da43314fc"
       responses:
         "201":
           description: "Created"
       x-request-example: "createDeviceTransferRequestExample"
+      externalDocs:
+        url: "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DeviceTransferRequest"
   /api/v3/transfer/item-transfer-request:
     post:
       tags:
@@ -1668,30 +1807,61 @@ paths:
         \ must be in both the Requesting AND Receiving customer catalogs\n- Each ItemTransfer's\
         \ quantity parameter must be an integer value greater than 0\n\nThe only requirement\
         \ for the ItemTransfer's item parameter is a JSON object that includes an\
-        \ ID of the Item requested.\n"
+        \ ID of the Item requested.\n***\nFor more information see the [ItemTransferRequest\
+        \ Model](/resources/models#schema_ItemTransferRequest)."
       operationId: "createItemTransferRequest"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ItemTransferRequest"
+            examples:
+              createItemTransferRequestExample:
+                value:
+                  toCustomerId: 1
+                  transfers:
+                  - item:
+                      id: 10
+                      manufacturer:
+                        id: 2
+                        name: "Custom Manufacturer"
+                      name: "Blood Pressure Monitor"
+                      model: "iBloodPressureMonitor123"
+                      sku: "0000001"
+                    count: 20
+                  - item:
+                      id: 10
+                      manufacturer:
+                        id: 2
+                        name: "Custom Manufacturer"
+                      name: "Blood Pressure Monitor"
+                      model: "iBloodPressureMonitor123"
+                      sku: "0000001"
+                    count: 20
       responses:
         "201":
           description: "Created"
       x-request-example: "createItemTransferRequestExample"
+      externalDocs:
+        url: "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_ItemTransferRequest"
   /api/v3/transfer/transfer-request:
     get:
       tags:
       - "Transfers"
       description: "Retrieves a paginated list of Transfer Requests from the Impilo\
-        \ platform.\n\nOptional parameters can be used to filter the results by:\n\
-        \ - page: selects a page number\n - size: sets the page size. Max value of\
-        \ 100 allowed."
+        \ platform."
       operationId: "listTransferRequests"
       parameters:
       - name: "page"
         in: "query"
+        description: "The page number of the content returned."
         schema:
           format: "int32"
           default: "1"
           type: "integer"
       - name: "size"
         in: "query"
+        description: "The size of the page returned. Max size is 100."
         schema:
           format: "int32"
           default: "15"
@@ -1700,18 +1870,19 @@ paths:
         "200":
           description: "OK"
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: "#/components/schemas/PageTransferRequest"
   /api/v3/transfer/transfer-request/{id}:
     get:
       tags:
       - "Transfers"
-      description: "Fetches a Transfer Request by ID from the Impilo platform.\n"
-      operationId: "fetchTransferRequestById"
+      description: "Fetches a Transfer Request by ID from the Impilo platform."
+      operationId: "fetchTransferRequest"
       parameters:
       - name: "id"
         in: "path"
+        description: "The ID of the Transfer Request to fetch."
         required: true
         schema:
           format: "int64"
@@ -1720,38 +1891,92 @@ paths:
         "200":
           description: "OK"
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: "#/components/schemas/TransferRequest"
               examples:
-                responseFetchTransferRequest:
+                item-transfer-request:
                   value:
                     id: 123
                     fromCustomer:
-                      id: 1
-                      name: "Customer 1"
-                    toCustomer:
                       id: 2
                       name: "Customer 2"
+                    toCustomer:
+                      id: 3
+                      name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-04T10:55:52.203639400Z"
+                    createdAt: "2024-07-09T13:44:42.515861100Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-04T10:55:52.203639400Z"
+                      createdAt: "2024-07-09T13:44:42.515861100Z"
                     transferRequestEvents:
-                    - eventTimestamp: "2024-07-04T10:55:52.203639400Z"
-                      name: "requested"
+                    - name: "requested"
+                      eventTimestamp: "2024-07-09T13:44:42.515861100Z"
+                    requestedEntries:
+                    - device:
+                        id: 599
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: "Custom Manufacturer"
+                          name: "Blood Pressure Monitor"
+                          model: "iBloodPressureMonitor123"
+                          sku: "0000001"
+                        currentStatus: "withPatient"
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: "external-identifier-123"
+                          firstName: "John"
+                          lastName: "Doe"
+                          dateOfBirth: "1987-09-13"
+                          email: "email@example.com"
+                          phoneNumber: "111-222-3333"
+                          address:
+                            lineOne: "1234 Market Street"
+                            lineTwo: "Suite 110"
+                            city: "Philadelphia"
+                            state: "PA"
+                            zipCode: "19137"
+                            country: "USA"
+                          sex: "unknown"
+                        deviceIdentifiers:
+                        - type: "imei"
+                          value: "354833969951611"
+                        - type: "serial"
+                          value: "A44-A0623930"
+                        - type: "macAddress"
+                          value: "f51da43314fc"
+                        disabledReadings: false
+                device-transfer-request:
+                  value:
+                    id: 123
+                    fromCustomer:
+                      id: 2
+                      name: "Customer 2"
+                    toCustomer:
+                      id: 3
+                      name: "Customer 3"
+                    currentStatus: "requested"
+                    createdAt: "2024-07-09T13:44:42.592520100Z"
+                    transferRequestNotes:
+                    - note: "Note Text Here"
+                      createdAt: "2024-07-09T13:44:42.592520100Z"
+                    transferRequestEvents:
+                    - name: "requested"
+                      eventTimestamp: "2024-07-09T13:44:42.592520100Z"
                     requestedEntries:
                     - item:
-                        id: 456
+                        id: 791
                         manufacturer:
-                          id: 10
-                          name: "Manufacturer 10"
+                          id: 2
+                          name: "Custom Manufacturer"
                         name: "Blood Pressure Monitor"
-                        model: "Model ABC"
-                        sku: "000000456"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
                       quantity: 5
-      x-response-example: "responseFetchTransferRequest"
+      x-response-example-item-transfer-request: "createItemTransferResponseExample"
+      x-response-example-device-transfer-request: "createDeviceTransferResponseExample"
   /api/v3/webhook:
     get:
       tags:
@@ -5007,6 +5232,22 @@ components:
           description: "Device has been returned to the manufacturer."
         packed:
           description: "Device is packed and ready for shipment or use."
+    DeviceTransferRequest:
+      required:
+      - "toCustomerId"
+      - "deviceIdentifiers"
+      type: "object"
+      properties:
+        toCustomerId:
+          format: "int64"
+          description: "The ID of the Customer to transfer the Devices to."
+          type: "integer"
+        deviceIdentifiers:
+          description: "A list of strings containing the Device Identifier values\
+            \ to transfer."
+          type: "array"
+          items:
+            type: "string"
     Instant:
       format: "date-time"
       type: "string"
@@ -5070,8 +5311,10 @@ components:
     ItemRequest:
       description: "An ItemRequest object consists of a name (required), a model,\
         \ and (if applicable) a deviceIdentifierType that is being requested to be\
-        \ created by a Manufacturer.\n\nDevice Identifier Types must match one of\
-        \ the following:\n- serial\n- imei\n- simCardNumber\n- macAddress\n- iccid\n"
+        \ created by a Manufacturer.\n\nDevice Identifier Types must match the DeviceIdentifierType\
+        \ model.\n"
+      required:
+      - "name"
       type: "object"
       properties:
         name:
@@ -5081,10 +5324,39 @@ components:
           description: "The manufacturer-assigned model for this item."
           type: "string"
         deviceIdentifierType:
-          description: "The device identifier type for this item. Can be options such\
-            \ as:\n    - serial\n    - imei\n    - simCardNumber\n    - macAddress\n\
-            \    - iccid\n"
-          type: "string"
+          $ref: "#/components/schemas/DeviceIdentifierType"
+    ItemTransfer:
+      required:
+      - "item"
+      - "count"
+      type: "object"
+      properties:
+        item:
+          description: "The Item being requested to transfer. Only the ID of the item\
+            \ is required."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Item"
+        count:
+          format: "int32"
+          description: "The number of Items being requested for transfer."
+          type: "integer"
+    ItemTransferRequest:
+      required:
+      - "toCustomerId"
+      - "transfers"
+      type: "object"
+      properties:
+        toCustomerId:
+          format: "int64"
+          description: "The ID of the Customer to transfer the Devices to."
+          type: "integer"
+        transfers:
+          description: "A list of ItemTransfer objects containing the Item IDs and\
+            \ quantities to transfer."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ItemTransfer"
     Kit:
       description: "A kit is a named collection of items that can be ordered as one\
         \ unit."
@@ -5112,6 +5384,10 @@ components:
         count:
           format: "int32"
           type: "integer"
+    LocalDate:
+      format: "date"
+      type: "string"
+      example: "2022-03-10"
     Manufacturer:
       description: "A manufacturer is a supplier of an item. Every item has exactly\
         \ one manufacturer."
@@ -5916,11 +6192,13 @@ components:
           description: "The enrollment status. False if disenrolled."
           type: "boolean"
         sex:
-          description: "Sex"
-          type: "string"
-          allOf:
-          - $ref: "#/components/schemas/Sex"
-          example: "female"
+          $ref: "#/components/schemas/Sex"
+    PatientSort:
+      enum:
+      - "firstName"
+      - "lastName"
+      - "patientId"
+      type: "string"
     Procurement:
       description: "A procurement is a procurement of devices by a customer."
       type: "object"
@@ -6328,11 +6606,12 @@ components:
           allOf:
           - $ref: "#/components/schemas/Customer"
         currentStatus:
-          description: "The current status of the Transfer Request."
-          type: "string"
+          $ref: "#/components/schemas/TransferRequestStatus"
         createdAt:
           description: "The timestamp when the Transfer Request was first created."
           type: "string"
+          allOf:
+          - $ref: "#/components/schemas/Instant"
         transferRequestNotes:
           description: "Notes attached to this Transfer Request."
           type: "array"
@@ -6372,12 +6651,13 @@ components:
     TransferRequestEvent:
       type: "object"
       properties:
+        name:
+          $ref: "#/components/schemas/TransferRequestStatus"
         eventTimestamp:
           description: "The timestamp when this event took place."
           type: "string"
-        name:
-          description: "The name of the event that took place."
-          type: "string"
+          allOf:
+          - $ref: "#/components/schemas/Instant"
     TransferRequestNote:
       type: "object"
       properties:
@@ -6387,6 +6667,27 @@ components:
         createdAt:
           description: "The timestamp when the note was created."
           type: "string"
+          allOf:
+          - $ref: "#/components/schemas/Instant"
+    TransferRequestStatus:
+      enum:
+      - "requested"
+      - "approved"
+      - "pendingInventory"
+      - "voided"
+      - "completed"
+      type: "string"
+      x-fern-enum:
+        requested:
+          description: "Transfer request has been requested."
+        approved:
+          description: "Transfer request has been approved."
+        pendingInventory:
+          description: "Transfer request is pending inventory."
+        voided:
+          description: "Transfer request has been voided."
+        completed:
+          description: "Transfer request has been completed."
     ValidateDeviceResponse:
       type: "object"
       properties:

@@ -98,7 +98,7 @@
                                             {
                                                 "key": "procId",
                                                 "value": "",
-                                                "description": ""
+                                                "description": "The Procurement ID to delete the CSV from."
                                             }
                                         ],
                                         "query": [
@@ -150,7 +150,7 @@
                                             {
                                                 "key": "procId",
                                                 "value": "",
-                                                "description": ""
+                                                "description": "The Procurement ID to fetch the CSV from."
                                             }
                                         ],
                                         "query": [
@@ -170,6 +170,12 @@
                                 "request": {
                                     "method": "POST",
                                     "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "multipart/form-data",
+                                            "description": "",
+                                            "disabled": false
+                                        }
                                     ],
                                     "body": {
                                         "mode": "raw",
@@ -196,7 +202,7 @@
                                             {
                                                 "key": "procId",
                                                 "value": "",
-                                                "description": ""
+                                                "description": "The Procurement ID to attach the CSV to."
                                             }
                                         ],
                                         "query": [
@@ -2137,13 +2143,13 @@
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "ids",
+                                                "key": "id",
                                                 "value": "",
                                                 "description": "Lists only devices with the IDs provided.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "externalIdentifiers",
+                                                "key": "externalIdentifier",
                                                 "value": "",
                                                 "description": "Lists only devices with the external IDs provided.",
                                                 "disabled": true
@@ -2155,19 +2161,19 @@
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "identifiers",
+                                                "key": "identifier",
                                                 "value": "",
                                                 "description": "Lists only devices with the device identifiers provided.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "statuses",
+                                                "key": "status",
                                                 "value": "",
                                                 "description": "The status of the devices.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "itemIds",
+                                                "key": "itemId",
                                                 "value": "",
                                                 "description": "Lists only devices with the provided Item ID type.",
                                                 "disabled": true
@@ -2191,25 +2197,25 @@
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "itemManufacturerIds",
+                                                "key": "manufacturerId",
                                                 "value": "",
                                                 "description": "Lists only devices created by the Manufacturer ID provided.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "siteIds",
+                                                "key": "siteId",
                                                 "value": "",
                                                 "description": "The ID of the site.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "patientIds",
+                                                "key": "patientId",
                                                 "value": "",
                                                 "description": "The ID of the patient.",
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "patientExternalIdentifiers",
+                                                "key": "patientExternalIdentifier",
                                                 "value": "",
                                                 "description": "The external identifier of the patient.",
                                                 "disabled": true
@@ -2227,7 +2233,7 @@
                                                 "disabled": true
                                             },
                                             {
-                                                "key": "patientSiteIds",
+                                                "key": "patientSiteId",
                                                 "value": "",
                                                 "description": "The ID of the patient site.",
                                                 "disabled": true
@@ -2623,19 +2629,91 @@
                                             {
                                                 "key": "page",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The page number of the content returned.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "size",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The size of the page of content returned.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "sort",
+                                                "value": "",
+                                                "description": "The attribute to sort on.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "sortDescending",
+                                                "value": "true",
+                                                "description": "True if the sort direction should be descending.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "id",
+                                                "value": "",
+                                                "description": "Lists only patients with the IDs provided.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "siteId",
+                                                "value": "",
+                                                "description": "Lists only patients with the site IDs provided.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "externalIdentifier",
+                                                "value": "",
+                                                "description": "Lists only patients with the external identifiers provided.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "email",
+                                                "value": "email_example",
+                                                "description": "Lists only patients with the provided email.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "name",
+                                                "value": "name_example",
+                                                "description": "Lists only patients with the provided name.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "archived",
-                                                "value": "archived_example",
-                                                "description": "",
+                                                "value": "true",
+                                                "description": "Lists only patients who are archived.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "enrolled",
+                                                "value": "true",
+                                                "description": "Lists only patients who are enrolled.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "dateOfBirthMin",
+                                                "value": "2013-10-20",
+                                                "description": "Lists only patients born on or after the provided date.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "dateOfBirthMax",
+                                                "value": "2013-10-20",
+                                                "description": "Lists only patients born on or before the provided date.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "postalCode",
+                                                "value": "postalCode_example",
+                                                "description": "Lists only patients with the provided postal code.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "country",
+                                                "value": "country_example",
+                                                "description": "Lists only patients with the provided country.",
                                                 "disabled": true
                                             }
                                         ]
@@ -3907,17 +3985,23 @@
 	            "item": [
 	                        {
     "name": "/api/v3/transfer/device-transfer-request",
-                "description": "Creates a Device Transfer Request, which specifies specific Device Identifiers (such as Serial Numbers, IMEIs, etc) to transfer from the Requesting customer-manufacturer to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The deviceIdentifiers parameter must be a non-empty List of strings - All devices listed via the deviceIdentifiers parameter must belong to the requesting Customer-Manufacturer - The Devices listed via the deviceIdentifiers parameter must be in Available or Available - Repacked status - Devices must not have a Patient assigned to them. ",
+                "description": "Creates a Device Transfer Request, which specifies specific Device Identifiers (such as Serial Numbers, IMEIs, etc) to transfer from the Requesting customer-manufacturer to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The deviceIdentifiers parameter must be a non-empty List of strings - All devices listed via the deviceIdentifiers parameter must belong to the requesting Customer-Manufacturer - The Devices listed via the deviceIdentifiers parameter must be in Available or Available - Repacked status - Devices must not have a Patient assigned to them. *** For more information see the [DeviceTransferRequest Model](/resources/models#schema_DeviceTransferRequest).",
                  "item": [
                             {
-                                "name": "createDeviceTransferRequest",
+                                "name": "createDeviceTransferRequestExample",
                                 "request": {
                                     "method": "POST",
                                     "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "",
+                                        "raw": "{\n  \"toCustomerId\" : 8,\n  \"deviceIdentifiers\" : [ \"354833969951611\", \"A44-A0623930\", \"f51da43314fc\" ]\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -3940,24 +4024,30 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a Device Transfer Request, which specifies specific Device Identifiers (such as Serial Numbers, IMEIs, etc) to transfer from the Requesting customer-manufacturer to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The deviceIdentifiers parameter must be a non-empty List of strings - All devices listed via the deviceIdentifiers parameter must belong to the requesting Customer-Manufacturer - The Devices listed via the deviceIdentifiers parameter must be in Available or Available - Repacked status - Devices must not have a Patient assigned to them. "
+                                    "description": "Creates a Device Transfer Request, which specifies specific Device Identifiers (such as Serial Numbers, IMEIs, etc) to transfer from the Requesting customer-manufacturer to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The deviceIdentifiers parameter must be a non-empty List of strings - All devices listed via the deviceIdentifiers parameter must belong to the requesting Customer-Manufacturer - The Devices listed via the deviceIdentifiers parameter must be in Available or Available - Repacked status - Devices must not have a Patient assigned to them. *** For more information see the [DeviceTransferRequest Model](/resources/models#schema_DeviceTransferRequest)."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/transfer/item-transfer-request",
-                "description": "Creates an Item Transfer Request, which lists general Items and Quantities to transfer from a Customer-Manufacturer account to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The transfers parameter must be a non-empty list of ItemTransfer objects - Each ItemTransfer's item parameter must include an ID for the Item to be transferred - Each itemTransfer's item parameter must be in both the Requesting AND Receiving customer catalogs - Each ItemTransfer's quantity parameter must be an integer value greater than 0  The only requirement for the ItemTransfer's item parameter is a JSON object that includes an ID of the Item requested. ",
+                "description": "Creates an Item Transfer Request, which lists general Items and Quantities to transfer from a Customer-Manufacturer account to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The transfers parameter must be a non-empty list of ItemTransfer objects - Each ItemTransfer's item parameter must include an ID for the Item to be transferred - Each itemTransfer's item parameter must be in both the Requesting AND Receiving customer catalogs - Each ItemTransfer's quantity parameter must be an integer value greater than 0  The only requirement for the ItemTransfer's item parameter is a JSON object that includes an ID of the Item requested. *** For more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest).",
                  "item": [
                             {
-                                "name": "createItemTransferRequest",
+                                "name": "createItemTransferRequestExample",
                                 "request": {
                                     "method": "POST",
                                     "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "",
+                                        "raw": "{\n  \"toCustomerId\" : 1,\n  \"transfers\" : [ {\n    \"item\" : {\n      \"id\" : 10,\n      \"manufacturer\" : {\n        \"id\" : 2,\n        \"name\" : \"Custom Manufacturer\"\n      },\n      \"name\" : \"Blood Pressure Monitor\",\n      \"model\" : \"iBloodPressureMonitor123\",\n      \"sku\" : \"0000001\"\n    },\n    \"count\" : 20\n  }, {\n    \"item\" : {\n      \"id\" : 10,\n      \"manufacturer\" : {\n        \"id\" : 2,\n        \"name\" : \"Custom Manufacturer\"\n      },\n      \"name\" : \"Blood Pressure Monitor\",\n      \"model\" : \"iBloodPressureMonitor123\",\n      \"sku\" : \"0000001\"\n    },\n    \"count\" : 20\n  } ]\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -3980,14 +4070,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates an Item Transfer Request, which lists general Items and Quantities to transfer from a Customer-Manufacturer account to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The transfers parameter must be a non-empty list of ItemTransfer objects - Each ItemTransfer's item parameter must include an ID for the Item to be transferred - Each itemTransfer's item parameter must be in both the Requesting AND Receiving customer catalogs - Each ItemTransfer's quantity parameter must be an integer value greater than 0  The only requirement for the ItemTransfer's item parameter is a JSON object that includes an ID of the Item requested. "
+                                    "description": "Creates an Item Transfer Request, which lists general Items and Quantities to transfer from a Customer-Manufacturer account to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The transfers parameter must be a non-empty list of ItemTransfer objects - Each ItemTransfer's item parameter must include an ID for the Item to be transferred - Each itemTransfer's item parameter must be in both the Requesting AND Receiving customer catalogs - Each ItemTransfer's quantity parameter must be an integer value greater than 0  The only requirement for the ItemTransfer's item parameter is a JSON object that includes an ID of the Item requested. *** For more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest)."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/transfer/transfer-request",
-                "description": "Retrieves a paginated list of Transfer Requests from the Impilo platform.  Optional parameters can be used to filter the results by:  - page: selects a page number  - size: sets the page size. Max value of 100 allowed.",
+                "description": "Retrieves a paginated list of Transfer Requests from the Impilo platform.",
                  "item": [
                             {
                                 "name": "listTransferRequests",
@@ -3996,7 +4086,7 @@
                                     "header": [
                                         {
                                             "key": "Accept",
-                                            "value": "*/*",
+                                            "value": "application/json",
                                             "description": "",
                                             "disabled": false
                                         }
@@ -4027,34 +4117,34 @@
                                             {
                                                 "key": "page",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The page number of the content returned.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "size",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The size of the page returned. Max size is 100.",
                                                 "disabled": true
                                             }
                                         ]
                                     },
-                                    "description": "Retrieves a paginated list of Transfer Requests from the Impilo platform.  Optional parameters can be used to filter the results by:  - page: selects a page number  - size: sets the page size. Max value of 100 allowed."
+                                    "description": "Retrieves a paginated list of Transfer Requests from the Impilo platform."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/transfer/transfer-request/:id",
-                "description": "Fetches a Transfer Request by ID from the Impilo platform. ",
+                "description": "Fetches a Transfer Request by ID from the Impilo platform.",
                  "item": [
                             {
-                                "name": "fetchTransferRequestById",
+                                "name": "fetchTransferRequest",
                                 "request": {
                                     "method": "GET",
                                     "header": [
                                         {
                                             "key": "Accept",
-                                            "value": "*/*",
+                                            "value": "application/json",
                                             "description": "",
                                             "disabled": false
                                         }
@@ -4084,13 +4174,13 @@
                                             {
                                                 "key": "id",
                                                 "value": "",
-                                                "description": ""
+                                                "description": "The ID of the Transfer Request to fetch."
                                             }
                                         ],
                                         "query": [
                                         ]
                                     },
-                                    "description": "Fetches a Transfer Request by ID from the Impilo platform. "
+                                    "description": "Fetches a Transfer Request by ID from the Impilo platform."
                                 }
                             }
                             ]
@@ -4660,23 +4750,29 @@
 	            "item": [
 	                        {
     "name": "/api/v3/item",
-                "description": "This endpoint creates a new Item in the Impilo platform, assigning it a unique SKU identifier.  To create an item, include an ItemRequest object in the body of the request.  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system without being orderable, though. ",
+                "description": "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.  Items created via this endpoint will: - receive a generated SKU and ID - have a Manufacturer set to the requesting Customer - be set to an Orderable status of FALSE  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system while the orderable parameter is false. *** For more information see the [ItemRequest Model](/resources/models#schema_ItemRequest).",
                  "item": [
                             {
-                                "name": "createItem",
+                                "name": "without-identifier",
                                 "request": {
                                     "method": "POST",
                                     "header": [
                                         {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
                                             "key": "Accept",
-                                            "value": "*/*",
+                                            "value": "application/json",
                                             "description": "",
                                             "disabled": false
                                         }
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "",
+                                        "raw": "{\n  \"name\" : \"Blood Pressure Monitor\",\n  \"model\" : \"iBloodPressureMonitor123\"\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -4698,14 +4794,59 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint creates a new Item in the Impilo platform, assigning it a unique SKU identifier.  To create an item, include an ItemRequest object in the body of the request.  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system without being orderable, though. "
+                                    "description": "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.  Items created via this endpoint will: - receive a generated SKU and ID - have a Manufacturer set to the requesting Customer - be set to an Orderable status of FALSE  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system while the orderable parameter is false. *** For more information see the [ItemRequest Model](/resources/models#schema_ItemRequest)."
+                                }
+                            },
+                            {
+                                "name": "with-identifier",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"name\" : \"Blood Pressure Monitor\",\n  \"model\" : \"iBloodPressureMonitor123\",\n  \"deviceIdentifierType\" : \"serial\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/item",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "item"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.  Items created via this endpoint will: - receive a generated SKU and ID - have a Manufacturer set to the requesting Customer - be set to an Orderable status of FALSE  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system while the orderable parameter is false. *** For more information see the [ItemRequest Model](/resources/models#schema_ItemRequest)."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/item",
-                "description": "This endpoint returns a paginated list of all items in a customer's catalog.  You can filter by the following parameters as query params: - page (integer) -- The page number of the content returned. - size (integer) -- The size of the page of content returned. - manufacturerId (long) -- Lists only items created by the Manufacturer ID provided. ",
+                "description": "This endpoint returns a paginated list of all items in a customer's catalog. ",
                  "item": [
                             {
                                 "name": "listItems",
@@ -4744,24 +4885,24 @@
                                             {
                                                 "key": "page",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The page number of the content returned.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "size",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The size of the page returned. Max size is 100.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "manufacturerId",
                                                 "value": "789",
-                                                "description": "",
+                                                "description": "The Manufacturer ID to filter the content by.",
                                                 "disabled": true
                                             }
                                         ]
                                     },
-                                    "description": "This endpoint returns a paginated list of all items in a customer's catalog.  You can filter by the following parameters as query params: - page (integer) -- The page number of the content returned. - size (integer) -- The size of the page of content returned. - manufacturerId (long) -- Lists only items created by the Manufacturer ID provided. "
+                                    "description": "This endpoint returns a paginated list of all items in a customer's catalog. "
                                 }
                             }
                             ]
@@ -4806,7 +4947,7 @@
                                             {
                                                 "key": "itemId",
                                                 "value": "",
-                                                "description": ""
+                                                "description": "The ID of the Item to be returned."
                                             }
                                         ],
                                         "query": [
@@ -4824,7 +4965,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/inventory",
-                "description": "Returns a paginated list that sums up all Used and New inventory across all Impilo locations.  Filterable by: - itemId: <long> The ID of the Item type to display ",
+                "description": "Returns a paginated list that aggregates all Used and New inventory across all Impilo and Customer locations by Item type. One entry per Item ID. ",
                  "item": [
                             {
                                 "name": "listInventorySummary",
@@ -4833,7 +4974,7 @@
                                     "header": [
                                         {
                                             "key": "Accept",
-                                            "value": "*/*",
+                                            "value": "application/json",
                                             "description": "",
                                             "disabled": false
                                         }
@@ -4863,31 +5004,31 @@
                                             {
                                                 "key": "itemId",
                                                 "value": "789",
-                                                "description": "",
+                                                "description": "The Item ID to filter the content by.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "page",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The page number of the content returned.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "size",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The size of the page returned. Max size is 100.",
                                                 "disabled": true
                                             }
                                         ]
                                     },
-                                    "description": "Returns a paginated list that sums up all Used and New inventory across all Impilo locations.  Filterable by: - itemId: <long> The ID of the Item type to display "
+                                    "description": "Returns a paginated list that aggregates all Used and New inventory across all Impilo and Customer locations by Item type. One entry per Item ID. "
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/inventory/impilo",
-                "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held.  Filterable by: - itemId: <long> The ID of the Item type to display ",
+                "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Impilo Sites. One record per Item-Site combination. ",
                  "item": [
                             {
                                 "name": "listImpiloInventory",
@@ -4896,7 +5037,7 @@
                                     "header": [
                                         {
                                             "key": "Accept",
-                                            "value": "*/*",
+                                            "value": "application/json",
                                             "description": "",
                                             "disabled": false
                                         }
@@ -4927,31 +5068,31 @@
                                             {
                                                 "key": "itemId",
                                                 "value": "789",
-                                                "description": "",
+                                                "description": "The Item ID to filter the content by.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "page",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The page number of the content returned.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "size",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The size of the page returned. Max size is 100.",
                                                 "disabled": true
                                             }
                                         ]
                                     },
-                                    "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held.  Filterable by: - itemId: <long> The ID of the Item type to display "
+                                    "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Impilo Sites. One record per Item-Site combination. "
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/inventory/site",
-                "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held. ",
+                "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Customer Sites that there is inventory held. One record per Item-Site combination. ",
                  "item": [
                             {
                                 "name": "listSiteInventory",
@@ -4960,7 +5101,7 @@
                                     "header": [
                                         {
                                             "key": "Accept",
-                                            "value": "*/*",
+                                            "value": "application/json",
                                             "description": "",
                                             "disabled": false
                                         }
@@ -4991,30 +5132,30 @@
                                             {
                                                 "key": "itemId",
                                                 "value": "789",
-                                                "description": "",
+                                                "description": "The Item ID to filter the content by.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "siteId",
                                                 "value": "789",
-                                                "description": "",
+                                                "description": "The Site ID to filter the content by.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "page",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The page number of the content returned.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "size",
                                                 "value": "56",
-                                                "description": "",
+                                                "description": "The size of the page returned. Max size is 100.",
                                                 "disabled": true
                                             }
                                         ]
                                     },
-                                    "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Sites that there is inventory held. "
+                                    "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Customer Sites that there is inventory held. One record per Item-Site combination. "
                                 }
                             }
                             ]
