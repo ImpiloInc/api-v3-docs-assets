@@ -123,6 +123,27 @@ paths:
           items:
             format: "int64"
             type: "integer"
+      - name: "itemSize"
+        in: "query"
+        description: "Lists only devices of the sizes provided."
+        schema:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ItemSize"
+      - name: "itemClass"
+        in: "query"
+        description: "Lists only devices of the Classes provided."
+        schema:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ItemClass"
+      - name: "readingType"
+        in: "query"
+        description: "Lists only devices that support the Reading Types provided."
+        schema:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ReadingType"
       - name: "siteId"
         in: "query"
         description: "The ID of the site."
@@ -585,7 +606,9 @@ paths:
       tags:
       - "Items"
       description: "This endpoint returns a paginated list of all items in a customer's\
-        \ catalog.\n"
+        \ catalog with various filtering options including pagination, sorting, and\
+        \ specific attributes such as IDs, names, models, SKUs, sizes, classes, reading\
+        \ types, and manufacturer IDs.\n"
       operationId: "listItems"
       parameters:
       - name: "page"
@@ -596,23 +619,79 @@ paths:
           type: "integer"
       - name: "size"
         in: "query"
-        description: "The size of the page returned. Max size is 100."
+        description: "The size of the page of content returned. Max value is 100."
         schema:
           format: "int32"
           type: "integer"
+      - name: "sort"
+        in: "query"
+        description: "The attribute to sort on."
+        schema:
+          $ref: "#/components/schemas/ItemSort"
+      - name: "sortDescending"
+        in: "query"
+        description: "True if the sort direction should be descending."
+        schema:
+          type: "boolean"
+      - name: "id"
+        in: "query"
+        description: "Lists only items with the provided Item IDs."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "name"
+        in: "query"
+        description: "Lists only items with the provided name."
+        schema:
+          type: "string"
+      - name: "model"
+        in: "query"
+        description: "Lists only items with the provided model."
+        schema:
+          type: "string"
+      - name: "sku"
+        in: "query"
+        description: "Lists only items with the provided SKU."
+        schema:
+          type: "string"
+      - name: "itemSize"
+        in: "query"
+        description: "Lists only items with the provided sizes."
+        schema:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ItemSize"
+      - name: "itemClass"
+        in: "query"
+        description: "Lists only items with the provided classes."
+        schema:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ItemClass"
+      - name: "readingType"
+        in: "query"
+        description: "Lists only items with the provided reading types."
+        schema:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ReadingType"
       - name: "manufacturerId"
         in: "query"
-        description: "The Manufacturer ID to filter the content by."
+        description: "Lists only items created by the provided Manufacturer IDs."
         schema:
-          format: "int64"
-          type: "integer"
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
       responses:
         "200":
           description: "OK"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PageItem"
+                $ref: "#/components/schemas/PageItemDetailed"
               examples:
                 listItemsResponseExample:
                   value:
@@ -624,13 +703,33 @@ paths:
                       name: "Blood Pressure Monitor"
                       model: "iBloodPressureMonitor123"
                       sku: "0000001"
-                    - id: 792
+                      deviceIdentifierType: "imei"
+                      itemClass: "glucose"
+                      itemClassType: "bpMonitor"
+                      size: "large"
+                      dimensions:
+                        length: 1.5
+                        width: 1.0
+                        height: 0.75
+                        unit: "in"
+                      readingType: "bloodGlucose"
+                    - id: 791
                       manufacturer:
                         id: 2
                         name: "Custom Manufacturer"
                       name: "Blood Pressure Monitor"
                       model: "iBloodPressureMonitor123"
                       sku: "0000001"
+                      deviceIdentifierType: "imei"
+                      itemClass: "glucose"
+                      itemClassType: "bpMonitor"
+                      size: "large"
+                      dimensions:
+                        length: 1.5
+                        width: 1.0
+                        height: 0.75
+                        unit: "in"
+                      readingType: "bloodGlucose"
                     page: 1
                     size: 2
                     total: 4
@@ -670,7 +769,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Item"
+                $ref: "#/components/schemas/ItemDetailed"
               examples:
                 itemRequestResponse:
                   value:
@@ -682,6 +781,16 @@ paths:
                     model: "iBloodPressureMonitor123"
                     sku: "0000001"
                     orderable: false
+                    deviceIdentifierType: "imei"
+                    itemClass: "glucose"
+                    itemClassType: "bpMonitor"
+                    size: "large"
+                    dimensions:
+                      length: 1.5
+                      width: 1.0
+                      height: 0.75
+                      unit: "in"
+                    readingType: "bloodGlucose"
       x-request-example-without-identifier: "itemRequestWithoutIdentifier"
       x-request-example-with-identifier: "itemRequestWithIdentifier"
       x-response-example: "itemRequestResponse"
@@ -707,9 +816,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Item"
+                $ref: "#/components/schemas/ItemDetailed"
               examples:
-                item:
+                fullItem:
                   value:
                     id: 791
                     manufacturer:
@@ -718,7 +827,17 @@ paths:
                     name: "Blood Pressure Monitor"
                     model: "iBloodPressureMonitor123"
                     sku: "0000001"
-      x-response-example: "ApiV3ControllerExamples.item"
+                    deviceIdentifierType: "imei"
+                    itemClass: "glucose"
+                    itemClassType: "bpMonitor"
+                    size: "large"
+                    dimensions:
+                      length: 1.5
+                      width: 1.0
+                      height: 0.75
+                      unit: "in"
+                    readingType: "bloodGlucose"
+      x-response-example: "fullItem"
   /api/v3/kit:
     get:
       tags:
@@ -1905,13 +2024,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-09T13:44:42.515861100Z"
+                    createdAt: "2024-07-16T03:00:55.196083Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-09T13:44:42.515861100Z"
+                      createdAt: "2024-07-16T03:00:55.196083Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-07-09T13:44:42.515861100Z"
+                      eventTimestamp: "2024-07-16T03:00:55.196083Z"
                     requestedEntries:
                     - device:
                         id: 599
@@ -1958,13 +2077,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-09T13:44:42.592520100Z"
+                    createdAt: "2024-07-16T03:00:55.321084100Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-09T13:44:42.592520100Z"
+                      createdAt: "2024-07-16T03:00:55.321084100Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-07-09T13:44:42.592520100Z"
+                      eventTimestamp: "2024-07-16T03:00:55.321084100Z"
                     requestedEntries:
                     - item:
                         id: 791
@@ -2390,6 +2509,7 @@ paths:
                         disabledReadings: false
                       readingTimestamp: "2024-07-04T00:00:00Z"
                       glucose: 88
+                      glucoseUnit: "mgdl"
                       manual: false
                       beforeMeal: false
                       afterMeal: false
@@ -2455,6 +2575,7 @@ paths:
                         disabledReadings: false
                       readingTimestamp: "2024-07-04T00:00:00Z"
                       glucose: 88
+                      glucoseUnit: "mgdl"
                       manual: false
                       beforeMeal: false
                       afterMeal: false
@@ -2576,6 +2697,7 @@ paths:
                       disabledReadings: false
                     readingTimestamp: "2024-07-04T00:00:00Z"
                     glucose: 88
+                    glucoseUnit: "mgdl"
                     manual: false
                     beforeMeal: false
                     afterMeal: false
@@ -2723,6 +2845,7 @@ paths:
                       disabledReadings: false
                     readingTimestamp: "2024-07-04T00:00:00Z"
                     glucose: 88
+                    glucoseUnit: "mgdl"
                     manual: false
                     beforeMeal: false
                     afterMeal: false
@@ -2836,7 +2959,9 @@ paths:
                         disabledReadings: false
                       readingTimestamp: "2024-07-04T00:00:00Z"
                       bloodOxygen: 95
+                      bloodOxygenUnit: "spo2"
                       heartRate: 90
+                      heartRateUnit: "bpm"
                       manual: false
                     - id: 43
                       patient:
@@ -2900,7 +3025,9 @@ paths:
                         disabledReadings: false
                       readingTimestamp: "2024-07-04T00:00:00Z"
                       bloodOxygen: 95
+                      bloodOxygenUnit: "spo2"
                       heartRate: 90
+                      heartRateUnit: "bpm"
                       manual: false
                     page: 1
                     size: 2
@@ -3017,7 +3144,9 @@ paths:
                       disabledReadings: false
                     readingTimestamp: "2024-07-04T00:00:00Z"
                     bloodOxygen: 95
+                    bloodOxygenUnit: "spo2"
                     heartRate: 90
+                    heartRateUnit: "bpm"
                     manual: false
       x-request-example-device: "bloodOxygenReadingRequestDeviceExample"
       x-request-example-device-identifier: "bloodOxygenReadingRequestDeviceIdentifierExample"
@@ -3162,7 +3291,9 @@ paths:
                       disabledReadings: false
                     readingTimestamp: "2024-07-04T00:00:00Z"
                     bloodOxygen: 95
+                    bloodOxygenUnit: "spo2"
                     heartRate: 90
+                    heartRateUnit: "bpm"
                     manual: false
       x-response-example: "bloodOxygenReadingResponseExample"
   /api/v3/blood-pressure-reading:
@@ -3276,8 +3407,11 @@ paths:
                         disabledReadings: false
                       readingTimestamp: "2024-07-04T00:00:00Z"
                       systolic: 120
+                      systolicUnit: "mmhg"
                       diastolic: 80
+                      diastolicUnit: "mmhg"
                       heartRate: 70
+                      heartRateUnit: "bpm"
                       manual: false
                     - id: 43
                       patient:
@@ -3341,8 +3475,11 @@ paths:
                         disabledReadings: false
                       readingTimestamp: "2024-07-04T00:00:00Z"
                       systolic: 120
+                      systolicUnit: "mmhg"
                       diastolic: 80
+                      diastolicUnit: "mmhg"
                       heartRate: 70
+                      heartRateUnit: "bpm"
                       manual: false
                     page: 1
                     size: 2
@@ -3462,8 +3599,11 @@ paths:
                       disabledReadings: false
                     readingTimestamp: "2024-07-04T00:00:00Z"
                     systolic: 120
+                    systolicUnit: "mmhg"
                     diastolic: 80
+                    diastolicUnit: "mmhg"
                     heartRate: 70
+                    heartRateUnit: "bpm"
                     manual: false
       x-request-example-device: "bloodPressureReadingRequestDeviceExample"
       x-request-example-device-identifier: "bloodPressureReadingRequestDeviceIdentifierExample"
@@ -3608,8 +3748,11 @@ paths:
                       disabledReadings: false
                     readingTimestamp: "2024-07-04T00:00:00Z"
                     systolic: 120
+                    systolicUnit: "mmhg"
                     diastolic: 80
+                    diastolicUnit: "mmhg"
                     heartRate: 70
+                    heartRateUnit: "bpm"
                     manual: false
       x-response-example: "bloodPressureReadingResponseExample"
   /api/v3/temperature-reading:
@@ -4156,6 +4299,7 @@ paths:
                         disabledReadings: false
                       readingTimestamp: "2024-07-04T00:00:00Z"
                       weight: 140.4
+                      weightUnit: "lbs"
                       manual: false
                     - id: 43
                       patient:
@@ -4219,6 +4363,7 @@ paths:
                         disabledReadings: false
                       readingTimestamp: "2024-07-04T00:00:00Z"
                       weight: 140.4
+                      weightUnit: "lbs"
                       manual: false
                     page: 1
                     size: 2
@@ -4332,6 +4477,7 @@ paths:
                       disabledReadings: false
                     readingTimestamp: "2024-07-04T00:00:00Z"
                     weight: 140.4
+                    weightUnit: "lbs"
                     manual: false
       x-request-example-device: "weightReadingRequestDeviceExample"
       x-request-example-device-identifier: "weightReadingRequestDeviceIdentifierExample"
@@ -4472,6 +4618,7 @@ paths:
                       disabledReadings: false
                     readingTimestamp: "2024-07-04T00:00:00Z"
                     weight: 140.4
+                    weightUnit: "lbs"
                     manual: false
       x-response-example: "weightReadingResponseExample"
   /api/v3/test/blood-glucose-webhook:
@@ -4782,6 +4929,8 @@ components:
           format: "int32"
           description: "The blood glucose measurement value."
           type: "integer"
+        glucoseUnit:
+          $ref: "#/components/schemas/BloodGlucoseUnit"
         beforeMeal:
           description: "True if the reading was taken before a meal, false otherwise."
           type: "boolean"
@@ -4831,6 +4980,13 @@ components:
         afterMeal:
           description: "True if the reading was taken after a meal, false otherwise."
           type: "boolean"
+    BloodGlucoseUnit:
+      enum:
+      - "mgdl"
+      type: "string"
+      x-fern-enum:
+        mgdl:
+          description: "Blood glucose unit of measurement is milligrams per deciliter."
     BloodOxygenReading:
       description: "This page describes Impilo's blood oxygen reading model."
       required:
@@ -4880,10 +5036,14 @@ components:
           format: "int32"
           description: "The blood oxygen (spo2) measurement value."
           type: "integer"
+        bloodOxygenUnit:
+          $ref: "#/components/schemas/BloodOxygenUnit"
         heartRate:
           format: "int32"
           description: "The heart rate measurement value."
           type: "integer"
+        heartRateUnit:
+          $ref: "#/components/schemas/HeartRateUnit"
     BloodOxygenReadingRequest:
       description: "This page describes Impilo's blood oxygen reading model."
       required:
@@ -4926,6 +5086,13 @@ components:
           description: "True if the reading value was entered manually, false or null\
             \ otherwise."
           type: "boolean"
+    BloodOxygenUnit:
+      enum:
+      - "spo2"
+      type: "string"
+      x-fern-enum:
+        spo2:
+          description: "Blood glucose unit of measurement is milligrams per deciliter."
     BloodPressureReading:
       description: "This page describes Impilo's blood pressure reading model."
       required:
@@ -4975,14 +5142,20 @@ components:
           format: "int32"
           description: "The systolic measurement value."
           type: "integer"
+        systolicUnit:
+          $ref: "#/components/schemas/BloodPressureUnit"
         diastolic:
           format: "int32"
           description: "The diastolic measurement value."
           type: "integer"
+        diastolicUnit:
+          $ref: "#/components/schemas/BloodPressureUnit"
         heartRate:
           format: "int32"
           description: "The heart rate measurement value."
           type: "integer"
+        heartRateUnit:
+          $ref: "#/components/schemas/HeartRateUnit"
     BloodPressureReadingRequest:
       description: "This page describes Impilo's blood pressure reading model."
       required:
@@ -5045,6 +5218,13 @@ components:
           type: "object"
           allOf:
           - $ref: "#/components/schemas/BloodPressureReading"
+    BloodPressureUnit:
+      enum:
+      - "mmhg"
+      type: "string"
+      x-fern-enum:
+        mmhg:
+          description: "Pressure unit of measurement is millimeters of mercury."
     Customer:
       type: "object"
       properties:
@@ -5248,6 +5428,23 @@ components:
           type: "array"
           items:
             type: "string"
+    DimensionUnit:
+      enum:
+      - "in"
+      - "cm"
+      type: "string"
+      x-fern-enum:
+        in:
+          description: "Inches."
+        cm:
+          description: "Centimeters."
+    HeartRateUnit:
+      enum:
+      - "bpm"
+      type: "string"
+      x-fern-enum:
+        bpm:
+          description: "Heart rate unit of measurement is beats per minute."
     Instant:
       format: "date-time"
       type: "string"
@@ -5308,6 +5505,127 @@ components:
         orderable:
           description: "Whether an Item is able to be ordered."
           type: "boolean"
+    ItemClass:
+      enum:
+      - "wearable"
+      - "glucose"
+      - "miscellaneous"
+      - "circulatory"
+      - "packaging"
+      - "lab"
+      - "body"
+      - "familyPlanning"
+      - "cpap"
+      - "connectivity"
+      - "generalHealth"
+      - "service"
+      - "thermometer"
+      - "power"
+      - "respiratory"
+      - "info"
+      type: "string"
+      x-fern-enum:
+        wearable:
+          description: "Items related to wearable devices."
+        glucose:
+          description: "Items related to glucose monitoring."
+        miscellaneous:
+          description: "Miscellaneous items."
+        circulatory:
+          description: "Items related to the circulatory system."
+        packaging:
+          description: "Items related to packaging."
+        lab:
+          description: "Items related to laboratory equipment."
+        body:
+          description: "Items related to the body."
+        familyPlanning:
+          description: "Items related to family planning."
+        cpap:
+          description: "Items related to Continuous Positive Airway Pressure (CPAP)."
+        connectivity:
+          description: "Items related to connectivity."
+        generalHealth:
+          description: "Items related to general health."
+        service:
+          description: "Service-related items."
+        thermometer:
+          description: "Items related to thermometers."
+        power:
+          description: "Items related to power supply."
+        respiratory:
+          description: "Items related to the respiratory system."
+        info:
+          description: "Informational items."
+    ItemDetailed:
+      description: "An item is any of the supplies handled by Impilo. Examples include\
+        \ medical devices like a blood pressure monitor or weight scale, but the term\
+        \ 'item' also refers to non-medical supplies like AAA batteries and package\
+        \ inserts. A customer catalog is a subset of all items supported by Impilo.\
+        \ This is set during onboarding and may be modified by your account manager\
+        \ at any time. A customer may view the items in their catalog. Detailed Item\
+        \ views are only seen in the Item list and fetch endpoints -- otherwise, a\
+        \ lighter version of an Item is returned with other non-Item endpoints."
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "Unique identifier for the item, managed by Impilo."
+          type: "integer"
+          readOnly: true
+          example: 1
+        manufacturer:
+          description: "The manufacturer for this item."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Manufacturer"
+        name:
+          description: "The name for this item."
+          type: "string"
+        model:
+          description: "The manufacturer-assigned model for this item."
+          type: "string"
+        sku:
+          description: "The Impilo-assigned SKU for this item."
+          type: "string"
+        orderable:
+          description: "Whether an Item is able to be ordered."
+          type: "boolean"
+        deviceIdentifierType:
+          $ref: "#/components/schemas/DeviceIdentifierType"
+        itemClass:
+          $ref: "#/components/schemas/ItemClass"
+        itemClassType:
+          description: "The Class Type associated with this item."
+          type: "string"
+        size:
+          $ref: "#/components/schemas/ItemSize"
+        dimensions:
+          description: "The physical dimensions of this item."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/ItemDimensions"
+        readingType:
+          $ref: "#/components/schemas/ReadingType"
+    ItemDimensions:
+      description: "The length, width, height, and units of distance for the physical\
+        \ body of the Item."
+      type: "object"
+      properties:
+        length:
+          format: "double"
+          description: "The length of the Item."
+          type: "number"
+        width:
+          format: "double"
+          description: "The width of the Item."
+          type: "number"
+        height:
+          format: "double"
+          description: "The height of the Item."
+          type: "number"
+        unit:
+          $ref: "#/components/schemas/DimensionUnit"
     ItemRequest:
       description: "An ItemRequest object consists of a name (required), a model,\
         \ and (if applicable) a deviceIdentifierType that is being requested to be\
@@ -5325,6 +5643,32 @@ components:
           type: "string"
         deviceIdentifierType:
           $ref: "#/components/schemas/DeviceIdentifierType"
+    ItemSize:
+      enum:
+      - "standard"
+      - "small"
+      - "large"
+      - "extraLarge"
+      - "medium"
+      type: "string"
+      x-fern-enum:
+        standard:
+          description: "Standard sized item."
+        small:
+          description: "Small sized item."
+        large:
+          description: "Large sized item."
+        extraLarge:
+          description: "Extra large sized item."
+        medium:
+          description: "Medium sized item."
+    ItemSort:
+      enum:
+      - "itemId"
+      - "itemName"
+      - "itemModel"
+      - "itemSku"
+      type: "string"
     ItemTransfer:
       required:
       - "item"
@@ -5775,7 +6119,7 @@ components:
         last:
           description: "True if this is the last page, false otherwise."
           type: "boolean"
-    PageItem:
+    PageItemDetailed:
       description: "Pagination is supported whenever an API response returns a list\
         \ of objects. In paginated responses, objects are nested in a content attribute\
         \ and have first and last attributes indicating whether you are on the first\
@@ -5789,7 +6133,7 @@ components:
           description: "The content of the page, consisting of a list of objects."
           type: "array"
           items:
-            $ref: "#/components/schemas/Item"
+            $ref: "#/components/schemas/ItemDetailed"
         page:
           format: "int32"
           description: "The current page number. The first page has value 1."
@@ -6235,6 +6579,28 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/TrackingNumber"
+    ReadingType:
+      enum:
+      - "bloodPressure"
+      - "spo2"
+      - "temperature"
+      - "weight"
+      - "continuousBloodGlucose"
+      - "bloodGlucose"
+      type: "string"
+      x-fern-enum:
+        bloodPressure:
+          description: "Blood pressure reading type."
+        spo2:
+          description: "SPO2 (oxygen saturation) reading type."
+        temperature:
+          description: "Temperature reading type."
+        weight:
+          description: "Weight reading type."
+        continuousBloodGlucose:
+          description: "Continuous blood glucose reading type."
+        bloodGlucose:
+          description: "Blood glucose reading type."
     Return:
       description: "A return is an occurrence of a device(s) or non-tracked item(s)\
         \ being returned by a Patient."
@@ -6894,6 +7260,8 @@ components:
           description: "The weight reading in lbs."
           minimum: 0
           type: "number"
+        weightUnit:
+          $ref: "#/components/schemas/WeightUnit"
     WeightReadingRequest:
       description: "This page describes Impilo's weight reading model."
       required:
@@ -6925,10 +7293,17 @@ components:
           example: -14400
         weight:
           format: "double"
-          description: "The weight reading in lbs."
+          description: "The weight reading value in lbs."
           minimum: 0
           type: "number"
         manual:
           description: "True if the reading value was entered manually, false or null\
             \ otherwise."
           type: "boolean"
+    WeightUnit:
+      enum:
+      - "lbs"
+      type: "string"
+      x-fern-enum:
+        lbs:
+          description: "Weight unit of measurement is pounds."
