@@ -2203,6 +2203,24 @@
                                                 "disabled": true
                                             },
                                             {
+                                                "key": "itemSize",
+                                                "value": "",
+                                                "description": "Lists only devices of the sizes provided.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "itemClass",
+                                                "value": "",
+                                                "description": "Lists only devices of the Classes provided.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "readingType",
+                                                "value": "",
+                                                "description": "Lists only devices that support the Reading Types provided.",
+                                                "disabled": true
+                                            },
+                                            {
                                                 "key": "siteId",
                                                 "value": "",
                                                 "description": "The ID of the site.",
@@ -4846,7 +4864,7 @@
                         },
 	                        {
     "name": "/api/v3/item",
-                "description": "This endpoint returns a paginated list of all items in a customer's catalog. ",
+                "description": "This endpoint returns a paginated list of all items in a customer's catalog with various filtering options including pagination, sorting, and specific attributes such as IDs, names, models, SKUs, sizes, classes, reading types, and manufacturer IDs. ",
                  "item": [
                             {
                                 "name": "listItems",
@@ -4891,18 +4909,72 @@
                                             {
                                                 "key": "size",
                                                 "value": "56",
-                                                "description": "The size of the page returned. Max size is 100.",
+                                                "description": "The size of the page of content returned. Max value is 100.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "sort",
+                                                "value": "",
+                                                "description": "The attribute to sort on.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "sortDescending",
+                                                "value": "true",
+                                                "description": "True if the sort direction should be descending.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "id",
+                                                "value": "",
+                                                "description": "Lists only items with the provided Item IDs.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "name",
+                                                "value": "name_example",
+                                                "description": "Lists only items with the provided name.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "model",
+                                                "value": "model_example",
+                                                "description": "Lists only items with the provided model.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "sku",
+                                                "value": "sku_example",
+                                                "description": "Lists only items with the provided SKU.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "itemSize",
+                                                "value": "",
+                                                "description": "Lists only items with the provided sizes.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "itemClass",
+                                                "value": "",
+                                                "description": "Lists only items with the provided classes.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "readingType",
+                                                "value": "",
+                                                "description": "Lists only items with the provided reading types.",
                                                 "disabled": true
                                             },
                                             {
                                                 "key": "manufacturerId",
-                                                "value": "789",
-                                                "description": "The Manufacturer ID to filter the content by.",
+                                                "value": "",
+                                                "description": "Lists only items created by the provided Manufacturer IDs.",
                                                 "disabled": true
                                             }
                                         ]
                                     },
-                                    "description": "This endpoint returns a paginated list of all items in a customer's catalog. "
+                                    "description": "This endpoint returns a paginated list of all items in a customer's catalog with various filtering options including pagination, sorting, and specific attributes such as IDs, names, models, SKUs, sizes, classes, reading types, and manufacturer IDs. "
                                 }
                             }
                             ]
