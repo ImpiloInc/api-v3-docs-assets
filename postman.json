@@ -616,6 +616,194 @@
 	                    ]
 	        },
 	        {
+	            "name": "Readings - Heart Rate Variability",
+	            "item": [
+	                        {
+    "name": "/api/v3/heart-rate-variability-reading",
+                "description": "Retrieves a paginated list of heart rate variability readings from the Impilo platform.",
+                 "item": [
+                            {
+                                "name": "listHeartRateVariabilityReadings",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/heart-rate-variability-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "heart-rate-variability-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientId",
+                                                "value": "789",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "externalIdentifier",
+                                                "value": "externalIdentifier_example",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "startTimestamp",
+                                                "value": "2013-10-20T19:20:30+01:00",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "endTimestamp",
+                                                "value": "2013-10-20T19:20:30+01:00",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Retrieves a paginated list of heart rate variability readings from the Impilo platform."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/heart-rate-variability-reading",
+                "description": "Records a heart rate variability reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [HeartRateVariabilityReadingRequest Model](/resources/models#schema_HeartRateVariabilityReadingRequest).",
+                 "item": [
+                            {
+                                "name": "heartRateVariabilityReadingRequestExample",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"manual\" : false,\n  \"heartRate\" : 70,\n  \"heartRateVariability\" : 10.0,\n  \"heartRateVariabilityDuration\" : 100,\n  \"heartRateVariabilityAlgorithmType\" : \"sdann\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/heart-rate-variability-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "heart-rate-variability-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a heart rate variability reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [HeartRateVariabilityReadingRequest Model](/resources/models#schema_HeartRateVariabilityReadingRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/heart-rate-variability-reading/:readingId",
+                "description": "Fetches a specific Impilo heart rate variability reading by its ID.",
+                 "item": [
+                            {
+                                "name": "fetchHeartRateVariabilityReading",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/heart-rate-variability-reading/:readingId",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "heart-rate-variability-reading",
+                                            ":readingId"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "readingId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Fetches a specific Impilo heart rate variability reading by its ID."
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
 	            "name": "Orders",
 	            "item": [
 	                        {
@@ -3992,6 +4180,194 @@
                                         ]
                                     },
                                     "description": "Exports weight readings for a specified patient over a selected date range, available in either Excel or CSV format. This endpoint allows the specification of a patient ID, enabling the retrieval of weight data for an individual patient. Alternatively, if no patient ID is provided, it may export readings for all patients, dependent on the implementation details of the service. Users can also specify start and end dates to filter the export to a specific timeframe. The 'excel' parameter dictates the format of the output; if set to true, the readings are exported in Excel format, otherwise in CSV format "
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "Readings - Heart Rate",
+	            "item": [
+	                        {
+    "name": "/api/v3/heart-rate-reading",
+                "description": "Retrieves a paginated list of heart rate readings from the Impilo platform.",
+                 "item": [
+                            {
+                                "name": "listHeartRateReadings",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/heart-rate-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "heart-rate-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientId",
+                                                "value": "789",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "externalIdentifier",
+                                                "value": "externalIdentifier_example",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "startTimestamp",
+                                                "value": "2013-10-20T19:20:30+01:00",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "endTimestamp",
+                                                "value": "2013-10-20T19:20:30+01:00",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Retrieves a paginated list of heart rate readings from the Impilo platform."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/heart-rate-reading",
+                "description": "Records a heart rate reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [HeartRateReadingRequest Model](/resources/models#schema_HeartRateReadingRequest).",
+                 "item": [
+                            {
+                                "name": "heartRateReadingRequestExample",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"manual\" : false,\n  \"heartRate\" : 70\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/heart-rate-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "heart-rate-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a heart rate reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [HeartRateReadingRequest Model](/resources/models#schema_HeartRateReadingRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/heart-rate-reading/:readingId",
+                "description": "Fetches a specific Impilo heart rate reading by its ID.",
+                 "item": [
+                            {
+                                "name": "fetchHeartRateReading",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/heart-rate-reading/:readingId",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "heart-rate-reading",
+                                            ":readingId"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "readingId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Fetches a specific Impilo heart rate reading by its ID."
                                 }
                             }
                             ]

@@ -25,6 +25,8 @@ tags:
 - name: "Readings - Blood Glucose"
 - name: "Readings - Blood Oxygen"
 - name: "Readings - Blood Pressure"
+- name: "Readings - Heart Rate"
+- name: "Readings - Heart Rate Variability"
 - name: "Readings - Temperature"
 - name: "Readings - Weight"
 - name: "Tests"
@@ -2024,13 +2026,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-16T03:00:55.196083Z"
+                    createdAt: "2024-07-18T00:55:54.914952400Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-16T03:00:55.196083Z"
+                      createdAt: "2024-07-18T00:55:54.899314500Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-07-16T03:00:55.196083Z"
+                      eventTimestamp: "2024-07-18T00:55:54.899314500Z"
                     requestedEntries:
                     - device:
                         id: 599
@@ -2077,13 +2079,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-16T03:00:55.321084100Z"
+                    createdAt: "2024-07-18T00:55:55.055084900Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-16T03:00:55.321084100Z"
+                      createdAt: "2024-07-18T00:55:55.054085100Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-07-16T03:00:55.321084100Z"
+                      eventTimestamp: "2024-07-18T00:55:55.054085100Z"
                     requestedEntries:
                     - item:
                         id: 791
@@ -3755,6 +3757,812 @@ paths:
                     heartRateUnit: "bpm"
                     manual: false
       x-response-example: "bloodPressureReadingResponseExample"
+  /api/v3/heart-rate-reading:
+    get:
+      tags:
+      - "Readings - Heart Rate"
+      description: "Retrieves a paginated list of heart rate readings from the Impilo\
+        \ platform."
+      operationId: "listHeartRateReadings"
+      parameters:
+      - name: "page"
+        in: "query"
+        schema:
+          format: "int32"
+          type: "integer"
+      - name: "size"
+        in: "query"
+        schema:
+          format: "int32"
+          type: "integer"
+      - name: "patientId"
+        in: "query"
+        schema:
+          format: "int64"
+          type: "integer"
+      - name: "externalIdentifier"
+        in: "query"
+        schema:
+          type: "string"
+      - name: "startTimestamp"
+        in: "query"
+        schema:
+          $ref: "#/components/schemas/Instant"
+      - name: "endTimestamp"
+        in: "query"
+        schema:
+          $ref: "#/components/schemas/Instant"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PageHeartRateReading"
+              examples:
+                heartRateReadingPagedResponseExample:
+                  value:
+                    content:
+                    - id: 42
+                      patient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      device:
+                        id: 599
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: "Custom Manufacturer"
+                          name: "Blood Pressure Monitor"
+                          model: "iBloodPressureMonitor123"
+                          sku: "0000001"
+                        currentStatus: "withPatient"
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: "external-identifier-123"
+                          firstName: "John"
+                          lastName: "Doe"
+                          dateOfBirth: "1987-09-13"
+                          email: "email@example.com"
+                          phoneNumber: "111-222-3333"
+                          address:
+                            lineOne: "1234 Market Street"
+                            lineTwo: "Suite 110"
+                            city: "Philadelphia"
+                            state: "PA"
+                            zipCode: "19137"
+                            country: "USA"
+                          sex: "unknown"
+                        deviceIdentifiers:
+                        - type: "imei"
+                          value: "354833969951611"
+                        - type: "serial"
+                          value: "A44-A0623930"
+                        - type: "macAddress"
+                          value: "f51da43314fc"
+                        disabledReadings: false
+                      heartRate: 70
+                    - id: 43
+                      patient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      device:
+                        id: 599
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: "Custom Manufacturer"
+                          name: "Blood Pressure Monitor"
+                          model: "iBloodPressureMonitor123"
+                          sku: "0000001"
+                        currentStatus: "withPatient"
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: "external-identifier-123"
+                          firstName: "John"
+                          lastName: "Doe"
+                          dateOfBirth: "1987-09-13"
+                          email: "email@example.com"
+                          phoneNumber: "111-222-3333"
+                          address:
+                            lineOne: "1234 Market Street"
+                            lineTwo: "Suite 110"
+                            city: "Philadelphia"
+                            state: "PA"
+                            zipCode: "19137"
+                            country: "USA"
+                          sex: "unknown"
+                        deviceIdentifiers:
+                        - type: "imei"
+                          value: "354833969951611"
+                        - type: "serial"
+                          value: "A44-A0623930"
+                        - type: "macAddress"
+                          value: "f51da43314fc"
+                        disabledReadings: false
+                      heartRate: 70
+                    page: 1
+                    size: 2
+                    total: 4
+                    first: true
+                    last: false
+      x-response-example: "heartRateReadingPagedResponseExample"
+    post:
+      tags:
+      - "Readings - Heart Rate"
+      description: "Records a heart rate reading based on the provided request. Either\
+        \ a device ID, device identifier, or patient ID is required.\n***\nFor more\
+        \ information see the [HeartRateReadingRequest Model](/resources/models#schema_HeartRateReadingRequest)."
+      operationId: "recordHeartRateReading"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HeartRateReadingRequest"
+            examples:
+              heartRateReadingRequestExample:
+                value:
+                  deviceId: 599
+                  deviceIdentifier: "354833969951611"
+                  patientId: 456
+                  readingTimestamp: "2024-07-04T00:00:00Z"
+                  manual: false
+                  heartRate: 70
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HeartRateReading"
+              examples:
+                heartRateReadingExample:
+                  value:
+                    id: 42
+                    patient:
+                      id: 456
+                      externalIdentifier: "external-identifier-123"
+                      firstName: "John"
+                      lastName: "Doe"
+                      dateOfBirth: "1987-09-13"
+                      email: "email@example.com"
+                      phoneNumber: "111-222-3333"
+                      address:
+                        lineOne: "1234 Market Street"
+                        lineTwo: "Suite 110"
+                        city: "Philadelphia"
+                        state: "PA"
+                        zipCode: "19137"
+                        country: "USA"
+                      sex: "unknown"
+                    item:
+                      id: 791
+                      manufacturer:
+                        id: 2
+                        name: "Custom Manufacturer"
+                      name: "Blood Pressure Monitor"
+                      model: "iBloodPressureMonitor123"
+                      sku: "0000001"
+                    device:
+                      id: 599
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      currentStatus: "withPatient"
+                      currentPatient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      deviceIdentifiers:
+                      - type: "imei"
+                        value: "354833969951611"
+                      - type: "serial"
+                        value: "A44-A0623930"
+                      - type: "macAddress"
+                        value: "f51da43314fc"
+                      disabledReadings: false
+                    heartRate: 70
+      x-request-example: "heartRateReadingRequestExample"
+      x-response-example: "heartRateReadingExample"
+      externalDocs:
+        url: "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_HeartRateReadingRequest"
+  /api/v3/heart-rate-reading/{readingId}:
+    get:
+      tags:
+      - "Readings - Heart Rate"
+      description: "Fetches a specific Impilo heart rate reading by its ID."
+      operationId: "fetchHeartRateReading"
+      parameters:
+      - name: "readingId"
+        in: "path"
+        required: true
+        schema:
+          format: "int64"
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HeartRateReading"
+              examples:
+                heartRateReadingExample:
+                  value:
+                    id: 42
+                    patient:
+                      id: 456
+                      externalIdentifier: "external-identifier-123"
+                      firstName: "John"
+                      lastName: "Doe"
+                      dateOfBirth: "1987-09-13"
+                      email: "email@example.com"
+                      phoneNumber: "111-222-3333"
+                      address:
+                        lineOne: "1234 Market Street"
+                        lineTwo: "Suite 110"
+                        city: "Philadelphia"
+                        state: "PA"
+                        zipCode: "19137"
+                        country: "USA"
+                      sex: "unknown"
+                    item:
+                      id: 791
+                      manufacturer:
+                        id: 2
+                        name: "Custom Manufacturer"
+                      name: "Blood Pressure Monitor"
+                      model: "iBloodPressureMonitor123"
+                      sku: "0000001"
+                    device:
+                      id: 599
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      currentStatus: "withPatient"
+                      currentPatient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      deviceIdentifiers:
+                      - type: "imei"
+                        value: "354833969951611"
+                      - type: "serial"
+                        value: "A44-A0623930"
+                      - type: "macAddress"
+                        value: "f51da43314fc"
+                      disabledReadings: false
+                    heartRate: 70
+      x-response-example: "heartRateReadingExample"
+  /api/v3/heart-rate-variability-reading:
+    get:
+      tags:
+      - "Readings - Heart Rate Variability"
+      description: "Retrieves a paginated list of heart rate variability readings\
+        \ from the Impilo platform."
+      operationId: "listHeartRateVariabilityReadings"
+      parameters:
+      - name: "page"
+        in: "query"
+        schema:
+          format: "int32"
+          type: "integer"
+      - name: "size"
+        in: "query"
+        schema:
+          format: "int32"
+          type: "integer"
+      - name: "patientId"
+        in: "query"
+        schema:
+          format: "int64"
+          type: "integer"
+      - name: "externalIdentifier"
+        in: "query"
+        schema:
+          type: "string"
+      - name: "startTimestamp"
+        in: "query"
+        schema:
+          $ref: "#/components/schemas/Instant"
+      - name: "endTimestamp"
+        in: "query"
+        schema:
+          $ref: "#/components/schemas/Instant"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PageHeartRateVariabilityReading"
+              examples:
+                heartRateVariabilityReadingPagedResponseExample:
+                  value:
+                    content:
+                    - id: 42
+                      patient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      device:
+                        id: 599
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: "Custom Manufacturer"
+                          name: "Blood Pressure Monitor"
+                          model: "iBloodPressureMonitor123"
+                          sku: "0000001"
+                        currentStatus: "withPatient"
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: "external-identifier-123"
+                          firstName: "John"
+                          lastName: "Doe"
+                          dateOfBirth: "1987-09-13"
+                          email: "email@example.com"
+                          phoneNumber: "111-222-3333"
+                          address:
+                            lineOne: "1234 Market Street"
+                            lineTwo: "Suite 110"
+                            city: "Philadelphia"
+                            state: "PA"
+                            zipCode: "19137"
+                            country: "USA"
+                          sex: "unknown"
+                        deviceIdentifiers:
+                        - type: "imei"
+                          value: "354833969951611"
+                        - type: "serial"
+                          value: "A44-A0623930"
+                        - type: "macAddress"
+                          value: "f51da43314fc"
+                        disabledReadings: false
+                      readingTimestamp: "2024-07-04T00:00:00Z"
+                      manual: false
+                      heartRate: 70
+                      heartRateVariability: 10.0
+                      heartRateVariabilityDuration: 100
+                      heartRateVariabilityAlgorithmType: "sdann"
+                    - id: 43
+                      patient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      device:
+                        id: 599
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: "Custom Manufacturer"
+                          name: "Blood Pressure Monitor"
+                          model: "iBloodPressureMonitor123"
+                          sku: "0000001"
+                        currentStatus: "withPatient"
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: "external-identifier-123"
+                          firstName: "John"
+                          lastName: "Doe"
+                          dateOfBirth: "1987-09-13"
+                          email: "email@example.com"
+                          phoneNumber: "111-222-3333"
+                          address:
+                            lineOne: "1234 Market Street"
+                            lineTwo: "Suite 110"
+                            city: "Philadelphia"
+                            state: "PA"
+                            zipCode: "19137"
+                            country: "USA"
+                          sex: "unknown"
+                        deviceIdentifiers:
+                        - type: "imei"
+                          value: "354833969951611"
+                        - type: "serial"
+                          value: "A44-A0623930"
+                        - type: "macAddress"
+                          value: "f51da43314fc"
+                        disabledReadings: false
+                      readingTimestamp: "2024-07-04T00:00:00Z"
+                      manual: false
+                      heartRate: 70
+                      heartRateVariability: 10.0
+                      heartRateVariabilityDuration: 100
+                      heartRateVariabilityAlgorithmType: "sdann"
+                    page: 1
+                    size: 2
+                    total: 4
+                    first: true
+                    last: false
+      x-response-example: "heartRateVariabilityReadingPagedResponseExample"
+    post:
+      tags:
+      - "Readings - Heart Rate Variability"
+      description: "Records a heart rate variability reading based on the provided\
+        \ request. Either a device ID, device identifier, or patient ID is required.\n\
+        ***\nFor more information see the [HeartRateVariabilityReadingRequest Model](/resources/models#schema_HeartRateVariabilityReadingRequest)."
+      operationId: "recordHeartRateVariabilityReading"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HeartRateVariabilityReadingRequest"
+            examples:
+              heartRateVariabilityReadingRequestExample:
+                value:
+                  deviceId: 599
+                  deviceIdentifier: "354833969951611"
+                  patientId: 456
+                  readingTimestamp: "2024-07-04T00:00:00Z"
+                  manual: false
+                  heartRate: 70
+                  heartRateVariability: 10.0
+                  heartRateVariabilityDuration: 100
+                  heartRateVariabilityAlgorithmType: "sdann"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HeartRateVariabilityReading"
+              examples:
+                heartRateVariabilityReadingExample:
+                  value:
+                    id: 42
+                    patient:
+                      id: 456
+                      externalIdentifier: "external-identifier-123"
+                      firstName: "John"
+                      lastName: "Doe"
+                      dateOfBirth: "1987-09-13"
+                      email: "email@example.com"
+                      phoneNumber: "111-222-3333"
+                      address:
+                        lineOne: "1234 Market Street"
+                        lineTwo: "Suite 110"
+                        city: "Philadelphia"
+                        state: "PA"
+                        zipCode: "19137"
+                        country: "USA"
+                      sex: "unknown"
+                    item:
+                      id: 791
+                      manufacturer:
+                        id: 2
+                        name: "Custom Manufacturer"
+                      name: "Blood Pressure Monitor"
+                      model: "iBloodPressureMonitor123"
+                      sku: "0000001"
+                    device:
+                      id: 599
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      currentStatus: "withPatient"
+                      currentPatient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      deviceIdentifiers:
+                      - type: "imei"
+                        value: "354833969951611"
+                      - type: "serial"
+                        value: "A44-A0623930"
+                      - type: "macAddress"
+                        value: "f51da43314fc"
+                      disabledReadings: false
+                    readingTimestamp: "2024-07-04T00:00:00Z"
+                    manual: false
+                    heartRate: 70
+                    heartRateVariability: 10.0
+                    heartRateVariabilityDuration: 100
+                    heartRateVariabilityAlgorithmType: "sdann"
+      x-request-example: "heartRateVariabilityReadingRequestExample"
+      x-response-example: "heartRateVariabilityReadingExample"
+      externalDocs:
+        url: "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_HeartRateVariabilityReadingRequest"
+  /api/v3/heart-rate-variability-reading/{readingId}:
+    get:
+      tags:
+      - "Readings - Heart Rate Variability"
+      description: "Fetches a specific Impilo heart rate variability reading by its\
+        \ ID."
+      operationId: "fetchHeartRateVariabilityReading"
+      parameters:
+      - name: "readingId"
+        in: "path"
+        required: true
+        schema:
+          format: "int64"
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HeartRateVariabilityReading"
+              examples:
+                heartRateVariabilityReadingPagedResponseExample:
+                  value:
+                    content:
+                    - id: 42
+                      patient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      device:
+                        id: 599
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: "Custom Manufacturer"
+                          name: "Blood Pressure Monitor"
+                          model: "iBloodPressureMonitor123"
+                          sku: "0000001"
+                        currentStatus: "withPatient"
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: "external-identifier-123"
+                          firstName: "John"
+                          lastName: "Doe"
+                          dateOfBirth: "1987-09-13"
+                          email: "email@example.com"
+                          phoneNumber: "111-222-3333"
+                          address:
+                            lineOne: "1234 Market Street"
+                            lineTwo: "Suite 110"
+                            city: "Philadelphia"
+                            state: "PA"
+                            zipCode: "19137"
+                            country: "USA"
+                          sex: "unknown"
+                        deviceIdentifiers:
+                        - type: "imei"
+                          value: "354833969951611"
+                        - type: "serial"
+                          value: "A44-A0623930"
+                        - type: "macAddress"
+                          value: "f51da43314fc"
+                        disabledReadings: false
+                      readingTimestamp: "2024-07-04T00:00:00Z"
+                      manual: false
+                      heartRate: 70
+                      heartRateVariability: 10.0
+                      heartRateVariabilityDuration: 100
+                      heartRateVariabilityAlgorithmType: "sdann"
+                    - id: 43
+                      patient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      device:
+                        id: 599
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: "Custom Manufacturer"
+                          name: "Blood Pressure Monitor"
+                          model: "iBloodPressureMonitor123"
+                          sku: "0000001"
+                        currentStatus: "withPatient"
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: "external-identifier-123"
+                          firstName: "John"
+                          lastName: "Doe"
+                          dateOfBirth: "1987-09-13"
+                          email: "email@example.com"
+                          phoneNumber: "111-222-3333"
+                          address:
+                            lineOne: "1234 Market Street"
+                            lineTwo: "Suite 110"
+                            city: "Philadelphia"
+                            state: "PA"
+                            zipCode: "19137"
+                            country: "USA"
+                          sex: "unknown"
+                        deviceIdentifiers:
+                        - type: "imei"
+                          value: "354833969951611"
+                        - type: "serial"
+                          value: "A44-A0623930"
+                        - type: "macAddress"
+                          value: "f51da43314fc"
+                        disabledReadings: false
+                      readingTimestamp: "2024-07-04T00:00:00Z"
+                      manual: false
+                      heartRate: 70
+                      heartRateVariability: 10.0
+                      heartRateVariabilityDuration: 100
+                      heartRateVariabilityAlgorithmType: "sdann"
+                    page: 1
+                    size: 2
+                    total: 4
+                    first: true
+                    last: false
+      x-response-example: "heartRateVariabilityReadingPagedResponseExample"
   /api/v3/temperature-reading:
     get:
       tags:
@@ -5049,7 +5857,6 @@ components:
       required:
       - "readingTimestamp"
       - "bloodOxygen"
-      - "heartRate"
       type: "object"
       properties:
         deviceId:
@@ -5438,6 +6245,81 @@ components:
           description: "Inches."
         cm:
           description: "Centimeters."
+    HeartRateReading:
+      description: "This page describes Impilo's heart rate model."
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "Unique identifier for the reading."
+          type: "integer"
+        readingTimestamp:
+          format: "date-time"
+          type: "string"
+          example: "2022-03-10T16:15:50Z"
+          writeOnly: true
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
+          writeOnly: true
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        patientTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the patient's timezone from UTC in seconds.\
+            \ Null if unavailable."
+          type: "integer"
+          example: -14400
+        heartRate:
+          format: "int32"
+          description: "The heart rate measurement value."
+          type: "integer"
+        patient:
+          $ref: "#/components/schemas/Patient"
+        item:
+          $ref: "#/components/schemas/Item"
+        device:
+          $ref: "#/components/schemas/Device"
+    HeartRateReadingRequest:
+      required:
+      - "readingTimestamp"
+      type: "object"
+      properties:
+        deviceId:
+          format: "int64"
+          description: "The id of the device that took the reading."
+          type: "integer"
+        deviceIdentifier:
+          description: "The device identifier of the device that took the reading."
+          type: "string"
+        patientId:
+          format: "int64"
+          description: "The id of the patient that took the reading."
+          type: "integer"
+        readingTimestamp:
+          description: "The UTC timestamp at which the reading was taken."
+          type: "string"
+          allOf:
+          - $ref: "#/components/schemas/Instant"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
+        heartRate:
+          format: "int32"
+          description: "The heart rate measurement value."
+          type: "integer"
     HeartRateUnit:
       enum:
       - "bpm"
@@ -5445,6 +6327,123 @@ components:
       x-fern-enum:
         bpm:
           description: "Heart rate unit of measurement is beats per minute."
+    HeartRateVariabilityAlgorithmType:
+      enum:
+      - "sdann"
+      - "sdnn"
+      - "sdrr"
+      type: "string"
+      x-fern-enum:
+        sdann:
+          description: "Standard deviation of the average NN intervals calculated\
+            \ over short periods."
+        sdnn:
+          description: "Standard deviation of all NN intervals."
+        sdrr:
+          description: "Standard deviation of the differences between adjacent NN\
+            \ intervals."
+    HeartRateVariabilityReading:
+      description: "This page describes Impilo's heart rate variability model."
+      required:
+      - "heartRateVariability"
+      - "heartRateVariabilityDuration"
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "Unique identifier for the reading."
+          type: "integer"
+        readingTimestamp:
+          format: "date-time"
+          type: "string"
+          example: "2022-03-10T16:15:50Z"
+          writeOnly: true
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
+          writeOnly: true
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        patientTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the patient's timezone from UTC in seconds.\
+            \ Null if unavailable."
+          type: "integer"
+          example: -14400
+        heartRate:
+          format: "int32"
+          description: "The heart rate measurement value."
+          type: "integer"
+        heartRateVariability:
+          format: "double"
+          description: "The heart rate variability value."
+          type: "number"
+        heartRateVariabilityDuration:
+          format: "int64"
+          description: "The duration over which the heart rate variability was measured,\
+            \ in milliseconds."
+          type: "integer"
+        patient:
+          $ref: "#/components/schemas/Patient"
+        item:
+          $ref: "#/components/schemas/Item"
+        device:
+          $ref: "#/components/schemas/Device"
+        heartRateVariabilityAlgorithmType:
+          $ref: "#/components/schemas/HeartRateVariabilityAlgorithmType"
+    HeartRateVariabilityReadingRequest:
+      required:
+      - "readingTimestamp"
+      - "heartRateVariability"
+      - "heartRateVariabilityDuration"
+      type: "object"
+      properties:
+        deviceId:
+          format: "int64"
+          description: "The id of the device that took the reading."
+          type: "integer"
+        deviceIdentifier:
+          description: "The device identifier of the device that took the reading."
+          type: "string"
+        patientId:
+          format: "int64"
+          description: "The id of the patient that took the reading."
+          type: "integer"
+        readingTimestamp:
+          description: "The UTC timestamp at which the reading was taken."
+          type: "string"
+          allOf:
+          - $ref: "#/components/schemas/Instant"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
+        heartRate:
+          format: "int32"
+          description: "The heart rate measurement value."
+          type: "integer"
+        heartRateVariability:
+          format: "double"
+          description: "The heart rate variability value."
+          type: "number"
+        heartRateVariabilityDuration:
+          format: "int64"
+          description: "The duration over which the heart rate variability was measured,\
+            \ in milliseconds."
+          type: "integer"
+        heartRateVariabilityAlgorithmType:
+          $ref: "#/components/schemas/HeartRateVariabilityAlgorithmType"
     Instant:
       format: "date-time"
       type: "string"
@@ -6053,6 +7052,72 @@ components:
         last:
           description: "True if this is the last page, false otherwise."
           type: "boolean"
+    PageHeartRateReading:
+      description: "Pagination is supported whenever an API response returns a list\
+        \ of objects. In paginated responses, objects are nested in a content attribute\
+        \ and have first and last attributes indicating whether you are on the first\
+        \ or last page, respectively. Additionally, the pagination response includes\
+        \ a page attribute indicating the current page number, a size attribute indicating\
+        \ the current page size, and a total attribute indicating the number of objects\
+        \ matching the request."
+      type: "object"
+      properties:
+        content:
+          description: "The content of the page, consisting of a list of objects."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/HeartRateReading"
+        page:
+          format: "int32"
+          description: "The current page number. The first page has value 1."
+          type: "integer"
+        size:
+          format: "int32"
+          description: "The current page size. Default 15, maximum 250."
+          type: "integer"
+        total:
+          format: "int32"
+          description: "The number of objects matching the request."
+          type: "integer"
+        first:
+          description: "True if this is the first page, false otherwise."
+          type: "boolean"
+        last:
+          description: "True if this is the last page, false otherwise."
+          type: "boolean"
+    PageHeartRateVariabilityReading:
+      description: "Pagination is supported whenever an API response returns a list\
+        \ of objects. In paginated responses, objects are nested in a content attribute\
+        \ and have first and last attributes indicating whether you are on the first\
+        \ or last page, respectively. Additionally, the pagination response includes\
+        \ a page attribute indicating the current page number, a size attribute indicating\
+        \ the current page size, and a total attribute indicating the number of objects\
+        \ matching the request."
+      type: "object"
+      properties:
+        content:
+          description: "The content of the page, consisting of a list of objects."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/HeartRateVariabilityReading"
+        page:
+          format: "int32"
+          description: "The current page number. The first page has value 1."
+          type: "integer"
+        size:
+          format: "int32"
+          description: "The current page size. Default 15, maximum 250."
+          type: "integer"
+        total:
+          format: "int32"
+          description: "The number of objects matching the request."
+          type: "integer"
+        first:
+          description: "True if this is the first page, false otherwise."
+          type: "boolean"
+        last:
+          description: "True if this is the last page, false otherwise."
+          type: "boolean"
     PageInventoryRecord:
       description: "Pagination is supported whenever an API response returns a list\
         \ of objects. In paginated responses, objects are nested in a content attribute\
@@ -6582,6 +7647,8 @@ components:
     ReadingType:
       enum:
       - "bloodPressure"
+      - "heartRateVariability"
+      - "heartRate"
       - "spo2"
       - "temperature"
       - "weight"
@@ -6591,6 +7658,10 @@ components:
       x-fern-enum:
         bloodPressure:
           description: "Blood pressure reading type."
+        heartRateVariability:
+          description: "Heart rate variability reading type."
+        heartRate:
+          description: "Heart rate reading type."
         spo2:
           description: "SPO2 (oxygen saturation) reading type."
         temperature:
