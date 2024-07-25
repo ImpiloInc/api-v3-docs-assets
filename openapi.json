@@ -2497,8 +2497,16 @@
           }
         },
         "responses" : {
-          "201" : {
-            "description" : "Created"
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "format" : "int64",
+                  "type" : "integer"
+                }
+              }
+            }
           }
         },
         "x-request-example" : "createDeviceTransferRequestExample",
@@ -2554,8 +2562,16 @@
           }
         },
         "responses" : {
-          "201" : {
-            "description" : "Created"
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "format" : "int64",
+                  "type" : "integer"
+                }
+              }
+            }
           }
         },
         "x-request-example" : "createItemTransferRequestExample",
@@ -2638,14 +2654,14 @@
                         "name" : "Customer 3"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-07-18T00:55:54.914952400Z",
+                      "createdAt" : "2024-07-25T21:10:34.172520300Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-07-18T00:55:54.899314500Z"
+                        "createdAt" : "2024-07-25T21:10:34.170571600Z"
                       } ],
                       "transferRequestEvents" : [ {
                         "name" : "requested",
-                        "eventTimestamp" : "2024-07-18T00:55:54.899314500Z"
+                        "eventTimestamp" : "2024-07-25T21:10:34.170571600Z"
                       } ],
                       "requestedEntries" : [ {
                         "device" : {
@@ -2706,14 +2722,14 @@
                         "name" : "Customer 3"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-07-18T00:55:55.055084900Z",
+                      "createdAt" : "2024-07-25T21:10:34.238773900Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-07-18T00:55:55.054085100Z"
+                        "createdAt" : "2024-07-25T21:10:34.238773900Z"
                       } ],
                       "transferRequestEvents" : [ {
                         "name" : "requested",
-                        "eventTimestamp" : "2024-07-18T00:55:55.054085100Z"
+                        "eventTimestamp" : "2024-07-25T21:10:34.238773900Z"
                       } ],
                       "requestedEntries" : [ {
                         "item" : {
@@ -4924,6 +4940,8 @@
                           } ],
                           "disabledReadings" : false
                         },
+                        "readingTimestamp" : "2024-07-04T00:00:00Z",
+                        "manual" : false,
                         "heartRate" : 70
                       }, {
                         "id" : 43,
@@ -4998,6 +5016,8 @@
                           } ],
                           "disabledReadings" : false
                         },
+                        "readingTimestamp" : "2024-07-04T00:00:00Z",
+                        "manual" : false,
                         "heartRate" : 70
                       } ],
                       "page" : 1,
@@ -5122,6 +5142,8 @@
                         } ],
                         "disabledReadings" : false
                       },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "manual" : false,
                       "heartRate" : 70
                     }
                   }
@@ -5234,6 +5256,8 @@
                         } ],
                         "disabledReadings" : false
                       },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "manual" : false,
                       "heartRate" : 70
                     }
                   }
@@ -7229,6 +7253,7 @@
             "type" : "integer"
           },
           "readingTimestamp" : {
+            "format" : "date-time",
             "description" : "The UTC timestamp at which the reading was taken.",
             "type" : "string",
             "writeOnly" : true
@@ -7358,6 +7383,7 @@
             "type" : "integer"
           },
           "readingTimestamp" : {
+            "format" : "date-time",
             "description" : "The UTC timestamp at which the reading was taken.",
             "type" : "string",
             "writeOnly" : true
@@ -7484,6 +7510,7 @@
             "type" : "integer"
           },
           "readingTimestamp" : {
+            "format" : "date-time",
             "description" : "The UTC timestamp at which the reading was taken.",
             "type" : "string",
             "writeOnly" : true
@@ -7872,7 +7899,7 @@
         }
       },
       "HeartRateReading" : {
-        "description" : "This page describes Impilo's heart rate model.",
+        "description" : "Impilo's heart rate model.",
         "type" : "object",
         "properties" : {
           "id" : {
@@ -7986,7 +8013,7 @@
         }
       },
       "HeartRateVariabilityReading" : {
-        "description" : "This page describes Impilo's heart rate variability model.",
+        "description" : "Impilo's heart rate variability model.",
         "required" : [ "heartRateVariability", "heartRateVariabilityDuration" ],
         "type" : "object",
         "properties" : {
@@ -9434,12 +9461,34 @@
             "description" : "The current status of the procurement",
             "type" : "string"
           },
+          "procurementType" : {
+            "description" : "The type of the procurement.",
+            "type" : "string"
+          },
           "procurementItems" : {
             "description" : "List of items on the procurement",
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/ProcurementItem"
             }
+          },
+          "procurementEvents" : {
+            "description" : "List of events attached to the procurement",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ProcurementEvent"
+            }
+          }
+        }
+      },
+      "ProcurementEvent" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "eventTimestamp" : {
+            "type" : "string"
           }
         }
       },
@@ -9520,6 +9569,13 @@
           "currentStatus" : {
             "description" : "The current status of this return.",
             "type" : "string"
+          },
+          "returnKits" : {
+            "description" : "An array of kits related to  items expected on this return.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Kit"
+            }
           },
           "returnItems" : {
             "description" : "An array of non-tracked items expected on this return.",
@@ -9655,6 +9711,7 @@
             "type" : "integer"
           },
           "readingTimestamp" : {
+            "format" : "date-time",
             "description" : "The UTC timestamp at which the reading was taken.",
             "type" : "string",
             "writeOnly" : true
@@ -9965,11 +10022,9 @@
             "$ref" : "#/components/schemas/TransferRequestStatus"
           },
           "createdAt" : {
+            "format" : "date-time",
             "description" : "The timestamp when the Transfer Request was first created.",
-            "type" : "string",
-            "allOf" : [ {
-              "$ref" : "#/components/schemas/Instant"
-            } ]
+            "type" : "string"
           },
           "transferRequestNotes" : {
             "description" : "Notes attached to this Transfer Request.",
@@ -10025,11 +10080,9 @@
             "$ref" : "#/components/schemas/TransferRequestStatus"
           },
           "eventTimestamp" : {
+            "format" : "date-time",
             "description" : "The timestamp when this event took place.",
-            "type" : "string",
-            "allOf" : [ {
-              "$ref" : "#/components/schemas/Instant"
-            } ]
+            "type" : "string"
           }
         }
       },
@@ -10194,9 +10247,12 @@
         }
       },
       "WebhookType" : {
-        "enum" : [ "supportTicket.event", "reading.bloodOxygen", "order.status", "device.lowBattery", "return.statusFull", "patient.updated", "reading.bloodPressure", "device.associationCreated", "device.associationRemoved", "patient.created", "reading.weight", "reading.temperature", "return.status", "reading.bloodGlucose", "device.weakSignal", "order.statusFull" ],
+        "enum" : [ "procurement.statusFull", "supportTicket.event", "reading.bloodOxygen", "order.status", "transferRequest.statusFull", "device.lowBattery", "return.statusFull", "patient.updated", "reading.bloodPressure", "procurement.status", "device.associationCreated", "device.associationRemoved", "patient.created", "reading.weight", "reading.temperature", "transferRequest.status", "return.status", "reading.bloodGlucose", "device.weakSignal", "order.statusFull" ],
         "type" : "string",
         "x-fern-enum" : {
+          "procurement.statusFull" : {
+            "description" : "A procurement status event occurred. The payload includes the full procurement model."
+          },
           "supportTicket.event" : {
             "description" : "A support ticket event took place."
           },
@@ -10205,6 +10261,9 @@
           },
           "order.status" : {
             "description" : "An order status event occurred. The payload only includes order id and order event type."
+          },
+          "transferRequest.statusFull" : {
+            "description" : "A transfer request status event occurred. The payload includes the full transfer request model."
           },
           "device.lowBattery" : {
             "description" : "A device sent a low battery signal."
@@ -10217,6 +10276,9 @@
           },
           "reading.bloodPressure" : {
             "description" : "A reading of blood pressure was taken."
+          },
+          "procurement.status" : {
+            "description" : "A procurement status event occurred. The payload only includes procurement id and event type."
           },
           "device.associationCreated" : {
             "description" : "A patient-device association was created."
@@ -10232,6 +10294,9 @@
           },
           "reading.temperature" : {
             "description" : "A body temperature reading was taken."
+          },
+          "transferRequest.status" : {
+            "description" : "A transfer request status event occurred. The payload only includes transfer request id and transfer request event type."
           },
           "return.status" : {
             "description" : "A return status event was triggered."
@@ -10258,6 +10323,7 @@
             "type" : "integer"
           },
           "readingTimestamp" : {
+            "format" : "date-time",
             "description" : "The UTC timestamp at which the reading was taken.",
             "type" : "string",
             "writeOnly" : true

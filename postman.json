@@ -36,7 +36,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n \"id\": \"<number>\",\n \"currentStatus\": \"<string>\",\n \"procurementItems\": \"<string>\"\n}",
+                                        "raw": "{\n \"id\": \"<number>\",\n \"currentStatus\": \"<string>\",\n \"procurementType\": \"<string>\",\n \"procurementItems\": \"<string>\",\n \"procurementEvents\": \"<string>\"\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -237,7 +237,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n \"id\": \"<number>\",\n \"currentStatus\": \"<string>\",\n \"procurementItems\": \"<string>\"\n}",
+                                        "raw": "{\n \"id\": \"<number>\",\n \"currentStatus\": \"<string>\",\n \"procurementType\": \"<string>\",\n \"procurementItems\": \"<string>\",\n \"procurementEvents\": \"<string>\"\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -4391,6 +4391,12 @@
                                             "value": "application/json",
                                             "description": "",
                                             "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "*/*",
+                                            "description": "",
+                                            "disabled": false
                                         }
                                     ],
                                     "body": {
@@ -4435,6 +4441,12 @@
                                         {
                                             "key": "Content-Type",
                                             "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "*/*",
                                             "description": "",
                                             "disabled": false
                                         }

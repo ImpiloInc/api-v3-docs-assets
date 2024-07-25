@@ -1908,8 +1908,13 @@ paths:
                   - "A44-A0623930"
                   - "f51da43314fc"
       responses:
-        "201":
-          description: "Created"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                format: "int64"
+                type: "integer"
       x-request-example: "createDeviceTransferRequestExample"
       externalDocs:
         url: "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DeviceTransferRequest"
@@ -1960,8 +1965,13 @@ paths:
                       sku: "0000001"
                     count: 20
       responses:
-        "201":
-          description: "Created"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                format: "int64"
+                type: "integer"
       x-request-example: "createItemTransferRequestExample"
       externalDocs:
         url: "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_ItemTransferRequest"
@@ -2026,13 +2036,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-18T00:55:54.914952400Z"
+                    createdAt: "2024-07-25T21:10:34.172520300Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-18T00:55:54.899314500Z"
+                      createdAt: "2024-07-25T21:10:34.170571600Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-07-18T00:55:54.899314500Z"
+                      eventTimestamp: "2024-07-25T21:10:34.170571600Z"
                     requestedEntries:
                     - device:
                         id: 599
@@ -2079,13 +2089,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-18T00:55:55.055084900Z"
+                    createdAt: "2024-07-25T21:10:34.238773900Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-18T00:55:55.054085100Z"
+                      createdAt: "2024-07-25T21:10:34.238773900Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-07-18T00:55:55.054085100Z"
+                      eventTimestamp: "2024-07-25T21:10:34.238773900Z"
                     requestedEntries:
                     - item:
                         id: 791
@@ -3863,6 +3873,8 @@ paths:
                         - type: "macAddress"
                           value: "f51da43314fc"
                         disabledReadings: false
+                      readingTimestamp: "2024-07-04T00:00:00Z"
+                      manual: false
                       heartRate: 70
                     - id: 43
                       patient:
@@ -3924,6 +3936,8 @@ paths:
                         - type: "macAddress"
                           value: "f51da43314fc"
                         disabledReadings: false
+                      readingTimestamp: "2024-07-04T00:00:00Z"
+                      manual: false
                       heartRate: 70
                     page: 1
                     size: 2
@@ -4022,6 +4036,8 @@ paths:
                       - type: "macAddress"
                         value: "f51da43314fc"
                       disabledReadings: false
+                    readingTimestamp: "2024-07-04T00:00:00Z"
+                    manual: false
                     heartRate: 70
       x-request-example: "heartRateReadingRequestExample"
       x-response-example: "heartRateReadingExample"
@@ -4110,6 +4126,8 @@ paths:
                       - type: "macAddress"
                         value: "f51da43314fc"
                       disabledReadings: false
+                    readingTimestamp: "2024-07-04T00:00:00Z"
+                    manual: false
                     heartRate: 70
       x-response-example: "heartRateReadingExample"
   /api/v3/heart-rate-variability-reading:
@@ -5699,6 +5717,7 @@ components:
           description: "Unique identifier for the reading."
           type: "integer"
         readingTimestamp:
+          format: "date-time"
           description: "The UTC timestamp at which the reading was taken."
           type: "string"
           writeOnly: true
@@ -5806,6 +5825,7 @@ components:
           description: "Unique identifier for the reading."
           type: "integer"
         readingTimestamp:
+          format: "date-time"
           description: "The UTC timestamp at which the reading was taken."
           type: "string"
           writeOnly: true
@@ -5911,6 +5931,7 @@ components:
           description: "Unique identifier for the reading."
           type: "integer"
         readingTimestamp:
+          format: "date-time"
           description: "The UTC timestamp at which the reading was taken."
           type: "string"
           writeOnly: true
@@ -6246,7 +6267,7 @@ components:
         cm:
           description: "Centimeters."
     HeartRateReading:
-      description: "This page describes Impilo's heart rate model."
+      description: "Impilo's heart rate model."
       type: "object"
       properties:
         id:
@@ -6343,7 +6364,7 @@ components:
           description: "Standard deviation of the differences between adjacent NN\
             \ intervals."
     HeartRateVariabilityReading:
-      description: "This page describes Impilo's heart rate variability model."
+      description: "Impilo's heart rate variability model."
       required:
       - "heartRateVariability"
       - "heartRateVariabilityDuration"
@@ -7621,11 +7642,26 @@ components:
         currentStatus:
           description: "The current status of the procurement"
           type: "string"
+        procurementType:
+          description: "The type of the procurement."
+          type: "string"
         procurementItems:
           description: "List of items on the procurement"
           type: "array"
           items:
             $ref: "#/components/schemas/ProcurementItem"
+        procurementEvents:
+          description: "List of events attached to the procurement"
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ProcurementEvent"
+    ProcurementEvent:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        eventTimestamp:
+          type: "string"
     ProcurementItem:
       type: "object"
       properties:
@@ -7691,6 +7727,11 @@ components:
         currentStatus:
           description: "The current status of this return."
           type: "string"
+        returnKits:
+          description: "An array of kits related to  items expected on this return."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Kit"
         returnItems:
           description: "An array of non-tracked items expected on this return."
           type: "array"
@@ -7796,6 +7837,7 @@ components:
           description: "Unique identifier for the reading."
           type: "integer"
         readingTimestamp:
+          format: "date-time"
           description: "The UTC timestamp at which the reading was taken."
           type: "string"
           writeOnly: true
@@ -8045,10 +8087,9 @@ components:
         currentStatus:
           $ref: "#/components/schemas/TransferRequestStatus"
         createdAt:
+          format: "date-time"
           description: "The timestamp when the Transfer Request was first created."
           type: "string"
-          allOf:
-          - $ref: "#/components/schemas/Instant"
         transferRequestNotes:
           description: "Notes attached to this Transfer Request."
           type: "array"
@@ -8091,10 +8132,9 @@ components:
         name:
           $ref: "#/components/schemas/TransferRequestStatus"
         eventTimestamp:
+          format: "date-time"
           description: "The timestamp when this event took place."
           type: "string"
-          allOf:
-          - $ref: "#/components/schemas/Instant"
     TransferRequestNote:
       type: "object"
       properties:
@@ -8228,24 +8268,31 @@ components:
           type: "string"
     WebhookType:
       enum:
+      - "procurement.statusFull"
       - "supportTicket.event"
       - "reading.bloodOxygen"
       - "order.status"
+      - "transferRequest.statusFull"
       - "device.lowBattery"
       - "return.statusFull"
       - "patient.updated"
       - "reading.bloodPressure"
+      - "procurement.status"
       - "device.associationCreated"
       - "device.associationRemoved"
       - "patient.created"
       - "reading.weight"
       - "reading.temperature"
+      - "transferRequest.status"
       - "return.status"
       - "reading.bloodGlucose"
       - "device.weakSignal"
       - "order.statusFull"
       type: "string"
       x-fern-enum:
+        procurement.statusFull:
+          description: "A procurement status event occurred. The payload includes\
+            \ the full procurement model."
         supportTicket.event:
           description: "A support ticket event took place."
         reading.bloodOxygen:
@@ -8253,6 +8300,9 @@ components:
         order.status:
           description: "An order status event occurred. The payload only includes\
             \ order id and order event type."
+        transferRequest.statusFull:
+          description: "A transfer request status event occurred. The payload includes\
+            \ the full transfer request model."
         device.lowBattery:
           description: "A device sent a low battery signal."
         return.statusFull:
@@ -8261,6 +8311,9 @@ components:
           description: "A patient’s details were updated."
         reading.bloodPressure:
           description: "A reading of blood pressure was taken."
+        procurement.status:
+          description: "A procurement status event occurred. The payload only includes\
+            \ procurement id and event type."
         device.associationCreated:
           description: "A patient-device association was created."
         device.associationRemoved:
@@ -8271,6 +8324,9 @@ components:
           description: "A body weight reading was taken."
         reading.temperature:
           description: "A body temperature reading was taken."
+        transferRequest.status:
+          description: "A transfer request status event occurred. The payload only\
+            \ includes transfer request id and transfer request event type."
         return.status:
           description: "A return status event was triggered."
         reading.bloodGlucose:
@@ -8292,6 +8348,7 @@ components:
           description: "Unique identifier for the reading."
           type: "integer"
         readingTimestamp:
+          format: "date-time"
           description: "The UTC timestamp at which the reading was taken."
           type: "string"
           writeOnly: true
