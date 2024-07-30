@@ -11,6 +11,7 @@ servers:
 security:
 - ApiKeyAuth: []
 tags:
+- name: "Clinical Notes"
 - name: "Devices"
 - name: "Inventory"
 - name: "Items"
@@ -31,6 +32,396 @@ tags:
 - name: "Readings - Weight"
 - name: "Tests"
 paths:
+  /api/v3/clinical-note:
+    get:
+      tags:
+      - "Clinical Notes"
+      description: "Lists clinical notes with various filtering options including\
+        \ pagination, sorting, and specific attributes such as IDs, types, assignee\
+        \ details, creator details, patient details, and more.\nThis endpoint supports\
+        \ comprehensive filtering to retrieve relevant clinical notes based on the\
+        \ provided criteria.\n"
+      operationId: "listClinicalNotes"
+      parameters:
+      - name: "page"
+        in: "query"
+        description: "The page number of the content returned."
+        schema:
+          format: "int32"
+          type: "integer"
+      - name: "size"
+        in: "query"
+        description: "The size of the page of content returned."
+        schema:
+          format: "int32"
+          type: "integer"
+      - name: "sort"
+        in: "query"
+        description: "The attribute to sort on."
+        schema:
+          $ref: "#/components/schemas/ClinicalNoteSort"
+      - name: "sortDescending"
+        in: "query"
+        description: "True if the sort direction should be descending."
+        schema:
+          type: "boolean"
+      - name: "id"
+        in: "query"
+        description: "Lists only clinical notes with the IDs provided."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "open"
+        in: "query"
+        description: "Lists only open clinical notes."
+        schema:
+          type: "boolean"
+      - name: "description"
+        in: "query"
+        description: "Lists only clinical notes with the provided description."
+        schema:
+          type: "string"
+      - name: "type"
+        in: "query"
+        description: "Lists only clinical notes with the provided types."
+        schema:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ClinicalNoteType"
+      - name: "cptCodeValue"
+        in: "query"
+        description: "Lists only clinical notes with the provided CPT code values."
+        schema:
+          type: "array"
+          items:
+            type: "string"
+      - name: "assigneeId"
+        in: "query"
+        description: "Lists only clinical notes assigned to the provided assignee\
+          \ IDs."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "assigneeName"
+        in: "query"
+        description: "Lists only clinical notes assigned to the provided assignee\
+          \ name."
+        schema:
+          type: "string"
+      - name: "assigneeEmail"
+        in: "query"
+        description: "Lists only clinical notes assigned to the provided assignee\
+          \ email."
+        schema:
+          type: "string"
+      - name: "createdById"
+        in: "query"
+        description: "Lists only clinical notes created by the provided creator IDs."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "createdByName"
+        in: "query"
+        description: "Lists only clinical notes created by the provided creator name."
+        schema:
+          type: "string"
+      - name: "createdByEmail"
+        in: "query"
+        description: "Lists only clinical notes created by the provided creator email."
+        schema:
+          type: "string"
+      - name: "patientId"
+        in: "query"
+        description: "Lists only clinical notes associated with the provided patient\
+          \ IDs."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "patientSiteId"
+        in: "query"
+        description: "Lists only clinical notes associated with the provided patient\
+          \ site IDs."
+        schema:
+          type: "array"
+          items:
+            format: "int64"
+            type: "integer"
+      - name: "patientExternalIdentifier"
+        in: "query"
+        description: "Lists only clinical notes associated with the provided patient\
+          \ external identifiers."
+        schema:
+          type: "array"
+          items:
+            type: "string"
+      - name: "patientEmail"
+        in: "query"
+        description: "Lists only clinical notes associated with the provided patient\
+          \ email."
+        schema:
+          type: "string"
+      - name: "patientName"
+        in: "query"
+        description: "Lists only clinical notes associated with the provided patient\
+          \ name."
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PageClinicalNote"
+              examples:
+                clinicalNotePagedResponseExample:
+                  value:
+                    content:
+                    - id: 88
+                      type: "cptCode"
+                      cptCode:
+                        value: "99457"
+                        displayAs: "CPT 99457"
+                      createTimestamp: "2024-07-04T00:00:00Z"
+                      lastUpdateTimestamp: "2024-07-14T00:00:00Z"
+                      open: true
+                      mdCode: "md-123"
+                      dxCode: "dx-123"
+                      description: "This is a clinical note."
+                      createdBy:
+                        id: 1772
+                        firstName: "John"
+                        lastName: "Doe"
+                        email: "user_1772@example.com"
+                      assignee:
+                        id: 100
+                        firstName: "John"
+                        lastName: "Doe"
+                        email: "user_100@example.com"
+                      patient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      activity:
+                      - createTimestamp: "2024-07-04T00:00:00Z"
+                        comment: "Activity comment 1"
+                        minutesSpent: 2
+                        createdBy:
+                          id: 4
+                          firstName: "John"
+                          lastName: "Doe"
+                          email: "user_4@example.com"
+                      - createTimestamp: "2024-07-04T00:00:00Z"
+                        comment: "Activity comment 2"
+                        minutesSpent: 4
+                        createdBy:
+                          id: 8
+                          firstName: "John"
+                          lastName: "Doe"
+                          email: "user_8@example.com"
+                      - createTimestamp: "2024-07-04T00:00:00Z"
+                        comment: "Activity comment 3"
+                        minutesSpent: 6
+                        createdBy:
+                          id: 12
+                          firstName: "John"
+                          lastName: "Doe"
+                          email: "user_12@example.com"
+                      - createTimestamp: "2024-07-04T00:00:00Z"
+                        comment: "Activity comment 4"
+                        minutesSpent: 8
+                        createdBy:
+                          id: 16
+                          firstName: "John"
+                          lastName: "Doe"
+                          email: "user_16@example.com"
+                      totalTime: 20
+                    - id: 89
+                      type: "other"
+                      createTimestamp: "2024-07-04T00:00:00Z"
+                      lastUpdateTimestamp: "2024-07-14T00:00:00Z"
+                      open: true
+                      mdCode: "md-123"
+                      dxCode: "dx-123"
+                      description: "This is a clinical note."
+                      createdBy:
+                        id: 1772
+                        firstName: "John"
+                        lastName: "Doe"
+                        email: "user_1772@example.com"
+                      assignee:
+                        id: 100
+                        firstName: "John"
+                        lastName: "Doe"
+                        email: "user_100@example.com"
+                      patient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      activity:
+                      - createTimestamp: "2024-07-04T00:00:00Z"
+                        comment: "Activity comment 1"
+                        minutesSpent: 2
+                        createdBy:
+                          id: 4
+                          firstName: "John"
+                          lastName: "Doe"
+                          email: "user_4@example.com"
+                      - createTimestamp: "2024-07-04T00:00:00Z"
+                        comment: "Activity comment 2"
+                        minutesSpent: 4
+                        createdBy:
+                          id: 8
+                          firstName: "John"
+                          lastName: "Doe"
+                          email: "user_8@example.com"
+                      - createTimestamp: "2024-07-04T00:00:00Z"
+                        comment: "Activity comment 3"
+                        minutesSpent: 6
+                        createdBy:
+                          id: 12
+                          firstName: "John"
+                          lastName: "Doe"
+                          email: "user_12@example.com"
+                      - createTimestamp: "2024-07-04T00:00:00Z"
+                        comment: "Activity comment 4"
+                        minutesSpent: 8
+                        createdBy:
+                          id: 16
+                          firstName: "John"
+                          lastName: "Doe"
+                          email: "user_16@example.com"
+                      totalTime: 20
+                    page: 1
+                    size: 2
+                    total: 4
+                    first: true
+                    last: false
+      x-response-example: "clinicalNotePagedResponseExample"
+  /api/v3/clinical-note/{clinicalNoteId}:
+    get:
+      tags:
+      - "Clinical Notes"
+      description: "Fetches details of a specific clinical note by its unique ID."
+      operationId: "fetchClinicalNote"
+      parameters:
+      - name: "clinicalNoteId"
+        in: "path"
+        required: true
+        schema:
+          format: "int64"
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClinicalNote"
+              examples:
+                clinicalNoteExample:
+                  value:
+                    id: 99
+                    type: "other"
+                    createTimestamp: "2024-07-04T00:00:00Z"
+                    lastUpdateTimestamp: "2024-07-14T00:00:00Z"
+                    open: true
+                    mdCode: "md-123"
+                    dxCode: "dx-123"
+                    description: "This is a clinical note."
+                    createdBy:
+                      id: 1772
+                      firstName: "John"
+                      lastName: "Doe"
+                      email: "user_1772@example.com"
+                    assignee:
+                      id: 100
+                      firstName: "John"
+                      lastName: "Doe"
+                      email: "user_100@example.com"
+                    patient:
+                      id: 456
+                      externalIdentifier: "external-identifier-123"
+                      firstName: "John"
+                      lastName: "Doe"
+                      dateOfBirth: "1987-09-13"
+                      email: "email@example.com"
+                      phoneNumber: "111-222-3333"
+                      address:
+                        lineOne: "1234 Market Street"
+                        lineTwo: "Suite 110"
+                        city: "Philadelphia"
+                        state: "PA"
+                        zipCode: "19137"
+                        country: "USA"
+                      sex: "unknown"
+                    activity:
+                    - createTimestamp: "2024-07-04T00:00:00Z"
+                      comment: "Activity comment 1"
+                      minutesSpent: 2
+                      createdBy:
+                        id: 4
+                        firstName: "John"
+                        lastName: "Doe"
+                        email: "user_4@example.com"
+                    - createTimestamp: "2024-07-04T00:00:00Z"
+                      comment: "Activity comment 2"
+                      minutesSpent: 4
+                      createdBy:
+                        id: 8
+                        firstName: "John"
+                        lastName: "Doe"
+                        email: "user_8@example.com"
+                    - createTimestamp: "2024-07-04T00:00:00Z"
+                      comment: "Activity comment 3"
+                      minutesSpent: 6
+                      createdBy:
+                        id: 12
+                        firstName: "John"
+                        lastName: "Doe"
+                        email: "user_12@example.com"
+                    - createTimestamp: "2024-07-04T00:00:00Z"
+                      comment: "Activity comment 4"
+                      minutesSpent: 8
+                      createdBy:
+                        id: 16
+                        firstName: "John"
+                        lastName: "Doe"
+                        email: "user_16@example.com"
+                    totalTime: 20
+      x-response-example: "clinicalNoteExample"
   /api/v3/device:
     get:
       tags:
@@ -2036,13 +2427,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-25T21:10:34.172520300Z"
+                    createdAt: "2024-07-30T19:44:07.111657700Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-25T21:10:34.170571600Z"
+                      createdAt: "2024-07-30T19:44:07.108683100Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-07-25T21:10:34.170571600Z"
+                      eventTimestamp: "2024-07-30T19:44:07.111657700Z"
                     requestedEntries:
                     - device:
                         id: 599
@@ -2089,13 +2480,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-25T21:10:34.238773900Z"
+                    createdAt: "2024-07-30T19:44:07.175396Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-25T21:10:34.238773900Z"
+                      createdAt: "2024-07-30T19:44:07.175396Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-07-25T21:10:34.238773900Z"
+                      eventTimestamp: "2024-07-30T19:44:07.175396Z"
                     requestedEntries:
                     - item:
                         id: 791
@@ -6053,6 +6444,113 @@ components:
       x-fern-enum:
         mmhg:
           description: "Pressure unit of measurement is millimeters of mercury."
+    ClinicalNote:
+      description: "Clinical note for patients."
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "The unique identifier of the clinical note."
+          type: "integer"
+        type:
+          description: "The type of the clinical note."
+          type: "string"
+          allOf:
+          - $ref: "#/components/schemas/ClinicalNoteType"
+        cptCode:
+          description: "The CPT code associated with the clinical note."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/CptCode"
+        createTimestamp:
+          format: "date-time"
+          description: "The timestamp when the clinical note was created."
+          type: "string"
+          example: "2022-03-10T16:15:50Z"
+        lastUpdateTimestamp:
+          format: "date-time"
+          description: "The timestamp when the clinical note was last updated."
+          type: "string"
+          example: "2022-03-10T16:15:50Z"
+        open:
+          description: "Indicates whether the clinical note is open."
+          type: "boolean"
+        mdCode:
+          description: "The MD code associated with the clinical note."
+          type: "string"
+        dxCode:
+          description: "The DX code associated with the clinical note."
+          type: "string"
+        description:
+          description: "The description of the clinical note."
+          type: "string"
+        createdBy:
+          description: "The user who created the clinical note."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/EndUser"
+        assignee:
+          description: "The user assigned to the clinical note."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/EndUser"
+        patient:
+          description: "The patient associated with the clinical note."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Patient"
+        activity:
+          description: "List of activities associated with the clinical note."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ClinicalNoteActivity"
+        totalTime:
+          format: "int32"
+          description: "Total time in minutes spent on the clinical note."
+          type: "integer"
+    ClinicalNoteActivity:
+      description: "Clinical note activity."
+      type: "object"
+      properties:
+        createTimestamp:
+          format: "date-time"
+          description: "The timestamp when the activity was created."
+          type: "string"
+          example: "2022-03-10T16:15:50Z"
+        comment:
+          description: "The comment associated with the activity."
+          type: "string"
+        minutesSpent:
+          format: "int32"
+          description: "The number of minutes spent on the activity."
+          type: "integer"
+        createdBy:
+          description: "The user who created the activity."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/EndUser"
+    ClinicalNoteSort:
+      enum:
+      - "open"
+      - "createTimestamp"
+      type: "string"
+    ClinicalNoteType:
+      enum:
+      - "other"
+      - "cptCode"
+      type: "string"
+      x-fern-enum:
+        other:
+          description: "Clinical note of other type."
+        cptCode:
+          description: "Clinical note related to a CPT code."
+    CptCode:
+      type: "object"
+      properties:
+        value:
+          type: "string"
+        displayAs:
+          type: "string"
     Customer:
       type: "object"
       properties:
@@ -6266,6 +6764,23 @@ components:
           description: "Inches."
         cm:
           description: "Centimeters."
+    EndUser:
+      description: "User information."
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "The unique identifier of the user."
+          type: "integer"
+        firstName:
+          description: "The first name of the user."
+          type: "string"
+        lastName:
+          description: "The last name of the user."
+          type: "string"
+        email:
+          description: "The email address of the user."
+          type: "string"
     HeartRateReading:
       description: "Impilo's heart rate model."
       type: "object"
@@ -7022,6 +7537,39 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/BloodPressureReading"
+        page:
+          format: "int32"
+          description: "The current page number. The first page has value 1."
+          type: "integer"
+        size:
+          format: "int32"
+          description: "The current page size. Default 15, maximum 250."
+          type: "integer"
+        total:
+          format: "int32"
+          description: "The number of objects matching the request."
+          type: "integer"
+        first:
+          description: "True if this is the first page, false otherwise."
+          type: "boolean"
+        last:
+          description: "True if this is the last page, false otherwise."
+          type: "boolean"
+    PageClinicalNote:
+      description: "Pagination is supported whenever an API response returns a list\
+        \ of objects. In paginated responses, objects are nested in a content attribute\
+        \ and have first and last attributes indicating whether you are on the first\
+        \ or last page, respectively. Additionally, the pagination response includes\
+        \ a page attribute indicating the current page number, a size attribute indicating\
+        \ the current page size, and a total attribute indicating the number of objects\
+        \ matching the request."
+      type: "object"
+      properties:
+        content:
+          description: "The content of the page, consisting of a list of objects."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ClinicalNote"
         page:
           format: "int32"
           description: "The current page number. The first page has value 1."
