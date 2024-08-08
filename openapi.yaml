@@ -28,6 +28,7 @@ tags:
 - name: "Readings - Blood Pressure"
 - name: "Readings - Heart Rate"
 - name: "Readings - Heart Rate Variability"
+- name: "Readings - Peak Flow"
 - name: "Readings - Temperature"
 - name: "Readings - Weight"
 - name: "Tests"
@@ -1835,6 +1836,15 @@ paths:
         \ if exists.\n\nTo search, pass a JSON object in the Request Body with a single\
         \ \"email\" attribute\n and the email to search for.\n"
       operationId: "fetchPatientByEmail"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: "object"
+            examples:
+              fetchByEmailExample:
+                value:
+                  email: "email@example.com"
       responses:
         "200":
           description: "OK"
@@ -2427,13 +2437,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-30T19:44:07.111657700Z"
+                    createdAt: "2024-08-08T14:03:30.918667500Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-30T19:44:07.108683100Z"
+                      createdAt: "2024-08-08T14:03:30.918667500Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-07-30T19:44:07.111657700Z"
+                      eventTimestamp: "2024-08-08T14:03:30.918667500Z"
                     requestedEntries:
                     - device:
                         id: 599
@@ -2480,13 +2490,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-07-30T19:44:07.175396Z"
+                    createdAt: "2024-08-08T14:03:31.059381700Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-07-30T19:44:07.175396Z"
+                      createdAt: "2024-08-08T14:03:31.059381700Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-07-30T19:44:07.175396Z"
+                      eventTimestamp: "2024-08-08T14:03:31.059381700Z"
                     requestedEntries:
                     - item:
                         id: 791
@@ -4972,6 +4982,401 @@ paths:
                     first: true
                     last: false
       x-response-example: "heartRateVariabilityReadingPagedResponseExample"
+  /api/v3/peak-flow-reading:
+    get:
+      tags:
+      - "Readings - Peak Flow"
+      description: "Retrieves a paginated list of peak flow readings from the Impilo\
+        \ platform. Optional parameters can be used to filter the results by page\
+        \ number, page size, patient ID, external ID, start timestamp, and end timestamp."
+      operationId: "listPeakFlowReadings"
+      parameters:
+      - name: "page"
+        in: "query"
+        schema:
+          format: "int32"
+          minimum: 1
+          type: "integer"
+      - name: "size"
+        in: "query"
+        schema:
+          format: "int32"
+          type: "integer"
+      - name: "patientId"
+        in: "query"
+        schema:
+          format: "int64"
+          type: "integer"
+      - name: "externalIdentifier"
+        in: "query"
+        schema:
+          type: "string"
+      - name: "startTimestamp"
+        in: "query"
+        schema:
+          type: "string"
+      - name: "endTimestamp"
+        in: "query"
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PagePeakFlowReading"
+              examples:
+                peakFlowReadingPagedResponseExample:
+                  value:
+                    content:
+                    - id: 42
+                      patient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      device:
+                        id: 599
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: "Custom Manufacturer"
+                          name: "Blood Pressure Monitor"
+                          model: "iBloodPressureMonitor123"
+                          sku: "0000001"
+                        currentStatus: "withPatient"
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: "external-identifier-123"
+                          firstName: "John"
+                          lastName: "Doe"
+                          dateOfBirth: "1987-09-13"
+                          email: "email@example.com"
+                          phoneNumber: "111-222-3333"
+                          address:
+                            lineOne: "1234 Market Street"
+                            lineTwo: "Suite 110"
+                            city: "Philadelphia"
+                            state: "PA"
+                            zipCode: "19137"
+                            country: "USA"
+                          sex: "unknown"
+                        deviceIdentifiers:
+                        - type: "imei"
+                          value: "354833969951611"
+                        - type: "serial"
+                          value: "A44-A0623930"
+                        - type: "macAddress"
+                          value: "f51da43314fc"
+                        disabledReadings: false
+                      readingTimestamp: "2024-07-04T00:00:00Z"
+                      manual: false
+                      deviceTimeZoneOffset: 0
+                      patientTimeZoneOffset: 0
+                      peakExpiratoryFlow: 100.3
+                      forcedExpiratoryVolume: 0.62
+                    - id: 43
+                      patient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      device:
+                        id: 599
+                        item:
+                          id: 791
+                          manufacturer:
+                            id: 2
+                            name: "Custom Manufacturer"
+                          name: "Blood Pressure Monitor"
+                          model: "iBloodPressureMonitor123"
+                          sku: "0000001"
+                        currentStatus: "withPatient"
+                        currentPatient:
+                          id: 456
+                          externalIdentifier: "external-identifier-123"
+                          firstName: "John"
+                          lastName: "Doe"
+                          dateOfBirth: "1987-09-13"
+                          email: "email@example.com"
+                          phoneNumber: "111-222-3333"
+                          address:
+                            lineOne: "1234 Market Street"
+                            lineTwo: "Suite 110"
+                            city: "Philadelphia"
+                            state: "PA"
+                            zipCode: "19137"
+                            country: "USA"
+                          sex: "unknown"
+                        deviceIdentifiers:
+                        - type: "imei"
+                          value: "354833969951611"
+                        - type: "serial"
+                          value: "A44-A0623930"
+                        - type: "macAddress"
+                          value: "f51da43314fc"
+                        disabledReadings: false
+                      readingTimestamp: "2024-07-04T00:00:00Z"
+                      manual: false
+                      deviceTimeZoneOffset: 0
+                      patientTimeZoneOffset: 0
+                      peakExpiratoryFlow: 100.3
+                      forcedExpiratoryVolume: 0.62
+                    page: 1
+                    size: 2
+                    total: 4
+                    first: true
+                    last: false
+      x-response-example: "peakFlowReadingPagedResponseExample"
+    post:
+      tags:
+      - "Readings - Peak Flow"
+      description: "Records a peak flow reading based on the provided request. Either\
+        \ a device ID, device identifier, or patient ID is required.\n***\nFor more\
+        \ information see the [PeakFlowReadingRequest Model](/resources/models#schema_PeakFlowReadingRequest)."
+      operationId: "recordPeakFlowReading"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PeakFlowReadingRequest"
+            examples:
+              device:
+                value:
+                  deviceId: 599
+                  readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
+                  peakExpiratoryFlow: 132.0
+                  forcedExpiratoryVolumeInOneSecond: 0.89
+                  manual: false
+              device-identifier:
+                value:
+                  deviceIdentifier: "354833969951611"
+                  readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
+                  peakExpiratoryFlow: 132.0
+                  forcedExpiratoryVolumeInOneSecond: 0.89
+                  manual: false
+              patient:
+                value:
+                  patientId: 456
+                  readingTimestamp: "2024-07-04T00:00:00Z"
+                  deviceTimeZoneOffset: -14400
+                  peakExpiratoryFlow: 132.0
+                  forcedExpiratoryVolumeInOneSecond: 0.89
+                  manual: false
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PeakFlowReading"
+              examples:
+                peakFlowReadingResponseExample:
+                  value:
+                    id: 42
+                    patient:
+                      id: 456
+                      externalIdentifier: "external-identifier-123"
+                      firstName: "John"
+                      lastName: "Doe"
+                      dateOfBirth: "1987-09-13"
+                      email: "email@example.com"
+                      phoneNumber: "111-222-3333"
+                      address:
+                        lineOne: "1234 Market Street"
+                        lineTwo: "Suite 110"
+                        city: "Philadelphia"
+                        state: "PA"
+                        zipCode: "19137"
+                        country: "USA"
+                      sex: "unknown"
+                    item:
+                      id: 791
+                      manufacturer:
+                        id: 2
+                        name: "Custom Manufacturer"
+                      name: "Blood Pressure Monitor"
+                      model: "iBloodPressureMonitor123"
+                      sku: "0000001"
+                    device:
+                      id: 599
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      currentStatus: "withPatient"
+                      currentPatient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      deviceIdentifiers:
+                      - type: "imei"
+                        value: "354833969951611"
+                      - type: "serial"
+                        value: "A44-A0623930"
+                      - type: "macAddress"
+                        value: "f51da43314fc"
+                      disabledReadings: false
+                    readingTimestamp: "2024-07-04T00:00:00Z"
+                    manual: false
+                    deviceTimeZoneOffset: 0
+                    patientTimeZoneOffset: 0
+                    peakExpiratoryFlow: 100.3
+                    forcedExpiratoryVolume: 0.62
+      x-request-example-device: "peakFlowReadingRequestDeviceExample"
+      x-request-example-device-identifier: "peakFlowReadingRequestDeviceIdentifierExample"
+      x-request-example-patient: "peakFlowReadingRequestPatientExample"
+      x-response-example: "peakFlowReadingResponseExample"
+      externalDocs:
+        url: "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_PeakFlowReadingRequest"
+  /api/v3/peak-flow-reading/{readingId}:
+    get:
+      tags:
+      - "Readings - Peak Flow"
+      description: "Fetches a specific Impilo peak flow reading by its ID."
+      operationId: "fetchPeakFlowReading"
+      parameters:
+      - name: "readingId"
+        in: "path"
+        required: true
+        schema:
+          format: "int64"
+          type: "integer"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PeakFlowReading"
+              examples:
+                peakFlowReadingResponseExample:
+                  value:
+                    id: 42
+                    patient:
+                      id: 456
+                      externalIdentifier: "external-identifier-123"
+                      firstName: "John"
+                      lastName: "Doe"
+                      dateOfBirth: "1987-09-13"
+                      email: "email@example.com"
+                      phoneNumber: "111-222-3333"
+                      address:
+                        lineOne: "1234 Market Street"
+                        lineTwo: "Suite 110"
+                        city: "Philadelphia"
+                        state: "PA"
+                        zipCode: "19137"
+                        country: "USA"
+                      sex: "unknown"
+                    item:
+                      id: 791
+                      manufacturer:
+                        id: 2
+                        name: "Custom Manufacturer"
+                      name: "Blood Pressure Monitor"
+                      model: "iBloodPressureMonitor123"
+                      sku: "0000001"
+                    device:
+                      id: 599
+                      item:
+                        id: 791
+                        manufacturer:
+                          id: 2
+                          name: "Custom Manufacturer"
+                        name: "Blood Pressure Monitor"
+                        model: "iBloodPressureMonitor123"
+                        sku: "0000001"
+                      currentStatus: "withPatient"
+                      currentPatient:
+                        id: 456
+                        externalIdentifier: "external-identifier-123"
+                        firstName: "John"
+                        lastName: "Doe"
+                        dateOfBirth: "1987-09-13"
+                        email: "email@example.com"
+                        phoneNumber: "111-222-3333"
+                        address:
+                          lineOne: "1234 Market Street"
+                          lineTwo: "Suite 110"
+                          city: "Philadelphia"
+                          state: "PA"
+                          zipCode: "19137"
+                          country: "USA"
+                        sex: "unknown"
+                      deviceIdentifiers:
+                      - type: "imei"
+                        value: "354833969951611"
+                      - type: "serial"
+                        value: "A44-A0623930"
+                      - type: "macAddress"
+                        value: "f51da43314fc"
+                      disabledReadings: false
+                    readingTimestamp: "2024-07-04T00:00:00Z"
+                    manual: false
+                    deviceTimeZoneOffset: 0
+                    patientTimeZoneOffset: 0
+                    peakExpiratoryFlow: 100.3
+                    forcedExpiratoryVolume: 0.62
+      x-response-example: "peakFlowReadingResponseExample"
   /api/v3/temperature-reading:
     get:
       tags:
@@ -6421,22 +6826,6 @@ components:
           description: "True if the reading value was entered manually, false or null\
             \ otherwise."
           type: "boolean"
-    BloodPressureReadingWebhook:
-      description: "Represents a webhook for blood pressure reading notifications."
-      type: "object"
-      properties:
-        id:
-          format: "int64"
-          description: "Unique identifier for the webhook."
-          type: "integer"
-        type:
-          description: "Type of the webhook event."
-          type: "string"
-        bloodPressureReading:
-          description: "The blood pressure reading associated with the webhook event."
-          type: "object"
-          allOf:
-          - $ref: "#/components/schemas/BloodPressureReading"
     BloodPressureUnit:
       enum:
       - "mmhg"
@@ -6616,31 +7005,6 @@ components:
             \ Webhooks and alerts will not be triggered for readings taken on this\
             \ device."
           type: "boolean"
-    DeviceAssociationWebhookPayload:
-      description: "The webhook payload sent when a Device is either Associated or\
-        \ Disassociated with a patient."
-      type: "object"
-      properties:
-        patient:
-          description: "The Patient that the device was either associated with or\
-            \ disassociated from."
-          type: "object"
-          allOf:
-          - $ref: "#/components/schemas/Patient"
-        device:
-          description: "The Device that was associated to or disassociated from the\
-            \ provided Patient."
-          type: "object"
-          allOf:
-          - $ref: "#/components/schemas/Device"
-        action:
-          description: "The type of association that was performed -- either 'associate'\
-            \ or 'disassociate'."
-          type: "string"
-        eventTimestamp:
-          description: "The timestamp of the association event."
-          type: "string"
-      x-response-example: "deviceAssociationWebhookExample"
     DeviceEvent:
       description: "A device event represents a significant activity or occurrence\
         \ detected by the device. Impilo tracks these events to provide insights into\
@@ -6882,7 +7246,6 @@ components:
       description: "Impilo's heart rate variability model."
       required:
       - "heartRateVariability"
-      - "heartRateVariabilityDuration"
       type: "object"
       properties:
         id:
@@ -6936,7 +7299,6 @@ components:
       required:
       - "readingTimestamp"
       - "heartRateVariability"
-      - "heartRateVariabilityDuration"
       type: "object"
       properties:
         deviceId:
@@ -7309,30 +7671,25 @@ components:
         currentStatus:
           description: "The current status of the order"
           enum:
-          - "reconfirmAddress"
-          - "unableToFulfill"
-          - "orderPlaced"
-          - "shipped"
+          - "availableForPickup"
           - "onHold"
           - "unsuccessfulDelivery"
           - "awaitingShipment"
           - "returnIssued"
           - "pendingInventory"
-          - "voided"
           - "delivered"
+          - "reconfirmAddress"
+          - "unableToFulfill"
+          - "orderPlaced"
+          - "shipped"
+          - "voided"
           - "pendingAdditionalInformation"
           type: "string"
           readOnly: true
           x-fern-enum:
-            reconfirmAddress:
-              description: "Customer needs to reconfirm their address."
-            unableToFulfill:
-              description: "Order cannot be fulfilled due to current limitations or\
-                \ issues."
-            orderPlaced:
-              description: "Order has been successfully placed and is in the system."
-            shipped:
-              description: "Order has been shipped to the recipient."
+            availableForPickup:
+              description: "Order is waiting for the recipient to pickup at the post\
+                \ office."
             onHold:
               description: "Order is on hold, possibly due to inventory or internal\
                 \ reviews."
@@ -7346,10 +7703,19 @@ components:
             pendingInventory:
               description: "Order is waiting for inventory to become available before\
                 \ it can be fulfilled."
-            voided:
-              description: "Order has been canceled and is no longer valid."
             delivered:
               description: "Order has been successfully delivered to the recipient."
+            reconfirmAddress:
+              description: "Customer needs to reconfirm their address."
+            unableToFulfill:
+              description: "Order cannot be fulfilled due to current limitations or\
+                \ issues."
+            orderPlaced:
+              description: "Order has been successfully placed and is in the system."
+            shipped:
+              description: "Order has been shipped to the recipient."
+            voided:
+              description: "Order has been canceled and is no longer valid."
             pendingAdditionalInformation:
               description: "Order is pending as additional information is required\
                 \ from the recipient."
@@ -7424,38 +7790,6 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/Device"
-    Page:
-      description: "Pagination is supported whenever an API response returns a list\
-        \ of objects. In paginated responses, objects are nested in a content attribute\
-        \ and have first and last attributes indicating whether you are on the first\
-        \ or last page, respectively. Additionally, the pagination response includes\
-        \ a page attribute indicating the current page number, a size attribute indicating\
-        \ the current page size, and a total attribute indicating the number of objects\
-        \ matching the request."
-      type: "object"
-      properties:
-        content:
-          description: "The content of the page, consisting of a list of objects."
-          type: "array"
-          items: {}
-        page:
-          format: "int32"
-          description: "The current page number. The first page has value 1."
-          type: "integer"
-        size:
-          format: "int32"
-          description: "The current page size. Default 15, maximum 250."
-          type: "integer"
-        total:
-          format: "int32"
-          description: "The number of objects matching the request."
-          type: "integer"
-        first:
-          description: "True if this is the first page, false otherwise."
-          type: "boolean"
-        last:
-          description: "True if this is the last page, false otherwise."
-          type: "boolean"
     PageBloodGlucoseReading:
       description: "Pagination is supported whenever an API response returns a list\
         \ of objects. In paginated responses, objects are nested in a content attribute\
@@ -7918,6 +8252,39 @@ components:
         last:
           description: "True if this is the last page, false otherwise."
           type: "boolean"
+    PagePeakFlowReading:
+      description: "Pagination is supported whenever an API response returns a list\
+        \ of objects. In paginated responses, objects are nested in a content attribute\
+        \ and have first and last attributes indicating whether you are on the first\
+        \ or last page, respectively. Additionally, the pagination response includes\
+        \ a page attribute indicating the current page number, a size attribute indicating\
+        \ the current page size, and a total attribute indicating the number of objects\
+        \ matching the request."
+      type: "object"
+      properties:
+        content:
+          description: "The content of the page, consisting of a list of objects."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PeakFlowReading"
+        page:
+          format: "int32"
+          description: "The current page number. The first page has value 1."
+          type: "integer"
+        size:
+          format: "int32"
+          description: "The current page size. Default 15, maximum 250."
+          type: "integer"
+        total:
+          format: "int32"
+          description: "The number of objects matching the request."
+          type: "integer"
+        first:
+          description: "True if this is the first page, false otherwise."
+          type: "boolean"
+        last:
+          description: "True if this is the last page, false otherwise."
+          type: "boolean"
     PageSite:
       description: "Pagination is supported whenever an API response returns a list\
         \ of objects. In paginated responses, objects are nested in a content attribute\
@@ -8177,6 +8544,89 @@ components:
       - "lastName"
       - "patientId"
       type: "string"
+    PeakFlowReading:
+      description: "This page describes Impilo's peak flow reading model."
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "Unique identifier for the reading."
+          type: "integer"
+        readingTimestamp:
+          format: "date-time"
+          type: "string"
+          example: "2022-03-10T16:15:50Z"
+          writeOnly: true
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
+          writeOnly: true
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        patientTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the patient's timezone from UTC in seconds.\
+            \ Null if unavailable."
+          type: "integer"
+          example: -14400
+        patient:
+          $ref: "#/components/schemas/Patient"
+        item:
+          $ref: "#/components/schemas/Item"
+        device:
+          $ref: "#/components/schemas/Device"
+        peakExpiratoryFlow:
+          format: "double"
+          type: "number"
+        forcedExpiratoryVolume:
+          format: "double"
+          type: "number"
+    PeakFlowReadingRequest:
+      description: "This page describes Impilo's peak flow reading request model."
+      required:
+      - "readingTimestamp"
+      - "peakExpiratoryFlow"
+      type: "object"
+      properties:
+        deviceId:
+          format: "int64"
+          description: "The id of the device that took the reading."
+          type: "integer"
+        deviceIdentifier:
+          description: "The device identifier of the device that took the reading."
+          type: "string"
+        patientId:
+          format: "int64"
+          description: "The id of the patient that took the reading."
+          type: "integer"
+        readingTimestamp:
+          format: "date-time"
+          description: "The UTC timestamp at which the reading was taken."
+          type: "string"
+          example: "2022-03-10T16:15:50Z"
+        deviceTimeZoneOffset:
+          format: "int32"
+          description: "The offset of the device's timezone from UTC in seconds. Null\
+            \ if unavailable."
+          type: "integer"
+          example: -14400
+        peakExpiratoryFlow:
+          format: "double"
+          description: "The Peak Expiratory Flow, measured in L/min."
+          type: "number"
+        forcedExpiratoryVolumeInOneSecond:
+          format: "double"
+          description: "The Forced Expiratory Volume in One Second value, in L."
+          type: "number"
+        manual:
+          description: "True if the reading value was entered manually, false or null\
+            \ otherwise."
+          type: "boolean"
     Procurement:
       description: "A procurement is a procurement of devices by a customer."
       type: "object"
@@ -8236,6 +8686,7 @@ components:
       - "spo2"
       - "temperature"
       - "weight"
+      - "peakFlow"
       - "continuousBloodGlucose"
       - "bloodGlucose"
       type: "string"
@@ -8252,79 +8703,12 @@ components:
           description: "Temperature reading type."
         weight:
           description: "Weight reading type."
+        peakFlow:
+          description: "Peak Flow expiratory reading type."
         continuousBloodGlucose:
           description: "Continuous blood glucose reading type."
         bloodGlucose:
           description: "Blood glucose reading type."
-    Return:
-      description: "A return is an occurrence of a device(s) or non-tracked item(s)\
-        \ being returned by a Patient."
-      type: "object"
-      properties:
-        id:
-          format: "int64"
-          description: "Unique identifier for the return, managed by Impilo."
-          type: "integer"
-          readOnly: true
-          example: 1
-        patient:
-          description: "The patient that is making the return."
-          type: "object"
-          allOf:
-          - $ref: "#/components/schemas/Patient"
-        currentStatus:
-          description: "The current status of this return."
-          type: "string"
-        returnKits:
-          description: "An array of kits related to  items expected on this return."
-          type: "array"
-          items:
-            $ref: "#/components/schemas/Kit"
-        returnItems:
-          description: "An array of non-tracked items expected on this return."
-          type: "array"
-          items:
-            $ref: "#/components/schemas/ReturnItem"
-        returnEvents:
-          description: "An array of the return events for this return."
-          type: "array"
-          items:
-            $ref: "#/components/schemas/ReturnEvent"
-        trackingNumbers:
-          description: "An array of tracking numbers associated with this return."
-          type: "array"
-          items:
-            $ref: "#/components/schemas/TrackingNumber"
-        returnDevices:
-          description: "An array of devices expected on this return."
-          type: "array"
-          items:
-            $ref: "#/components/schemas/Device"
-        relatedOrderId:
-          format: "int64"
-          description: "The identifier of a related order, if exists."
-          type: "integer"
-    ReturnEvent:
-      type: "object"
-      properties:
-        type:
-          description: "The event type for the Return Event."
-          type: "string"
-        eventTimestamp:
-          description: "The timestamp when the Return Event was created."
-          type: "string"
-    ReturnItem:
-      type: "object"
-      properties:
-        item:
-          description: "The item type extected on this return."
-          type: "object"
-          allOf:
-          - $ref: "#/components/schemas/Item"
-        count:
-          format: "int32"
-          description: "The quantity of this item type expected on this return."
-          type: "integer"
     Sex:
       enum:
       - "other"
@@ -8791,22 +9175,6 @@ components:
           description: "Timestamp of the last retry attempt for the webhook"
           type: "string"
           example: "2023-08-22T14:15:30.345Z"
-    WebhookPayload:
-      description: "Impilo supports various types of webhooks. This page describes\
-        \ the endpoints available for managing your webhooks."
-      type: "object"
-      properties:
-        id:
-          format: "int64"
-          description: "Unique identifier for the webhook payload, managed by Impilo."
-          type: "integer"
-          readOnly: true
-          example: 1
-        type:
-          description: "The event type for the webhook."
-          type: "string"
-        payload:
-          description: "The payload of the webhook."
     WebhookSecret:
       type: "object"
       properties:
@@ -8820,6 +9188,7 @@ components:
       - "supportTicket.event"
       - "reading.bloodOxygen"
       - "order.status"
+      - "reading.peakFlow"
       - "transferRequest.statusFull"
       - "device.lowBattery"
       - "return.statusFull"
@@ -8848,6 +9217,8 @@ components:
         order.status:
           description: "An order status event occurred. The payload only includes\
             \ order id and order event type."
+        reading.peakFlow:
+          description: "A peak flow reading was taken."
         transferRequest.statusFull:
           description: "A transfer request status event occurred. The payload includes\
             \ the full transfer request model."
