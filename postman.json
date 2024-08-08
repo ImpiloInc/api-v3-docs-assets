@@ -2139,6 +2139,284 @@
 	                    ]
 	        },
 	        {
+	            "name": "Readings - Peak Flow",
+	            "item": [
+	                        {
+    "name": "/api/v3/peak-flow-reading",
+                "description": "Retrieves a paginated list of peak flow readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
+                 "item": [
+                            {
+                                "name": "listPeakFlowReadings",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/peak-flow-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "peak-flow-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientId",
+                                                "value": "789",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "externalIdentifier",
+                                                "value": "externalIdentifier_example",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "startTimestamp",
+                                                "value": "startTimestamp_example",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "endTimestamp",
+                                                "value": "endTimestamp_example",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Retrieves a paginated list of peak flow readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/peak-flow-reading",
+                "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [PeakFlowReadingRequest Model](/resources/models#schema_PeakFlowReadingRequest).",
+                 "item": [
+                            {
+                                "name": "device",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"peakExpiratoryFlow\" : 132.0,\n  \"forcedExpiratoryVolumeInOneSecond\" : 0.89,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/peak-flow-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "peak-flow-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [PeakFlowReadingRequest Model](/resources/models#schema_PeakFlowReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "device-identifier",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"peakExpiratoryFlow\" : 132.0,\n  \"forcedExpiratoryVolumeInOneSecond\" : 0.89,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/peak-flow-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "peak-flow-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [PeakFlowReadingRequest Model](/resources/models#schema_PeakFlowReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "patient",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"peakExpiratoryFlow\" : 132.0,\n  \"forcedExpiratoryVolumeInOneSecond\" : 0.89,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/peak-flow-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "peak-flow-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [PeakFlowReadingRequest Model](/resources/models#schema_PeakFlowReadingRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/peak-flow-reading/:readingId",
+                "description": "Fetches a specific Impilo peak flow reading by its ID.",
+                 "item": [
+                            {
+                                "name": "fetchPeakFlowReading",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/peak-flow-reading/:readingId",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "peak-flow-reading",
+                                            ":readingId"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "readingId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Fetches a specific Impilo peak flow reading by its ID."
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
 	            "name": "Readings - Blood Oxygen",
 	            "item": [
 	                        {
@@ -3371,10 +3649,16 @@
                 "description": "Fetches details of a specific patient by their email address, if exists.  To search, pass a JSON object in the Request Body with a single \"email\" attribute  and the email to search for. ",
                  "item": [
                             {
-                                "name": "fetchPatientByEmail",
+                                "name": "fetchByEmailExample",
                                 "request": {
                                     "method": "POST",
                                     "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
                                         {
                                             "key": "Accept",
                                             "value": "application/json",
@@ -3384,7 +3668,7 @@
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "",
+                                        "raw": "{\n  \"email\" : \"email@example.com\"\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
