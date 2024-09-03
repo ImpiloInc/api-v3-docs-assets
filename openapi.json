@@ -2551,6 +2551,186 @@
       }
     },
     "/api/v3/procurement" : {
+      "get" : {
+        "tags" : [ "Procurements" ],
+        "description" : "Lists procurements linked to the account requested in a paginated form.\n",
+        "operationId" : "listProcurements",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page number of the content returned.",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "The size of the page of content returned.",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "sortDescending",
+          "in" : "query",
+          "description" : "True if the sort direction should be descending.",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "description" : "Lists only procurements with the IDs provided.",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "format" : "int64",
+              "type" : "integer"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageProcurement"
+                },
+                "examples" : {
+                  "procurementPagedResponseExample" : {
+                    "value" : {
+                      "content" : [ {
+                        "id" : 789,
+                        "currentStatus" : "received",
+                        "procurementType" : "shippingNotice",
+                        "procurementItems" : [ {
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "quantityRequested" : 5,
+                          "quantityApproved" : 5,
+                          "costPerItem" : 12.34
+                        } ],
+                        "procurementEvents" : [ {
+                          "name" : "received",
+                          "eventTimestamp" : "2024-09-03T16:04:23.671294400Z"
+                        } ]
+                      }, {
+                        "id" : 790,
+                        "currentStatus" : "received",
+                        "procurementType" : "shippingNotice",
+                        "procurementItems" : [ {
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "quantityRequested" : 5,
+                          "quantityApproved" : 5,
+                          "costPerItem" : 12.34
+                        } ],
+                        "procurementEvents" : [ {
+                          "name" : "received",
+                          "eventTimestamp" : "2024-09-03T16:04:23.672262600Z"
+                        } ]
+                      }, {
+                        "id" : 791,
+                        "currentStatus" : "received",
+                        "procurementType" : "shippingNotice",
+                        "procurementItems" : [ {
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "quantityRequested" : 5,
+                          "quantityApproved" : 5,
+                          "costPerItem" : 12.34
+                        } ],
+                        "procurementEvents" : [ {
+                          "name" : "received",
+                          "eventTimestamp" : "2024-09-03T16:04:23.672262600Z"
+                        } ]
+                      }, {
+                        "id" : 792,
+                        "currentStatus" : "received",
+                        "procurementType" : "shippingNotice",
+                        "procurementItems" : [ {
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "quantityRequested" : 5,
+                          "quantityApproved" : 5,
+                          "costPerItem" : 12.34
+                        } ],
+                        "procurementEvents" : [ {
+                          "name" : "received",
+                          "eventTimestamp" : "2024-09-03T16:04:23.672262600Z"
+                        } ]
+                      }, {
+                        "id" : 793,
+                        "currentStatus" : "received",
+                        "procurementType" : "shippingNotice",
+                        "procurementItems" : [ {
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "quantityRequested" : 5,
+                          "quantityApproved" : 5,
+                          "costPerItem" : 12.34
+                        } ],
+                        "procurementEvents" : [ {
+                          "name" : "received",
+                          "eventTimestamp" : "2024-09-03T16:04:23.672262600Z"
+                        } ]
+                      } ],
+                      "page" : 1,
+                      "size" : 5,
+                      "total" : 10,
+                      "first" : true,
+                      "last" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "procurementPagedResponseExample"
+      },
       "post" : {
         "tags" : [ "Procurements" ],
         "description" : "Creates a new procurement with the provided details.\n***\nFor more information see the [Procurement Model](/resources/models#schema_Procurement).",
@@ -2612,6 +2792,64 @@
         "externalDocs" : {
           "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Procurement"
         }
+      }
+    },
+    "/api/v3/procurement/{id}" : {
+      "get" : {
+        "tags" : [ "Procurements" ],
+        "description" : "Fetches a procurement by ID provided in the path.\n",
+        "operationId" : "listProcurements",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the Procurement to fetch.",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Procurement"
+                },
+                "examples" : {
+                  "procurementResponseExample" : {
+                    "value" : {
+                      "id" : 789,
+                      "currentStatus" : "received",
+                      "procurementType" : "shippingNotice",
+                      "procurementItems" : [ {
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "quantityRequested" : 5,
+                        "quantityApproved" : 5,
+                        "costPerItem" : 12.34
+                      } ],
+                      "procurementEvents" : [ {
+                        "name" : "received",
+                        "eventTimestamp" : "2024-09-03T16:04:23.778541300Z"
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "procurementResponseExample"
       }
     },
     "/api/v3/procurement/{procId}/upload" : {
@@ -3159,14 +3397,14 @@
                         "name" : "Customer 3"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-08-08T14:03:30.918667500Z",
+                      "createdAt" : "2024-09-03T16:04:25.816332500Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-08-08T14:03:30.918667500Z"
+                        "createdAt" : "2024-09-03T16:04:25.814428100Z"
                       } ],
                       "transferRequestEvents" : [ {
                         "name" : "requested",
-                        "eventTimestamp" : "2024-08-08T14:03:30.918667500Z"
+                        "eventTimestamp" : "2024-09-03T16:04:25.815430600Z"
                       } ],
                       "requestedEntries" : [ {
                         "device" : {
@@ -3227,14 +3465,14 @@
                         "name" : "Customer 3"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-08-08T14:03:31.059381700Z",
+                      "createdAt" : "2024-09-03T16:04:25.892346100Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-08-08T14:03:31.059381700Z"
+                        "createdAt" : "2024-09-03T16:04:25.892346100Z"
                       } ],
                       "transferRequestEvents" : [ {
                         "name" : "requested",
-                        "eventTimestamp" : "2024-08-08T14:03:31.059381700Z"
+                        "eventTimestamp" : "2024-09-03T16:04:25.892346100Z"
                       } ],
                       "requestedEntries" : [ {
                         "item" : {
@@ -10281,6 +10519,42 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/PeakFlowReading"
+            }
+          },
+          "page" : {
+            "format" : "int32",
+            "description" : "The current page number. The first page has value 1.",
+            "type" : "integer"
+          },
+          "size" : {
+            "format" : "int32",
+            "description" : "The current page size. Default 15, maximum 250.",
+            "type" : "integer"
+          },
+          "total" : {
+            "format" : "int32",
+            "description" : "The number of objects matching the request.",
+            "type" : "integer"
+          },
+          "first" : {
+            "description" : "True if this is the first page, false otherwise.",
+            "type" : "boolean"
+          },
+          "last" : {
+            "description" : "True if this is the last page, false otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
+      "PageProcurement" : {
+        "description" : "Pagination is supported whenever an API response returns a list of objects. In paginated responses, objects are nested in a content attribute and have first and last attributes indicating whether you are on the first or last page, respectively. Additionally, the pagination response includes a page attribute indicating the current page number, a size attribute indicating the current page size, and a total attribute indicating the number of objects matching the request.",
+        "type" : "object",
+        "properties" : {
+          "content" : {
+            "description" : "The content of the page, consisting of a list of objects.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Procurement"
             }
           },
           "page" : {

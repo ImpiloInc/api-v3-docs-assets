@@ -64,6 +64,126 @@
                             ]
                         },
 	                        {
+    "name": "/api/v3/procurement",
+                "description": "Lists procurements linked to the account requested in a paginated form. ",
+                 "item": [
+                            {
+                                "name": "listProcurements",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/procurement",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "procurement"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "The page number of the content returned.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "The size of the page of content returned.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "sortDescending",
+                                                "value": "true",
+                                                "description": "True if the sort direction should be descending.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "id",
+                                                "value": "",
+                                                "description": "Lists only procurements with the IDs provided.",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Lists procurements linked to the account requested in a paginated form. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/procurement/:id",
+                "description": "Fetches a procurement by ID provided in the path. ",
+                 "item": [
+                            {
+                                "name": "listProcurements_0",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/procurement/:id",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "procurement",
+                                            ":id"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "",
+                                                "description": "The ID of the Procurement to fetch."
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Fetches a procurement by ID provided in the path. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
     "name": "/api/v3/procurement/:procId/upload",
                 "description": "Deletes the uploaded file from the provided Procurement ID, if exists. ",
                  "item": [
