@@ -2628,7 +2628,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-10-04T18:06:57.238023800Z"
+                          "eventTimestamp" : "2024-10-04T19:07:07.142720500Z"
                         } ]
                       }, {
                         "id" : 790,
@@ -2651,7 +2651,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-10-04T18:06:57.238023800Z"
+                          "eventTimestamp" : "2024-10-04T19:07:07.142720500Z"
                         } ]
                       }, {
                         "id" : 791,
@@ -2674,7 +2674,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-10-04T18:06:57.238023800Z"
+                          "eventTimestamp" : "2024-10-04T19:07:07.142720500Z"
                         } ]
                       }, {
                         "id" : 792,
@@ -2697,7 +2697,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-10-04T18:06:57.238023800Z"
+                          "eventTimestamp" : "2024-10-04T19:07:07.142720500Z"
                         } ]
                       }, {
                         "id" : 793,
@@ -2720,7 +2720,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-10-04T18:06:57.238023800Z"
+                          "eventTimestamp" : "2024-10-04T19:07:07.142720500Z"
                         } ]
                       } ],
                       "page" : 1,
@@ -2846,7 +2846,7 @@
                       } ],
                       "procurementEvents" : [ {
                         "name" : "received",
-                        "eventTimestamp" : "2024-10-04T18:06:57.338449200Z"
+                        "eventTimestamp" : "2024-10-04T19:07:07.253565400Z"
                       } ]
                     }
                   }
@@ -4075,14 +4075,14 @@
                         "name" : "Customer 3"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-10-04T18:07:01.872319700Z",
+                      "createdAt" : "2024-10-04T19:07:10.674984Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-10-04T18:07:01.872319700Z"
+                        "createdAt" : "2024-10-04T19:07:10.673986300Z"
                       } ],
                       "transferRequestEvents" : [ {
                         "name" : "requested",
-                        "eventTimestamp" : "2024-10-04T18:07:01.872319700Z"
+                        "eventTimestamp" : "2024-10-04T19:07:10.674984Z"
                       } ],
                       "transferItems" : [ {
                         "item" : {
@@ -10755,6 +10755,35 @@
           }
         }
       },
+      "DeviceAssociationWebhookPayload" : {
+        "description" : "The webhook payload sent when a Device is either Associated or Disassociated with a patient.",
+        "type" : "object",
+        "properties" : {
+          "patient" : {
+            "description" : "The Patient that the device was either associated with or disassociated from.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Patient"
+            } ]
+          },
+          "device" : {
+            "description" : "The Device that was associated to or disassociated from the provided Patient.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Device"
+            } ]
+          },
+          "action" : {
+            "description" : "The type of association that was performed -- either 'associate' or 'disassociate'.",
+            "type" : "string"
+          },
+          "eventTimestamp" : {
+            "description" : "The timestamp of the association event.",
+            "type" : "string"
+          }
+        },
+        "x-response-example" : "deviceAssociationWebhookExample"
+      },
       "DeviceEvent" : {
         "description" : "A device event represents a significant activity or occurrence detected by the device. Impilo tracks these events to provide insights into device usage and operational status.",
         "type" : "object",
@@ -11626,6 +11655,40 @@
             "items" : {
               "$ref" : "#/components/schemas/Device"
             }
+          }
+        }
+      },
+      "Page" : {
+        "description" : "Pagination is supported whenever an API response returns a list of objects. In paginated responses, objects are nested in a content attribute and have first and last attributes indicating whether you are on the first or last page, respectively. Additionally, the pagination response includes a page attribute indicating the current page number, a size attribute indicating the current page size, and a total attribute indicating the number of objects matching the request.",
+        "type" : "object",
+        "properties" : {
+          "content" : {
+            "description" : "The content of the page, consisting of a list of objects.",
+            "type" : "array",
+            "items" : { }
+          },
+          "page" : {
+            "format" : "int32",
+            "description" : "The current page number. The first page has value 1.",
+            "type" : "integer"
+          },
+          "size" : {
+            "format" : "int32",
+            "description" : "The current page size. Default 15, maximum 250.",
+            "type" : "integer"
+          },
+          "total" : {
+            "format" : "int32",
+            "description" : "The number of objects matching the request.",
+            "type" : "integer"
+          },
+          "first" : {
+            "description" : "True if this is the first page, false otherwise.",
+            "type" : "boolean"
+          },
+          "last" : {
+            "description" : "True if this is the last page, false otherwise.",
+            "type" : "boolean"
           }
         }
       },
@@ -12813,6 +12876,100 @@
           }
         }
       },
+      "Return" : {
+        "description" : "A return is an occurrence of a device(s) or non-tracked item(s) being returned by a Patient.",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "description" : "Unique identifier for the return, managed by Impilo.",
+            "type" : "integer",
+            "readOnly" : true,
+            "example" : 1
+          },
+          "patient" : {
+            "description" : "The patient that is making the return.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Patient"
+            } ]
+          },
+          "currentStatus" : {
+            "description" : "The current status of this return.",
+            "type" : "string"
+          },
+          "returnKits" : {
+            "description" : "An array of kits related to  items expected on this return.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Kit"
+            }
+          },
+          "returnItems" : {
+            "description" : "An array of non-tracked items expected on this return.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ReturnItem"
+            }
+          },
+          "returnEvents" : {
+            "description" : "An array of the return events for this return.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ReturnEvent"
+            }
+          },
+          "trackingNumbers" : {
+            "description" : "An array of tracking numbers associated with this return.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/TrackingNumber"
+            }
+          },
+          "returnDevices" : {
+            "description" : "An array of devices expected on this return.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Device"
+            }
+          },
+          "relatedOrderId" : {
+            "format" : "int64",
+            "description" : "The identifier of a related order, if exists.",
+            "type" : "integer"
+          }
+        }
+      },
+      "ReturnEvent" : {
+        "type" : "object",
+        "properties" : {
+          "type" : {
+            "description" : "The event type for the Return Event.",
+            "type" : "string"
+          },
+          "eventTimestamp" : {
+            "description" : "The timestamp when the Return Event was created.",
+            "type" : "string"
+          }
+        }
+      },
+      "ReturnItem" : {
+        "type" : "object",
+        "properties" : {
+          "item" : {
+            "description" : "The item type extected on this return.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Item"
+            } ]
+          },
+          "count" : {
+            "format" : "int32",
+            "description" : "The quantity of this item type expected on this return.",
+            "type" : "integer"
+          }
+        }
+      },
       "Sex" : {
         "enum" : [ "other", "female", "male", "unknown" ],
         "type" : "string",
@@ -13928,6 +14085,26 @@
             "description" : "Timestamp of the last retry attempt for the webhook",
             "type" : "string",
             "example" : "2023-08-22T14:15:30.345Z"
+          }
+        }
+      },
+      "WebhookPayload" : {
+        "description" : "Impilo supports various types of webhooks. This page describes the endpoints available for managing your webhooks.",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "description" : "Unique identifier for the webhook payload, managed by Impilo.",
+            "type" : "integer",
+            "readOnly" : true,
+            "example" : 1
+          },
+          "type" : {
+            "description" : "The event type for the webhook.",
+            "type" : "string"
+          },
+          "payload" : {
+            "description" : "The payload of the webhook."
           }
         }
       },
