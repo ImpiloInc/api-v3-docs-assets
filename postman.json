@@ -5000,14 +5000,95 @@
 	                    ]
 	        },
 	        {
-	            "name": "Transfers",
+	            "name": "Readings - Sleep Mat Duration",
 	            "item": [
 	                        {
-    "name": "/api/v3/transfer/device-transfer-request",
-                "description": "Creates a Device Transfer Request, which specifies specific Device Identifiers (such as Serial Numbers, IMEIs, etc) to transfer from the Requesting customer-manufacturer to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The deviceIdentifiers parameter must be a non-empty List of strings - All devices listed via the deviceIdentifiers parameter must belong to the requesting Customer-Manufacturer - The Devices listed via the deviceIdentifiers parameter must be in Available or Available - Repacked status - Devices must not have a Patient assigned to them. *** For more information see the [DeviceTransferRequest Model](/resources/models#schema_DeviceTransferRequest).",
+    "name": "/api/v3/sleep-mat-duration-reading",
+                "description": "Retrieves a paginated list of sleep mat duration readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
                  "item": [
                             {
-                                "name": "createDeviceTransferRequestExample",
+                                "name": "listSleepMatDurationReadings",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/sleep-mat-duration-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "sleep-mat-duration-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientId",
+                                                "value": "789",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "externalIdentifier",
+                                                "value": "externalIdentifier_example",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "startTimestamp",
+                                                "value": "startTimestamp_example",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "endTimestamp",
+                                                "value": "endTimestamp_example",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Retrieves a paginated list of sleep mat duration readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/sleep-mat-duration-reading",
+                "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatDurationReadingRequest Model](/resources/models#schema_SleepMatDurationReadingRequest).",
+                 "item": [
+                            {
+                                "name": "device",
                                 "request": {
                                     "method": "POST",
                                     "header": [
@@ -5019,14 +5100,14 @@
                                         },
                                         {
                                             "key": "Accept",
-                                            "value": "*/*",
+                                            "value": "application/json",
                                             "description": "",
                                             "disabled": false
                                         }
                                     ],
                                     "body": {
                                         "mode": "raw",
-                                        "raw": "{\n  \"toCustomerId\" : 8,\n  \"deviceIdentifiers\" : [ \"354833969951611\", \"A44-A0623930\", \"f51da43314fc\" ]\n}",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"respiration\" : 10,\n  \"heartRate\" : 60,\n  \"bodyTurnOver\" : 5,\n  \"duration\" : \"20:00~00:00\",\n  \"rem\" : 20,\n  \"deepSleep\" : 300,\n  \"lightSleep\" : 155,\n  \"manual\" : false\n}",
                                         "options": {
                                             "raw": {
                                                 "language": "json"
@@ -5034,29 +5115,174 @@
                                         }
                                     },
                                     "url": {
-                                        "raw": "{{baseUrl}}/api/v3/transfer/device-transfer-request",
+                                        "raw": "{{baseUrl}}/api/v3/sleep-mat-duration-reading",
                                         "host": [
                                             "{{baseUrl}}"
                                         ],
                                         "path": [
                                             "api",
                                             "v3",
-                                            "transfer",
-                                            "device-transfer-request"
+                                            "sleep-mat-duration-reading"
                                         ],
                                         "variable": [
                                         ],
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a Device Transfer Request, which specifies specific Device Identifiers (such as Serial Numbers, IMEIs, etc) to transfer from the Requesting customer-manufacturer to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The deviceIdentifiers parameter must be a non-empty List of strings - All devices listed via the deviceIdentifiers parameter must belong to the requesting Customer-Manufacturer - The Devices listed via the deviceIdentifiers parameter must be in Available or Available - Repacked status - Devices must not have a Patient assigned to them. *** For more information see the [DeviceTransferRequest Model](/resources/models#schema_DeviceTransferRequest)."
+                                    "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatDurationReadingRequest Model](/resources/models#schema_SleepMatDurationReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "device-identifier",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"respiration\" : 10,\n  \"heartRate\" : 60,\n  \"bodyTurnOver\" : 5,\n  \"duration\" : \"20:00~00:00\",\n  \"rem\" : 20,\n  \"deepSleep\" : 300,\n  \"lightSleep\" : 155,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/sleep-mat-duration-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "sleep-mat-duration-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatDurationReadingRequest Model](/resources/models#schema_SleepMatDurationReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "patient",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"respiration\" : 10,\n  \"heartRate\" : 60,\n  \"bodyTurnOver\" : 5,\n  \"duration\" : \"20:00~00:00\",\n  \"rem\" : 20,\n  \"deepSleep\" : 300,\n  \"lightSleep\" : 155,\n  \"manual\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/sleep-mat-duration-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "sleep-mat-duration-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatDurationReadingRequest Model](/resources/models#schema_SleepMatDurationReadingRequest)."
                                 }
                             }
                             ]
                         },
 	                        {
-    "name": "/api/v3/transfer/item-transfer-request",
-                "description": "Creates an Item Transfer Request, which lists general Items and Quantities to transfer from a Customer-Manufacturer account to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The transfers parameter must be a non-empty list of ItemTransfer objects - Each ItemTransfer's item parameter must include an ID for the Item to be transferred - Each itemTransfer's item parameter must be in both the Requesting AND Receiving customer catalogs - Each ItemTransfer's quantity parameter must be an integer value greater than 0  The only requirement for the ItemTransfer's item parameter is a JSON object that includes an ID of the Item requested. *** For more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest).",
+    "name": "/api/v3/sleep-mat-duration-reading/:readingId",
+                "description": "Fetches a specific sleep mat duration reading by its ID.",
+                 "item": [
+                            {
+                                "name": "fetchSleepMatDurationReading",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/sleep-mat-duration-reading/:readingId",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "sleep-mat-duration-reading",
+                                            ":readingId"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "readingId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Fetches a specific sleep mat duration reading by its ID."
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "Transfers",
+	            "item": [
+	                        {
+    "name": "/api/v3/transfer/transfer-request",
+                "description": "Creates a Transfer Request, which consists of Items and Quantities to transfer from a Customer account to one of it's sub-Customer accounts.  To submit a transfer request, the Target Customer must be a sub-Customer account of the requestor and the body must consist of at least one TransferItem object with a quantity greater than 0.  The only requirement for the TransferItem's item parameter is a JSON object that includes an ID of the Item requested. *** For more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest).",
                  "item": [
                             {
                                 "name": "createItemTransferRequestExample",
@@ -5086,7 +5312,7 @@
                                         }
                                     },
                                     "url": {
-                                        "raw": "{{baseUrl}}/api/v3/transfer/item-transfer-request",
+                                        "raw": "{{baseUrl}}/api/v3/transfer/transfer-request",
                                         "host": [
                                             "{{baseUrl}}"
                                         ],
@@ -5094,14 +5320,14 @@
                                             "api",
                                             "v3",
                                             "transfer",
-                                            "item-transfer-request"
+                                            "transfer-request"
                                         ],
                                         "variable": [
                                         ],
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates an Item Transfer Request, which lists general Items and Quantities to transfer from a Customer-Manufacturer account to another Customer account.  To complete the transfer request, the following must be true: - The Customer account must be designated as a Manufacturer - The Customer ID provided must be associated with the Customer-Manufacturer making the request - The transfers parameter must be a non-empty list of ItemTransfer objects - Each ItemTransfer's item parameter must include an ID for the Item to be transferred - Each itemTransfer's item parameter must be in both the Requesting AND Receiving customer catalogs - Each ItemTransfer's quantity parameter must be an integer value greater than 0  The only requirement for the ItemTransfer's item parameter is a JSON object that includes an ID of the Item requested. *** For more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest)."
+                                    "description": "Creates a Transfer Request, which consists of Items and Quantities to transfer from a Customer account to one of it's sub-Customer accounts.  To submit a transfer request, the Target Customer must be a sub-Customer account of the requestor and the body must consist of at least one TransferItem object with a quantity greater than 0.  The only requirement for the TransferItem's item parameter is a JSON object that includes an ID of the Item requested. *** For more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest)."
                                 }
                             }
                             ]
@@ -5777,6 +6003,490 @@
 	                    ]
 	        },
 	        {
+	            "name": "Support Tickets",
+	            "item": [
+	                        {
+    "name": "/api/v3/support-ticket",
+                "description": "Creates a new Support Ticket in the Impilo platform. *** For more information see the [SupportTicketRequest Model](/resources/models#schema_SupportTicketRequest).",
+                 "item": [
+                            {
+                                "name": "supportTicketRequestExample",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"patient\" : {\n    \"id\" : 123,\n    \"sex\" : \"unknown\"\n  },\n  \"ticketType\" : \"deviceTechnicalSupport\",\n  \"note\" : \"Example Note.\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/support-ticket",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "support-ticket"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Creates a new Support Ticket in the Impilo platform. *** For more information see the [SupportTicketRequest Model](/resources/models#schema_SupportTicketRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/support-ticket",
+                "description": "Retrieves a paginated list of support tickets from the Impilo platform.",
+                 "item": [
+                            {
+                                "name": "listSupportTickets",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/support-ticket",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "support-ticket"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "The page number of the content returned.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "The page size of the content returned.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "ticketType",
+                                                "value": "",
+                                                "description": "The support ticket type to filter by.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "assigneeEmail",
+                                                "value": "assigneeEmail_example",
+                                                "description": "The email address of the individual asssigned a support ticket.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientExternalIdentifier",
+                                                "value": "patientExternalIdentifier_example",
+                                                "description": "The external identifier of the patient associated with a support itcket.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientId",
+                                                "value": "789",
+                                                "description": "The id of the patient associated with a support ticket.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "createdAt",
+                                                "value": "2013-10-20T19:20:30+01:00",
+                                                "description": "The time after which a support ticket was created.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "updatedAt",
+                                                "value": "2013-10-20T19:20:30+01:00",
+                                                "description": "The time after which a support ticket was last updated.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "open",
+                                                "value": "true",
+                                                "description": "Whether or not a support ticket is considered closed or not.",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Retrieves a paginated list of support tickets from the Impilo platform."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/support-ticket/:id",
+                "description": "Retrieves a support ticket by the ID from the Impilo platform.",
+                 "item": [
+                            {
+                                "name": "fetchSupportTicketById",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/support-ticket/:id",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "support-ticket",
+                                            ":id"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "",
+                                                "description": "The ID of the Support Ticket to fetch."
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Retrieves a support ticket by the ID from the Impilo platform."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/support-ticket/:supportTicketId/assignee",
+                "description": "Updates the assignee on a Support Ticket with an ID provided in the path. You can only assign individuals within your organization via the API. *** For more information see the [SupportTicketAssigneeRequest Model](/resources/models#schema_SupportTicketAssigneeRequest).",
+                 "item": [
+                            {
+                                "name": "supportTicketUpdateAssigneeExample",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"email\" : \"email@example.com\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/support-ticket/:supportTicketId/assignee",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "support-ticket",
+                                            ":supportTicketId",
+                                            "assignee"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "supportTicketId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Updates the assignee on a Support Ticket with an ID provided in the path. You can only assign individuals within your organization via the API. *** For more information see the [SupportTicketAssigneeRequest Model](/resources/models#schema_SupportTicketAssigneeRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/support-ticket/:supportTicketId/close",
+                "description": "Closes a Support Ticket with the ID provided in the path.",
+                 "item": [
+                            {
+                                "name": "closeSupportTicket",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/support-ticket/:supportTicketId/close",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "support-ticket",
+                                            ":supportTicketId",
+                                            "close"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "supportTicketId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Closes a Support Ticket with the ID provided in the path."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/support-ticket/:supportTicketId/event",
+                "description": "Updates the status of a Support Ticket with an ID provided in the path. If a note is also provided, will also insert a note. *** For more information see the [SupportTicketEventRequest Model](/resources/models#schema_SupportTicketEventRequest).",
+                 "item": [
+                            {
+                                "name": "supportTicketUpdateStatusExample",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"event\" : \"additionalContactAttempt\",\n  \"note\" : \"Optional Note.\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/support-ticket/:supportTicketId/event",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "support-ticket",
+                                            ":supportTicketId",
+                                            "event"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "supportTicketId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Updates the status of a Support Ticket with an ID provided in the path. If a note is also provided, will also insert a note. *** For more information see the [SupportTicketEventRequest Model](/resources/models#schema_SupportTicketEventRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/support-ticket/:supportTicketId/note",
+                "description": "Posts a new note to the Support Ticket ID provided in the path. *** For more information see the [SupportTicketNoteRequest Model](/resources/models#schema_SupportTicketNoteRequest).",
+                 "item": [
+                            {
+                                "name": "supportTicketNoteRequestExample",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"note\" : \"Example Note\"\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/support-ticket/:supportTicketId/note",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "support-ticket",
+                                            ":supportTicketId",
+                                            "note"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "supportTicketId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Posts a new note to the Support Ticket ID provided in the path. *** For more information see the [SupportTicketNoteRequest Model](/resources/models#schema_SupportTicketNoteRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/support-ticket/:supportTicketId/open",
+                "description": "Reopens a Support Ticket with the ID provided in the path.",
+                 "item": [
+                            {
+                                "name": "reopenSupportTicket",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/support-ticket/:supportTicketId/open",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "support-ticket",
+                                            ":supportTicketId",
+                                            "open"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "supportTicketId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Reopens a Support Ticket with the ID provided in the path."
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
 	            "name": "Items",
 	            "item": [
 	                        {
@@ -6039,6 +6749,284 @@
                                         ]
                                     },
                                     "description": "This endpoint returns the Item specified by ID in the URL path. "
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
+	            "name": "Readings - Sleep Mat Activity",
+	            "item": [
+	                        {
+    "name": "/api/v3/sleep-mat-activity-reading",
+                "description": "Retrieves a paginated list of sleep mat activity readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
+                 "item": [
+                            {
+                                "name": "listSleepMatActivityReadings",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/sleep-mat-activity-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "sleep-mat-activity-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "patientId",
+                                                "value": "789",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "externalIdentifier",
+                                                "value": "externalIdentifier_example",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "startTimestamp",
+                                                "value": "startTimestamp_example",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "endTimestamp",
+                                                "value": "endTimestamp_example",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Retrieves a paginated list of sleep mat activity readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/sleep-mat-activity-reading",
+                "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatActivityReadingRequest Model](/resources/models#schema_SleepMatActivityReadingRequest).",
+                 "item": [
+                            {
+                                "name": "device",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceId\" : 599,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"respiration\" : 10,\n  \"heartRate\" : 60,\n  \"bodyTurnOver\" : 5,\n  \"duration\" : \"20:00~00:00\",\n  \"bedTime\" : [ \"2022-06-30/20:01\", \"2022-06-30/20:55\" ],\n  \"manual\" : false,\n  \"getUpTime\" : [ \"2022-07-01/06:00\", \"2022-07-01/06:30\" ]\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/sleep-mat-activity-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "sleep-mat-activity-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatActivityReadingRequest Model](/resources/models#schema_SleepMatActivityReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "device-identifier",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"deviceIdentifier\" : \"354833969951611\",\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"respiration\" : 10,\n  \"heartRate\" : 60,\n  \"bodyTurnOver\" : 5,\n  \"duration\" : \"20:00~00:00\",\n  \"bedTime\" : [ \"2022-06-30/20:01\", \"2022-06-30/20:55\" ],\n  \"manual\" : false,\n  \"getUpTime\" : [ \"2022-07-01/06:00\", \"2022-07-01/06:30\" ]\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/sleep-mat-activity-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "sleep-mat-activity-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatActivityReadingRequest Model](/resources/models#schema_SleepMatActivityReadingRequest)."
+                                }
+                            },
+                            {
+                                "name": "patient",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"patientId\" : 456,\n  \"readingTimestamp\" : \"2024-07-04T00:00:00Z\",\n  \"deviceTimeZoneOffset\" : -14400,\n  \"respiration\" : 10,\n  \"heartRate\" : 60,\n  \"bodyTurnOver\" : 5,\n  \"duration\" : \"20:00~00:00\",\n  \"bedTime\" : [ \"2022-06-30/20:01\", \"2022-06-30/20:55\" ],\n  \"manual\" : false,\n  \"getUpTime\" : [ \"2022-07-01/06:00\", \"2022-07-01/06:30\" ]\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/sleep-mat-activity-reading",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "sleep-mat-activity-reading"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatActivityReadingRequest Model](/resources/models#schema_SleepMatActivityReadingRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/sleep-mat-activity-reading/:readingId",
+                "description": "Fetches a specific sleep mat activity reading by its ID.",
+                 "item": [
+                            {
+                                "name": "fetchSleepMatActivityReading",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/sleep-mat-activity-reading/:readingId",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "sleep-mat-activity-reading",
+                                            ":readingId"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "readingId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Fetches a specific sleep mat activity reading by its ID."
                                 }
                             }
                             ]

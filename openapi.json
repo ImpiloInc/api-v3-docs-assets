@@ -35,6 +35,8 @@
   }, {
     "name" : "Sites"
   }, {
+    "name" : "Support Tickets"
+  }, {
     "name" : "Transfers"
   }, {
     "name" : "Webhooks"
@@ -50,6 +52,10 @@
     "name" : "Readings - Heart Rate Variability"
   }, {
     "name" : "Readings - Peak Flow"
+  }, {
+    "name" : "Readings - Sleep Mat Activity"
+  }, {
+    "name" : "Readings - Sleep Mat Duration"
   }, {
     "name" : "Readings - Temperature"
   }, {
@@ -2622,7 +2628,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-09-03T16:04:23.671294400Z"
+                          "eventTimestamp" : "2024-10-04T18:06:57.238023800Z"
                         } ]
                       }, {
                         "id" : 790,
@@ -2645,7 +2651,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-09-03T16:04:23.672262600Z"
+                          "eventTimestamp" : "2024-10-04T18:06:57.238023800Z"
                         } ]
                       }, {
                         "id" : 791,
@@ -2668,7 +2674,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-09-03T16:04:23.672262600Z"
+                          "eventTimestamp" : "2024-10-04T18:06:57.238023800Z"
                         } ]
                       }, {
                         "id" : 792,
@@ -2691,7 +2697,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-09-03T16:04:23.672262600Z"
+                          "eventTimestamp" : "2024-10-04T18:06:57.238023800Z"
                         } ]
                       }, {
                         "id" : 793,
@@ -2714,7 +2720,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-09-03T16:04:23.672262600Z"
+                          "eventTimestamp" : "2024-10-04T18:06:57.238023800Z"
                         } ]
                       } ],
                       "page" : 1,
@@ -2840,7 +2846,7 @@
                       } ],
                       "procurementEvents" : [ {
                         "name" : "received",
-                        "eventTimestamp" : "2024-09-03T16:04:23.778541300Z"
+                        "eventTimestamp" : "2024-10-04T18:06:57.338449200Z"
                       } ]
                     }
                   }
@@ -3217,22 +3223,405 @@
         }
       }
     },
-    "/api/v3/transfer/device-transfer-request" : {
+    "/api/v3/support-ticket" : {
+      "get" : {
+        "tags" : [ "Support Tickets" ],
+        "description" : "Retrieves a paginated list of support tickets from the Impilo platform.",
+        "operationId" : "listSupportTickets",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page number of the content returned.",
+          "schema" : {
+            "format" : "int32",
+            "default" : "1",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "The page size of the content returned.",
+          "schema" : {
+            "format" : "int32",
+            "default" : "15",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "ticketType",
+          "in" : "query",
+          "description" : "The support ticket type to filter by.",
+          "schema" : {
+            "$ref" : "#/components/schemas/SupportTicketType"
+          }
+        }, {
+          "name" : "assigneeEmail",
+          "in" : "query",
+          "description" : "The email address of the individual asssigned a support ticket.",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "patientExternalIdentifier",
+          "in" : "query",
+          "description" : "The external identifier of the patient associated with a support itcket.",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "patientId",
+          "in" : "query",
+          "description" : "The id of the patient associated with a support ticket.",
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "createdAt",
+          "in" : "query",
+          "description" : "The time after which a support ticket was created.",
+          "schema" : {
+            "$ref" : "#/components/schemas/Instant"
+          }
+        }, {
+          "name" : "updatedAt",
+          "in" : "query",
+          "description" : "The time after which a support ticket was last updated.",
+          "schema" : {
+            "$ref" : "#/components/schemas/Instant"
+          }
+        }, {
+          "name" : "open",
+          "in" : "query",
+          "description" : "Whether or not a support ticket is considered closed or not.",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageSupportTicket"
+                },
+                "examples" : {
+                  "supportTicketPagedResponseExample" : {
+                    "value" : {
+                      "content" : [ {
+                        "id" : 123,
+                        "customer" : {
+                          "id" : 8,
+                          "name" : "Customer 8"
+                        },
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "ticketType" : "patientSetup",
+                        "supportTicketNotes" : [ {
+                          "createdBy" : {
+                            "id" : 1772,
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "email" : "user_1772@example.com"
+                          },
+                          "note" : "Example Note.",
+                          "createdAt" : "2024-07-04T00:00:00Z"
+                        } ],
+                        "supportTicketEvents" : [ {
+                          "eventType" : "ticketCreated",
+                          "createdAt" : "2024-07-04T00:00:00Z"
+                        } ],
+                        "currentStatus" : "needsIntake",
+                        "open" : true,
+                        "assignedTeam" : "support",
+                        "assignee" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "createdBy" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "createdAt" : "2024-07-04T00:00:00Z",
+                        "lastUpdated" : "2024-07-04T00:00:00Z"
+                      }, {
+                        "id" : 124,
+                        "customer" : {
+                          "id" : 8,
+                          "name" : "Customer 8"
+                        },
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "ticketType" : "patientSetup",
+                        "supportTicketNotes" : [ {
+                          "createdBy" : {
+                            "id" : 1772,
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "email" : "user_1772@example.com"
+                          },
+                          "note" : "Example Note.",
+                          "createdAt" : "2024-07-04T00:00:00Z"
+                        } ],
+                        "supportTicketEvents" : [ {
+                          "eventType" : "ticketCreated",
+                          "createdAt" : "2024-07-04T00:00:00Z"
+                        } ],
+                        "currentStatus" : "needsIntake",
+                        "open" : true,
+                        "assignedTeam" : "support",
+                        "assignee" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "createdBy" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "createdAt" : "2024-07-04T00:00:00Z",
+                        "lastUpdated" : "2024-07-04T00:00:00Z"
+                      }, {
+                        "id" : 125,
+                        "customer" : {
+                          "id" : 8,
+                          "name" : "Customer 8"
+                        },
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "ticketType" : "patientSetup",
+                        "supportTicketNotes" : [ {
+                          "createdBy" : {
+                            "id" : 1772,
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "email" : "user_1772@example.com"
+                          },
+                          "note" : "Example Note.",
+                          "createdAt" : "2024-07-04T00:00:00Z"
+                        } ],
+                        "supportTicketEvents" : [ {
+                          "eventType" : "ticketCreated",
+                          "createdAt" : "2024-07-04T00:00:00Z"
+                        } ],
+                        "currentStatus" : "needsIntake",
+                        "open" : true,
+                        "assignedTeam" : "support",
+                        "assignee" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "createdBy" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "createdAt" : "2024-07-04T00:00:00Z",
+                        "lastUpdated" : "2024-07-04T00:00:00Z"
+                      }, {
+                        "id" : 126,
+                        "customer" : {
+                          "id" : 8,
+                          "name" : "Customer 8"
+                        },
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "ticketType" : "patientSetup",
+                        "supportTicketNotes" : [ {
+                          "createdBy" : {
+                            "id" : 1772,
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "email" : "user_1772@example.com"
+                          },
+                          "note" : "Example Note.",
+                          "createdAt" : "2024-07-04T00:00:00Z"
+                        } ],
+                        "supportTicketEvents" : [ {
+                          "eventType" : "ticketCreated",
+                          "createdAt" : "2024-07-04T00:00:00Z"
+                        } ],
+                        "currentStatus" : "needsIntake",
+                        "open" : true,
+                        "assignedTeam" : "support",
+                        "assignee" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "createdBy" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "createdAt" : "2024-07-04T00:00:00Z",
+                        "lastUpdated" : "2024-07-04T00:00:00Z"
+                      }, {
+                        "id" : 127,
+                        "customer" : {
+                          "id" : 8,
+                          "name" : "Customer 8"
+                        },
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "ticketType" : "patientSetup",
+                        "supportTicketNotes" : [ {
+                          "createdBy" : {
+                            "id" : 1772,
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "email" : "user_1772@example.com"
+                          },
+                          "note" : "Example Note.",
+                          "createdAt" : "2024-07-04T00:00:00Z"
+                        } ],
+                        "supportTicketEvents" : [ {
+                          "eventType" : "ticketCreated",
+                          "createdAt" : "2024-07-04T00:00:00Z"
+                        } ],
+                        "currentStatus" : "needsIntake",
+                        "open" : true,
+                        "assignedTeam" : "support",
+                        "assignee" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "createdBy" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "createdAt" : "2024-07-04T00:00:00Z",
+                        "lastUpdated" : "2024-07-04T00:00:00Z"
+                      } ],
+                      "page" : 1,
+                      "size" : 5,
+                      "total" : 10,
+                      "first" : true,
+                      "last" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "supportTicketPagedResponseExample"
+      },
       "post" : {
-        "tags" : [ "Transfers" ],
-        "description" : "Creates a Device Transfer Request, which specifies specific Device Identifiers (such as\nSerial Numbers, IMEIs, etc) to transfer from the Requesting customer-manufacturer to another\nCustomer account.\n\nTo complete the transfer request, the following must be true:\n- The Customer account must be designated as a Manufacturer\n- The Customer ID provided must be associated with the Customer-Manufacturer making the request\n- The deviceIdentifiers parameter must be a non-empty List of strings\n- All devices listed via the deviceIdentifiers parameter must belong to the requesting Customer-Manufacturer\n- The Devices listed via the deviceIdentifiers parameter must be in Available or Available - Repacked status\n- Devices must not have a Patient assigned to them.\n***\nFor more information see the [DeviceTransferRequest Model](/resources/models#schema_DeviceTransferRequest).",
-        "operationId" : "createDeviceTransferRequest",
+        "tags" : [ "Support Tickets" ],
+        "description" : "Creates a new Support Ticket in the Impilo platform.\n***\nFor more information see the [SupportTicketRequest Model](/resources/models#schema_SupportTicketRequest).",
+        "operationId" : "createSupportTicket",
         "requestBody" : {
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DeviceTransferRequest"
+                "$ref" : "#/components/schemas/SupportTicketRequest"
               },
               "examples" : {
-                "createDeviceTransferRequestExample" : {
+                "supportTicketRequestExample" : {
                   "value" : {
-                    "toCustomerId" : 8,
-                    "deviceIdentifiers" : [ "354833969951611", "A44-A0623930", "f51da43314fc" ]
+                    "patient" : {
+                      "id" : 123,
+                      "sex" : "unknown"
+                    },
+                    "ticketType" : "deviceTechnicalSupport",
+                    "note" : "Example Note."
                   }
                 }
               }
@@ -3243,25 +3632,352 @@
           "200" : {
             "description" : "OK",
             "content" : {
-              "*/*" : {
+              "application/json" : {
                 "schema" : {
-                  "format" : "int64",
-                  "type" : "integer"
+                  "$ref" : "#/components/schemas/SupportTicket"
                 }
               }
             }
           }
         },
-        "x-request-example" : "createDeviceTransferRequestExample",
+        "x-request-example" : "supportTicketRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DeviceTransferRequest"
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SupportTicketRequest"
         }
       }
     },
-    "/api/v3/transfer/item-transfer-request" : {
+    "/api/v3/support-ticket/{id}" : {
+      "get" : {
+        "tags" : [ "Support Tickets" ],
+        "description" : "Retrieves a support ticket by the ID from the Impilo platform.",
+        "operationId" : "fetchSupportTicketById",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the Support Ticket to fetch.",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SupportTicket"
+                },
+                "examples" : {
+                  "supportTicketResponseExample" : {
+                    "value" : {
+                      "id" : 123,
+                      "customer" : {
+                        "id" : 8,
+                        "name" : "Customer 8"
+                      },
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "ticketType" : "patientSetup",
+                      "supportTicketNotes" : [ {
+                        "createdBy" : {
+                          "id" : 1772,
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "email" : "user_1772@example.com"
+                        },
+                        "note" : "Example Note.",
+                        "createdAt" : "2024-07-04T00:00:00Z"
+                      } ],
+                      "supportTicketEvents" : [ {
+                        "eventType" : "ticketCreated",
+                        "createdAt" : "2024-07-04T00:00:00Z"
+                      } ],
+                      "currentStatus" : "needsIntake",
+                      "open" : true,
+                      "assignedTeam" : "support",
+                      "assignee" : {
+                        "id" : 1772,
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "email" : "user_1772@example.com"
+                      },
+                      "createdBy" : {
+                        "id" : 1772,
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "email" : "user_1772@example.com"
+                      },
+                      "createdAt" : "2024-07-04T00:00:00Z",
+                      "lastUpdated" : "2024-07-04T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "supportTicketResponseExample"
+      }
+    },
+    "/api/v3/support-ticket/{supportTicketId}/assignee" : {
+      "post" : {
+        "tags" : [ "Support Tickets" ],
+        "description" : "Updates the assignee on a Support Ticket with an ID provided in the path. You can only assign individuals within your organization via the API.\n***\nFor more information see the [SupportTicketAssigneeRequest Model](/resources/models#schema_SupportTicketAssigneeRequest).",
+        "operationId" : "updateAssignee",
+        "parameters" : [ {
+          "name" : "supportTicketId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SupportTicketAssigneeRequest"
+              },
+              "examples" : {
+                "supportTicketUpdateAssigneeExample" : {
+                  "value" : {
+                    "email" : "email@example.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SupportTicket"
+                }
+              }
+            }
+          }
+        },
+        "x-request-example" : "supportTicketUpdateAssigneeExample",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SupportTicketAssigneeRequest"
+        }
+      }
+    },
+    "/api/v3/support-ticket/{supportTicketId}/close" : {
+      "post" : {
+        "tags" : [ "Support Tickets" ],
+        "description" : "Closes a Support Ticket with the ID provided in the path.",
+        "operationId" : "closeSupportTicket",
+        "parameters" : [ {
+          "name" : "supportTicketId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SupportTicket"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v3/support-ticket/{supportTicketId}/event" : {
+      "post" : {
+        "tags" : [ "Support Tickets" ],
+        "description" : "Updates the status of a Support Ticket with an ID provided in the path. If a note is also provided, will also insert a note.\n***\nFor more information see the [SupportTicketEventRequest Model](/resources/models#schema_SupportTicketEventRequest).",
+        "operationId" : "updateStatus",
+        "parameters" : [ {
+          "name" : "supportTicketId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SupportTicketEventRequest"
+              },
+              "examples" : {
+                "supportTicketUpdateStatusExample" : {
+                  "value" : {
+                    "event" : "additionalContactAttempt",
+                    "note" : "Optional Note."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SupportTicket"
+                }
+              }
+            }
+          }
+        },
+        "x-request-example" : "supportTicketUpdateStatusExample",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SupportTicketEventRequest"
+        }
+      }
+    },
+    "/api/v3/support-ticket/{supportTicketId}/note" : {
+      "post" : {
+        "tags" : [ "Support Tickets" ],
+        "description" : "Posts a new note to the Support Ticket ID provided in the path.\n***\nFor more information see the [SupportTicketNoteRequest Model](/resources/models#schema_SupportTicketNoteRequest).",
+        "operationId" : "createSupportTicket",
+        "parameters" : [ {
+          "name" : "supportTicketId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SupportTicketNoteRequest"
+              },
+              "examples" : {
+                "supportTicketNoteRequestExample" : {
+                  "value" : {
+                    "note" : "Example Note"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SupportTicket"
+                }
+              }
+            }
+          }
+        },
+        "x-request-example" : "supportTicketNoteRequestExample",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SupportTicketNoteRequest"
+        }
+      }
+    },
+    "/api/v3/support-ticket/{supportTicketId}/open" : {
+      "post" : {
+        "tags" : [ "Support Tickets" ],
+        "description" : "Reopens a Support Ticket with the ID provided in the path.",
+        "operationId" : "reopenSupportTicket",
+        "parameters" : [ {
+          "name" : "supportTicketId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SupportTicket"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v3/transfer/transfer-request" : {
+      "get" : {
+        "tags" : [ "Transfers" ],
+        "description" : "Retrieves a paginated list of Transfer Requests from the Impilo platform.",
+        "operationId" : "listTransferRequests",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "description" : "The page number of the content returned.",
+          "schema" : {
+            "format" : "int32",
+            "default" : "1",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "The size of the page returned. Max size is 100.",
+          "schema" : {
+            "format" : "int32",
+            "default" : "15",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageTransferRequest"
+                }
+              }
+            }
+          }
+        }
+      },
       "post" : {
         "tags" : [ "Transfers" ],
-        "description" : "Creates an Item Transfer Request, which lists general Items and Quantities to transfer from a\nCustomer-Manufacturer account to another Customer account.\n\nTo complete the transfer request, the following must be true:\n- The Customer account must be designated as a Manufacturer\n- The Customer ID provided must be associated with the Customer-Manufacturer making the request\n- The transfers parameter must be a non-empty list of ItemTransfer objects\n- Each ItemTransfer's item parameter must include an ID for the Item to be transferred\n- Each itemTransfer's item parameter must be in both the Requesting AND Receiving customer catalogs\n- Each ItemTransfer's quantity parameter must be an integer value greater than 0\n\nThe only requirement for the ItemTransfer's item parameter is a JSON object that includes an ID of the Item requested.\n***\nFor more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest).",
+        "description" : "Creates a Transfer Request, which consists of Items and Quantities to transfer from a\nCustomer account to one of it's sub-Customer accounts.\n\nTo submit a transfer request, the Target Customer must be a sub-Customer account of the\nrequestor and the body must consist of at least one TransferItem object with a quantity\ngreater than 0.\n\nThe only requirement for the TransferItem's item parameter is a JSON object that includes\nan ID of the Item requested.\n***\nFor more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest).",
         "operationId" : "createItemTransferRequest",
         "requestBody" : {
           "content" : {
@@ -3323,44 +4039,6 @@
         }
       }
     },
-    "/api/v3/transfer/transfer-request" : {
-      "get" : {
-        "tags" : [ "Transfers" ],
-        "description" : "Retrieves a paginated list of Transfer Requests from the Impilo platform.",
-        "operationId" : "listTransferRequests",
-        "parameters" : [ {
-          "name" : "page",
-          "in" : "query",
-          "description" : "The page number of the content returned.",
-          "schema" : {
-            "format" : "int32",
-            "default" : "1",
-            "type" : "integer"
-          }
-        }, {
-          "name" : "size",
-          "in" : "query",
-          "description" : "The size of the page returned. Max size is 100.",
-          "schema" : {
-            "format" : "int32",
-            "default" : "15",
-            "type" : "integer"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/PageTransferRequest"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/v3/transfer/transfer-request/{id}" : {
       "get" : {
         "tags" : [ "Transfers" ],
@@ -3397,84 +4075,16 @@
                         "name" : "Customer 3"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-09-03T16:04:25.816332500Z",
+                      "createdAt" : "2024-10-04T18:07:01.872319700Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-09-03T16:04:25.814428100Z"
+                        "createdAt" : "2024-10-04T18:07:01.872319700Z"
                       } ],
                       "transferRequestEvents" : [ {
                         "name" : "requested",
-                        "eventTimestamp" : "2024-09-03T16:04:25.815430600Z"
+                        "eventTimestamp" : "2024-10-04T18:07:01.872319700Z"
                       } ],
-                      "requestedEntries" : [ {
-                        "device" : {
-                          "id" : 599,
-                          "item" : {
-                            "id" : 791,
-                            "manufacturer" : {
-                              "id" : 2,
-                              "name" : "Custom Manufacturer"
-                            },
-                            "name" : "Blood Pressure Monitor",
-                            "model" : "iBloodPressureMonitor123",
-                            "sku" : "0000001"
-                          },
-                          "currentStatus" : "withPatient",
-                          "currentPatient" : {
-                            "id" : 456,
-                            "externalIdentifier" : "external-identifier-123",
-                            "firstName" : "John",
-                            "lastName" : "Doe",
-                            "dateOfBirth" : "1987-09-13",
-                            "email" : "email@example.com",
-                            "phoneNumber" : "111-222-3333",
-                            "address" : {
-                              "lineOne" : "1234 Market Street",
-                              "lineTwo" : "Suite 110",
-                              "city" : "Philadelphia",
-                              "state" : "PA",
-                              "zipCode" : "19137",
-                              "country" : "USA"
-                            },
-                            "sex" : "unknown"
-                          },
-                          "deviceIdentifiers" : [ {
-                            "type" : "imei",
-                            "value" : "354833969951611"
-                          }, {
-                            "type" : "serial",
-                            "value" : "A44-A0623930"
-                          }, {
-                            "type" : "macAddress",
-                            "value" : "f51da43314fc"
-                          } ],
-                          "disabledReadings" : false
-                        }
-                      } ]
-                    }
-                  },
-                  "device-transfer-request" : {
-                    "value" : {
-                      "id" : 123,
-                      "fromCustomer" : {
-                        "id" : 2,
-                        "name" : "Customer 2"
-                      },
-                      "toCustomer" : {
-                        "id" : 3,
-                        "name" : "Customer 3"
-                      },
-                      "currentStatus" : "requested",
-                      "createdAt" : "2024-09-03T16:04:25.892346100Z",
-                      "transferRequestNotes" : [ {
-                        "note" : "Note Text Here",
-                        "createdAt" : "2024-09-03T16:04:25.892346100Z"
-                      } ],
-                      "transferRequestEvents" : [ {
-                        "name" : "requested",
-                        "eventTimestamp" : "2024-09-03T16:04:25.892346100Z"
-                      } ],
-                      "requestedEntries" : [ {
+                      "transferItems" : [ {
                         "item" : {
                           "id" : 791,
                           "manufacturer" : {
@@ -3485,7 +4095,7 @@
                           "model" : "iBloodPressureMonitor123",
                           "sku" : "0000001"
                         },
-                        "quantity" : 5
+                        "count" : 5
                       } ]
                     }
                   }
@@ -3494,8 +4104,7 @@
             }
           }
         },
-        "x-response-example-item-transfer-request" : "createItemTransferResponseExample",
-        "x-response-example-device-transfer-request" : "createDeviceTransferResponseExample"
+        "x-response-example-item-transfer-request" : "createItemTransferResponseExample"
       }
     },
     "/api/v3/webhook" : {
@@ -7064,6 +7673,1055 @@
         "x-response-example" : "peakFlowReadingResponseExample"
       }
     },
+    "/api/v3/sleep-mat-activity-reading" : {
+      "get" : {
+        "tags" : [ "Readings - Sleep Mat Activity" ],
+        "description" : "Retrieves a paginated list of sleep mat activity readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
+        "operationId" : "listSleepMatActivityReadings",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "minimum" : 1,
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "patientId",
+          "in" : "query",
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "externalIdentifier",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "startTimestamp",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "endTimestamp",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageSleepMatActivityReading"
+                },
+                "examples" : {
+                  "sleepMatActivityReadingPagedResponseExample" : {
+                    "value" : {
+                      "content" : [ {
+                        "id" : 42,
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "device" : {
+                          "id" : 599,
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "currentStatus" : "withPatient",
+                          "currentPatient" : {
+                            "id" : 456,
+                            "externalIdentifier" : "external-identifier-123",
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "dateOfBirth" : "1987-09-13",
+                            "email" : "email@example.com",
+                            "phoneNumber" : "111-222-3333",
+                            "address" : {
+                              "lineOne" : "1234 Market Street",
+                              "lineTwo" : "Suite 110",
+                              "city" : "Philadelphia",
+                              "state" : "PA",
+                              "zipCode" : "19137",
+                              "country" : "USA"
+                            },
+                            "sex" : "unknown"
+                          },
+                          "deviceIdentifiers" : [ {
+                            "type" : "imei",
+                            "value" : "354833969951611"
+                          }, {
+                            "type" : "serial",
+                            "value" : "A44-A0623930"
+                          }, {
+                            "type" : "macAddress",
+                            "value" : "f51da43314fc"
+                          } ],
+                          "disabledReadings" : false
+                        },
+                        "readingTimestamp" : "2024-07-04T00:00:00Z",
+                        "manual" : false,
+                        "deviceTimeZoneOffset" : 0,
+                        "patientTimeZoneOffset" : 0,
+                        "respiration" : 10,
+                        "heartRate" : 60,
+                        "bodyTurnOver" : 5,
+                        "duration" : "20:00~00:00",
+                        "bedTime" : [ "2022-06-30/20:01", "2022-06-30/20:55" ],
+                        "getUpTime" : [ "2022-07-01/06:00", "2022-07-01/06:30" ]
+                      }, {
+                        "id" : 43,
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "device" : {
+                          "id" : 599,
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "currentStatus" : "withPatient",
+                          "currentPatient" : {
+                            "id" : 456,
+                            "externalIdentifier" : "external-identifier-123",
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "dateOfBirth" : "1987-09-13",
+                            "email" : "email@example.com",
+                            "phoneNumber" : "111-222-3333",
+                            "address" : {
+                              "lineOne" : "1234 Market Street",
+                              "lineTwo" : "Suite 110",
+                              "city" : "Philadelphia",
+                              "state" : "PA",
+                              "zipCode" : "19137",
+                              "country" : "USA"
+                            },
+                            "sex" : "unknown"
+                          },
+                          "deviceIdentifiers" : [ {
+                            "type" : "imei",
+                            "value" : "354833969951611"
+                          }, {
+                            "type" : "serial",
+                            "value" : "A44-A0623930"
+                          }, {
+                            "type" : "macAddress",
+                            "value" : "f51da43314fc"
+                          } ],
+                          "disabledReadings" : false
+                        },
+                        "readingTimestamp" : "2024-07-04T00:00:00Z",
+                        "manual" : false,
+                        "deviceTimeZoneOffset" : 0,
+                        "patientTimeZoneOffset" : 0,
+                        "respiration" : 10,
+                        "heartRate" : 60,
+                        "bodyTurnOver" : 5,
+                        "duration" : "20:00~00:00",
+                        "bedTime" : [ "2022-06-30/20:01", "2022-06-30/20:55" ],
+                        "getUpTime" : [ "2022-07-01/06:00", "2022-07-01/06:30" ]
+                      } ],
+                      "page" : 1,
+                      "size" : 2,
+                      "total" : 4,
+                      "first" : true,
+                      "last" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "sleepMatActivityReadingPagedResponseExample"
+      },
+      "post" : {
+        "tags" : [ "Readings - Sleep Mat Activity" ],
+        "description" : "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [SleepMatActivityReadingRequest Model](/resources/models#schema_SleepMatActivityReadingRequest).",
+        "operationId" : "recordSleepMatActivityReading",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SleepMatActivityReadingRequest"
+              },
+              "examples" : {
+                "device" : {
+                  "value" : {
+                    "deviceId" : 599,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
+                    "respiration" : 10,
+                    "heartRate" : 60,
+                    "bodyTurnOver" : 5,
+                    "duration" : "20:00~00:00",
+                    "bedTime" : [ "2022-06-30/20:01", "2022-06-30/20:55" ],
+                    "manual" : false,
+                    "getUpTime" : [ "2022-07-01/06:00", "2022-07-01/06:30" ]
+                  }
+                },
+                "device-identifier" : {
+                  "value" : {
+                    "deviceIdentifier" : "354833969951611",
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
+                    "respiration" : 10,
+                    "heartRate" : 60,
+                    "bodyTurnOver" : 5,
+                    "duration" : "20:00~00:00",
+                    "bedTime" : [ "2022-06-30/20:01", "2022-06-30/20:55" ],
+                    "manual" : false,
+                    "getUpTime" : [ "2022-07-01/06:00", "2022-07-01/06:30" ]
+                  }
+                },
+                "patient" : {
+                  "value" : {
+                    "patientId" : 456,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
+                    "respiration" : 10,
+                    "heartRate" : 60,
+                    "bodyTurnOver" : 5,
+                    "duration" : "20:00~00:00",
+                    "bedTime" : [ "2022-06-30/20:01", "2022-06-30/20:55" ],
+                    "manual" : false,
+                    "getUpTime" : [ "2022-07-01/06:00", "2022-07-01/06:30" ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SleepMatActivityReading"
+                },
+                "examples" : {
+                  "sleepMatActivityReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "manual" : false,
+                      "deviceTimeZoneOffset" : 0,
+                      "patientTimeZoneOffset" : 0,
+                      "respiration" : 10,
+                      "heartRate" : 60,
+                      "bodyTurnOver" : 5,
+                      "duration" : "20:00~00:00",
+                      "bedTime" : [ "2022-06-30/20:01", "2022-06-30/20:55" ],
+                      "getUpTime" : [ "2022-07-01/06:00", "2022-07-01/06:30" ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-request-example-device" : "sleepMatActivityReadingRequestDeviceExample",
+        "x-request-example-device-identifier" : "sleepMatActivityReadingRequestDeviceIdentifierExample",
+        "x-request-example-patient" : "sleepMatActivityReadingRequestPatientExample",
+        "x-response-example" : "sleepMatActivityReadingResponseExample",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SleepMatActivityReadingRequest"
+        }
+      }
+    },
+    "/api/v3/sleep-mat-activity-reading/{readingId}" : {
+      "get" : {
+        "tags" : [ "Readings - Sleep Mat Activity" ],
+        "description" : "Fetches a specific sleep mat activity reading by its ID.",
+        "operationId" : "fetchSleepMatActivityReading",
+        "parameters" : [ {
+          "name" : "readingId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SleepMatActivityReading"
+                },
+                "examples" : {
+                  "sleepMatActivityReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "manual" : false,
+                      "deviceTimeZoneOffset" : 0,
+                      "patientTimeZoneOffset" : 0,
+                      "respiration" : 10,
+                      "heartRate" : 60,
+                      "bodyTurnOver" : 5,
+                      "duration" : "20:00~00:00",
+                      "bedTime" : [ "2022-06-30/20:01", "2022-06-30/20:55" ],
+                      "getUpTime" : [ "2022-07-01/06:00", "2022-07-01/06:30" ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "sleepMatActivityReadingResponseExample"
+      }
+    },
+    "/api/v3/sleep-mat-duration-reading" : {
+      "get" : {
+        "tags" : [ "Readings - Sleep Mat Duration" ],
+        "description" : "Retrieves a paginated list of sleep mat duration readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
+        "operationId" : "listSleepMatDurationReadings",
+        "parameters" : [ {
+          "name" : "page",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "minimum" : 1,
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "patientId",
+          "in" : "query",
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "externalIdentifier",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "startTimestamp",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "endTimestamp",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageSleepMatDurationReading"
+                },
+                "examples" : {
+                  "sleepMatDurationReadingPagedResponseExample" : {
+                    "value" : {
+                      "content" : [ {
+                        "id" : 42,
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "device" : {
+                          "id" : 599,
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "currentStatus" : "withPatient",
+                          "currentPatient" : {
+                            "id" : 456,
+                            "externalIdentifier" : "external-identifier-123",
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "dateOfBirth" : "1987-09-13",
+                            "email" : "email@example.com",
+                            "phoneNumber" : "111-222-3333",
+                            "address" : {
+                              "lineOne" : "1234 Market Street",
+                              "lineTwo" : "Suite 110",
+                              "city" : "Philadelphia",
+                              "state" : "PA",
+                              "zipCode" : "19137",
+                              "country" : "USA"
+                            },
+                            "sex" : "unknown"
+                          },
+                          "deviceIdentifiers" : [ {
+                            "type" : "imei",
+                            "value" : "354833969951611"
+                          }, {
+                            "type" : "serial",
+                            "value" : "A44-A0623930"
+                          }, {
+                            "type" : "macAddress",
+                            "value" : "f51da43314fc"
+                          } ],
+                          "disabledReadings" : false
+                        },
+                        "readingTimestamp" : "2024-07-04T00:00:00Z",
+                        "manual" : false,
+                        "deviceTimeZoneOffset" : 0,
+                        "patientTimeZoneOffset" : 0,
+                        "respiration" : 10,
+                        "heartRate" : 60,
+                        "bodyTurnOver" : 5,
+                        "duration" : "20:00~00:00",
+                        "rem" : 20,
+                        "deepSleep" : 300,
+                        "lightSleep" : 155
+                      }, {
+                        "id" : 43,
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "device" : {
+                          "id" : 599,
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "currentStatus" : "withPatient",
+                          "currentPatient" : {
+                            "id" : 456,
+                            "externalIdentifier" : "external-identifier-123",
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "dateOfBirth" : "1987-09-13",
+                            "email" : "email@example.com",
+                            "phoneNumber" : "111-222-3333",
+                            "address" : {
+                              "lineOne" : "1234 Market Street",
+                              "lineTwo" : "Suite 110",
+                              "city" : "Philadelphia",
+                              "state" : "PA",
+                              "zipCode" : "19137",
+                              "country" : "USA"
+                            },
+                            "sex" : "unknown"
+                          },
+                          "deviceIdentifiers" : [ {
+                            "type" : "imei",
+                            "value" : "354833969951611"
+                          }, {
+                            "type" : "serial",
+                            "value" : "A44-A0623930"
+                          }, {
+                            "type" : "macAddress",
+                            "value" : "f51da43314fc"
+                          } ],
+                          "disabledReadings" : false
+                        },
+                        "readingTimestamp" : "2024-07-04T00:00:00Z",
+                        "manual" : false,
+                        "deviceTimeZoneOffset" : 0,
+                        "patientTimeZoneOffset" : 0,
+                        "respiration" : 10,
+                        "heartRate" : 60,
+                        "bodyTurnOver" : 5,
+                        "duration" : "20:00~00:00",
+                        "rem" : 20,
+                        "deepSleep" : 300,
+                        "lightSleep" : 155
+                      } ],
+                      "page" : 1,
+                      "size" : 2,
+                      "total" : 4,
+                      "first" : true,
+                      "last" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "sleepMatDurationReadingPagedResponseExample"
+      },
+      "post" : {
+        "tags" : [ "Readings - Sleep Mat Duration" ],
+        "description" : "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [SleepMatDurationReadingRequest Model](/resources/models#schema_SleepMatDurationReadingRequest).",
+        "operationId" : "recordSleepMatDurationReading",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SleepMatDurationReadingRequest"
+              },
+              "examples" : {
+                "device" : {
+                  "value" : {
+                    "deviceId" : 599,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
+                    "respiration" : 10,
+                    "heartRate" : 60,
+                    "bodyTurnOver" : 5,
+                    "duration" : "20:00~00:00",
+                    "rem" : 20,
+                    "deepSleep" : 300,
+                    "lightSleep" : 155,
+                    "manual" : false
+                  }
+                },
+                "device-identifier" : {
+                  "value" : {
+                    "deviceIdentifier" : "354833969951611",
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
+                    "respiration" : 10,
+                    "heartRate" : 60,
+                    "bodyTurnOver" : 5,
+                    "duration" : "20:00~00:00",
+                    "rem" : 20,
+                    "deepSleep" : 300,
+                    "lightSleep" : 155,
+                    "manual" : false
+                  }
+                },
+                "patient" : {
+                  "value" : {
+                    "patientId" : 456,
+                    "readingTimestamp" : "2024-07-04T00:00:00Z",
+                    "deviceTimeZoneOffset" : -14400,
+                    "respiration" : 10,
+                    "heartRate" : 60,
+                    "bodyTurnOver" : 5,
+                    "duration" : "20:00~00:00",
+                    "rem" : 20,
+                    "deepSleep" : 300,
+                    "lightSleep" : 155,
+                    "manual" : false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SleepMatDurationReading"
+                },
+                "examples" : {
+                  "sleepMatDurationReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "manual" : false,
+                      "deviceTimeZoneOffset" : 0,
+                      "patientTimeZoneOffset" : 0,
+                      "respiration" : 10,
+                      "heartRate" : 60,
+                      "bodyTurnOver" : 5,
+                      "duration" : "20:00~00:00",
+                      "rem" : 20,
+                      "deepSleep" : 300,
+                      "lightSleep" : 155
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-request-example-device" : "sleepMatDurationReadingRequestDeviceExample",
+        "x-request-example-device-identifier" : "sleepMatDurationReadingRequestDeviceIdentifierExample",
+        "x-request-example-patient" : "sleepMatDurationReadingRequestPatientExample",
+        "x-response-example" : "sleepMatDurationReadingResponseExample",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SleepMatDurationReadingRequest"
+        }
+      }
+    },
+    "/api/v3/sleep-mat-duration-reading/{readingId}" : {
+      "get" : {
+        "tags" : [ "Readings - Sleep Mat Duration" ],
+        "description" : "Fetches a specific sleep mat duration reading by its ID.",
+        "operationId" : "fetchSleepMatDurationReading",
+        "parameters" : [ {
+          "name" : "readingId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SleepMatDurationReading"
+                },
+                "examples" : {
+                  "sleepMatDurationReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "manual" : false,
+                      "deviceTimeZoneOffset" : 0,
+                      "patientTimeZoneOffset" : 0,
+                      "respiration" : 10,
+                      "heartRate" : 60,
+                      "bodyTurnOver" : 5,
+                      "duration" : "20:00~00:00",
+                      "rem" : 20,
+                      "deepSleep" : 300,
+                      "lightSleep" : 155
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "sleepMatDurationReadingResponseExample"
+      }
+    },
     "/api/v3/temperature-reading" : {
       "get" : {
         "tags" : [ "Readings - Temperature" ],
@@ -8417,6 +10075,7 @@
     "schemas" : {
       "Address" : {
         "description" : "Represents a physical address, including information such as street lines, city, state, zip code, country, and an optional note for additional details.",
+        "required" : [ "lineOne", "city", "state", "zipCode", "country" ],
         "type" : "object",
         "properties" : {
           "lineOne" : {
@@ -9194,24 +10853,6 @@
           }
         }
       },
-      "DeviceTransferRequest" : {
-        "required" : [ "toCustomerId", "deviceIdentifiers" ],
-        "type" : "object",
-        "properties" : {
-          "toCustomerId" : {
-            "format" : "int64",
-            "description" : "The ID of the Customer to transfer the Devices to.",
-            "type" : "integer"
-          },
-          "deviceIdentifiers" : {
-            "description" : "A list of strings containing the Device Identifier values to transfer.",
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
       "DimensionUnit" : {
         "enum" : [ "in", "cm" ],
         "type" : "string",
@@ -9734,24 +11375,6 @@
         "enum" : [ "itemId", "itemName", "itemModel", "itemSku" ],
         "type" : "string"
       },
-      "ItemTransfer" : {
-        "required" : [ "item", "count" ],
-        "type" : "object",
-        "properties" : {
-          "item" : {
-            "description" : "The Item being requested to transfer. Only the ID of the item is required.",
-            "type" : "object",
-            "allOf" : [ {
-              "$ref" : "#/components/schemas/Item"
-            } ]
-          },
-          "count" : {
-            "format" : "int32",
-            "description" : "The number of Items being requested for transfer.",
-            "type" : "integer"
-          }
-        }
-      },
       "ItemTransferRequest" : {
         "required" : [ "toCustomerId", "transfers" ],
         "type" : "object",
@@ -9765,7 +11388,7 @@
             "description" : "A list of ItemTransfer objects containing the Item IDs and quantities to transfer.",
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ItemTransfer"
+              "$ref" : "#/components/schemas/TransferItem"
             }
           }
         }
@@ -10618,6 +12241,114 @@
           }
         }
       },
+      "PageSleepMatActivityReading" : {
+        "description" : "Pagination is supported whenever an API response returns a list of objects. In paginated responses, objects are nested in a content attribute and have first and last attributes indicating whether you are on the first or last page, respectively. Additionally, the pagination response includes a page attribute indicating the current page number, a size attribute indicating the current page size, and a total attribute indicating the number of objects matching the request.",
+        "type" : "object",
+        "properties" : {
+          "content" : {
+            "description" : "The content of the page, consisting of a list of objects.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SleepMatActivityReading"
+            }
+          },
+          "page" : {
+            "format" : "int32",
+            "description" : "The current page number. The first page has value 1.",
+            "type" : "integer"
+          },
+          "size" : {
+            "format" : "int32",
+            "description" : "The current page size. Default 15, maximum 250.",
+            "type" : "integer"
+          },
+          "total" : {
+            "format" : "int32",
+            "description" : "The number of objects matching the request.",
+            "type" : "integer"
+          },
+          "first" : {
+            "description" : "True if this is the first page, false otherwise.",
+            "type" : "boolean"
+          },
+          "last" : {
+            "description" : "True if this is the last page, false otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
+      "PageSleepMatDurationReading" : {
+        "description" : "Pagination is supported whenever an API response returns a list of objects. In paginated responses, objects are nested in a content attribute and have first and last attributes indicating whether you are on the first or last page, respectively. Additionally, the pagination response includes a page attribute indicating the current page number, a size attribute indicating the current page size, and a total attribute indicating the number of objects matching the request.",
+        "type" : "object",
+        "properties" : {
+          "content" : {
+            "description" : "The content of the page, consisting of a list of objects.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SleepMatDurationReading"
+            }
+          },
+          "page" : {
+            "format" : "int32",
+            "description" : "The current page number. The first page has value 1.",
+            "type" : "integer"
+          },
+          "size" : {
+            "format" : "int32",
+            "description" : "The current page size. Default 15, maximum 250.",
+            "type" : "integer"
+          },
+          "total" : {
+            "format" : "int32",
+            "description" : "The number of objects matching the request.",
+            "type" : "integer"
+          },
+          "first" : {
+            "description" : "True if this is the first page, false otherwise.",
+            "type" : "boolean"
+          },
+          "last" : {
+            "description" : "True if this is the last page, false otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
+      "PageSupportTicket" : {
+        "description" : "Pagination is supported whenever an API response returns a list of objects. In paginated responses, objects are nested in a content attribute and have first and last attributes indicating whether you are on the first or last page, respectively. Additionally, the pagination response includes a page attribute indicating the current page number, a size attribute indicating the current page size, and a total attribute indicating the number of objects matching the request.",
+        "type" : "object",
+        "properties" : {
+          "content" : {
+            "description" : "The content of the page, consisting of a list of objects.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SupportTicket"
+            }
+          },
+          "page" : {
+            "format" : "int32",
+            "description" : "The current page number. The first page has value 1.",
+            "type" : "integer"
+          },
+          "size" : {
+            "format" : "int32",
+            "description" : "The current page size. Default 15, maximum 250.",
+            "type" : "integer"
+          },
+          "total" : {
+            "format" : "int32",
+            "description" : "The number of objects matching the request.",
+            "type" : "integer"
+          },
+          "first" : {
+            "description" : "True if this is the first page, false otherwise.",
+            "type" : "boolean"
+          },
+          "last" : {
+            "description" : "True if this is the last page, false otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
       "PageTemperatureReading" : {
         "description" : "Pagination is supported whenever an API response returns a list of objects. In paginated responses, objects are nested in a content attribute and have first and last attributes indicating whether you are on the first or last page, respectively. Additionally, the pagination response includes a page attribute indicating the current page number, a size attribute indicating the current page size, and a total attribute indicating the number of objects matching the request.",
         "type" : "object",
@@ -10799,6 +12530,7 @@
         }
       },
       "Patient" : {
+        "required" : [ "firstName", "lastName", "address" ],
         "type" : "object",
         "properties" : {
           "id" : {
@@ -10846,7 +12578,7 @@
             "example" : true
           },
           "address" : {
-            "description" : "The patient's shipping address.",
+            "description" : "The patient's shipping address. Required on all endpoints except PATCH patient.",
             "type" : "object",
             "allOf" : [ {
               "$ref" : "#/components/schemas/Address"
@@ -11043,11 +12775,14 @@
         }
       },
       "ReadingType" : {
-        "enum" : [ "bloodPressure", "heartRateVariability", "heartRate", "spo2", "temperature", "weight", "peakFlow", "continuousBloodGlucose", "bloodGlucose" ],
+        "enum" : [ "bloodPressure", "sleepMatActivity", "heartRateVariability", "heartRate", "spo2", "temperature", "weight", "peakFlow", "continuousBloodGlucose", "sleepMatDuration", "bloodGlucose" ],
         "type" : "string",
         "x-fern-enum" : {
           "bloodPressure" : {
             "description" : "Blood pressure reading type."
+          },
+          "sleepMatActivity" : {
+            "description" : "Sleep Mat Activity reading type."
           },
           "heartRateVariability" : {
             "description" : "Heart rate variability reading type."
@@ -11069,6 +12804,9 @@
           },
           "continuousBloodGlucose" : {
             "description" : "Continuous blood glucose reading type."
+          },
+          "sleepMatDuration" : {
+            "description" : "Sleep Mat Duration reading type."
           },
           "bloodGlucose" : {
             "description" : "Blood glucose reading type."
@@ -11132,6 +12870,548 @@
             } ]
           }
         }
+      },
+      "SleepMatActivityReading" : {
+        "description" : "This page describes Impilo's sleep mat activity reading model.",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "description" : "Unique identifier for the reading.",
+            "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "format" : "date-time",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z",
+            "writeOnly" : true
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean",
+            "writeOnly" : true
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "patientTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the patient's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "patient" : {
+            "$ref" : "#/components/schemas/Patient"
+          },
+          "item" : {
+            "$ref" : "#/components/schemas/Item"
+          },
+          "device" : {
+            "$ref" : "#/components/schemas/Device"
+          },
+          "respiration" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "heartRate" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "bodyTurnOver" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "duration" : {
+            "type" : "string"
+          },
+          "bedTime" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "getUpTime" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "SleepMatActivityReadingRequest" : {
+        "description" : "This page describes Impilo's sleep mat activity reading request model.",
+        "required" : [ "readingTimestamp", "respiration", "heartRate", "bodyTurnOver", "duration", "bedTime", "upTime" ],
+        "type" : "object",
+        "properties" : {
+          "deviceId" : {
+            "format" : "int64",
+            "description" : "The id of the device that took the reading.",
+            "type" : "integer"
+          },
+          "deviceIdentifier" : {
+            "description" : "The device identifier of the device that took the reading.",
+            "type" : "string"
+          },
+          "patientId" : {
+            "format" : "int64",
+            "description" : "The id of the patient that took the reading.",
+            "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "format" : "date-time",
+            "description" : "The UTC timestamp at which the reading was taken.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "respiration" : {
+            "format" : "int32",
+            "description" : "Respiratory rate per minute during sleep.",
+            "type" : "integer"
+          },
+          "heartRate" : {
+            "format" : "int32",
+            "description" : "Average heart rate per minutes during recorded period.",
+            "type" : "integer"
+          },
+          "bodyTurnOver" : {
+            "format" : "int32",
+            "description" : "Number of times the subject rolled over during the recorded period.",
+            "type" : "integer"
+          },
+          "duration" : {
+            "description" : "Duration of sleep during tracked period.",
+            "type" : "string"
+          },
+          "bedTime" : {
+            "description" : "List of times sleep started during the period.",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean"
+          },
+          "upTime" : {
+            "description" : "List of times sleep was disrupted due to subject getting up during the period.",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "getUpTime" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            },
+            "writeOnly" : true
+          }
+        }
+      },
+      "SleepMatDurationReading" : {
+        "description" : "This page describes Impilo's sleep mat duration reading model.",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "description" : "Unique identifier for the reading.",
+            "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "format" : "date-time",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z",
+            "writeOnly" : true
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean",
+            "writeOnly" : true
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "patientTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the patient's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "patient" : {
+            "$ref" : "#/components/schemas/Patient"
+          },
+          "item" : {
+            "$ref" : "#/components/schemas/Item"
+          },
+          "device" : {
+            "$ref" : "#/components/schemas/Device"
+          },
+          "respiration" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "heartRate" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "bodyTurnOver" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "duration" : {
+            "type" : "string"
+          },
+          "rem" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "deepSleep" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "lightSleep" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }
+      },
+      "SleepMatDurationReadingRequest" : {
+        "description" : "This page describes Impilo's sleep mat duration reading request model.",
+        "required" : [ "readingTimestamp", "respiration", "heartRate", "bodyTurnOver", "duration", "rem", "deepSleep", "lightSleep" ],
+        "type" : "object",
+        "properties" : {
+          "deviceId" : {
+            "format" : "int64",
+            "description" : "The id of the device that took the reading.",
+            "type" : "integer"
+          },
+          "deviceIdentifier" : {
+            "description" : "The device identifier of the device that took the reading.",
+            "type" : "string"
+          },
+          "patientId" : {
+            "format" : "int64",
+            "description" : "The id of the patient that took the reading.",
+            "type" : "integer"
+          },
+          "readingTimestamp" : {
+            "format" : "date-time",
+            "description" : "The UTC timestamp at which the reading was taken.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          },
+          "deviceTimeZoneOffset" : {
+            "format" : "int32",
+            "description" : "The offset of the device's timezone from UTC in seconds. Null if unavailable.",
+            "type" : "integer",
+            "example" : -14400
+          },
+          "respiration" : {
+            "format" : "int32",
+            "description" : "Respiratory rate per minute during sleep.",
+            "type" : "integer"
+          },
+          "heartRate" : {
+            "format" : "int32",
+            "description" : "Average heart rate per minutes during recorded period.",
+            "type" : "integer"
+          },
+          "bodyTurnOver" : {
+            "format" : "int32",
+            "description" : "Number of times the subject rolled over during the recorded period.",
+            "type" : "integer"
+          },
+          "duration" : {
+            "description" : "Duration of sleep during tracked period.",
+            "type" : "string"
+          },
+          "rem" : {
+            "format" : "int32",
+            "description" : "Number of minutes of detected rem sleep.",
+            "type" : "integer"
+          },
+          "deepSleep" : {
+            "format" : "int32",
+            "description" : "Number of minutes of detected deep sleep.",
+            "type" : "integer"
+          },
+          "lightSleep" : {
+            "format" : "int32",
+            "description" : "Number of minutes of detected light sleep.",
+            "type" : "integer"
+          },
+          "manual" : {
+            "description" : "True if the reading value was entered manually, false or null otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
+      "SupportTicket" : {
+        "description" : "A Support Ticket is a case that's been opened by either an Impilo team member, a Customer team member, or a Patient.",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "description" : "The ID of the Support Ticket.",
+            "type" : "integer"
+          },
+          "customer" : {
+            "description" : "The Customer to whom this Support Ticket belongs.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Customer"
+            } ]
+          },
+          "patient" : {
+            "description" : "The Patient that the Support Ticket involves, if applicable.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Patient"
+            } ]
+          },
+          "order" : {
+            "description" : "The Order that the Support Ticket involves, if applicable.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Order"
+            } ]
+          },
+          "device" : {
+            "description" : "The Device that the Support Ticket involves, if applicable.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Device"
+            } ]
+          },
+          "site" : {
+            "description" : "The Site that the Support Ticket involves, if applicable.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Site"
+            } ]
+          },
+          "ticketType" : {
+            "description" : "The type of Support Ticket.",
+            "type" : "string",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/SupportTicketType"
+            } ]
+          },
+          "supportTicketNotes" : {
+            "description" : "A list of all SupportTicketNotes attached to this Support Ticket.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SupportTicketNote"
+            }
+          },
+          "supportTicketEvents" : {
+            "description" : "A list of all SupportTicketEvents attached to this Support Ticket.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SupportTicketEvent"
+            }
+          },
+          "currentStatus" : {
+            "description" : "The current status of the Support Ticket.",
+            "type" : "string",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/SupportTicketStatus"
+            } ]
+          },
+          "open" : {
+            "description" : "Whether or not the ticket is considered open or closed.",
+            "type" : "boolean"
+          },
+          "assignedTeam" : {
+            "description" : "The team that's assigned this Support Ticket, if any.",
+            "type" : "string",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Team"
+            } ]
+          },
+          "assignee" : {
+            "description" : "The EndUser assigned to this Support Ticket, if any.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/EndUser"
+            } ]
+          },
+          "createdBy" : {
+            "description" : "The creator of this Support Ticket.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/EndUser"
+            } ]
+          },
+          "createdAt" : {
+            "format" : "date-time",
+            "description" : "The timestamp when the Support Ticket was created.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          },
+          "lastUpdated" : {
+            "format" : "date-time",
+            "description" : "The most recent time that this Support Ticket was updated in some form.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          }
+        }
+      },
+      "SupportTicketAssigneeRequest" : {
+        "required" : [ "email" ],
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "description" : "The email address to note as the assignee for the Support Ticket.",
+            "pattern" : "\\S",
+            "type" : "string"
+          }
+        }
+      },
+      "SupportTicketEvent" : {
+        "description" : "A representation of an event occurrence for a Support Ticket.",
+        "type" : "object",
+        "properties" : {
+          "eventType" : {
+            "description" : "The type of event that occurred.",
+            "type" : "string",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/SupportTicketEventType"
+            } ]
+          },
+          "createdAt" : {
+            "format" : "date-time",
+            "description" : "The timestamp of the event occurrence.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          }
+        }
+      },
+      "SupportTicketEventRequest" : {
+        "required" : [ "event" ],
+        "type" : "object",
+        "properties" : {
+          "event" : {
+            "description" : "The requested event to add to the Support Ticket.",
+            "pattern" : "\\S",
+            "type" : "string",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/SupportTicketEventType"
+            } ]
+          },
+          "note" : {
+            "description" : "The note to attach alongside the event.",
+            "type" : "string"
+          }
+        }
+      },
+      "SupportTicketEventType" : {
+        "enum" : [ "addressConfirmationAddressConfirmed", "patientSetupMeetingNotConducted", "customerDeviceInquiryManufacturerUnresolvedRmaIssued", "customerDeviceInquiryNoDataReadingsCheckSerialSim", "deviceTechnicalSupportMeetingScheduled", "operationsPatientUnresponsive", "returnMerchandiseAuthorizationLostClaim", "finalContactAttempt", "addressConfirmationEscalatedToCustomer", "customerEscalationContactAttemptedFinal", "deviceTechnicalSupportErrorCodeDeviceMalfunction", "otherOrderNotProcessed", "secondContactAttemptSms", "deviceTechnicalSupportMeetingNotConducted", "returnMerchandiseAuthorizationNewRmaDeliveredOutboundEmail", "patientSetupWelcomeConductedRmaIssued", "operationsCustomerUnresponsive", "deviceTechnicalSupportMeetingRescheduledFirst", "patientSetupPatientDevicesDelivered", "customerEscalationContactAttemptedAdditional", "otherCheckOnClaimStatus", "deviceTechnicalSupportResolvedSerialNumberAdded", "deviceTechnicalSupportMeetingRescheduledSecond", "firstContactAttemptSms", "operationsPushedToOpsForSupport", "returnMerchandiseAuthorizationRmaToSendToPatient", "assigneeModified", "deviceTechnicalSupportStillInvestigating", "thirdContactAttemptSms", "statusModified", "patientSetupMeetingScheduled", "finalContactAttemptSms", "returnMerchandiseAuthorizationPatientConfirmed", "unresolvedCustomerOrPatientUnresponsive", "firstContactAttempt", "customerDeviceInquiryCustomerPatientUnresponsive", "operationsWrongDeviceReceived", "thirdContactAttempt", "operationsFUViaSlackToOpsTeam", "addressConfirmationPatientRefusedRts", "addressConfirmationUnableToConfirmAddress", "otherNeedAdditionalInformationFromCustomer", "otherClaimCreated", "returnMerchandiseAuthorizationInTransit", "other", "deviceTechnicalSupportFollowedUpWithEngineeringSlackFU", "customerEscalationContactAttemptedSecond", "otherMissingPackage", "customerEscalationContactAttemptedFirst", "deviceTechnicalSupportUnresolvedPatientCustomerUnresponsive", "deviceTechnicalSupportBluetoothConnectivityError", "returnMerchandiseAuthorizationResendRma", "additionalContactAttempt", "patientSetupOrderShipped", "additionalContactAttemptEmail", "ticketCreated", "otherSpecialRequest", "addressConfirmationInvalidAddressPreShip", "secondContactAttemptEmail", "customerDeviceInquiryManufacturerResolvedReadingTaken", "finalContactAttemptEmail", "patientSetupWelcomeConductedDeviceInquiryRqrd", "customerEscalationContactAttemptedThird", "deviceTechnicalSupportResolvedReadingTaken", "deviceTechnicalSupportUnresolvedRmaIssued", "returnMerchandiseAuthorizationRmaWithPatientNoAction", "addressConfirmationReturnToSenderRts", "operationsEscalatedToOpsManagerForResolution", "operationsPatientAgreedToSendRightDeviceBack", "operationsPatientRefusedToSendDeviceBack", "secondContactAttempt", "addressConfirmationShipmentCancelled", "returnMerchandiseAuthorizationUnresolved", "thirdContactAttemptEmail", "patientSetupMeetingRescheduledFirst", "deviceTechnicalSupportResolvedDataPushedByEngineering", "returnMerchandiseAuthorizationInformationRequired", "additionalContactAttemptSms", "returnMerchandiseAuthorizationReceived", "firstContactAttemptEmail", "operationsDeviceNotOnInventoryTrackingReceived", "deviceTechnicalSupportNeedSerialNumberAdded", "operationsNeedAdditionalSupportFromOps", "deviceTechnicalSupportEscalatedToEngineering", "returnMerchandiseAuthorizationRequestForRmaFulfilled", "patientSetupMeetingRescheduledSecond", "patientSetupWelcomeConductedReadingTaken", "returnMerchandiseAuthorizationNewDisenrollment", "otherIncorrectDevicesShipped", "otherUnresolved", "deviceTechnicalSupportUnresolvedDeviceInquiryRequired", "otherEscalatedToAppropriateTeam" ],
+        "type" : "string"
+      },
+      "SupportTicketNote" : {
+        "description" : "A note that's attached to a given Support Ticket.",
+        "type" : "object",
+        "properties" : {
+          "createdBy" : {
+            "description" : "The user that created the note.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/EndUser"
+            } ]
+          },
+          "note" : {
+            "description" : "The actual text of the note.",
+            "type" : "string"
+          },
+          "createdAt" : {
+            "format" : "date-time",
+            "description" : "The timestamp when the note was created.",
+            "type" : "string",
+            "example" : "2022-03-10T16:15:50Z"
+          }
+        }
+      },
+      "SupportTicketNoteRequest" : {
+        "required" : [ "note" ],
+        "type" : "object",
+        "properties" : {
+          "note" : {
+            "description" : "The note to post to the Support Ticket.",
+            "pattern" : "\\S",
+            "type" : "string"
+          }
+        }
+      },
+      "SupportTicketRequest" : {
+        "description" : "A Support Ticket is a case that's been opened by either an Impilo team member, a Customer team member, or a Patient.",
+        "type" : "object",
+        "properties" : {
+          "patient" : {
+            "description" : "The Patient that the Support Ticket involves, if applicable. Only the ID is required.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Patient"
+            } ]
+          },
+          "order" : {
+            "description" : "The Order that the Support Ticket involves, if applicable. Only the ID is required.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Order"
+            } ]
+          },
+          "device" : {
+            "description" : "The Device that the Support Ticket involves, if applicable. Only the ID is required.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Device"
+            } ]
+          },
+          "site" : {
+            "description" : "The Site that the Support Ticket involves, if applicable. Only the ID is required.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Site"
+            } ]
+          },
+          "ticketType" : {
+            "description" : "The type of Support Ticket.",
+            "type" : "string",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/SupportTicketType"
+            } ]
+          },
+          "note" : {
+            "description" : "A list of all SupportTicketNotes attached to this Support Ticket.",
+            "type" : "string"
+          }
+        }
+      },
+      "SupportTicketStatus" : {
+        "enum" : [ "closed", "open", "needsIntake" ],
+        "type" : "string"
+      },
+      "SupportTicketType" : {
+        "enum" : [ "returnToSender", "mobileSupport", "other", "engagement", "customerDeviceInquiry", "operations", "labOrder", "clinicalSupport", "deviceTechnicalSupport", "patientSetup", "addressConfirmation", "returnMerchandiseAuthorization" ],
+        "type" : "string"
+      },
+      "Team" : {
+        "enum" : [ "operations", "engineering", "accounts", "support", "sales" ],
+        "type" : "string"
       },
       "TemperatureReading" : {
         "description" : "This page describes Impilo's temperature reading model.",
@@ -11429,6 +13709,31 @@
           }
         }
       },
+      "TransferItem" : {
+        "required" : [ "item", "count" ],
+        "type" : "object",
+        "properties" : {
+          "item" : {
+            "description" : "The Item being requested to transfer. Only the ID of the item is required.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Item"
+            } ]
+          },
+          "count" : {
+            "format" : "int32",
+            "description" : "The number of Items being requested for transfer.",
+            "type" : "integer"
+          },
+          "devices" : {
+            "description" : "The actual Devices being transferred. Only populated once the Transfer Request is completed.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Device"
+            }
+          }
+        }
+      },
       "TransferRequest" : {
         "type" : "object",
         "properties" : {
@@ -11473,36 +13778,12 @@
               "$ref" : "#/components/schemas/TransferRequestEvent"
             }
           },
-          "requestedEntries" : {
-            "description" : "The Inventory that's being requested to transfer. Can consist of a Device, or a combination of an Item and a Quantity.",
+          "transferItems" : {
+            "description" : "The Inventory that's being requested to transfer.",
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/TransferRequestEntry"
+              "$ref" : "#/components/schemas/TransferItem"
             }
-          }
-        }
-      },
-      "TransferRequestEntry" : {
-        "type" : "object",
-        "properties" : {
-          "device" : {
-            "description" : "The Device being requested to transfer to the target customer.",
-            "type" : "object",
-            "allOf" : [ {
-              "$ref" : "#/components/schemas/Device"
-            } ]
-          },
-          "item" : {
-            "description" : "The Item type that's being requested to transfer to the target customer. Used in conjunction with the quantity parameter.",
-            "type" : "object",
-            "allOf" : [ {
-              "$ref" : "#/components/schemas/Item"
-            } ]
-          },
-          "quantity" : {
-            "format" : "int32",
-            "description" : "The quantity of Item types to transfer to the target customer. Used in conjunction with the item parameter.",
-            "type" : "integer"
           }
         }
       },
@@ -11660,7 +13941,7 @@
         }
       },
       "WebhookType" : {
-        "enum" : [ "procurement.statusFull", "supportTicket.event", "reading.bloodOxygen", "order.status", "reading.peakFlow", "transferRequest.statusFull", "device.lowBattery", "return.statusFull", "patient.updated", "reading.bloodPressure", "procurement.status", "device.associationCreated", "device.associationRemoved", "patient.created", "reading.weight", "reading.temperature", "transferRequest.status", "return.status", "reading.bloodGlucose", "device.weakSignal", "order.statusFull" ],
+        "enum" : [ "procurement.statusFull", "supportTicket.event", "reading.bloodOxygen", "order.status", "reading.peakFlow", "transferRequest.statusFull", "device.lowBattery", "return.statusFull", "patient.updated", "reading.sleepMatActivity", "reading.bloodPressure", "reading.sleepMatDuration", "procurement.status", "device.associationCreated", "device.associationRemoved", "patient.created", "reading.weight", "reading.temperature", "transferRequest.status", "return.status", "reading.bloodGlucose", "device.weakSignal", "order.statusFull" ],
         "type" : "string",
         "x-fern-enum" : {
           "procurement.statusFull" : {
@@ -11690,8 +13971,14 @@
           "patient.updated" : {
             "description" : "A patient’s details were updated."
           },
+          "reading.sleepMatActivity" : {
+            "description" : "A sleep mat activity reading was taken."
+          },
           "reading.bloodPressure" : {
             "description" : "A reading of blood pressure was taken."
+          },
+          "reading.sleepMatDuration" : {
+            "description" : "A sleep mat duration reading was taken."
           },
           "procurement.status" : {
             "description" : "A procurement status event occurred. The payload only includes procurement id and event type."
