@@ -1574,6 +1574,28 @@ paths:
       x-request-example-site-order: "createRequestExampleNewSiteOrder"
       externalDocs:
         url: "https://docs.impiloplatform.com/resources/models#schema_Order"
+  /api/v3/order/summary/{orderId}:
+    get:
+      tags:
+      - "Orders"
+      description: "Returns a PDF document summarizing the order details for the given\
+        \ order ID."
+      operationId: "createOrderSummary"
+      parameters:
+      - name: "orderId"
+        in: "path"
+        description: "The ID of the order to generate the summary for."
+        required: true
+        schema:
+          format: "int64"
+          type: "integer"
+      responses:
+        default:
+          content:
+            application/pdf:
+              schema:
+                format: "binary"
+                type: "string"
   /api/v3/order/{orderId}:
     get:
       tags:
@@ -2022,7 +2044,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-10-04T18:06:57.238023800Z"
+                        eventTimestamp: "2024-10-16T13:58:01.636166700Z"
                     - id: 790
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2040,7 +2062,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-10-04T18:06:57.238023800Z"
+                        eventTimestamp: "2024-10-16T13:58:01.636166700Z"
                     - id: 791
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2058,7 +2080,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-10-04T18:06:57.238023800Z"
+                        eventTimestamp: "2024-10-16T13:58:01.636166700Z"
                     - id: 792
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2076,7 +2098,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-10-04T18:06:57.238023800Z"
+                        eventTimestamp: "2024-10-16T13:58:01.636166700Z"
                     - id: 793
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2094,7 +2116,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-10-04T18:06:57.238023800Z"
+                        eventTimestamp: "2024-10-16T13:58:01.636166700Z"
                     page: 1
                     size: 5
                     total: 10
@@ -2185,7 +2207,7 @@ paths:
                       costPerItem: 12.34
                     procurementEvents:
                     - name: "received"
-                      eventTimestamp: "2024-10-04T18:06:57.338449200Z"
+                      eventTimestamp: "2024-10-16T13:58:01.826664300Z"
       x-response-example: "procurementResponseExample"
   /api/v3/procurement/{procId}/upload:
     get:
@@ -3130,13 +3152,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-10-04T18:07:01.872319700Z"
+                    createdAt: "2024-10-16T13:58:10.762983500Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-10-04T18:07:01.872319700Z"
+                      createdAt: "2024-10-16T13:58:10.758454100Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-10-04T18:07:01.872319700Z"
+                      eventTimestamp: "2024-10-16T13:58:10.762983500Z"
                     transferItems:
                     - item:
                         id: 791
@@ -6390,84 +6412,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SleepMatActivityReading"
-              examples:
-                sleepMatActivityReadingResponseExample:
-                  value:
-                    id: 42
-                    patient:
-                      id: 456
-                      externalIdentifier: "external-identifier-123"
-                      firstName: "John"
-                      lastName: "Doe"
-                      dateOfBirth: "1987-09-13"
-                      email: "email@example.com"
-                      phoneNumber: "111-222-3333"
-                      address:
-                        lineOne: "1234 Market Street"
-                        lineTwo: "Suite 110"
-                        city: "Philadelphia"
-                        state: "PA"
-                        zipCode: "19137"
-                        country: "USA"
-                      sex: "unknown"
-                    item:
-                      id: 791
-                      manufacturer:
-                        id: 2
-                        name: "Custom Manufacturer"
-                      name: "Blood Pressure Monitor"
-                      model: "iBloodPressureMonitor123"
-                      sku: "0000001"
-                    device:
-                      id: 599
-                      item:
-                        id: 791
-                        manufacturer:
-                          id: 2
-                          name: "Custom Manufacturer"
-                        name: "Blood Pressure Monitor"
-                        model: "iBloodPressureMonitor123"
-                        sku: "0000001"
-                      currentStatus: "withPatient"
-                      currentPatient:
-                        id: 456
-                        externalIdentifier: "external-identifier-123"
-                        firstName: "John"
-                        lastName: "Doe"
-                        dateOfBirth: "1987-09-13"
-                        email: "email@example.com"
-                        phoneNumber: "111-222-3333"
-                        address:
-                          lineOne: "1234 Market Street"
-                          lineTwo: "Suite 110"
-                          city: "Philadelphia"
-                          state: "PA"
-                          zipCode: "19137"
-                          country: "USA"
-                        sex: "unknown"
-                      deviceIdentifiers:
-                      - type: "imei"
-                        value: "354833969951611"
-                      - type: "serial"
-                        value: "A44-A0623930"
-                      - type: "macAddress"
-                        value: "f51da43314fc"
-                      disabledReadings: false
-                    readingTimestamp: "2024-07-04T00:00:00Z"
-                    manual: false
-                    deviceTimeZoneOffset: 0
-                    patientTimeZoneOffset: 0
-                    respiration: 10
-                    heartRate: 60
-                    bodyTurnOver: 5
-                    duration: "20:00~00:00"
-                    bedTime:
-                    - "2022-06-30/20:01"
-                    - "2022-06-30/20:55"
-                    getUpTime:
-                    - "2022-07-01/06:00"
-                    - "2022-07-01/06:30"
-      x-response-example: "sleepMatActivityReadingResponseExample"
+      x-response-example: "sleepMatReadingResponseExample"
   /api/v3/sleep-mat-duration-reading:
     get:
       tags:
@@ -6824,81 +6769,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SleepMatDurationReading"
-              examples:
-                sleepMatDurationReadingResponseExample:
-                  value:
-                    id: 42
-                    patient:
-                      id: 456
-                      externalIdentifier: "external-identifier-123"
-                      firstName: "John"
-                      lastName: "Doe"
-                      dateOfBirth: "1987-09-13"
-                      email: "email@example.com"
-                      phoneNumber: "111-222-3333"
-                      address:
-                        lineOne: "1234 Market Street"
-                        lineTwo: "Suite 110"
-                        city: "Philadelphia"
-                        state: "PA"
-                        zipCode: "19137"
-                        country: "USA"
-                      sex: "unknown"
-                    item:
-                      id: 791
-                      manufacturer:
-                        id: 2
-                        name: "Custom Manufacturer"
-                      name: "Blood Pressure Monitor"
-                      model: "iBloodPressureMonitor123"
-                      sku: "0000001"
-                    device:
-                      id: 599
-                      item:
-                        id: 791
-                        manufacturer:
-                          id: 2
-                          name: "Custom Manufacturer"
-                        name: "Blood Pressure Monitor"
-                        model: "iBloodPressureMonitor123"
-                        sku: "0000001"
-                      currentStatus: "withPatient"
-                      currentPatient:
-                        id: 456
-                        externalIdentifier: "external-identifier-123"
-                        firstName: "John"
-                        lastName: "Doe"
-                        dateOfBirth: "1987-09-13"
-                        email: "email@example.com"
-                        phoneNumber: "111-222-3333"
-                        address:
-                          lineOne: "1234 Market Street"
-                          lineTwo: "Suite 110"
-                          city: "Philadelphia"
-                          state: "PA"
-                          zipCode: "19137"
-                          country: "USA"
-                        sex: "unknown"
-                      deviceIdentifiers:
-                      - type: "imei"
-                        value: "354833969951611"
-                      - type: "serial"
-                        value: "A44-A0623930"
-                      - type: "macAddress"
-                        value: "f51da43314fc"
-                      disabledReadings: false
-                    readingTimestamp: "2024-07-04T00:00:00Z"
-                    manual: false
-                    deviceTimeZoneOffset: 0
-                    patientTimeZoneOffset: 0
-                    respiration: 10
-                    heartRate: 60
-                    bodyTurnOver: 5
-                    duration: "20:00~00:00"
-                    rem: 20
-                    deepSleep: 300
-                    lightSleep: 155
-      x-response-example: "sleepMatDurationReadingResponseExample"
+      x-response-example: "sleepMatReadingResponseExample"
   /api/v3/temperature-reading:
     get:
       tags:
@@ -8354,6 +8225,22 @@ components:
           description: "True if the reading value was entered manually, false or null\
             \ otherwise."
           type: "boolean"
+    BloodPressureReadingWebhook:
+      description: "Represents a webhook for blood pressure reading notifications."
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "Unique identifier for the webhook."
+          type: "integer"
+        type:
+          description: "Type of the webhook event."
+          type: "string"
+        bloodPressureReading:
+          description: "The blood pressure reading associated with the webhook event."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/BloodPressureReading"
     BloodPressureUnit:
       enum:
       - "mmhg"
@@ -8533,6 +8420,31 @@ components:
             \ Webhooks and alerts will not be triggered for readings taken on this\
             \ device."
           type: "boolean"
+    DeviceAssociationWebhookPayload:
+      description: "The webhook payload sent when a Device is either Associated or\
+        \ Disassociated with a patient."
+      type: "object"
+      properties:
+        patient:
+          description: "The Patient that the device was either associated with or\
+            \ disassociated from."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Patient"
+        device:
+          description: "The Device that was associated to or disassociated from the\
+            \ provided Patient."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Device"
+        action:
+          description: "The type of association that was performed -- either 'associate'\
+            \ or 'disassociate'."
+          type: "string"
+        eventTimestamp:
+          description: "The timestamp of the association event."
+          type: "string"
+      x-response-example: "deviceAssociationWebhookExample"
     DeviceEvent:
       description: "A device event represents a significant activity or occurrence\
         \ detected by the device. Impilo tracks these events to provide insights into\
@@ -9286,6 +9198,38 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/Device"
+    Page:
+      description: "Pagination is supported whenever an API response returns a list\
+        \ of objects. In paginated responses, objects are nested in a content attribute\
+        \ and have first and last attributes indicating whether you are on the first\
+        \ or last page, respectively. Additionally, the pagination response includes\
+        \ a page attribute indicating the current page number, a size attribute indicating\
+        \ the current page size, and a total attribute indicating the number of objects\
+        \ matching the request."
+      type: "object"
+      properties:
+        content:
+          description: "The content of the page, consisting of a list of objects."
+          type: "array"
+          items: {}
+        page:
+          format: "int32"
+          description: "The current page number. The first page has value 1."
+          type: "integer"
+        size:
+          format: "int32"
+          description: "The current page size. Default 15, maximum 250."
+          type: "integer"
+        total:
+          format: "int32"
+          description: "The number of objects matching the request."
+          type: "integer"
+        first:
+          description: "True if this is the first page, false otherwise."
+          type: "boolean"
+        last:
+          description: "True if this is the last page, false otherwise."
+          type: "boolean"
     PageBloodGlucoseReading:
       description: "Pagination is supported whenever an API response returns a list\
         \ of objects. In paginated responses, objects are nested in a content attribute\
@@ -10348,6 +10292,75 @@ components:
           description: "Sleep Mat Duration reading type."
         bloodGlucose:
           description: "Blood glucose reading type."
+    Return:
+      description: "A return is an occurrence of a device(s) or non-tracked item(s)\
+        \ being returned by a Patient."
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "Unique identifier for the return, managed by Impilo."
+          type: "integer"
+          readOnly: true
+          example: 1
+        patient:
+          description: "The patient that is making the return."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Patient"
+        currentStatus:
+          description: "The current status of this return."
+          type: "string"
+        returnKits:
+          description: "An array of kits related to  items expected on this return."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Kit"
+        returnItems:
+          description: "An array of non-tracked items expected on this return."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ReturnItem"
+        returnEvents:
+          description: "An array of the return events for this return."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ReturnEvent"
+        trackingNumbers:
+          description: "An array of tracking numbers associated with this return."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/TrackingNumber"
+        returnDevices:
+          description: "An array of devices expected on this return."
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Device"
+        relatedOrderId:
+          format: "int64"
+          description: "The identifier of a related order, if exists."
+          type: "integer"
+    ReturnEvent:
+      type: "object"
+      properties:
+        type:
+          description: "The event type for the Return Event."
+          type: "string"
+        eventTimestamp:
+          description: "The timestamp when the Return Event was created."
+          type: "string"
+    ReturnItem:
+      type: "object"
+      properties:
+        item:
+          description: "The item type extected on this return."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/Item"
+        count:
+          format: "int32"
+          description: "The quantity of this item type expected on this return."
+          type: "integer"
     Sex:
       enum:
       - "other"
@@ -10808,6 +10821,7 @@ components:
       - "unresolvedCustomerOrPatientUnresponsive"
       - "firstContactAttempt"
       - "customerDeviceInquiryCustomerPatientUnresponsive"
+      - "ticketReopened"
       - "operationsWrongDeviceReceived"
       - "thirdContactAttempt"
       - "operationsFUViaSlackToOpsTeam"
@@ -10850,6 +10864,7 @@ components:
       - "deviceTechnicalSupportResolvedDataPushedByEngineering"
       - "returnMerchandiseAuthorizationInformationRequired"
       - "additionalContactAttemptSms"
+      - "ticketClosed"
       - "returnMerchandiseAuthorizationReceived"
       - "firstContactAttemptEmail"
       - "operationsDeviceNotOnInventoryTrackingReceived"
@@ -11377,6 +11392,22 @@ components:
           description: "Timestamp of the last retry attempt for the webhook"
           type: "string"
           example: "2023-08-22T14:15:30.345Z"
+    WebhookPayload:
+      description: "Impilo supports various types of webhooks. This page describes\
+        \ the endpoints available for managing your webhooks."
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "Unique identifier for the webhook payload, managed by Impilo."
+          type: "integer"
+          readOnly: true
+          example: 1
+        type:
+          description: "The event type for the webhook."
+          type: "string"
+        payload:
+          description: "The payload of the webhook."
     WebhookSecret:
       type: "object"
       properties:

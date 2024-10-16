@@ -1225,6 +1225,58 @@
                                 }
                             }
                             ]
+                        },
+	                        {
+    "name": "/api/v3/order/summary/:orderId",
+                "description": "Returns a PDF document summarizing the order details for the given order ID.",
+                 "item": [
+                            {
+                                "name": "createOrderSummary",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/pdf",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/order/summary/:orderId",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "order",
+                                            "summary",
+                                            ":orderId"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "orderId",
+                                                "value": "",
+                                                "description": "The ID of the order to generate the summary for."
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Returns a PDF document summarizing the order details for the given order ID."
+                                }
+                            }
+                            ]
                         }
 	                    ]
 	        },
