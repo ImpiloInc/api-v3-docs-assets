@@ -1574,6 +1574,28 @@ paths:
       x-request-example-site-order: "createRequestExampleNewSiteOrder"
       externalDocs:
         url: "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Order"
+  /api/v3/order/summary/{orderId}:
+    get:
+      tags:
+      - "Orders"
+      description: "Returns a PDF document summarizing the order details for the given\
+        \ order ID."
+      operationId: "createOrderSummary"
+      parameters:
+      - name: "orderId"
+        in: "path"
+        description: "The ID of the order to generate the summary for."
+        required: true
+        schema:
+          format: "int64"
+          type: "integer"
+      responses:
+        default:
+          content:
+            application/pdf:
+              schema:
+                format: "binary"
+                type: "string"
   /api/v3/order/{orderId}:
     get:
       tags:
@@ -2022,7 +2044,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-10-04T19:07:07.142720500Z"
+                        eventTimestamp: "2024-10-16T13:58:01.636166700Z"
                     - id: 790
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2040,7 +2062,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-10-04T19:07:07.142720500Z"
+                        eventTimestamp: "2024-10-16T13:58:01.636166700Z"
                     - id: 791
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2058,7 +2080,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-10-04T19:07:07.142720500Z"
+                        eventTimestamp: "2024-10-16T13:58:01.636166700Z"
                     - id: 792
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2076,7 +2098,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-10-04T19:07:07.142720500Z"
+                        eventTimestamp: "2024-10-16T13:58:01.636166700Z"
                     - id: 793
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2094,7 +2116,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-10-04T19:07:07.142720500Z"
+                        eventTimestamp: "2024-10-16T13:58:01.636166700Z"
                     page: 1
                     size: 5
                     total: 10
@@ -2185,7 +2207,7 @@ paths:
                       costPerItem: 12.34
                     procurementEvents:
                     - name: "received"
-                      eventTimestamp: "2024-10-04T19:07:07.253565400Z"
+                      eventTimestamp: "2024-10-16T13:58:01.826664300Z"
       x-response-example: "procurementResponseExample"
   /api/v3/procurement/{procId}/upload:
     get:
@@ -3130,13 +3152,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-10-04T19:07:10.674984Z"
+                    createdAt: "2024-10-16T13:58:10.762983500Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-10-04T19:07:10.673986300Z"
+                      createdAt: "2024-10-16T13:58:10.758454100Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-10-04T19:07:10.674984Z"
+                      eventTimestamp: "2024-10-16T13:58:10.762983500Z"
                     transferItems:
                     - item:
                         id: 791
@@ -6390,84 +6412,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SleepMatActivityReading"
-              examples:
-                sleepMatActivityReadingResponseExample:
-                  value:
-                    id: 42
-                    patient:
-                      id: 456
-                      externalIdentifier: "external-identifier-123"
-                      firstName: "John"
-                      lastName: "Doe"
-                      dateOfBirth: "1987-09-13"
-                      email: "email@example.com"
-                      phoneNumber: "111-222-3333"
-                      address:
-                        lineOne: "1234 Market Street"
-                        lineTwo: "Suite 110"
-                        city: "Philadelphia"
-                        state: "PA"
-                        zipCode: "19137"
-                        country: "USA"
-                      sex: "unknown"
-                    item:
-                      id: 791
-                      manufacturer:
-                        id: 2
-                        name: "Custom Manufacturer"
-                      name: "Blood Pressure Monitor"
-                      model: "iBloodPressureMonitor123"
-                      sku: "0000001"
-                    device:
-                      id: 599
-                      item:
-                        id: 791
-                        manufacturer:
-                          id: 2
-                          name: "Custom Manufacturer"
-                        name: "Blood Pressure Monitor"
-                        model: "iBloodPressureMonitor123"
-                        sku: "0000001"
-                      currentStatus: "withPatient"
-                      currentPatient:
-                        id: 456
-                        externalIdentifier: "external-identifier-123"
-                        firstName: "John"
-                        lastName: "Doe"
-                        dateOfBirth: "1987-09-13"
-                        email: "email@example.com"
-                        phoneNumber: "111-222-3333"
-                        address:
-                          lineOne: "1234 Market Street"
-                          lineTwo: "Suite 110"
-                          city: "Philadelphia"
-                          state: "PA"
-                          zipCode: "19137"
-                          country: "USA"
-                        sex: "unknown"
-                      deviceIdentifiers:
-                      - type: "imei"
-                        value: "354833969951611"
-                      - type: "serial"
-                        value: "A44-A0623930"
-                      - type: "macAddress"
-                        value: "f51da43314fc"
-                      disabledReadings: false
-                    readingTimestamp: "2024-07-04T00:00:00Z"
-                    manual: false
-                    deviceTimeZoneOffset: 0
-                    patientTimeZoneOffset: 0
-                    respiration: 10
-                    heartRate: 60
-                    bodyTurnOver: 5
-                    duration: "20:00~00:00"
-                    bedTime:
-                    - "2022-06-30/20:01"
-                    - "2022-06-30/20:55"
-                    getUpTime:
-                    - "2022-07-01/06:00"
-                    - "2022-07-01/06:30"
-      x-response-example: "sleepMatActivityReadingResponseExample"
+      x-response-example: "sleepMatReadingResponseExample"
   /api/v3/sleep-mat-duration-reading:
     get:
       tags:
@@ -6824,81 +6769,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SleepMatDurationReading"
-              examples:
-                sleepMatDurationReadingResponseExample:
-                  value:
-                    id: 42
-                    patient:
-                      id: 456
-                      externalIdentifier: "external-identifier-123"
-                      firstName: "John"
-                      lastName: "Doe"
-                      dateOfBirth: "1987-09-13"
-                      email: "email@example.com"
-                      phoneNumber: "111-222-3333"
-                      address:
-                        lineOne: "1234 Market Street"
-                        lineTwo: "Suite 110"
-                        city: "Philadelphia"
-                        state: "PA"
-                        zipCode: "19137"
-                        country: "USA"
-                      sex: "unknown"
-                    item:
-                      id: 791
-                      manufacturer:
-                        id: 2
-                        name: "Custom Manufacturer"
-                      name: "Blood Pressure Monitor"
-                      model: "iBloodPressureMonitor123"
-                      sku: "0000001"
-                    device:
-                      id: 599
-                      item:
-                        id: 791
-                        manufacturer:
-                          id: 2
-                          name: "Custom Manufacturer"
-                        name: "Blood Pressure Monitor"
-                        model: "iBloodPressureMonitor123"
-                        sku: "0000001"
-                      currentStatus: "withPatient"
-                      currentPatient:
-                        id: 456
-                        externalIdentifier: "external-identifier-123"
-                        firstName: "John"
-                        lastName: "Doe"
-                        dateOfBirth: "1987-09-13"
-                        email: "email@example.com"
-                        phoneNumber: "111-222-3333"
-                        address:
-                          lineOne: "1234 Market Street"
-                          lineTwo: "Suite 110"
-                          city: "Philadelphia"
-                          state: "PA"
-                          zipCode: "19137"
-                          country: "USA"
-                        sex: "unknown"
-                      deviceIdentifiers:
-                      - type: "imei"
-                        value: "354833969951611"
-                      - type: "serial"
-                        value: "A44-A0623930"
-                      - type: "macAddress"
-                        value: "f51da43314fc"
-                      disabledReadings: false
-                    readingTimestamp: "2024-07-04T00:00:00Z"
-                    manual: false
-                    deviceTimeZoneOffset: 0
-                    patientTimeZoneOffset: 0
-                    respiration: 10
-                    heartRate: 60
-                    bodyTurnOver: 5
-                    duration: "20:00~00:00"
-                    rem: 20
-                    deepSleep: 300
-                    lightSleep: 155
-      x-response-example: "sleepMatDurationReadingResponseExample"
+      x-response-example: "sleepMatReadingResponseExample"
   /api/v3/temperature-reading:
     get:
       tags:
@@ -8354,6 +8225,22 @@ components:
           description: "True if the reading value was entered manually, false or null\
             \ otherwise."
           type: "boolean"
+    BloodPressureReadingWebhook:
+      description: "Represents a webhook for blood pressure reading notifications."
+      type: "object"
+      properties:
+        id:
+          format: "int64"
+          description: "Unique identifier for the webhook."
+          type: "integer"
+        type:
+          description: "Type of the webhook event."
+          type: "string"
+        bloodPressureReading:
+          description: "The blood pressure reading associated with the webhook event."
+          type: "object"
+          allOf:
+          - $ref: "#/components/schemas/BloodPressureReading"
     BloodPressureUnit:
       enum:
       - "mmhg"
@@ -10934,6 +10821,7 @@ components:
       - "unresolvedCustomerOrPatientUnresponsive"
       - "firstContactAttempt"
       - "customerDeviceInquiryCustomerPatientUnresponsive"
+      - "ticketReopened"
       - "operationsWrongDeviceReceived"
       - "thirdContactAttempt"
       - "operationsFUViaSlackToOpsTeam"
@@ -10976,6 +10864,7 @@ components:
       - "deviceTechnicalSupportResolvedDataPushedByEngineering"
       - "returnMerchandiseAuthorizationInformationRequired"
       - "additionalContactAttemptSms"
+      - "ticketClosed"
       - "returnMerchandiseAuthorizationReceived"
       - "firstContactAttemptEmail"
       - "operationsDeviceNotOnInventoryTrackingReceived"
