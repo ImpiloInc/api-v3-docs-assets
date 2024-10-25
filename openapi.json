@@ -2406,6 +2406,48 @@
         }
       }
     },
+    "/api/v3/patient/disenroll/{patientId}" : {
+      "post" : {
+        "tags" : [ "Patients" ],
+        "description" : "Disenrolls a Patient from the Impilo platform. Depending on what values are provided, will generate a return for all devices associated with that Patient and/or archive the Patient.\n***\nFor more information see the [DisenrollPatientRequest Model](/resources/models#schema_DisenrollPatientRequest).",
+        "operationId" : "patchPatient",
+        "parameters" : [ {
+          "name" : "patientId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DisenrollPatientRequest"
+              },
+              "examples" : {
+                "disenroll-patient" : {
+                  "value" : {
+                    "archive" : true,
+                    "createReturns" : true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Created"
+          }
+        },
+        "x-request-example-disenroll-patient" : "disenrollPatientRequest",
+        "externalDocs" : {
+          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DisenrollPatientRequest"
+        }
+      }
+    },
     "/api/v3/patient/find-by-email" : {
       "post" : {
         "tags" : [ "Patients" ],
@@ -2440,6 +2482,56 @@
           }
         },
         "x-request-example" : "fetchByEmailExample"
+      }
+    },
+    "/api/v3/patient/identifier/{identifier}" : {
+      "get" : {
+        "tags" : [ "Patients" ],
+        "description" : "Fetches details of a specific patient by their external identifier. Returns at most 1 entry.",
+        "operationId" : "fetchPatientByIdentifier",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Patient"
+                },
+                "examples" : {
+                  "patient" : {
+                    "value" : {
+                      "id" : 456,
+                      "externalIdentifier" : "external-identifier-123",
+                      "firstName" : "John",
+                      "lastName" : "Doe",
+                      "dateOfBirth" : "1987-09-13",
+                      "email" : "email@example.com",
+                      "phoneNumber" : "111-222-3333",
+                      "address" : {
+                        "lineOne" : "1234 Market Street",
+                        "lineTwo" : "Suite 110",
+                        "city" : "Philadelphia",
+                        "state" : "PA",
+                        "zipCode" : "19137",
+                        "country" : "USA"
+                      },
+                      "sex" : "unknown"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "ApiV3ControllerExamples.patient"
       }
     },
     "/api/v3/patient/{patientId}" : {
@@ -2657,7 +2749,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-10-16T13:58:01.636166700Z"
+                          "eventTimestamp" : "2024-10-25T17:07:06.568881600Z"
                         } ]
                       }, {
                         "id" : 790,
@@ -2680,7 +2772,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-10-16T13:58:01.636166700Z"
+                          "eventTimestamp" : "2024-10-25T17:07:06.568881600Z"
                         } ]
                       }, {
                         "id" : 791,
@@ -2703,7 +2795,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-10-16T13:58:01.636166700Z"
+                          "eventTimestamp" : "2024-10-25T17:07:06.568881600Z"
                         } ]
                       }, {
                         "id" : 792,
@@ -2726,7 +2818,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-10-16T13:58:01.636166700Z"
+                          "eventTimestamp" : "2024-10-25T17:07:06.568881600Z"
                         } ]
                       }, {
                         "id" : 793,
@@ -2749,7 +2841,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-10-16T13:58:01.636166700Z"
+                          "eventTimestamp" : "2024-10-25T17:07:06.568881600Z"
                         } ]
                       } ],
                       "page" : 1,
@@ -2875,7 +2967,7 @@
                       } ],
                       "procurementEvents" : [ {
                         "name" : "received",
-                        "eventTimestamp" : "2024-10-16T13:58:01.826664300Z"
+                        "eventTimestamp" : "2024-10-25T17:07:07.008865Z"
                       } ]
                     }
                   }
@@ -4104,14 +4196,14 @@
                         "name" : "Customer 3"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-10-16T13:58:10.762983500Z",
+                      "createdAt" : "2024-10-25T17:07:19.234029900Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-10-16T13:58:10.758454100Z"
+                        "createdAt" : "2024-10-25T17:07:19.228919Z"
                       } ],
                       "transferRequestEvents" : [ {
                         "name" : "requested",
-                        "eventTimestamp" : "2024-10-16T13:58:10.762983500Z"
+                        "eventTimestamp" : "2024-10-25T17:07:19.228919Z"
                       } ],
                       "transferItems" : [ {
                         "item" : {
@@ -8127,12 +8219,100 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/SleepMatActivityReading"
+                },
+                "examples" : {
+                  "sleepMatActivityReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "manual" : false,
+                      "deviceTimeZoneOffset" : 0,
+                      "patientTimeZoneOffset" : 0,
+                      "respiration" : 10,
+                      "heartRate" : 60,
+                      "bodyTurnOver" : 5,
+                      "duration" : "20:00~00:00",
+                      "bedTime" : [ "2022-06-30/20:01", "2022-06-30/20:55" ],
+                      "getUpTime" : [ "2022-07-01/06:00", "2022-07-01/06:30" ]
+                    }
+                  }
                 }
               }
             }
           }
         },
-        "x-response-example" : "sleepMatReadingResponseExample"
+        "x-response-example" : "sleepMatActivityReadingResponseExample"
       }
     },
     "/api/v3/sleep-mat-duration-reading" : {
@@ -8566,12 +8746,101 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/SleepMatDurationReading"
+                },
+                "examples" : {
+                  "sleepMatDurationReadingResponseExample" : {
+                    "value" : {
+                      "id" : 42,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "item" : {
+                        "id" : 791,
+                        "manufacturer" : {
+                          "id" : 2,
+                          "name" : "Custom Manufacturer"
+                        },
+                        "name" : "Blood Pressure Monitor",
+                        "model" : "iBloodPressureMonitor123",
+                        "sku" : "0000001"
+                      },
+                      "device" : {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      },
+                      "readingTimestamp" : "2024-07-04T00:00:00Z",
+                      "manual" : false,
+                      "deviceTimeZoneOffset" : 0,
+                      "patientTimeZoneOffset" : 0,
+                      "respiration" : 10,
+                      "heartRate" : 60,
+                      "bodyTurnOver" : 5,
+                      "duration" : "20:00~00:00",
+                      "rem" : 20,
+                      "deepSleep" : 300,
+                      "lightSleep" : 155
+                    }
+                  }
                 }
               }
             }
           }
         },
-        "x-response-example" : "sleepMatReadingResponseExample"
+        "x-response-example" : "sleepMatDurationReadingResponseExample"
       }
     },
     "/api/v3/temperature-reading" : {
@@ -10712,7 +10981,7 @@
         "type" : "string"
       },
       "DeviceStatus" : {
-        "enum" : [ "initiated", "awaitingShipment", "available", "withPatient", "availableAtSite", "delivered", "used", "refurbishing", "decommissioned", "shipped", "availableRepacked", "returnedManufacturer", "packed" ],
+        "enum" : [ "initiated", "awaitingShipment", "available", "withPatient", "availableAtSite", "delivered", "used", "refurbishing", "packedAtSite", "decommissioned", "shipped", "availableRepacked", "returnedManufacturer", "packed" ],
         "type" : "string",
         "x-fern-enum" : {
           "initiated" : {
@@ -10738,6 +11007,9 @@
           },
           "refurbishing" : {
             "description" : "Device is being refurbished."
+          },
+          "packedAtSite" : {
+            "description" : "Device is packed in a kit at a site, ready to be assigned to a patient."
           },
           "decommissioned" : {
             "description" : "Device has been decommissioned."
@@ -10765,6 +11037,19 @@
           },
           "cm" : {
             "description" : "Centimeters."
+          }
+        }
+      },
+      "DisenrollPatientRequest" : {
+        "type" : "object",
+        "properties" : {
+          "archive" : {
+            "description" : "Whether or not the patient to be disenrolled should also be archived.",
+            "type" : "boolean"
+          },
+          "createReturns" : {
+            "description" : "Whether or not Returns should be placed for the patient to be disenrolled.",
+            "type" : "boolean"
           }
         }
       },
