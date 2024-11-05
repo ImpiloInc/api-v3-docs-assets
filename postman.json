@@ -3817,6 +3817,58 @@
                             ]
                         },
 	                        {
+    "name": "/api/v3/patient/disenroll/:patientId",
+                "description": "Disenrolls a Patient from the Impilo platform. Depending on what values are provided, will generate a return for all devices associated with that Patient and/or archive the Patient. *** For more information see the [DisenrollPatientRequest Model](/resources/models#schema_DisenrollPatientRequest).",
+                 "item": [
+                            {
+                                "name": "disenroll-patient",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"archive\" : true,\n  \"createReturns\" : true\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/patient/disenroll/:patientId",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "patient",
+                                            "disenroll",
+                                            ":patientId"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "patientId",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Disenrolls a Patient from the Impilo platform. Depending on what values are provided, will generate a return for all devices associated with that Patient and/or archive the Patient. *** For more information see the [DisenrollPatientRequest Model](/resources/models#schema_DisenrollPatientRequest)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
     "name": "/api/v3/patient/find-by-email",
                 "description": "Fetches details of a specific patient by their email address, if exists.  To search, pass a JSON object in the Request Body with a single \"email\" attribute  and the email to search for. ",
                  "item": [
@@ -3864,6 +3916,58 @@
                                         ]
                                     },
                                     "description": "Fetches details of a specific patient by their email address, if exists.  To search, pass a JSON object in the Request Body with a single \"email\" attribute  and the email to search for. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/patient/identifier/:identifier",
+                "description": "Fetches details of a specific patient by their external identifier. Returns at most 1 entry.",
+                 "item": [
+                            {
+                                "name": "fetchPatientByIdentifier",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/patient/identifier/:identifier",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "patient",
+                                            "identifier",
+                                            ":identifier"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "identifier",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Fetches details of a specific patient by their external identifier. Returns at most 1 entry."
                                 }
                             }
                             ]
