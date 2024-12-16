@@ -2115,7 +2115,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-12-16T19:13:33.251084700Z"
+                        eventTimestamp: "2024-12-16T19:16:35.793832900Z"
                     - id: 790
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2133,7 +2133,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-12-16T19:13:33.251084700Z"
+                        eventTimestamp: "2024-12-16T19:16:35.793832900Z"
                     - id: 791
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2151,7 +2151,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-12-16T19:13:33.251084700Z"
+                        eventTimestamp: "2024-12-16T19:16:35.793832900Z"
                     - id: 792
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2169,7 +2169,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-12-16T19:13:33.251084700Z"
+                        eventTimestamp: "2024-12-16T19:16:35.793832900Z"
                     - id: 793
                       currentStatus: "received"
                       procurementType: "shippingNotice"
@@ -2187,7 +2187,7 @@ paths:
                         costPerItem: 12.34
                       procurementEvents:
                       - name: "received"
-                        eventTimestamp: "2024-12-16T19:13:33.251084700Z"
+                        eventTimestamp: "2024-12-16T19:16:35.793832900Z"
                     page: 1
                     size: 5
                     total: 10
@@ -2278,7 +2278,7 @@ paths:
                       costPerItem: 12.34
                     procurementEvents:
                     - name: "received"
-                      eventTimestamp: "2024-12-16T19:13:33.366393300Z"
+                      eventTimestamp: "2024-12-16T19:16:35.969765100Z"
       x-response-example: "procurementResponseExample"
   /api/v3/procurement/{procId}/upload:
     get:
@@ -3223,13 +3223,13 @@ paths:
                       id: 3
                       name: "Customer 3"
                     currentStatus: "requested"
-                    createdAt: "2024-12-16T19:13:36.231998400Z"
+                    createdAt: "2024-12-16T19:16:40.535392Z"
                     transferRequestNotes:
                     - note: "Note Text Here"
-                      createdAt: "2024-12-16T19:13:36.231998400Z"
+                      createdAt: "2024-12-16T19:16:40.535392Z"
                     transferRequestEvents:
                     - name: "requested"
-                      eventTimestamp: "2024-12-16T19:13:36.231998400Z"
+                      eventTimestamp: "2024-12-16T19:16:40.535392Z"
                     transferItems:
                     - item:
                         id: 791
