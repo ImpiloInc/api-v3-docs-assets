@@ -15,6 +15,8 @@
     "ApiKeyAuth" : [ ]
   } ],
   "tags" : [ {
+    "name" : "Alert Configuration"
+  }, {
     "name" : "Clinical Notes"
   }, {
     "name" : "Devices"
@@ -64,6 +66,355 @@
     "name" : "Tests"
   } ],
   "paths" : {
+    "/api/v3/alerts/configuration/global" : {
+      "put" : {
+        "tags" : [ "Alert Configuration" ],
+        "description" : "This endpoint updates your global Alert Configuration for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object.\n***\nFor more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration).",
+        "operationId" : "setGlobalAlertConfig",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AlertConfiguration"
+              },
+              "examples" : {
+                "AlertConfigurationExample" : {
+                  "value" : {
+                    "alertConfigurationType" : "bloodPressure",
+                    "enabled" : true,
+                    "notifyHealthCoach" : true,
+                    "notifyPatient" : true,
+                    "config" : {
+                      "rules" : [ {
+                        "severity" : "MEDIUM",
+                        "field" : "systolic",
+                        "type" : "threshold",
+                        "value" : 140,
+                        "operator" : "gt"
+                      }, {
+                        "severity" : "MEDIUM",
+                        "field" : "systolic",
+                        "type" : "relative_change",
+                        "value" : 20.0,
+                        "direction" : "increase"
+                      } ]
+                    },
+                    "notificationEmails" : [ "notificationEmail1@example.com", "notificationEmail2@example.com" ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        },
+        "x-request-example" : "AlertConfigurationExample",
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_AlertConfiguration"
+        }
+      }
+    },
+    "/api/v3/alerts/configuration/global/{type}" : {
+      "get" : {
+        "tags" : [ "Alert Configuration" ],
+        "description" : "This endpoint fetches your global Alert Configuration for the type provided in url.\n",
+        "operationId" : "getGlobalAlertConfig",
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AlertConfiguration"
+                },
+                "examples" : {
+                  "AlertConfigurationExample" : {
+                    "value" : {
+                      "alertConfigurationType" : "bloodPressure",
+                      "enabled" : true,
+                      "notifyHealthCoach" : true,
+                      "notifyPatient" : true,
+                      "config" : {
+                        "rules" : [ {
+                          "severity" : "MEDIUM",
+                          "field" : "systolic",
+                          "type" : "threshold",
+                          "value" : 140,
+                          "operator" : "gt"
+                        }, {
+                          "severity" : "MEDIUM",
+                          "field" : "systolic",
+                          "type" : "relative_change",
+                          "value" : 20.0,
+                          "direction" : "increase"
+                        } ]
+                      },
+                      "notificationEmails" : [ "notificationEmail1@example.com", "notificationEmail2@example.com" ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "AlertConfigurationExample"
+      }
+    },
+    "/api/v3/alerts/configuration/patient/{patientId}" : {
+      "put" : {
+        "tags" : [ "Alert Configuration" ],
+        "description" : "This endpoint updates your patient specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the patientId specified in the URL.\n***\nFor more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration).",
+        "operationId" : "setPatientAlertConfig",
+        "parameters" : [ {
+          "name" : "patientId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AlertConfiguration"
+              },
+              "examples" : {
+                "AlertConfigurationExample" : {
+                  "value" : {
+                    "alertConfigurationType" : "bloodPressure",
+                    "enabled" : true,
+                    "notifyHealthCoach" : true,
+                    "notifyPatient" : true,
+                    "config" : {
+                      "rules" : [ {
+                        "severity" : "MEDIUM",
+                        "field" : "systolic",
+                        "type" : "threshold",
+                        "value" : 140,
+                        "operator" : "gt"
+                      }, {
+                        "severity" : "MEDIUM",
+                        "field" : "systolic",
+                        "type" : "relative_change",
+                        "value" : 20.0,
+                        "direction" : "increase"
+                      } ]
+                    },
+                    "notificationEmails" : [ "notificationEmail1@example.com", "notificationEmail2@example.com" ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        },
+        "x-request-example" : "AlertConfigurationExample",
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_AlertConfiguration"
+        }
+      }
+    },
+    "/api/v3/alerts/configuration/patient/{patientId}/{type}" : {
+      "get" : {
+        "tags" : [ "Alert Configuration" ],
+        "description" : "This endpoint fetches your patient specific Alert Configuration for the patientId and type provided in url.\n",
+        "operationId" : "getPatientAlertConfig",
+        "parameters" : [ {
+          "name" : "patientId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AlertConfiguration"
+                },
+                "examples" : {
+                  "AlertConfigurationExample" : {
+                    "value" : {
+                      "alertConfigurationType" : "bloodPressure",
+                      "enabled" : true,
+                      "notifyHealthCoach" : true,
+                      "notifyPatient" : true,
+                      "config" : {
+                        "rules" : [ {
+                          "severity" : "MEDIUM",
+                          "field" : "systolic",
+                          "type" : "threshold",
+                          "value" : 140,
+                          "operator" : "gt"
+                        }, {
+                          "severity" : "MEDIUM",
+                          "field" : "systolic",
+                          "type" : "relative_change",
+                          "value" : 20.0,
+                          "direction" : "increase"
+                        } ]
+                      },
+                      "notificationEmails" : [ "notificationEmail1@example.com", "notificationEmail2@example.com" ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "AlertConfigurationExample"
+      }
+    },
+    "/api/v3/alerts/configuration/site/{siteId}" : {
+      "put" : {
+        "tags" : [ "Alert Configuration" ],
+        "description" : "This endpoint updates your site specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the siteId specified in the URL.\n***\nFor more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration).",
+        "operationId" : "setSiteAlertConfig",
+        "parameters" : [ {
+          "name" : "siteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AlertConfiguration"
+              },
+              "examples" : {
+                "AlertConfigurationExample" : {
+                  "value" : {
+                    "alertConfigurationType" : "bloodPressure",
+                    "enabled" : true,
+                    "notifyHealthCoach" : true,
+                    "notifyPatient" : true,
+                    "config" : {
+                      "rules" : [ {
+                        "severity" : "MEDIUM",
+                        "field" : "systolic",
+                        "type" : "threshold",
+                        "value" : 140,
+                        "operator" : "gt"
+                      }, {
+                        "severity" : "MEDIUM",
+                        "field" : "systolic",
+                        "type" : "relative_change",
+                        "value" : 20.0,
+                        "direction" : "increase"
+                      } ]
+                    },
+                    "notificationEmails" : [ "notificationEmail1@example.com", "notificationEmail2@example.com" ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        },
+        "x-request-example" : "AlertConfigurationExample",
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_AlertConfiguration"
+        }
+      }
+    },
+    "/api/v3/alerts/configuration/site/{siteId}/{type}" : {
+      "get" : {
+        "tags" : [ "Alert Configuration" ],
+        "description" : "This endpoint fetches your site specific Alert Configuration for the siteId and type provided in url.\n",
+        "operationId" : "getSiteAlertConfig",
+        "parameters" : [ {
+          "name" : "siteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AlertConfiguration"
+                },
+                "examples" : {
+                  "AlertConfigurationExample" : {
+                    "value" : {
+                      "alertConfigurationType" : "bloodPressure",
+                      "enabled" : true,
+                      "notifyHealthCoach" : true,
+                      "notifyPatient" : true,
+                      "config" : {
+                        "rules" : [ {
+                          "severity" : "MEDIUM",
+                          "field" : "systolic",
+                          "type" : "threshold",
+                          "value" : 140,
+                          "operator" : "gt"
+                        }, {
+                          "severity" : "MEDIUM",
+                          "field" : "systolic",
+                          "type" : "relative_change",
+                          "value" : 20.0,
+                          "direction" : "increase"
+                        } ]
+                      },
+                      "notificationEmails" : [ "notificationEmail1@example.com", "notificationEmail2@example.com" ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "AlertConfigurationExample"
+      }
+    },
     "/api/v3/clinical-note" : {
       "get" : {
         "tags" : [ "Clinical Notes" ],
@@ -2749,7 +3100,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-12-19T21:55:45.840433Z"
+                          "eventTimestamp" : "2024-07-04T00:00:00Z"
                         } ]
                       }, {
                         "id" : 790,
@@ -2772,7 +3123,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-12-19T21:55:45.840463Z"
+                          "eventTimestamp" : "2024-07-04T00:00:00Z"
                         } ]
                       }, {
                         "id" : 791,
@@ -2795,7 +3146,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-12-19T21:55:45.840470Z"
+                          "eventTimestamp" : "2024-07-04T00:00:00Z"
                         } ]
                       }, {
                         "id" : 792,
@@ -2818,7 +3169,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-12-19T21:55:45.840541Z"
+                          "eventTimestamp" : "2024-07-04T00:00:00Z"
                         } ]
                       }, {
                         "id" : 793,
@@ -2841,7 +3192,7 @@
                         } ],
                         "procurementEvents" : [ {
                           "name" : "received",
-                          "eventTimestamp" : "2024-12-19T21:55:45.840550Z"
+                          "eventTimestamp" : "2024-07-04T00:00:00Z"
                         } ]
                       } ],
                       "page" : 1,
@@ -2967,7 +3318,7 @@
                       } ],
                       "procurementEvents" : [ {
                         "name" : "received",
-                        "eventTimestamp" : "2024-12-19T21:55:46.010775Z"
+                        "eventTimestamp" : "2024-07-04T00:00:00Z"
                       } ]
                     }
                   }
@@ -4196,14 +4547,14 @@
                         "name" : "Customer 3"
                       },
                       "currentStatus" : "requested",
-                      "createdAt" : "2024-12-19T21:55:51.241309Z",
+                      "createdAt" : "2024-07-04T00:00:00Z",
                       "transferRequestNotes" : [ {
                         "note" : "Note Text Here",
-                        "createdAt" : "2024-12-19T21:55:51.240713Z"
+                        "createdAt" : "2024-07-04T00:00:00Z"
                       } ],
                       "transferRequestEvents" : [ {
                         "name" : "requested",
-                        "eventTimestamp" : "2024-12-19T21:55:51.241228Z"
+                        "eventTimestamp" : "2024-07-04T00:00:00Z"
                       } ],
                       "transferItems" : [ {
                         "item" : {
@@ -7436,7 +7787,9 @@
                         "deviceTimeZoneOffset" : 0,
                         "patientTimeZoneOffset" : 0,
                         "peakExpiratoryFlow" : 100.3,
-                        "forcedExpiratoryVolume" : 0.62
+                        "forcedExpiratoryVolume" : 0.62,
+                        "forcedExpiratoryVolumeUnit" : "lps",
+                        "peakExpiratoryFlowUnit" : "lpm"
                       }, {
                         "id" : 43,
                         "patient" : {
@@ -7515,7 +7868,9 @@
                         "deviceTimeZoneOffset" : 0,
                         "patientTimeZoneOffset" : 0,
                         "peakExpiratoryFlow" : 100.3,
-                        "forcedExpiratoryVolume" : 0.62
+                        "forcedExpiratoryVolume" : 0.62,
+                        "forcedExpiratoryVolumeUnit" : "lps",
+                        "peakExpiratoryFlowUnit" : "lpm"
                       } ],
                       "page" : 1,
                       "size" : 2,
@@ -7664,7 +8019,9 @@
                       "deviceTimeZoneOffset" : 0,
                       "patientTimeZoneOffset" : 0,
                       "peakExpiratoryFlow" : 100.3,
-                      "forcedExpiratoryVolume" : 0.62
+                      "forcedExpiratoryVolume" : 0.62,
+                      "forcedExpiratoryVolumeUnit" : "lps",
+                      "peakExpiratoryFlowUnit" : "lpm"
                     }
                   }
                 }
@@ -7783,7 +8140,9 @@
                       "deviceTimeZoneOffset" : 0,
                       "patientTimeZoneOffset" : 0,
                       "peakExpiratoryFlow" : 100.3,
-                      "forcedExpiratoryVolume" : 0.62
+                      "forcedExpiratoryVolume" : 0.62,
+                      "forcedExpiratoryVolumeUnit" : "lps",
+                      "peakExpiratoryFlowUnit" : "lpm"
                     }
                   }
                 }
@@ -10233,6 +10592,59 @@
           }
         }
       },
+      "AlertConfiguration" : {
+        "description" : "Request object for updating alert configurations",
+        "type" : "object",
+        "properties" : {
+          "alertConfigurationType" : {
+            "description" : "The type of alert configuration",
+            "type" : "string",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/AlertConfigurationType"
+            } ]
+          },
+          "enabled" : {
+            "description" : "Whether this alert is enabled",
+            "default" : true,
+            "type" : "boolean",
+            "example" : true
+          },
+          "notifyHealthCoach" : {
+            "description" : "Whether to notify the health coach when the alert is triggered",
+            "default" : true,
+            "type" : "boolean",
+            "example" : true
+          },
+          "notifyPatient" : {
+            "description" : "Whether to notify the patient when the alert is triggered",
+            "default" : true,
+            "type" : "boolean",
+            "example" : true
+          },
+          "config" : {
+            "description" : "Alert configuration rules. Structure varies by alertConfigurationType.",
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/BloodPressureAlertConfig"
+            } ]
+          },
+          "notificationEmails" : {
+            "description" : "List of emails to notify when alert is triggered",
+            "default" : [ ],
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            },
+            "example" : [ "email1@example.com", "email2@example.com" ]
+          },
+          "alertConfigType" : {
+            "$ref" : "#/components/schemas/AlertConfigurationType"
+          }
+        }
+      },
+      "AlertConfigurationType" : {
+        "enum" : [ "bloodPressure" ],
+        "type" : "string"
+      },
       "AssociateDeviceRequest" : {
         "type" : "object",
         "properties" : {
@@ -10512,6 +10924,34 @@
         "x-fern-enum" : {
           "spo2" : {
             "description" : "Blood glucose unit of measurement is milligrams per deciliter."
+          }
+        }
+      },
+      "BloodPressureAlertConfig" : {
+        "description" : "Blood pressure alert configuration",
+        "type" : "object",
+        "properties" : {
+          "rules" : {
+            "description" : "List of rules that determine when blood pressure alerts are triggered.\nEach rule can be either:\n\nThreshold Rule:\n\\{\n  \"type\": \"threshold\",\n  \"field\": \"systolic|diastolic\",\n  \"operator\": \"gt|lt\",\n  \"value\": 140,\n  \"severity\": \"NONE|LOW|MEDIUM|HIGH\"\n\\}\n\nRelative Change Rule:\n\\{\n  \"type\": \"relative_change\",\n  \"field\": \"systolic|diastolic\",\n  \"direction\": \"increase|decrease\",\n  \"value\": 20.0,     // percentage: 0-100\n  \"severity\": \"NONE|LOW|MEDIUM|HIGH\"\n\\}\n",
+            "type" : "array",
+            "items" : { }
+          },
+          "_example" : {
+            "example" : {
+              "rules" : [ {
+                "type" : "threshold",
+                "field" : "systolic",
+                "operator" : "gt",
+                "value" : 140,
+                "severity" : "MEDIUM"
+              }, {
+                "type" : "relative_change",
+                "field" : "systolic",
+                "direction" : "increase",
+                "value" : 20.0,
+                "severity" : "MEDIUM"
+              } ]
+            }
           }
         }
       },
@@ -11054,6 +11494,15 @@
           "email" : {
             "description" : "The email address of the user.",
             "type" : "string"
+          }
+        }
+      },
+      "ForcedExpiratoryVolumeUnit" : {
+        "enum" : [ "lps" ],
+        "type" : "string",
+        "x-fern-enum" : {
+          "lps" : {
+            "description" : "Forced expiratory volume unit of measurement is liters per second."
           }
         }
       },
@@ -12807,6 +13256,15 @@
         "enum" : [ "firstName", "lastName", "patientId" ],
         "type" : "string"
       },
+      "PeakExpiratoryFlowUnit" : {
+        "enum" : [ "lpm" ],
+        "type" : "string",
+        "x-fern-enum" : {
+          "lpm" : {
+            "description" : "Peak expiratory flow unit of measurement is liters per minute."
+          }
+        }
+      },
       "PeakFlowReading" : {
         "description" : "This page describes Impilo's peak flow reading model.",
         "type" : "object",
@@ -12855,6 +13313,12 @@
           "forcedExpiratoryVolume" : {
             "format" : "double",
             "type" : "number"
+          },
+          "peakExpiratoryFlowUnit" : {
+            "$ref" : "#/components/schemas/PeakExpiratoryFlowUnit"
+          },
+          "forcedExpiratoryVolumeUnit" : {
+            "$ref" : "#/components/schemas/ForcedExpiratoryVolumeUnit"
           }
         }
       },
@@ -13703,20 +14167,29 @@
         "type" : "string"
       },
       "SupportTicketType" : {
-        "enum" : [ "returnToSender", "mobileSupport", "other", "engagement", "customerDeviceInquiry", "operations", "labOrder", "clinicalSupport", "deviceTechnicalSupport", "patientSetup", "addressConfirmation", "returnMerchandiseAuthorization" ],
+        "enum" : [ "other", "engagement", "labOrder", "deviceTechnicalSupport", "patientSetup", "returnToSender", "mobileSupport", "customerDeviceInquiry", "operations", "alert", "clinicalSupport", "addressConfirmation", "returnMerchandiseAuthorization" ],
         "type" : "string",
         "x-fern-enum" : {
-          "returnToSender" : {
-            "description" : "Return to sender support ticket."
-          },
-          "mobileSupport" : {
-            "description" : "Mobile support ticket."
-          },
           "other" : {
             "description" : "Other general inquiries support ticket."
           },
           "engagement" : {
             "description" : "Engagement-related support ticket."
+          },
+          "labOrder" : {
+            "description" : "Lab order support ticket."
+          },
+          "deviceTechnicalSupport" : {
+            "description" : "Device technical support ticket."
+          },
+          "patientSetup" : {
+            "description" : "Patient setup support ticket."
+          },
+          "returnToSender" : {
+            "description" : "Return to sender support ticket."
+          },
+          "mobileSupport" : {
+            "description" : "Mobile support ticket."
           },
           "customerDeviceInquiry" : {
             "description" : "Customer device inquiry support ticket."
@@ -13724,17 +14197,11 @@
           "operations" : {
             "description" : "Operations-related support ticket."
           },
-          "labOrder" : {
-            "description" : "Lab order support ticket."
+          "alert" : {
+            "description" : "Alert related support ticket"
           },
           "clinicalSupport" : {
             "description" : "Clinical support ticket."
-          },
-          "deviceTechnicalSupport" : {
-            "description" : "Device technical support ticket."
-          },
-          "patientSetup" : {
-            "description" : "Patient setup support ticket."
           },
           "addressConfirmation" : {
             "description" : "Address confirmation support ticket."
