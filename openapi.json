@@ -2167,6 +2167,7 @@
           "in" : "query",
           "schema" : {
             "format" : "int32",
+            "default" : "1",
             "type" : "integer"
           }
         }, {
@@ -2174,6 +2175,7 @@
           "in" : "query",
           "schema" : {
             "format" : "int32",
+            "default" : "15",
             "type" : "integer"
           }
         }, {
@@ -2182,6 +2184,16 @@
           "schema" : {
             "format" : "int64",
             "type" : "integer"
+          }
+        }, {
+          "name" : "externalOrderId",
+          "in" : "query",
+          "description" : "Lists only orders with the order external identifiers provided.",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
           }
         } ],
         "responses" : {
@@ -7788,8 +7800,8 @@
                         "patientTimeZoneOffset" : 0,
                         "peakExpiratoryFlow" : 100.3,
                         "forcedExpiratoryVolume" : 0.62,
-                        "forcedExpiratoryVolumeUnit" : "lps",
-                        "peakExpiratoryFlowUnit" : "lpm"
+                        "peakExpiratoryFlowUnit" : "lpm",
+                        "forcedExpiratoryVolumeUnit" : "lps"
                       }, {
                         "id" : 43,
                         "patient" : {
@@ -7869,8 +7881,8 @@
                         "patientTimeZoneOffset" : 0,
                         "peakExpiratoryFlow" : 100.3,
                         "forcedExpiratoryVolume" : 0.62,
-                        "forcedExpiratoryVolumeUnit" : "lps",
-                        "peakExpiratoryFlowUnit" : "lpm"
+                        "peakExpiratoryFlowUnit" : "lpm",
+                        "forcedExpiratoryVolumeUnit" : "lps"
                       } ],
                       "page" : 1,
                       "size" : 2,
@@ -8020,8 +8032,8 @@
                       "patientTimeZoneOffset" : 0,
                       "peakExpiratoryFlow" : 100.3,
                       "forcedExpiratoryVolume" : 0.62,
-                      "forcedExpiratoryVolumeUnit" : "lps",
-                      "peakExpiratoryFlowUnit" : "lpm"
+                      "peakExpiratoryFlowUnit" : "lpm",
+                      "forcedExpiratoryVolumeUnit" : "lps"
                     }
                   }
                 }
@@ -8141,8 +8153,8 @@
                       "patientTimeZoneOffset" : 0,
                       "peakExpiratoryFlow" : 100.3,
                       "forcedExpiratoryVolume" : 0.62,
-                      "forcedExpiratoryVolumeUnit" : "lps",
-                      "peakExpiratoryFlowUnit" : "lpm"
+                      "peakExpiratoryFlowUnit" : "lpm",
+                      "forcedExpiratoryVolumeUnit" : "lps"
                     }
                   }
                 }
@@ -13623,6 +13635,10 @@
             "description" : "True if the site is active, false otherwise.",
             "type" : "boolean"
           },
+          "phoneNumber" : {
+            "description" : "Phone number for the site.",
+            "type" : "string"
+          },
           "address" : {
             "description" : "The shipping address for the site.",
             "type" : "object",
@@ -14080,7 +14096,7 @@
         }
       },
       "SupportTicketEventType" : {
-        "enum" : [ "addressConfirmationAddressConfirmed", "patientSetupMeetingNotConducted", "customerDeviceInquiryManufacturerUnresolvedRmaIssued", "customerDeviceInquiryNoDataReadingsCheckSerialSim", "deviceTechnicalSupportMeetingScheduled", "operationsPatientUnresponsive", "returnMerchandiseAuthorizationLostClaim", "finalContactAttempt", "addressConfirmationEscalatedToCustomer", "customerEscalationContactAttemptedFinal", "deviceTechnicalSupportErrorCodeDeviceMalfunction", "otherOrderNotProcessed", "secondContactAttemptSms", "deviceTechnicalSupportMeetingNotConducted", "returnMerchandiseAuthorizationNewRmaDeliveredOutboundEmail", "patientSetupWelcomeConductedRmaIssued", "operationsCustomerUnresponsive", "deviceTechnicalSupportMeetingRescheduledFirst", "patientSetupPatientDevicesDelivered", "customerEscalationContactAttemptedAdditional", "otherCheckOnClaimStatus", "deviceTechnicalSupportResolvedSerialNumberAdded", "deviceTechnicalSupportMeetingRescheduledSecond", "firstContactAttemptSms", "operationsPushedToOpsForSupport", "returnMerchandiseAuthorizationRmaToSendToPatient", "assigneeModified", "deviceTechnicalSupportStillInvestigating", "thirdContactAttemptSms", "statusModified", "patientSetupMeetingScheduled", "finalContactAttemptSms", "returnMerchandiseAuthorizationPatientConfirmed", "unresolvedCustomerOrPatientUnresponsive", "firstContactAttempt", "customerDeviceInquiryCustomerPatientUnresponsive", "ticketReopened", "operationsWrongDeviceReceived", "thirdContactAttempt", "operationsFUViaSlackToOpsTeam", "addressConfirmationPatientRefusedRts", "addressConfirmationUnableToConfirmAddress", "otherNeedAdditionalInformationFromCustomer", "otherClaimCreated", "returnMerchandiseAuthorizationInTransit", "other", "deviceTechnicalSupportFollowedUpWithEngineeringSlackFU", "customerEscalationContactAttemptedSecond", "otherMissingPackage", "customerEscalationContactAttemptedFirst", "deviceTechnicalSupportUnresolvedPatientCustomerUnresponsive", "deviceTechnicalSupportBluetoothConnectivityError", "returnMerchandiseAuthorizationResendRma", "additionalContactAttempt", "patientSetupOrderShipped", "additionalContactAttemptEmail", "ticketCreated", "otherSpecialRequest", "addressConfirmationInvalidAddressPreShip", "secondContactAttemptEmail", "customerDeviceInquiryManufacturerResolvedReadingTaken", "finalContactAttemptEmail", "patientSetupWelcomeConductedDeviceInquiryRqrd", "customerEscalationContactAttemptedThird", "deviceTechnicalSupportResolvedReadingTaken", "deviceTechnicalSupportUnresolvedRmaIssued", "returnMerchandiseAuthorizationRmaWithPatientNoAction", "addressConfirmationReturnToSenderRts", "operationsEscalatedToOpsManagerForResolution", "operationsPatientAgreedToSendRightDeviceBack", "operationsPatientRefusedToSendDeviceBack", "secondContactAttempt", "addressConfirmationShipmentCancelled", "returnMerchandiseAuthorizationUnresolved", "thirdContactAttemptEmail", "patientSetupMeetingRescheduledFirst", "deviceTechnicalSupportResolvedDataPushedByEngineering", "returnMerchandiseAuthorizationInformationRequired", "additionalContactAttemptSms", "ticketClosed", "returnMerchandiseAuthorizationReceived", "firstContactAttemptEmail", "operationsDeviceNotOnInventoryTrackingReceived", "deviceTechnicalSupportNeedSerialNumberAdded", "operationsNeedAdditionalSupportFromOps", "deviceTechnicalSupportEscalatedToEngineering", "returnMerchandiseAuthorizationRequestForRmaFulfilled", "patientSetupMeetingRescheduledSecond", "patientSetupWelcomeConductedReadingTaken", "returnMerchandiseAuthorizationNewDisenrollment", "otherIncorrectDevicesShipped", "otherUnresolved", "deviceTechnicalSupportUnresolvedDeviceInquiryRequired", "otherEscalatedToAppropriateTeam" ],
+        "enum" : [ "enrOoInAltProgram", "addressConfirmationAddressConfirmed", "finalContactAttempt", "addressConfirmationEscalatedToCustomer", "customerEscalationContactAttemptedFinal", "deviceTechnicalSupportErrorCodeDeviceMalfunction", "enrIpCustomerEscalation", "enrOinSuccess", "pswIpPendingDelivery", "otherOrderNotProcessed", "deviceTechnicalSupportMeetingNotConducted", "returnMerchandiseAuthorizationNewRmaDeliveredOutboundEmail", "enrEscWrongNumber", "pswIpDeliveredNoAnswer", "enrClosedUnreachable", "patientSetupPatientDevicesDelivered", "customerEscalationContactAttemptedAdditional", "enrOoNoSmartphone", "deviceTechnicalSupportResolvedSerialNumberAdded", "operationsPushedToOpsForSupport", "enrOoHasAltApp", "patientSetupMeetingScheduled", "returnMerchandiseAuthorizationPatientConfirmed", "unresolvedCustomerOrPatientUnresponsive", "firstContactAttempt", "pwsIpCallBackRequest", "thirdContactAttempt", "otherNeedAdditionalInformationFromCustomer", "otherClaimCreated", "returnMerchandiseAuthorizationInTransit", "other", "enrOoPrivacyConcern", "pjIpSmsAttempted", "otherMissingPackage", "customerEscalationContactAttemptedFirst", "deviceTechnicalSupportUnresolvedPatientCustomerUnresponsive", "enrOoSelfEnrolled", "deviceTechnicalSupportBluetoothConnectivityError", "returnMerchandiseAuthorizationResendRma", "additionalContactAttemptEmail", "pswActiveCompletedPsw", "otherSpecialRequest", "addressConfirmationInvalidAddressPreShip", "customerDeviceInquiryManufacturerResolvedReadingTaken", "patientSetupWelcomeConductedDeviceInquiryRqrd", "deviceTechnicalSupportResolvedReadingTaken", "addressConfirmationReturnToSenderRts", "operationsPatientAgreedToSendRightDeviceBack", "operationsPatientRefusedToSendDeviceBack", "secondContactAttempt", "returnMerchandiseAuthorizationUnresolved", "enrOoOptOut", "pswIpCustomerEscalation", "ticketClosed", "enrNew", "returnMerchandiseAuthorizationReceived", "firstContactAttemptEmail", "returnMerchandiseAuthorizationRequestForRmaFulfilled", "returnMerchandiseAuthorizationNewDisenrollment", "otherIncorrectDevicesShipped", "pswDisenrollRma", "patientSetupMeetingNotConducted", "customerDeviceInquiryManufacturerUnresolvedRmaIssued", "customerDeviceInquiryNoDataReadingsCheckSerialSim", "pjIpCallAttempted", "enrIpCallBackRequest", "deviceTechnicalSupportMeetingScheduled", "operationsPatientUnresponsive", "returnMerchandiseAuthorizationLostClaim", "secondContactAttemptSms", "enrOoRevisit", "patientSetupWelcomeConductedRmaIssued", "operationsCustomerUnresponsive", "deviceTechnicalSupportMeetingRescheduledFirst", "pjIpEmailAttempted", "otherCheckOnClaimStatus", "deviceTechnicalSupportMeetingRescheduledSecond", "firstContactAttemptSms", "returnMerchandiseAuthorizationRmaToSendToPatient", "assigneeModified", "deviceTechnicalSupportStillInvestigating", "thirdContactAttemptSms", "statusModified", "enrIpNoAnswer", "finalContactAttemptSms", "enrOoTechAverse", "customerDeviceInquiryCustomerPatientUnresponsive", "ticketReopened", "operationsWrongDeviceReceived", "pswClosedUnreachable", "enrOoDeceased", "operationsFUViaSlackToOpsTeam", "addressConfirmationPatientRefusedRts", "addressConfirmationUnableToConfirmAddress", "enrOoHealthy", "deviceTechnicalSupportFollowedUpWithEngineeringSlackFU", "customerEscalationContactAttemptedSecond", "additionalContactAttempt", "patientSetupOrderShipped", "ticketCreated", "secondContactAttemptEmail", "finalContactAttemptEmail", "customerEscalationContactAttemptedThird", "deviceTechnicalSupportUnresolvedRmaIssued", "returnMerchandiseAuthorizationRmaWithPatientNoAction", "operationsEscalatedToOpsManagerForResolution", "addressConfirmationShipmentCancelled", "thirdContactAttemptEmail", "patientSetupMeetingRescheduledFirst", "deviceTechnicalSupportResolvedDataPushedByEngineering", "returnMerchandiseAuthorizationInformationRequired", "additionalContactAttemptSms", "operationsDeviceNotOnInventoryTrackingReceived", "deviceTechnicalSupportNeedSerialNumberAdded", "operationsNeedAdditionalSupportFromOps", "deviceTechnicalSupportEscalatedToEngineering", "patientSetupMeetingRescheduledSecond", "patientSetupWelcomeConductedReadingTaken", "otherUnresolved", "deviceTechnicalSupportUnresolvedDeviceInquiryRequired", "otherEscalatedToAppropriateTeam" ],
         "type" : "string"
       },
       "SupportTicketNote" : {
@@ -14167,7 +14183,7 @@
         "type" : "string"
       },
       "SupportTicketType" : {
-        "enum" : [ "other", "engagement", "labOrder", "deviceTechnicalSupport", "patientSetup", "returnToSender", "mobileSupport", "customerDeviceInquiry", "operations", "alert", "clinicalSupport", "addressConfirmation", "returnMerchandiseAuthorization" ],
+        "enum" : [ "other", "engagement", "labOrder", "deviceTechnicalSupport", "patientSetup", "returnToSender", "mobileSupport", "customerDeviceInquiry", "operations", "alert", "clinicalSupport", "addressConfirmation", "patientJourney", "returnMerchandiseAuthorization" ],
         "type" : "string",
         "x-fern-enum" : {
           "other" : {
@@ -14205,6 +14221,9 @@
           },
           "addressConfirmation" : {
             "description" : "Address confirmation support ticket."
+          },
+          "patientJourney" : {
+            "description" : "Patient journey support ticket."
           },
           "returnMerchandiseAuthorization" : {
             "description" : "Return merchandise authorization support ticket."

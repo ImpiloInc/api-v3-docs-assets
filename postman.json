@@ -1122,6 +1122,12 @@
                                                 "value": "789",
                                                 "description": "",
                                                 "disabled": true
+                                            },
+                                            {
+                                                "key": "externalOrderId",
+                                                "value": "",
+                                                "description": "Lists only orders with the order external identifiers provided.",
+                                                "disabled": true
                                             }
                                         ]
                                     },
