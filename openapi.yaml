@@ -11462,6 +11462,7 @@ components:
       - "returnMerchandiseAuthorizationNewDisenrollment"
       - "otherIncorrectDevicesShipped"
       - "pswDisenrollRma"
+      - "enrOhSms"
       - "patientSetupMeetingNotConducted"
       - "customerDeviceInquiryManufacturerUnresolvedRmaIssued"
       - "customerDeviceInquiryNoDataReadingsCheckSerialSim"
