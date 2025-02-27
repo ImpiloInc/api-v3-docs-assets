@@ -35,6 +35,8 @@
   }, {
     "name" : "Procurements"
   }, {
+    "name" : "Returns"
+  }, {
     "name" : "Sites"
   }, {
     "name" : "Support Tickets"
@@ -3408,6 +3410,510 @@
           "name" : "procId",
           "in" : "path",
           "description" : "The Procurement ID to delete the CSV from.",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/api/v3/return" : {
+      "get" : {
+        "tags" : [ "Returns" ],
+        "description" : "Retrieves a paginated list of Return Merchandise Authorizations (RMAs) with various filtering options including pagination, sorting, and specific attributes such as status, last updated before, and standalone.\n",
+        "operationId" : "listReturns",
+        "parameters" : [ {
+          "name" : "status",
+          "in" : "query",
+          "description" : "Lists only returns with the provided status.",
+          "schema" : {
+            "$ref" : "#/components/schemas/ReturnMerchAuthStatus"
+          }
+        }, {
+          "name" : "searchString",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "lastUpdatedBefore",
+          "in" : "query",
+          "schema" : {
+            "$ref" : "#/components/schemas/LocalDate"
+          }
+        }, {
+          "name" : "standalone",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "default" : "1",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "default" : "15",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PageReturn"
+                },
+                "examples" : {
+                  "rmaListResponseExample" : {
+                    "value" : {
+                      "content" : [ {
+                        "id" : 472,
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "currentStatus" : "rmaPlaced",
+                        "returnItems" : [ {
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "count" : 1
+                        } ],
+                        "trackingNumbers" : [ {
+                          "carrier" : "USPS",
+                          "value" : "9400110200883830000001"
+                        } ],
+                        "returnDevices" : [ {
+                          "id" : 599,
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "currentStatus" : "withPatient",
+                          "currentPatient" : {
+                            "id" : 456,
+                            "externalIdentifier" : "external-identifier-123",
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "dateOfBirth" : "1987-09-13",
+                            "email" : "email@example.com",
+                            "phoneNumber" : "111-222-3333",
+                            "address" : {
+                              "lineOne" : "1234 Market Street",
+                              "lineTwo" : "Suite 110",
+                              "city" : "Philadelphia",
+                              "state" : "PA",
+                              "zipCode" : "19137",
+                              "country" : "USA"
+                            },
+                            "sex" : "unknown"
+                          },
+                          "deviceIdentifiers" : [ {
+                            "type" : "imei",
+                            "value" : "354833969951611"
+                          }, {
+                            "type" : "serial",
+                            "value" : "A44-A0623930"
+                          }, {
+                            "type" : "macAddress",
+                            "value" : "f51da43314fc"
+                          } ],
+                          "disabledReadings" : false
+                        } ],
+                        "relatedOrderId" : 846
+                      }, {
+                        "id" : 473,
+                        "patient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "currentStatus" : "rmaPlaced",
+                        "returnItems" : [ {
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "count" : 1
+                        } ],
+                        "trackingNumbers" : [ {
+                          "carrier" : "USPS",
+                          "value" : "9400110200883830000001"
+                        } ],
+                        "returnDevices" : [ {
+                          "id" : 599,
+                          "item" : {
+                            "id" : 791,
+                            "manufacturer" : {
+                              "id" : 2,
+                              "name" : "Custom Manufacturer"
+                            },
+                            "name" : "Blood Pressure Monitor",
+                            "model" : "iBloodPressureMonitor123",
+                            "sku" : "0000001"
+                          },
+                          "currentStatus" : "withPatient",
+                          "currentPatient" : {
+                            "id" : 456,
+                            "externalIdentifier" : "external-identifier-123",
+                            "firstName" : "John",
+                            "lastName" : "Doe",
+                            "dateOfBirth" : "1987-09-13",
+                            "email" : "email@example.com",
+                            "phoneNumber" : "111-222-3333",
+                            "address" : {
+                              "lineOne" : "1234 Market Street",
+                              "lineTwo" : "Suite 110",
+                              "city" : "Philadelphia",
+                              "state" : "PA",
+                              "zipCode" : "19137",
+                              "country" : "USA"
+                            },
+                            "sex" : "unknown"
+                          },
+                          "deviceIdentifiers" : [ {
+                            "type" : "imei",
+                            "value" : "354833969951611"
+                          }, {
+                            "type" : "serial",
+                            "value" : "A44-A0623930"
+                          }, {
+                            "type" : "macAddress",
+                            "value" : "f51da43314fc"
+                          } ],
+                          "disabledReadings" : false
+                        } ],
+                        "relatedOrderId" : 846
+                      } ],
+                      "page" : 1,
+                      "size" : 2,
+                      "total" : 4,
+                      "first" : true,
+                      "last" : false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "rmaListResponseExample"
+      },
+      "post" : {
+        "tags" : [ "Returns" ],
+        "description" : "Creates a Return Merchandise Authorization (RMA).\n***\nFor more information see the [CreateReturn Model](/resources/models#schema_CreateReturn).",
+        "operationId" : "createReturn",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CreateReturn"
+              },
+              "examples" : {
+                "create-return" : {
+                  "value" : {
+                    "patientId" : 36892,
+                    "returnItems" : [ {
+                      "id" : 83521,
+                      "count" : 3
+                    } ],
+                    "shippingOption" : "STANDARD",
+                    "emailLabel" : false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Return"
+                },
+                "examples" : {
+                  "rmaCreateResponseExample" : {
+                    "value" : {
+                      "id" : 472,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "currentStatus" : "rmaPlaced",
+                      "returnItems" : [ {
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "count" : 1
+                      } ],
+                      "trackingNumbers" : [ {
+                        "carrier" : "USPS",
+                        "value" : "9400110200883830000001"
+                      } ],
+                      "returnDevices" : [ {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      } ],
+                      "relatedOrderId" : 846
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "rmaCreateResponseExample",
+        "x-request-example-create-return" : "ApiV3ControllerExamples.createReturnPayload",
+        "externalDocs" : {
+          "url" : "https://docs.impiloplatform.com/resources/models#schema_CreateReturn"
+        }
+      }
+    },
+    "/api/v3/return/{id}" : {
+      "get" : {
+        "tags" : [ "Returns" ],
+        "description" : "Retrieves a Return Merchandise Authorization from the Impilo platform by the ID provided in the path.",
+        "operationId" : "fetchReturn",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Return"
+                },
+                "examples" : {
+                  "rmaResponseExample" : {
+                    "value" : {
+                      "id" : 472,
+                      "patient" : {
+                        "id" : 456,
+                        "externalIdentifier" : "external-identifier-123",
+                        "firstName" : "John",
+                        "lastName" : "Doe",
+                        "dateOfBirth" : "1987-09-13",
+                        "email" : "email@example.com",
+                        "phoneNumber" : "111-222-3333",
+                        "address" : {
+                          "lineOne" : "1234 Market Street",
+                          "lineTwo" : "Suite 110",
+                          "city" : "Philadelphia",
+                          "state" : "PA",
+                          "zipCode" : "19137",
+                          "country" : "USA"
+                        },
+                        "sex" : "unknown"
+                      },
+                      "currentStatus" : "rmaPlaced",
+                      "returnItems" : [ {
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "count" : 1
+                      } ],
+                      "trackingNumbers" : [ {
+                        "carrier" : "USPS",
+                        "value" : "9400110200883830000001"
+                      } ],
+                      "returnDevices" : [ {
+                        "id" : 599,
+                        "item" : {
+                          "id" : 791,
+                          "manufacturer" : {
+                            "id" : 2,
+                            "name" : "Custom Manufacturer"
+                          },
+                          "name" : "Blood Pressure Monitor",
+                          "model" : "iBloodPressureMonitor123",
+                          "sku" : "0000001"
+                        },
+                        "currentStatus" : "withPatient",
+                        "currentPatient" : {
+                          "id" : 456,
+                          "externalIdentifier" : "external-identifier-123",
+                          "firstName" : "John",
+                          "lastName" : "Doe",
+                          "dateOfBirth" : "1987-09-13",
+                          "email" : "email@example.com",
+                          "phoneNumber" : "111-222-3333",
+                          "address" : {
+                            "lineOne" : "1234 Market Street",
+                            "lineTwo" : "Suite 110",
+                            "city" : "Philadelphia",
+                            "state" : "PA",
+                            "zipCode" : "19137",
+                            "country" : "USA"
+                          },
+                          "sex" : "unknown"
+                        },
+                        "deviceIdentifiers" : [ {
+                          "type" : "imei",
+                          "value" : "354833969951611"
+                        }, {
+                          "type" : "serial",
+                          "value" : "A44-A0623930"
+                        }, {
+                          "type" : "macAddress",
+                          "value" : "f51da43314fc"
+                        } ],
+                        "disabledReadings" : false
+                      } ],
+                      "relatedOrderId" : 846
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-response-example" : "rmaResponseExample"
+      },
+      "delete" : {
+        "tags" : [ "Returns" ],
+        "description" : "Voids a Return Merchandise Authorization from the Impilo platform by the ID provided in the path.",
+        "operationId" : "voidReturn",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
           "required" : true,
           "schema" : {
             "format" : "int64",
@@ -10654,7 +11160,7 @@
         }
       },
       "AlertConfigurationType" : {
-        "enum" : [ "bloodPressure" ],
+        "enum" : [ "bloodPressure", "lowInventory" ],
         "type" : "string"
       },
       "AssociateDeviceRequest" : {
@@ -11247,6 +11753,56 @@
             "type" : "string"
           }
         }
+      },
+      "CreateReturn" : {
+        "description" : "The payload for creating a return.",
+        "type" : "object",
+        "properties" : {
+          "patientId" : {
+            "format" : "int64",
+            "description" : "The patient that is making the return.",
+            "type" : "integer"
+          },
+          "siteId" : {
+            "format" : "int64",
+            "description" : "The site that is making the return.",
+            "type" : "integer"
+          },
+          "returnItems" : {
+            "description" : "An array of non-tracked items expected on this return.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SimpleReturnItem"
+            }
+          },
+          "returnDevices" : {
+            "description" : "An array of devices expected on this return.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ReturnDevice"
+            }
+          },
+          "shippingOption" : {
+            "description" : "The shipping service level.",
+            "default" : "standard",
+            "enum" : [ "standard", "overnight" ],
+            "type" : "string",
+            "x-fern-enum" : {
+              "standard" : {
+                "description" : "Standard shipping option."
+              },
+              "overnight" : {
+                "description" : "Overnight shipping option."
+              }
+            }
+          },
+          "emailLabel" : {
+            "description" : "Indicates if the return shipping label will be emailed or shipped.",
+            "default" : false,
+            "type" : "boolean"
+          }
+        },
+        "additionalProperties" : false
       },
       "Customer" : {
         "type" : "object",
@@ -12869,6 +13425,42 @@
           }
         }
       },
+      "PageReturn" : {
+        "description" : "Pagination is supported whenever an API response returns a list of objects. In paginated responses, objects are nested in a content attribute and have first and last attributes indicating whether you are on the first or last page, respectively. Additionally, the pagination response includes a page attribute indicating the current page number, a size attribute indicating the current page size, and a total attribute indicating the number of objects matching the request.",
+        "type" : "object",
+        "properties" : {
+          "content" : {
+            "description" : "The content of the page, consisting of a list of objects.",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Return"
+            }
+          },
+          "page" : {
+            "format" : "int32",
+            "description" : "The current page number. The first page has value 1.",
+            "type" : "integer"
+          },
+          "size" : {
+            "format" : "int32",
+            "description" : "The current page size. Default 15, maximum 250.",
+            "type" : "integer"
+          },
+          "total" : {
+            "format" : "int32",
+            "description" : "The number of objects matching the request.",
+            "type" : "integer"
+          },
+          "first" : {
+            "description" : "True if this is the first page, false otherwise.",
+            "type" : "boolean"
+          },
+          "last" : {
+            "description" : "True if this is the last page, false otherwise.",
+            "type" : "boolean"
+          }
+        }
+      },
       "PageSite" : {
         "description" : "Pagination is supported whenever an API response returns a list of objects. In paginated responses, objects are nested in a content attribute and have first and last attributes indicating whether you are on the first or last page, respectively. Additionally, the pagination response includes a page attribute indicating the current page number, a size attribute indicating the current page size, and a total attribute indicating the number of objects matching the request.",
         "type" : "object",
@@ -13510,12 +14102,19 @@
               "$ref" : "#/components/schemas/Patient"
             } ]
           },
+          "site" : {
+            "description" : "The site that is making the return.",
+            "type" : "object",
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Site"
+            } ]
+          },
           "currentStatus" : {
             "description" : "The current status of this return.",
             "type" : "string"
           },
           "returnKits" : {
-            "description" : "An array of kits related to  items expected on this return.",
+            "description" : "An array of kits related to items expected on this return.",
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/Kit"
@@ -13556,6 +14155,16 @@
           }
         }
       },
+      "ReturnDevice" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "description" : "The id of the device expected on this return.",
+            "type" : "integer"
+          }
+        }
+      },
       "ReturnEvent" : {
         "type" : "object",
         "properties" : {
@@ -13573,7 +14182,7 @@
         "type" : "object",
         "properties" : {
           "item" : {
-            "description" : "The item type extected on this return.",
+            "description" : "The item type expected on this return.",
             "type" : "object",
             "allOf" : [ {
               "$ref" : "#/components/schemas/Item"
@@ -13583,6 +14192,36 @@
             "format" : "int32",
             "description" : "The quantity of this item type expected on this return.",
             "type" : "integer"
+          }
+        }
+      },
+      "ReturnMerchAuthStatus" : {
+        "enum" : [ "receiving", "arrived", "pendingReturn", "outbound", "rmaPlaced", "voided", "completed", "inTransit" ],
+        "type" : "string",
+        "x-fern-enum" : {
+          "receiving" : {
+            "description" : "Return merchandise authorization is in receiving."
+          },
+          "arrived" : {
+            "description" : "Return merchandise authorization has arrived at Impilo."
+          },
+          "pendingReturn" : {
+            "description" : "Return merchandise authorization is pending return."
+          },
+          "outbound" : {
+            "description" : "Return merchandise authorization is outbound to patient."
+          },
+          "rmaPlaced" : {
+            "description" : "Return merchandise authorization has been placed."
+          },
+          "voided" : {
+            "description" : "Return merchandise authorization has been voided."
+          },
+          "completed" : {
+            "description" : "Return merchandise authorization is complete."
+          },
+          "inTransit" : {
+            "description" : "Return merchandise authorization is in transit to Impilo."
           }
         }
       },
@@ -13613,6 +14252,21 @@
           },
           "overnight" : {
             "description" : "Overnight shipping option."
+          }
+        }
+      },
+      "SimpleReturnItem" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "description" : "The id of the item expected on this return.",
+            "type" : "integer"
+          },
+          "count" : {
+            "format" : "int32",
+            "description" : "The item quantity being returned",
+            "type" : "integer"
           }
         }
       },
