@@ -2812,6 +2812,239 @@
 	                    ]
 	        },
 	        {
+	            "name": "Returns",
+	            "item": [
+	                        {
+    "name": "/api/v3/return",
+                "description": "Creates a Return Merchandise Authorization (RMA). *** For more information see the [CreateReturn Model](/resources/models#schema_CreateReturn).",
+                 "item": [
+                            {
+                                "name": "create-return",
+                                "request": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "{\n  \"patientId\" : 36892,\n  \"returnItems\" : [ {\n    \"id\" : 83521,\n    \"count\" : 3\n  } ],\n  \"shippingOption\" : \"STANDARD\",\n  \"emailLabel\" : false\n}",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/return",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "return"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Creates a Return Merchandise Authorization (RMA). *** For more information see the [CreateReturn Model](/resources/models#schema_CreateReturn)."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/return",
+                "description": "Retrieves a paginated list of Return Merchandise Authorizations (RMAs) with various filtering options including pagination, sorting, and specific attributes such as status, last updated before, and standalone. ",
+                 "item": [
+                            {
+                                "name": "listReturns",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/return",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "return"
+                                        ],
+                                        "variable": [
+                                        ],
+                                        "query": [
+                                            {
+                                                "key": "status",
+                                                "value": "",
+                                                "description": "Lists only returns with the provided status.",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "searchString",
+                                                "value": "searchString_example",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "lastUpdatedBefore",
+                                                "value": "2013-10-20",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "standalone",
+                                                "value": "true",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "page",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            },
+                                            {
+                                                "key": "size",
+                                                "value": "56",
+                                                "description": "",
+                                                "disabled": true
+                                            }
+                                        ]
+                                    },
+                                    "description": "Retrieves a paginated list of Return Merchandise Authorizations (RMAs) with various filtering options including pagination, sorting, and specific attributes such as status, last updated before, and standalone. "
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/return/:id",
+                "description": "Retrieves a Return Merchandise Authorization from the Impilo platform by the ID provided in the path.",
+                 "item": [
+                            {
+                                "name": "fetchReturn",
+                                "request": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "key": "Accept",
+                                            "value": "application/json",
+                                            "description": "",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/return/:id",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "return",
+                                            ":id"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Retrieves a Return Merchandise Authorization from the Impilo platform by the ID provided in the path."
+                                }
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v3/return/:id",
+                "description": "Voids a Return Merchandise Authorization from the Impilo platform by the ID provided in the path.",
+                 "item": [
+                            {
+                                "name": "voidReturn",
+                                "request": {
+                                    "method": "DELETE",
+                                    "header": [
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "",
+                                        "options": {
+                                            "raw": {
+                                                "language": "json"
+                                            }
+                                        }
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/api/v3/return/:id",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "api",
+                                            "v3",
+                                            "return",
+                                            ":id"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "",
+                                                "description": ""
+                                            }
+                                        ],
+                                        "query": [
+                                        ]
+                                    },
+                                    "description": "Voids a Return Merchandise Authorization from the Impilo platform by the ID provided in the path."
+                                }
+                            }
+                            ]
+                        }
+	                    ]
+	        },
+	        {
 	            "name": "Readings - Weight",
 	            "item": [
 	                        {
