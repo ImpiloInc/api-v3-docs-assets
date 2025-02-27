@@ -2649,6 +2649,12 @@ paths:
         description: "Lists only returns with the provided status."
         schema:
           $ref: "#/components/schemas/ReturnMerchAuthStatus"
+      - name: "relatedOrderId"
+        in: "query"
+        description: "Lists only returns related to the provided order ID."
+        schema:
+          format: "int64"
+          type: "integer"
       - name: "searchString"
         in: "query"
         schema:
