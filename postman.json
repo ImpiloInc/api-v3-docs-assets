@@ -1,11 +1,11 @@
 {
 	"info": {
-		"name": "Impilo API",
+		"name": "Generated API",
 		"description": {
 		    "content": "",
 		    "type": "text/markdown"
 		},
-		"version": "3.0",
+		"version": "1.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -14,10 +14,10 @@
 	            "item": [
 	                        {
     "name": "/api/v3/procurement",
-                "description": "Creates a new procurement with the provided details. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
+                "description": "Creates a new procurement with the provided details. ",
                  "item": [
                             {
-                                "name": "createProcurementRequest",
+                                "name": "Create Procurement Request",
                                 "request": {
                                     "method": "POST",
                                     "header": [
@@ -58,7 +58,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a new procurement with the provided details. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
+                                    "description": "Creates a new procurement with the provided details. "
                                 }
                             }
                             ]
@@ -68,7 +68,7 @@
                 "description": "Lists procurements linked to the account requested in a paginated form. ",
                  "item": [
                             {
-                                "name": "listProcurements",
+                                "name": "List Procurements",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -137,7 +137,7 @@
                 "description": "Fetches a procurement by ID provided in the path. ",
                  "item": [
                             {
-                                "name": "listProcurements_0",
+                                "name": "List Procurements",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -188,7 +188,7 @@
                 "description": "Deletes the uploaded file from the provided Procurement ID, if exists. ",
                  "item": [
                             {
-                                "name": "deleteProcurementDocument",
+                                "name": "Delete Procurement Document",
                                 "request": {
                                     "method": "DELETE",
                                     "header": [
@@ -234,7 +234,7 @@
                 "description": "Fetches the uploaded file from the provided Procurement ID, if exists. ",
                  "item": [
                             {
-                                "name": "fetchProcurementDocument",
+                                "name": "Fetch Procurement Document",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -286,7 +286,7 @@
                 "description": "Uploads a file to the provided Procurement ID and makes accessible to the Impilo Warehouse team for viewing.  Content-Type must be set to form-data, with a parameter of 'file' containing the CSV. ",
                  "item": [
                             {
-                                "name": "uploadProcurementDocument",
+                                "name": "Upload Procurement Document",
                                 "request": {
                                     "method": "POST",
                                     "header": [
@@ -335,10 +335,10 @@
                         },
 	                        {
     "name": "/api/v3/procurement/receipt",
-                "description": "Creates a new procurement shipping receipt with the provided details. *** For more information see the [Procurement Model](/resources/models#schema_Procurement).",
+                "description": "Creates a new procurement shipping receipt with the provided details. ",
                  "item": [
                             {
-                                "name": "createShippingNotice",
+                                "name": "Create Shipping Notice",
                                 "request": {
                                     "method": "POST",
                                     "header": [
@@ -380,7 +380,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a new procurement shipping receipt with the provided details. *** For more information see the [Procurement Model](/resources/models#schema_Procurement)."
+                                    "description": "Creates a new procurement shipping receipt with the provided details. "
                                 }
                             }
                             ]
@@ -395,7 +395,7 @@
                 "description": "This endpoint returns a paginated list of Blood Glucose Readings for the patients associated with a Customer.  Filtering can be done by any of the following query parameters: - page (integer) -- The page number of the content returned. - size (integer) -- The size of the page of content returned. - patientId (long) -- The patient's Impilo identifier. - externalId (string) -- Any external identifier associated with this patient. - startTimestamp (string) -- An ISO-formatted string with an applicable timezone, such as 2024-01-25T13:50:50.0Z - endTimestamp (string) -- An ISO-formatted string with an applicable timezone, such as 2024-01-27T13:50:50.0Z ",
                  "item": [
                             {
-                                "name": "listBloodGlucoseReadings",
+                                "name": "List Blood Glucose Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -473,7 +473,7 @@
                         },
 	                        {
     "name": "/api/v3/blood-glucose-reading",
-                "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodGlucoseReadingRequest Model](/resources/models#schema_BloodGlucoseReadingRequest).",
+                "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. ",
                  "item": [
                             {
                                 "name": "device",
@@ -517,7 +517,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodGlucoseReadingRequest Model](/resources/models#schema_BloodGlucoseReadingRequest)."
+                                    "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -562,7 +562,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodGlucoseReadingRequest Model](/resources/models#schema_BloodGlucoseReadingRequest)."
+                                    "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -607,7 +607,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodGlucoseReadingRequest Model](/resources/models#schema_BloodGlucoseReadingRequest)."
+                                    "description": "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             }
                             ]
@@ -617,7 +617,7 @@
                 "description": "This endpoint returns a specific blood glucose reading based on the reading identifier provided in the path. ",
                  "item": [
                             {
-                                "name": "fetchBloodGlucoseReading",
+                                "name": "Fetch Blood Glucose Reading",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -668,7 +668,7 @@
                 "description": "Exports blood glucose readings for a specified patient within a given date range as either an Excel spreadsheet or a CSV file. This endpoint allows clients to specify a patient ID, and optional start and end dates to filter the readings by date. If no patient ID is provided, readings for all patients may be exported depending on the implementation. The 'excel' parameter determines the format of the export: if true, the data is returned in Excel format; otherwise, it is returned as CSV. The response is directly streamed to the client as either 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' for Excel or 'text/csv' for CSV format. ",
                  "item": [
                             {
-                                "name": "exportBloodGlucoseReadings",
+                                "name": "Export Blood Glucose Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -743,7 +743,7 @@
                 "description": "Retrieves a paginated list of heart rate variability readings from the Impilo platform.",
                  "item": [
                             {
-                                "name": "listHeartRateVariabilityReadings",
+                                "name": "List Heart Rate Variability Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -821,7 +821,7 @@
                         },
 	                        {
     "name": "/api/v3/heart-rate-variability-reading",
-                "description": "Records a heart rate variability reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [HeartRateVariabilityReadingRequest Model](/resources/models#schema_HeartRateVariabilityReadingRequest).",
+                "description": "Records a heart rate variability reading based on the provided request. Either a device ID, device identifier, or patient ID is required.",
                  "item": [
                             {
                                 "name": "heartRateVariabilityReadingRequestExample",
@@ -865,7 +865,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a heart rate variability reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [HeartRateVariabilityReadingRequest Model](/resources/models#schema_HeartRateVariabilityReadingRequest)."
+                                    "description": "Records a heart rate variability reading based on the provided request. Either a device ID, device identifier, or patient ID is required."
                                 }
                             }
                             ]
@@ -875,7 +875,7 @@
                 "description": "Fetches a specific Impilo heart rate variability reading by its ID.",
                  "item": [
                             {
-                                "name": "fetchHeartRateVariabilityReading",
+                                "name": "Fetch Heart Rate Variability Reading",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -928,7 +928,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/order",
-                "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management). *** For more information see the [Order Model](/resources/models#schema_Order).",
+                "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management).",
                  "item": [
                             {
                                 "name": "existing-patient-order",
@@ -972,7 +972,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management). *** For more information see the [Order Model](/resources/models#schema_Order)."
+                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management)."
                                 }
                             },
                             {
@@ -1017,7 +1017,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management). *** For more information see the [Order Model](/resources/models#schema_Order)."
+                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management)."
                                 }
                             },
                             {
@@ -1062,7 +1062,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management). *** For more information see the [Order Model](/resources/models#schema_Order)."
+                                    "description": "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management)."
                                 }
                             }
                             ]
@@ -1072,7 +1072,7 @@
                 "description": "",
                  "item": [
                             {
-                                "name": "listOrders",
+                                "name": "List Orders",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -1141,7 +1141,7 @@
                 "description": "",
                  "item": [
                             {
-                                "name": "fetchOrder",
+                                "name": "Fetch Order",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -1192,7 +1192,7 @@
                 "description": "",
                  "item": [
                             {
-                                "name": "voidOrder",
+                                "name": "Void Order",
                                 "request": {
                                     "method": "DELETE",
                                     "header": [
@@ -1237,7 +1237,7 @@
                 "description": "Returns a PDF document summarizing the order details for the given order ID.",
                  "item": [
                             {
-                                "name": "createOrderSummary",
+                                "name": "Create Order Summary",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -1294,7 +1294,7 @@
                 "description": "Retrieves a paginated list of blood pressure readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
                  "item": [
                             {
-                                "name": "listBloodPressureReadings",
+                                "name": "List Blood Pressure Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -1372,7 +1372,7 @@
                         },
 	                        {
     "name": "/api/v3/blood-pressure-reading",
-                "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodPressureReadingRequest Model](/resources/models#schema_BloodPressureReadingRequest).",
+                "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. ",
                  "item": [
                             {
                                 "name": "device",
@@ -1416,7 +1416,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodPressureReadingRequest Model](/resources/models#schema_BloodPressureReadingRequest)."
+                                    "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -1461,7 +1461,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodPressureReadingRequest Model](/resources/models#schema_BloodPressureReadingRequest)."
+                                    "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -1506,7 +1506,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodPressureReadingRequest Model](/resources/models#schema_BloodPressureReadingRequest)."
+                                    "description": "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             }
                             ]
@@ -1516,7 +1516,7 @@
                 "description": "Fetches a specific Impilo blood pressure reading by its ID.",
                  "item": [
                             {
-                                "name": "fetchBloodPressureReading",
+                                "name": "Fetch Blood Pressure Reading",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -1567,7 +1567,7 @@
                 "description": "Provides an export of blood pressure readings for a specified patient over a selected date range, available in either Excel or CSV format. Users can specify a patient ID to retrieve data for a particular individual, or leave the parameter empty to potentially export data for all patients, depending on service implementation. Optional start and end date parameters allow for filtering the data by the desired timeframe. The 'excel' flag determines the format of the output; when true, the data is exported in Excel format, otherwise, it is provided as a CSV file. The response consists of a direct stream of the chosen data format to the client. ",
                  "item": [
                             {
-                                "name": "exportBloodPressureReadings",
+                                "name": "Export Blood Pressure Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -1642,7 +1642,7 @@
                 "description": "Returns a paginated list of all devices associated with the customer.",
                  "item": [
                             {
-                                "name": "listDevices",
+                                "name": "List Devices",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -1825,7 +1825,7 @@
                 "description": "This endpoint returns the Device specified by ID in the URL path. ",
                  "item": [
                             {
-                                "name": "fetchDevice",
+                                "name": "Fetch Device",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -1873,7 +1873,7 @@
                         },
 	                        {
     "name": "/api/v3/device/associate-patient",
-                "description": "This endpoint associates the device to the patient provided in the request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a current status of \"availableAtSite\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).",
+                "description": "This endpoint associates the device to the patient provided in the request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a current status of \"availableAtSite\" ",
                  "item": [
                             {
                                 "name": "associateDeviceRequest",
@@ -1912,17 +1912,17 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint associates the device to the patient provided in the request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a current status of \"availableAtSite\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest)."
+                                    "description": "This endpoint associates the device to the patient provided in the request body.  In order to associate a device with a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must be associated with a non-Impilo site - The Device must have a current status of \"availableAtSite\" "
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/device/disable-readings",
-                "description": "This endpoint disables readings for the device provided in the request body. Readings received while in this status will not be processed or saved. No alerts or webhooks will be triggered for these readings.  In order to disable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be false *** For more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest).",
+                "description": "This endpoint disables readings for the device provided in the request body. Readings received while in this status will not be processed or saved. No alerts or webhooks will be triggered for these readings.  In order to disable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be false ",
                  "item": [
                             {
-                                "name": "disableReadings",
+                                "name": "Disable Readings",
                                 "request": {
                                     "method": "PATCH",
                                     "header": [
@@ -1958,14 +1958,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint disables readings for the device provided in the request body. Readings received while in this status will not be processed or saved. No alerts or webhooks will be triggered for these readings.  In order to disable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be false *** For more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest)."
+                                    "description": "This endpoint disables readings for the device provided in the request body. Readings received while in this status will not be processed or saved. No alerts or webhooks will be triggered for these readings.  In order to disable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be false "
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/device/disassociate-patient",
-                "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a current status of \"withPatient\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).",
+                "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a current status of \"withPatient\" ",
                  "item": [
                             {
                                 "name": "disassociateDeviceRequestExample",
@@ -2004,17 +2004,17 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a current status of \"withPatient\" *** For more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest)."
+                                    "description": "This endpoint disassociates the device from the patient provided in the Request body.  In order to disassociate a device from a patient, all of the following must apply: - The Patient must be associated with the Customer making the request - The Device must be owned by the Customer making the request - The Device must already be associated with the provided Patient - The Device must be associated with a non-Impilo site - The Device must have a current status of \"withPatient\" "
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/device/enable-readings",
-                "description": "This endpoint re-enables readings for the device provided in the request body.  In order to re-enable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be true *** For more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest).",
+                "description": "This endpoint re-enables readings for the device provided in the request body.  In order to re-enable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be true ",
                  "item": [
                             {
-                                "name": "enableReadings",
+                                "name": "Enable Readings",
                                 "request": {
                                     "method": "PATCH",
                                     "header": [
@@ -2050,7 +2050,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint re-enables readings for the device provided in the request body.  In order to re-enable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be true *** For more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest)."
+                                    "description": "This endpoint re-enables readings for the device provided in the request body.  In order to re-enable readings for a device, all of the following must apply: - The Device must be owned by the Customer making the request - The Device's \"disabledReadings\" field must be true "
                                 }
                             }
                             ]
@@ -2060,7 +2060,7 @@
                 "description": "This endpoint validates that a Device Identifier exists and returns the Device upon matching. On failure, it indicates that the Identifier is not valid. ",
                  "item": [
                             {
-                                "name": "validateDevice",
+                                "name": "Validate Device",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -2114,7 +2114,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/alerts/configuration/global",
-                "description": "This endpoint updates your global Alert Configuration for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object. *** For more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration).",
+                "description": "This endpoint updates your global Alert Configuration for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object. ",
                  "item": [
                             {
                                 "name": "AlertConfigurationExample",
@@ -2154,7 +2154,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint updates your global Alert Configuration for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object. *** For more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration)."
+                                    "description": "This endpoint updates your global Alert Configuration for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object. "
                                 }
                             }
                             ]
@@ -2164,7 +2164,7 @@
                 "description": "This endpoint fetches your global Alert Configuration for the type provided in url. ",
                  "item": [
                             {
-                                "name": "getGlobalAlertConfig",
+                                "name": "Get Global Alert Config",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -2214,7 +2214,7 @@
                         },
 	                        {
     "name": "/api/v3/alerts/configuration/patient/:patientId",
-                "description": "This endpoint updates your patient specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the patientId specified in the URL. *** For more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration).",
+                "description": "This endpoint updates your patient specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the patientId specified in the URL. ",
                  "item": [
                             {
                                 "name": "AlertConfigurationExample",
@@ -2260,7 +2260,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint updates your patient specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the patientId specified in the URL. *** For more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration)."
+                                    "description": "This endpoint updates your patient specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the patientId specified in the URL. "
                                 }
                             }
                             ]
@@ -2270,7 +2270,7 @@
                 "description": "This endpoint fetches your patient specific Alert Configuration for the patientId and type provided in url. ",
                  "item": [
                             {
-                                "name": "getPatientAlertConfig",
+                                "name": "Get Patient Alert Config",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -2326,7 +2326,7 @@
                         },
 	                        {
     "name": "/api/v3/alerts/configuration/site/:siteId",
-                "description": "This endpoint updates your site specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the siteId specified in the URL. *** For more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration).",
+                "description": "This endpoint updates your site specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the siteId specified in the URL. ",
                  "item": [
                             {
                                 "name": "AlertConfigurationExample",
@@ -2372,7 +2372,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint updates your site specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the siteId specified in the URL. *** For more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration)."
+                                    "description": "This endpoint updates your site specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the siteId specified in the URL. "
                                 }
                             }
                             ]
@@ -2382,7 +2382,7 @@
                 "description": "This endpoint fetches your site specific Alert Configuration for the siteId and type provided in url. ",
                  "item": [
                             {
-                                "name": "getSiteAlertConfig",
+                                "name": "Get Site Alert Config",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -2443,7 +2443,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/test/blood-glucose-webhook",
-                "description": "Trigger a test blood glucose webhook *** For more information see the [TestBloodGlucoseWebhookRequest Model](/resources/models#schema_TestBloodGlucoseWebhookRequest).",
+                "description": "Trigger a test blood glucose webhook",
                  "item": [
                             {
                                 "name": "createTestBloodGlucoseWebhookRequestExample",
@@ -2482,14 +2482,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Trigger a test blood glucose webhook *** For more information see the [TestBloodGlucoseWebhookRequest Model](/resources/models#schema_TestBloodGlucoseWebhookRequest)."
+                                    "description": "Trigger a test blood glucose webhook"
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/test/blood-oxygen-webhook",
-                "description": "Trigger a test blood oxygen webhook *** For more information see the [TestBloodOxygenWebhookRequest Model](/resources/models#schema_TestBloodOxygenWebhookRequest).",
+                "description": "Trigger a test blood oxygen webhook",
                  "item": [
                             {
                                 "name": "createTestBloodOxygenWebhookRequestExample",
@@ -2528,14 +2528,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Trigger a test blood oxygen webhook *** For more information see the [TestBloodOxygenWebhookRequest Model](/resources/models#schema_TestBloodOxygenWebhookRequest)."
+                                    "description": "Trigger a test blood oxygen webhook"
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/test/blood-pressure-webhook",
-                "description": "Trigger a test blood pressure webhook *** For more information see the [TestBloodPressureWebhookRequest Model](/resources/models#schema_TestBloodPressureWebhookRequest).",
+                "description": "Trigger a test blood pressure webhook",
                  "item": [
                             {
                                 "name": "createTestBloodPressureWebhookRequestExample",
@@ -2574,14 +2574,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Trigger a test blood pressure webhook *** For more information see the [TestBloodPressureWebhookRequest Model](/resources/models#schema_TestBloodPressureWebhookRequest)."
+                                    "description": "Trigger a test blood pressure webhook"
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/test/device-association-created",
-                "description": "Trigger a test device association created webhook *** For more information see the [TestDeviceAssociationWebhook Model](/resources/models#schema_TestDeviceAssociationWebhook).",
+                "description": "Trigger a test device association created webhook",
                  "item": [
                             {
                                 "name": "createTestDeviceAssociationWebhookExample",
@@ -2620,14 +2620,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Trigger a test device association created webhook *** For more information see the [TestDeviceAssociationWebhook Model](/resources/models#schema_TestDeviceAssociationWebhook)."
+                                    "description": "Trigger a test device association created webhook"
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/test/device-association-removed",
-                "description": "Trigger a test device association removed webhook *** For more information see the [TestDeviceAssociationWebhook Model](/resources/models#schema_TestDeviceAssociationWebhook).",
+                "description": "Trigger a test device association removed webhook",
                  "item": [
                             {
                                 "name": "createTestDeviceAssociationWebhookExample",
@@ -2666,14 +2666,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Trigger a test device association removed webhook *** For more information see the [TestDeviceAssociationWebhook Model](/resources/models#schema_TestDeviceAssociationWebhook)."
+                                    "description": "Trigger a test device association removed webhook"
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/test/order-status-full-webhook",
-                "description": "Trigger a test order status full webhook *** For more information see the [TestOrderStatusFullWebhook Model](/resources/models#schema_TestOrderStatusFullWebhook).",
+                "description": "Trigger a test order status full webhook",
                  "item": [
                             {
                                 "name": "createTestOrderStatusFullWebhookExample",
@@ -2712,14 +2712,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Trigger a test order status full webhook *** For more information see the [TestOrderStatusFullWebhook Model](/resources/models#schema_TestOrderStatusFullWebhook)."
+                                    "description": "Trigger a test order status full webhook"
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/test/order-status-webhook",
-                "description": "Send a test order status webhook *** For more information see the [TestOrderStatusWebhookRequest Model](/resources/models#schema_TestOrderStatusWebhookRequest).",
+                "description": "Send a test order status webhook",
                  "item": [
                             {
                                 "name": "createTestOrderStatusWebhookRequestExample",
@@ -2758,14 +2758,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Send a test order status webhook *** For more information see the [TestOrderStatusWebhookRequest Model](/resources/models#schema_TestOrderStatusWebhookRequest)."
+                                    "description": "Send a test order status webhook"
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/test/weight-webhook",
-                "description": "Trigger a test weight webhook *** For more information see the [TestWeightWebhookRequest Model](/resources/models#schema_TestWeightWebhookRequest).",
+                "description": "Trigger a test weight webhook",
                  "item": [
                             {
                                 "name": "createTestWeightWebhookRequestExample",
@@ -2804,7 +2804,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Trigger a test weight webhook *** For more information see the [TestWeightWebhookRequest Model](/resources/models#schema_TestWeightWebhookRequest)."
+                                    "description": "Trigger a test weight webhook"
                                 }
                             }
                             ]
@@ -2816,7 +2816,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/return",
-                "description": "Creates a Return Merchandise Authorization (RMA). *** For more information see the [CreateReturn Model](/resources/models#schema_CreateReturn).",
+                "description": "Creates a Return Merchandise Authorization (RMA). ",
                  "item": [
                             {
                                 "name": "create-return",
@@ -2860,7 +2860,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a Return Merchandise Authorization (RMA). *** For more information see the [CreateReturn Model](/resources/models#schema_CreateReturn)."
+                                    "description": "Creates a Return Merchandise Authorization (RMA). "
                                 }
                             }
                             ]
@@ -2870,7 +2870,7 @@
                 "description": "Retrieves a paginated list of Return Merchandise Authorizations (RMAs) with various filtering options including pagination, sorting, and specific attributes such as status, last updated before, and standalone. ",
                  "item": [
                             {
-                                "name": "listReturns",
+                                "name": "List Returns",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -2957,7 +2957,7 @@
                 "description": "Retrieves a Return Merchandise Authorization from the Impilo platform by the ID provided in the path.",
                  "item": [
                             {
-                                "name": "fetchReturn",
+                                "name": "Fetch Return",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -3008,7 +3008,7 @@
                 "description": "Voids a Return Merchandise Authorization from the Impilo platform by the ID provided in the path.",
                  "item": [
                             {
-                                "name": "voidReturn",
+                                "name": "Void Return",
                                 "request": {
                                     "method": "DELETE",
                                     "header": [
@@ -3058,7 +3058,7 @@
                 "description": "Retrieves a paginated list of weight readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
                  "item": [
                             {
-                                "name": "listWeightReadings",
+                                "name": "List Weight Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -3136,7 +3136,7 @@
                         },
 	                        {
     "name": "/api/v3/weight-reading",
-                "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [WeightReadingRequest Model](/resources/models#schema_WeightReadingRequest).",
+                "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. ",
                  "item": [
                             {
                                 "name": "device",
@@ -3180,7 +3180,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [WeightReadingRequest Model](/resources/models#schema_WeightReadingRequest)."
+                                    "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -3225,7 +3225,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [WeightReadingRequest Model](/resources/models#schema_WeightReadingRequest)."
+                                    "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -3270,7 +3270,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [WeightReadingRequest Model](/resources/models#schema_WeightReadingRequest)."
+                                    "description": "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             }
                             ]
@@ -3280,7 +3280,7 @@
                 "description": "Fetches a specific Impilo weight reading by its ID.",
                  "item": [
                             {
-                                "name": "fetchWeightReading",
+                                "name": "Fetch Weight Reading",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -3331,7 +3331,7 @@
                 "description": "Exports weight readings for a specified patient over a selected date range, available in either Excel or CSV format. This endpoint allows the specification of a patient ID, enabling the retrieval of weight data for an individual patient. Alternatively, if no patient ID is provided, it may export readings for all patients, dependent on the implementation details of the service. Users can also specify start and end dates to filter the export to a specific timeframe. The 'excel' parameter dictates the format of the output; if set to true, the readings are exported in Excel format, otherwise in CSV format ",
                  "item": [
                             {
-                                "name": "exportWeightReadings",
+                                "name": "Export Weight Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -3403,7 +3403,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/item",
-                "description": "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.  Items created via this endpoint will: - receive a generated SKU and ID - have a Manufacturer set to the requesting Customer - be set to an Orderable status of FALSE  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system while the orderable parameter is false. *** For more information see the [ItemRequest Model](/resources/models#schema_ItemRequest).",
+                "description": "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.  Items created via this endpoint will: - receive a generated SKU and ID - have a Manufacturer set to the requesting Customer - be set to an Orderable status of FALSE  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system while the orderable parameter is false. ",
                  "item": [
                             {
                                 "name": "without-identifier",
@@ -3447,7 +3447,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.  Items created via this endpoint will: - receive a generated SKU and ID - have a Manufacturer set to the requesting Customer - be set to an Orderable status of FALSE  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system while the orderable parameter is false. *** For more information see the [ItemRequest Model](/resources/models#schema_ItemRequest)."
+                                    "description": "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.  Items created via this endpoint will: - receive a generated SKU and ID - have a Manufacturer set to the requesting Customer - be set to an Orderable status of FALSE  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system while the orderable parameter is false. "
                                 }
                             },
                             {
@@ -3492,7 +3492,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.  Items created via this endpoint will: - receive a generated SKU and ID - have a Manufacturer set to the requesting Customer - be set to an Orderable status of FALSE  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system while the orderable parameter is false. *** For more information see the [ItemRequest Model](/resources/models#schema_ItemRequest)."
+                                    "description": "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.  Items created via this endpoint will: - receive a generated SKU and ID - have a Manufacturer set to the requesting Customer - be set to an Orderable status of FALSE  Items created with this endpoint are not able to be ordered until approved manually by an Impilo Admin. Items can still be procured and received within Impilo's system while the orderable parameter is false. "
                                 }
                             }
                             ]
@@ -3502,7 +3502,7 @@
                 "description": "This endpoint returns a paginated list of all items in a customer's catalog with various filtering options including pagination, sorting, and specific attributes such as IDs, names, models, SKUs, sizes, classes, reading types, and manufacturer IDs. ",
                  "item": [
                             {
-                                "name": "listItems",
+                                "name": "List Items",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -3619,7 +3619,7 @@
                 "description": "This endpoint returns the Item specified by ID in the URL path. ",
                  "item": [
                             {
-                                "name": "fetchItem",
+                                "name": "Fetch Item",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -3675,7 +3675,7 @@
                 "description": "This endpoint returns a paginated list of all kits belonging to a customer.  You can filter by the following parameters as query params: - page (integer) -- The page number of the content returned. - size (integer) -- The size of the page of content returned. - itemId (long) -- Shows only kits that contain the specified Item ID. - archived (bool) -- Shows kits that are/aren't archived, based on provided boolean value. ",
                  "item": [
                             {
-                                "name": "listKits",
+                                "name": "List Kits",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -3744,7 +3744,7 @@
                 "description": "This endpoint returns the Kit specified by ID in the URL path. ",
                  "item": [
                             {
-                                "name": "fetchKit",
+                                "name": "Fetch Kit",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -3800,7 +3800,7 @@
                 "description": "Lists clinical notes with various filtering options including pagination, sorting, and specific attributes such as IDs, types, assignee details, creator details, patient details, and more. This endpoint supports comprehensive filtering to retrieve relevant clinical notes based on the provided criteria. ",
                  "item": [
                             {
-                                "name": "listClinicalNotes",
+                                "name": "List Clinical Notes",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -3965,7 +3965,7 @@
                 "description": "Fetches details of a specific clinical note by its unique ID.",
                  "item": [
                             {
-                                "name": "fetchClinicalNote",
+                                "name": "Fetch Clinical Note",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -4021,7 +4021,7 @@
                 "description": "This endpoint returns a paginated list of all manufacturers in a customer's catalog.  You can filter by the following parameters as query params: - page (integer) -- The page number of the content returned. - size (integer) -- The size of the page of content returned. ",
                  "item": [
                             {
-                                "name": "listManufacturers",
+                                "name": "List Manufacturers",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -4078,7 +4078,7 @@
                 "description": "This endpoint returns the Manufacturer specified by ID in the URL path. ",
                  "item": [
                             {
-                                "name": "fetchManufacturer",
+                                "name": "Fetch Manufacturer",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -4134,7 +4134,7 @@
                 "description": "Retrieves a paginated list of temperature readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
                  "item": [
                             {
-                                "name": "listTemperatureReadings",
+                                "name": "List Temperature Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -4212,7 +4212,7 @@
                         },
 	                        {
     "name": "/api/v3/temperature-reading",
-                "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [TemperatureReadingRequest Model](/resources/models#schema_TemperatureReadingRequest).",
+                "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. ",
                  "item": [
                             {
                                 "name": "device",
@@ -4256,7 +4256,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [TemperatureReadingRequest Model](/resources/models#schema_TemperatureReadingRequest)."
+                                    "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -4301,7 +4301,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [TemperatureReadingRequest Model](/resources/models#schema_TemperatureReadingRequest)."
+                                    "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -4346,7 +4346,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [TemperatureReadingRequest Model](/resources/models#schema_TemperatureReadingRequest)."
+                                    "description": "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             }
                             ]
@@ -4356,7 +4356,7 @@
                 "description": "Fetches a specific Impilo temperature reading by its ID.",
                  "item": [
                             {
-                                "name": "fetchTemperatureReading",
+                                "name": "Fetch Temperature Reading",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -4407,7 +4407,7 @@
                 "description": "Facilitates the export of temperature readings for a specified patient within a chosen date range, in either Excel or CSV format. This endpoint allows the selection of a patient ID for targeted data retrieval, or can provide readings for all patients if no specific ID is provided, subject to service implementation. The start and end dates are optional and can be used to filter the readings to a specific period. The 'excel' parameter decides the output format: setting this to true returns the data in Excel format, while false yields CSV format. The endpoint streams the output directly to the client in the specified format. ",
                  "item": [
                             {
-                                "name": "exportTemperatureReadings",
+                                "name": "Export Temperature Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -4482,7 +4482,7 @@
                 "description": "Retrieves a paginated list of peak flow readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
                  "item": [
                             {
-                                "name": "listPeakFlowReadings",
+                                "name": "List Peak Flow Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -4560,7 +4560,7 @@
                         },
 	                        {
     "name": "/api/v3/peak-flow-reading",
-                "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [PeakFlowReadingRequest Model](/resources/models#schema_PeakFlowReadingRequest).",
+                "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. ",
                  "item": [
                             {
                                 "name": "device",
@@ -4604,7 +4604,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [PeakFlowReadingRequest Model](/resources/models#schema_PeakFlowReadingRequest)."
+                                    "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -4649,7 +4649,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [PeakFlowReadingRequest Model](/resources/models#schema_PeakFlowReadingRequest)."
+                                    "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -4694,7 +4694,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [PeakFlowReadingRequest Model](/resources/models#schema_PeakFlowReadingRequest)."
+                                    "description": "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             }
                             ]
@@ -4704,7 +4704,7 @@
                 "description": "Fetches a specific Impilo peak flow reading by its ID.",
                  "item": [
                             {
-                                "name": "fetchPeakFlowReading",
+                                "name": "Fetch Peak Flow Reading",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -4760,7 +4760,7 @@
                 "description": "Retrieves a paginated list of blood oxygen readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp. ",
                  "item": [
                             {
-                                "name": "listBloodOxygenReadings",
+                                "name": "List Blood Oxygen Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -4838,7 +4838,7 @@
                         },
 	                        {
     "name": "/api/v3/blood-oxygen-reading",
-                "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodOxygenReadingRequest Model](/resources/models#schema_BloodOxygenReadingRequest).",
+                "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. ",
                  "item": [
                             {
                                 "name": "device",
@@ -4882,7 +4882,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodOxygenReadingRequest Model](/resources/models#schema_BloodOxygenReadingRequest)."
+                                    "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -4927,7 +4927,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodOxygenReadingRequest Model](/resources/models#schema_BloodOxygenReadingRequest)."
+                                    "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -4972,7 +4972,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [BloodOxygenReadingRequest Model](/resources/models#schema_BloodOxygenReadingRequest)."
+                                    "description": "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             }
                             ]
@@ -4982,7 +4982,7 @@
                 "description": "Fetches a specific Impilo blood oxygen reading by its ID. ",
                  "item": [
                             {
-                                "name": "fetchBloodOxygenReading",
+                                "name": "Fetch Blood Oxygen Reading",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -5033,7 +5033,7 @@
                 "description": "Exports blood oxygen readings for a specified patient within a given date range as either an Excel spreadsheet or a CSV file. This endpoint facilitates the retrieval of blood oxygen data by allowing the specification of a patient ID and optional start and end dates to narrow down the readings. If no patient ID is specified, the service may return readings for all patients, contingent on the service's implementation details. The 'excel' parameter controls the output format: if set to true, the data is delivered in Excel format; if false, it is delivered in CSV format. The data is streamed directly to the client and can be consumed in the specified format. ",
                  "item": [
                             {
-                                "name": "exportBloodOxygenReadings",
+                                "name": "Export Blood Oxygen Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -5105,7 +5105,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/patient",
-                "description": "Creates a new patient record with the provided details. *** For more information see the [Patient Model](/resources/models#schema_Patient).",
+                "description": "Creates a new patient record with the provided details.",
                  "item": [
                             {
                                 "name": "create-patient",
@@ -5149,7 +5149,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a new patient record with the provided details. *** For more information see the [Patient Model](/resources/models#schema_Patient)."
+                                    "description": "Creates a new patient record with the provided details."
                                 }
                             }
                             ]
@@ -5159,7 +5159,7 @@
                 "description": "Retrieves a paginated list of patients. Optional parameters allow specifying the page number and page size.",
                  "item": [
                             {
-                                "name": "listPatients",
+                                "name": "List Patients",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -5294,7 +5294,7 @@
                 "description": "Fetches details of a specific patient by their unique ID.",
                  "item": [
                             {
-                                "name": "fetchPatient",
+                                "name": "Fetch Patient",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -5342,7 +5342,7 @@
                         },
 	                        {
     "name": "/api/v3/patient/:patientId",
-                "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body. *** For more information see the [Patient Model](/resources/models#schema_Patient).",
+                "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body.",
                  "item": [
                             {
                                 "name": "update-patient-email",
@@ -5392,7 +5392,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body. *** For more information see the [Patient Model](/resources/models#schema_Patient)."
+                                    "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body."
                                 }
                             },
                             {
@@ -5443,17 +5443,17 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body. *** For more information see the [Patient Model](/resources/models#schema_Patient)."
+                                    "description": "Applies a partial update to a patient's record, modifying only the fields provided in the request body."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/patient/:patientId",
-                "description": "Updates an existing patient record with new details provided in the request body. *** For more information see the [Patient Model](/resources/models#schema_Patient).",
+                "description": "Updates an existing patient record with new details provided in the request body.",
                  "item": [
                             {
-                                "name": "updatePatient",
+                                "name": "Update Patient",
                                 "request": {
                                     "method": "PUT",
                                     "header": [
@@ -5500,14 +5500,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Updates an existing patient record with new details provided in the request body. *** For more information see the [Patient Model](/resources/models#schema_Patient)."
+                                    "description": "Updates an existing patient record with new details provided in the request body."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/patient/disenroll/:patientId",
-                "description": "Disenrolls a Patient from the Impilo platform. Depending on what values are provided, will generate a return for all devices associated with that Patient and/or archive the Patient. *** For more information see the [DisenrollPatientRequest Model](/resources/models#schema_DisenrollPatientRequest).",
+                "description": "Disenrolls a Patient from the Impilo platform. Depending on what values are provided, will generate a return for all devices associated with that Patient and/or archive the Patient.",
                  "item": [
                             {
                                 "name": "disenroll-patient",
@@ -5552,7 +5552,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Disenrolls a Patient from the Impilo platform. Depending on what values are provided, will generate a return for all devices associated with that Patient and/or archive the Patient. *** For more information see the [DisenrollPatientRequest Model](/resources/models#schema_DisenrollPatientRequest)."
+                                    "description": "Disenrolls a Patient from the Impilo platform. Depending on what values are provided, will generate a return for all devices associated with that Patient and/or archive the Patient."
                                 }
                             }
                             ]
@@ -5614,7 +5614,7 @@
                 "description": "Fetches details of a specific patient by their external identifier. Returns at most 1 entry.",
                  "item": [
                             {
-                                "name": "fetchPatientByIdentifier",
+                                "name": "Fetch Patient By Identifier",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -5668,7 +5668,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/site",
-                "description": "Creates a new site with the provided details.  Returns the site. *** For more information see the [Site Model](/resources/models#schema_Site).",
+                "description": "Creates a new site with the provided details.  Returns the site. ",
                  "item": [
                             {
                                 "name": "create-site",
@@ -5712,7 +5712,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a new site with the provided details.  Returns the site. *** For more information see the [Site Model](/resources/models#schema_Site)."
+                                    "description": "Creates a new site with the provided details.  Returns the site. "
                                 }
                             }
                             ]
@@ -5722,7 +5722,7 @@
                 "description": "Returns a paginated list of your sites.  Optional query parameters:     - page (integer) -- The page number of the sites returned.     - size (integer) -- The number of sites returned per page. ",
                  "item": [
                             {
-                                "name": "listSites",
+                                "name": "List Sites",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -5779,7 +5779,7 @@
                 "description": "Returns the site specified by the ID in the URL path.",
                  "item": [
                             {
-                                "name": "fetchSite",
+                                "name": "Fetch Site",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -5827,7 +5827,7 @@
                         },
 	                        {
     "name": "/api/v3/site/:siteId",
-                "description": "Partially update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site).",
+                "description": "Partially update the site specified by the ID in the URL path with a new site object.",
                  "item": [
                             {
                                 "name": "patch-site",
@@ -5877,14 +5877,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Partially update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site)."
+                                    "description": "Partially update the site specified by the ID in the URL path with a new site object."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/site/:siteId",
-                "description": "Update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site).",
+                "description": "Update the site specified by the ID in the URL path with a new site object.",
                  "item": [
                             {
                                 "name": "update-site",
@@ -5928,7 +5928,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Update the site specified by the ID in the URL path with a new site object. *** For more information see the [Site Model](/resources/models#schema_Site)."
+                                    "description": "Update the site specified by the ID in the URL path with a new site object."
                                 }
                             }
                             ]
@@ -5943,7 +5943,7 @@
                 "description": "Retrieves a paginated list of heart rate readings from the Impilo platform.",
                  "item": [
                             {
-                                "name": "listHeartRateReadings",
+                                "name": "List Heart Rate Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -6021,7 +6021,7 @@
                         },
 	                        {
     "name": "/api/v3/heart-rate-reading",
-                "description": "Records a heart rate reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [HeartRateReadingRequest Model](/resources/models#schema_HeartRateReadingRequest).",
+                "description": "Records a heart rate reading based on the provided request. Either a device ID, device identifier, or patient ID is required.",
                  "item": [
                             {
                                 "name": "heartRateReadingRequestExample",
@@ -6065,7 +6065,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a heart rate reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [HeartRateReadingRequest Model](/resources/models#schema_HeartRateReadingRequest)."
+                                    "description": "Records a heart rate reading based on the provided request. Either a device ID, device identifier, or patient ID is required."
                                 }
                             }
                             ]
@@ -6075,7 +6075,7 @@
                 "description": "Fetches a specific Impilo heart rate reading by its ID.",
                  "item": [
                             {
-                                "name": "fetchHeartRateReading",
+                                "name": "Fetch Heart Rate Reading",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -6131,7 +6131,7 @@
                 "description": "Retrieves a paginated list of sleep mat duration readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
                  "item": [
                             {
-                                "name": "listSleepMatDurationReadings",
+                                "name": "List Sleep Mat Duration Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -6209,7 +6209,7 @@
                         },
 	                        {
     "name": "/api/v3/sleep-mat-duration-reading",
-                "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatDurationReadingRequest Model](/resources/models#schema_SleepMatDurationReadingRequest).",
+                "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. ",
                  "item": [
                             {
                                 "name": "device",
@@ -6253,7 +6253,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatDurationReadingRequest Model](/resources/models#schema_SleepMatDurationReadingRequest)."
+                                    "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -6298,7 +6298,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatDurationReadingRequest Model](/resources/models#schema_SleepMatDurationReadingRequest)."
+                                    "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -6343,7 +6343,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatDurationReadingRequest Model](/resources/models#schema_SleepMatDurationReadingRequest)."
+                                    "description": "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             }
                             ]
@@ -6353,7 +6353,7 @@
                 "description": "Fetches a specific sleep mat duration reading by its ID.",
                  "item": [
                             {
-                                "name": "fetchSleepMatDurationReading",
+                                "name": "Fetch Sleep Mat Duration Reading",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -6406,7 +6406,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/transfer/transfer-request",
-                "description": "Creates a Transfer Request, which consists of Items and Quantities to transfer from a Customer account to one of it's sub-Customer accounts.  To submit a transfer request, the Target Customer must be a sub-Customer account of the requestor and the body must consist of at least one TransferItem object with a quantity greater than 0.  The only requirement for the TransferItem's item parameter is a JSON object that includes an ID of the Item requested. *** For more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest).",
+                "description": "Creates a Transfer Request, which consists of Items and Quantities to transfer from a Customer account to one of it's sub-Customer accounts.  To submit a transfer request, the Target Customer must be a sub-Customer account of the requestor and the body must consist of at least one TransferItem object with a quantity greater than 0.  You can only request up to 500 items be transferred at a time. If you need to transfer more, multiple Transfer Request submissions are required.  The only requirement for the TransferItem's item parameter is a JSON object that includes an ID of the Item requested. ",
                  "item": [
                             {
                                 "name": "createItemTransferRequestExample",
@@ -6451,7 +6451,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a Transfer Request, which consists of Items and Quantities to transfer from a Customer account to one of it's sub-Customer accounts.  To submit a transfer request, the Target Customer must be a sub-Customer account of the requestor and the body must consist of at least one TransferItem object with a quantity greater than 0.  The only requirement for the TransferItem's item parameter is a JSON object that includes an ID of the Item requested. *** For more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest)."
+                                    "description": "Creates a Transfer Request, which consists of Items and Quantities to transfer from a Customer account to one of it's sub-Customer accounts.  To submit a transfer request, the Target Customer must be a sub-Customer account of the requestor and the body must consist of at least one TransferItem object with a quantity greater than 0.  You can only request up to 500 items be transferred at a time. If you need to transfer more, multiple Transfer Request submissions are required.  The only requirement for the TransferItem's item parameter is a JSON object that includes an ID of the Item requested. "
                                 }
                             }
                             ]
@@ -6461,7 +6461,7 @@
                 "description": "Retrieves a paginated list of Transfer Requests from the Impilo platform.",
                  "item": [
                             {
-                                "name": "listTransferRequests",
+                                "name": "List Transfer Requests",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -6519,7 +6519,7 @@
                 "description": "Fetches a Transfer Request by ID from the Impilo platform.",
                  "item": [
                             {
-                                "name": "fetchTransferRequest",
+                                "name": "Fetch Transfer Request",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -6573,7 +6573,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/webhook",
-                "description": "This endpoint creates a V3 webhook subscription of the type provided in the ***type*** attribute of the Webhook object. > Note: This endpoint will create a V3 webhook -- you cannot view V3 webhooks from the V1 or V2 endpoints. *** For more information see the [Webhook Model](/resources/models#schema_Webhook).",
+                "description": "This endpoint creates a V3 webhook subscription of the type provided in the ***type*** attribute of the Webhook object. > Note: This endpoint will create a V3 webhook -- you cannot view V3 webhooks from the V1 or V2 endpoints. ",
                  "item": [
                             {
                                 "name": "WebhookRequestExample",
@@ -6617,7 +6617,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint creates a V3 webhook subscription of the type provided in the ***type*** attribute of the Webhook object. > Note: This endpoint will create a V3 webhook -- you cannot view V3 webhooks from the V1 or V2 endpoints. *** For more information see the [Webhook Model](/resources/models#schema_Webhook)."
+                                    "description": "This endpoint creates a V3 webhook subscription of the type provided in the ***type*** attribute of the Webhook object. > Note: This endpoint will create a V3 webhook -- you cannot view V3 webhooks from the V1 or V2 endpoints. "
                                 }
                             }
                             ]
@@ -6627,7 +6627,7 @@
                 "description": "This endpoint retrieves a paginated list of V3 webhooks that the associated Customer is subscribed to. ",
                  "item": [
                             {
-                                "name": "listWebhooks",
+                                "name": "List Webhooks",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -6681,10 +6681,10 @@
                         },
 	                        {
     "name": "/api/v3/webhook-secret",
-                "description": "Creates a Webhook Secret to use with the Impilo Platform with the provides `secret`. The secret will be passed along as a header with Webhooks sent from Impilo.  Returns an error if you already have a Webhook secret created. *** For more information see the [WebhookSecret Model](/resources/models#schema_WebhookSecret).",
+                "description": "Creates a Webhook Secret to use with the Impilo Platform with the provides `secret`. The secret will be passed along as a header with Webhooks sent from Impilo.  Returns an error if you already have a Webhook secret created. ",
                  "item": [
                             {
-                                "name": "createWebhookSecret",
+                                "name": "Create Webhook Secret",
                                 "request": {
                                     "method": "POST",
                                     "header": [
@@ -6725,7 +6725,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a Webhook Secret to use with the Impilo Platform with the provides `secret`. The secret will be passed along as a header with Webhooks sent from Impilo.  Returns an error if you already have a Webhook secret created. *** For more information see the [WebhookSecret Model](/resources/models#schema_WebhookSecret)."
+                                    "description": "Creates a Webhook Secret to use with the Impilo Platform with the provides `secret`. The secret will be passed along as a header with Webhooks sent from Impilo.  Returns an error if you already have a Webhook secret created. "
                                 }
                             }
                             ]
@@ -6735,7 +6735,7 @@
                 "description": "Deletes your Webhook secret if it exists.  Returns an error if you don't have a secret configured. ",
                  "item": [
                             {
-                                "name": "deleteWebhookSecret",
+                                "name": "Delete Webhook Secret",
                                 "request": {
                                     "method": "DELETE",
                                     "header": [
@@ -6774,7 +6774,7 @@
                 "description": "Gets your Webhook Secret if it exists. Otherwise returns an error. ",
                  "item": [
                             {
-                                "name": "fetchWebhookSecret",
+                                "name": "Fetch Webhook Secret",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -6816,10 +6816,10 @@
                         },
 	                        {
     "name": "/api/v3/webhook-secret",
-                "description": "Updates your Webhook Secret if it exists. Requires a `secret` parameter.  Returns an error if you don't have a secret configured. *** For more information see the [WebhookSecret Model](/resources/models#schema_WebhookSecret).",
+                "description": "Updates your Webhook Secret if it exists. Requires a `secret` parameter.  Returns an error if you don't have a secret configured. ",
                  "item": [
                             {
-                                "name": "updateWebhookSecret",
+                                "name": "Update Webhook Secret",
                                 "request": {
                                     "method": "PATCH",
                                     "header": [
@@ -6860,7 +6860,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Updates your Webhook Secret if it exists. Requires a `secret` parameter.  Returns an error if you don't have a secret configured. *** For more information see the [WebhookSecret Model](/resources/models#schema_WebhookSecret)."
+                                    "description": "Updates your Webhook Secret if it exists. Requires a `secret` parameter.  Returns an error if you don't have a secret configured. "
                                 }
                             }
                             ]
@@ -6870,7 +6870,7 @@
                 "description": "This endpoint deletes the specified Webhook from the customer's subscriptions. ",
                  "item": [
                             {
-                                "name": "deleteWebhook",
+                                "name": "Delete Webhook",
                                 "request": {
                                     "method": "DELETE",
                                     "header": [
@@ -6915,7 +6915,7 @@
                 "description": "This endpoint retrieves a particular Webhook of a customer by the ID provided in the path. ",
                  "item": [
                             {
-                                "name": "fetchWebhook",
+                                "name": "Fetch Webhook",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -6963,7 +6963,7 @@
                         },
 	                        {
     "name": "/api/v3/webhook/:webhookId",
-                "description": "This endpoint updates the specified Webhook with a new URL provided in the request body. > Note: The provided URL must be different than the existing URL of the webhook or a 400 response will be returned. *** For more information see the [Webhook Model](/resources/models#schema_Webhook).",
+                "description": "This endpoint updates the specified Webhook with a new URL provided in the request body. > Note: The provided URL must be different than the existing URL of the webhook or a 400 response will be returned. ",
                  "item": [
                             {
                                 "name": "updateWebhookRequestExample",
@@ -7013,7 +7013,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "This endpoint updates the specified Webhook with a new URL provided in the request body. > Note: The provided URL must be different than the existing URL of the webhook or a 400 response will be returned. *** For more information see the [Webhook Model](/resources/models#schema_Webhook)."
+                                    "description": "This endpoint updates the specified Webhook with a new URL provided in the request body. > Note: The provided URL must be different than the existing URL of the webhook or a 400 response will be returned. "
                                 }
                             }
                             ]
@@ -7023,7 +7023,7 @@
                 "description": "Retrieves a paginated list of webhook logs that record historical attempts to send webhook payloads to a customer's servers. This endpoint allows filtering logs based on webhook type, creation timestamp range, retry attempts range, last response status, last retry timestamp range, and pagination settings. It is useful for auditing and debugging purposes.",
                  "item": [
                             {
-                                "name": "listWebhookLogs",
+                                "name": "List Webhook Logs",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -7131,7 +7131,7 @@
 	            "item": [
 	                        {
     "name": "/api/v3/support-ticket",
-                "description": "Creates a new Support Ticket in the Impilo platform. *** For more information see the [SupportTicketRequest Model](/resources/models#schema_SupportTicketRequest).",
+                "description": "Creates a new Support Ticket in the Impilo platform.",
                  "item": [
                             {
                                 "name": "supportTicketRequestExample",
@@ -7175,7 +7175,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Creates a new Support Ticket in the Impilo platform. *** For more information see the [SupportTicketRequest Model](/resources/models#schema_SupportTicketRequest)."
+                                    "description": "Creates a new Support Ticket in the Impilo platform."
                                 }
                             }
                             ]
@@ -7185,7 +7185,7 @@
                 "description": "Retrieves a paginated list of support tickets from the Impilo platform.",
                  "item": [
                             {
-                                "name": "listSupportTickets",
+                                "name": "List Support Tickets",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -7284,7 +7284,7 @@
                 "description": "Retrieves a support ticket by the ID from the Impilo platform.",
                  "item": [
                             {
-                                "name": "fetchSupportTicketById",
+                                "name": "Fetch Support Ticket By Id",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -7332,7 +7332,7 @@
                         },
 	                        {
     "name": "/api/v3/support-ticket/:supportTicketId/assignee",
-                "description": "Updates the assignee on a Support Ticket with an ID provided in the path. You can only assign individuals within your organization via the API. *** For more information see the [SupportTicketAssigneeRequest Model](/resources/models#schema_SupportTicketAssigneeRequest).",
+                "description": "Updates the assignee on a Support Ticket with an ID provided in the path. You can only assign individuals within your organization via the API.",
                  "item": [
                             {
                                 "name": "supportTicketUpdateAssigneeExample",
@@ -7383,7 +7383,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Updates the assignee on a Support Ticket with an ID provided in the path. You can only assign individuals within your organization via the API. *** For more information see the [SupportTicketAssigneeRequest Model](/resources/models#schema_SupportTicketAssigneeRequest)."
+                                    "description": "Updates the assignee on a Support Ticket with an ID provided in the path. You can only assign individuals within your organization via the API."
                                 }
                             }
                             ]
@@ -7393,7 +7393,7 @@
                 "description": "Closes a Support Ticket with the ID provided in the path.",
                  "item": [
                             {
-                                "name": "closeSupportTicket",
+                                "name": "Close Support Ticket",
                                 "request": {
                                     "method": "POST",
                                     "header": [
@@ -7442,7 +7442,7 @@
                         },
 	                        {
     "name": "/api/v3/support-ticket/:supportTicketId/event",
-                "description": "Updates the status of a Support Ticket with an ID provided in the path. If a note is also provided, will also insert a note. *** For more information see the [SupportTicketEventRequest Model](/resources/models#schema_SupportTicketEventRequest).",
+                "description": "Updates the status of a Support Ticket with an ID provided in the path. If a note is also provided, will also insert a note.",
                  "item": [
                             {
                                 "name": "supportTicketUpdateStatusExample",
@@ -7493,14 +7493,14 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Updates the status of a Support Ticket with an ID provided in the path. If a note is also provided, will also insert a note. *** For more information see the [SupportTicketEventRequest Model](/resources/models#schema_SupportTicketEventRequest)."
+                                    "description": "Updates the status of a Support Ticket with an ID provided in the path. If a note is also provided, will also insert a note."
                                 }
                             }
                             ]
                         },
 	                        {
     "name": "/api/v3/support-ticket/:supportTicketId/note",
-                "description": "Posts a new note to the Support Ticket ID provided in the path. *** For more information see the [SupportTicketNoteRequest Model](/resources/models#schema_SupportTicketNoteRequest).",
+                "description": "Posts a new note to the Support Ticket ID provided in the path.",
                  "item": [
                             {
                                 "name": "supportTicketNoteRequestExample",
@@ -7551,7 +7551,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Posts a new note to the Support Ticket ID provided in the path. *** For more information see the [SupportTicketNoteRequest Model](/resources/models#schema_SupportTicketNoteRequest)."
+                                    "description": "Posts a new note to the Support Ticket ID provided in the path."
                                 }
                             }
                             ]
@@ -7561,7 +7561,7 @@
                 "description": "Reopens a Support Ticket with the ID provided in the path.",
                  "item": [
                             {
-                                "name": "reopenSupportTicket",
+                                "name": "Reopen Support Ticket",
                                 "request": {
                                     "method": "POST",
                                     "header": [
@@ -7618,7 +7618,7 @@
                 "description": "Retrieves a paginated list of sleep mat activity readings from the Impilo platform. Optional parameters can be used to filter the results by page number, page size, patient ID, external ID, start timestamp, and end timestamp.",
                  "item": [
                             {
-                                "name": "listSleepMatActivityReadings",
+                                "name": "List Sleep Mat Activity Readings",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -7696,7 +7696,7 @@
                         },
 	                        {
     "name": "/api/v3/sleep-mat-activity-reading",
-                "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatActivityReadingRequest Model](/resources/models#schema_SleepMatActivityReadingRequest).",
+                "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. ",
                  "item": [
                             {
                                 "name": "device",
@@ -7740,7 +7740,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatActivityReadingRequest Model](/resources/models#schema_SleepMatActivityReadingRequest)."
+                                    "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -7785,7 +7785,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatActivityReadingRequest Model](/resources/models#schema_SleepMatActivityReadingRequest)."
+                                    "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             },
                             {
@@ -7830,7 +7830,7 @@
                                         "query": [
                                         ]
                                     },
-                                    "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. *** For more information see the [SleepMatActivityReadingRequest Model](/resources/models#schema_SleepMatActivityReadingRequest)."
+                                    "description": "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required. "
                                 }
                             }
                             ]
@@ -7840,7 +7840,7 @@
                 "description": "Fetches a specific sleep mat activity reading by its ID.",
                  "item": [
                             {
-                                "name": "fetchSleepMatActivityReading",
+                                "name": "Fetch Sleep Mat Activity Reading",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -7896,7 +7896,7 @@
                 "description": "Returns a paginated list that aggregates all Used and New inventory across all Impilo and Customer locations by Item type. One entry per Item ID. ",
                  "item": [
                             {
-                                "name": "listInventorySummary",
+                                "name": "List Inventory Summary",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -7959,7 +7959,7 @@
                 "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Impilo Sites. One record per Item-Site combination. ",
                  "item": [
                             {
-                                "name": "listImpiloInventory",
+                                "name": "List Impilo Inventory",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -8023,7 +8023,7 @@
                 "description": "Returns a paginated list of a Customer's inventory by Item type across each of the Customer Sites that there is inventory held. One record per Item-Site combination. ",
                  "item": [
                             {
-                                "name": "listSiteInventory",
+                                "name": "List Site Inventory",
                                 "request": {
                                     "method": "GET",
                                     "header": [
@@ -8091,31 +8091,12 @@
 	                    ]
 	        }
     ],
-    "auth": {
-    		"type": "apikey",
-    		"apikey": [
-    			{
-    				"key": "value",
-    				"value": "{{Impilo-API-Key}}",
-    				"type": "string"
-    			},
-    			{
-    				"key": "key",
-    				"value": "Impilo-API-Key",
-    				"type": "string"
-    			}
-    		]
-    	},
+    
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://app.impiloplatform.com",
+			"value": "",
 			"type": "string"
-        },
-        {
-            "key": "Impilo-API-Key",
-            "value": "",
-            "type": "string"
         }
 	]
 }
