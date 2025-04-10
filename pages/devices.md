@@ -26,18 +26,32 @@ Apart from automatic assignments through order processing, devices can also be m
 Here’s a walkthrough of the typical device association steps in the Impilo system:
 
 1. **Device Lookup**: Use the device lookup endpoint to find specific devices.  
-   `GET /api/v3/device/:deviceId`
+```bash
+curl --request GET \
+--url https://example.com/api/v3/device/0 \
+--header 'Accept: application/json'
+```
 
 2. **Patient or Site Lookup**: Lookup the patient or site using their respective endpoints to ensure the device is associated correctly.  
-   `GET /api/v3/patient/:patientId`
+```bash
+curl --request GET \
+--url https://example.com/api/v3/patient/0 \
+--header 'Accept: application/json'
+```
 
 3. **Device Association Request**: Finally, issue a device association request to link the device with the chosen patient or site.  
-   `PATCH /api/v3/device/associate-patient`
+```bash
+curl --request PATCH \
+--url https://example.com/api/v3/device/associate-patient \
+--header 'Content-Type: application/json' \
+--data '{"deviceId": 1, "patientExternalIdentifier": "external-identifier"}
+'
+```
 
 ### Updating Device Details
 
 To update a device, the following endpoint is utilized:  
-`PATCH /api/v3/device/:deviceId`
+
 
 A DeviceUpdate object is used to specify the changes. This object includes an override status and an optional note. Below is an example of how to format the request body to update a device's status and include a note about the update.
 
@@ -59,7 +73,11 @@ Not all devices transmit timezone information. However, when this information is
 #### Fetch a Device by ID
 
 Send a request to the Device endpoint:  
-`GET /api/v3/device/:deviceId`
+```bash
+curl --request GET \
+--url https://example.com/api/v3/device/0 \
+--header 'Accept: application/json'
+```
 
 Truncated response:
 
@@ -73,12 +91,22 @@ Truncated response:
 #### Send a Device Update Request
 
 Send a device update request to change the status of the device:  
-`PATCH /api/v3/device/:deviceId`
+```bash
+curl --request PATCH \
+--url https://example.com/api/v3/device/disable-readings \
+--header 'Content-Type: application/json' \
+--data '{"deviceId": 1, "deviceIdentifier": "ABC123"}
+'
+```
 
 #### Fetch the Updated Device by ID
 
 Send another request to the Device endpoint and observe the change:  
-`GET /api/v3/device/:deviceId`
+```bash
+curl --request GET \
+--url https://example.com/api/v3/device/0 \
+--header 'Accept: application/json'
+```
 
 Truncated response:
 

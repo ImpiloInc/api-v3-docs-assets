@@ -72,7 +72,7 @@
       "put" : {
         "tags" : [ "Alert Configuration" ],
         "summary" : "Set Global Alert Config",
-        "description" : "This endpoint updates your global Alert Configuration for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object.\n***\nFor more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration).",
+        "description" : "This endpoint updates your global Alert Configuration for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object.\n***\nFor more information see the [AlertConfiguration Model](/api#model/AlertConfiguration).",
         "operationId" : "setGlobalAlertConfig",
         "requestBody" : {
           "content" : {
@@ -116,7 +116,7 @@
         },
         "x-request-example" : "AlertConfigurationExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_AlertConfiguration"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/AlertConfiguration"
         }
       }
     },
@@ -179,7 +179,7 @@
       "put" : {
         "tags" : [ "Alert Configuration" ],
         "summary" : "Set Patient Alert Config",
-        "description" : "This endpoint updates your patient specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the patientId specified in the URL.\n***\nFor more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration).",
+        "description" : "This endpoint updates your patient specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the patientId specified in the URL.\n***\nFor more information see the [AlertConfiguration Model](/api#model/AlertConfiguration).",
         "operationId" : "setPatientAlertConfig",
         "parameters" : [ {
           "name" : "patientId",
@@ -232,7 +232,7 @@
         },
         "x-request-example" : "AlertConfigurationExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_AlertConfiguration"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/AlertConfiguration"
         }
       }
     },
@@ -303,7 +303,7 @@
       "put" : {
         "tags" : [ "Alert Configuration" ],
         "summary" : "Set Site Alert Config",
-        "description" : "This endpoint updates your site specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the siteId specified in the URL.\n***\nFor more information see the [AlertConfiguration Model](/resources/models#schema_AlertConfiguration).",
+        "description" : "This endpoint updates your site specific Alert Configurations for the type provided in the ***alertConfigurationType*** attribute of the Alert Configuration object and the siteId specified in the URL.\n***\nFor more information see the [AlertConfiguration Model](/api#model/AlertConfiguration).",
         "operationId" : "setSiteAlertConfig",
         "parameters" : [ {
           "name" : "siteId",
@@ -356,7 +356,7 @@
         },
         "x-request-example" : "AlertConfigurationExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_AlertConfiguration"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/AlertConfiguration"
         }
       }
     },
@@ -1240,7 +1240,7 @@
       "patch" : {
         "tags" : [ "Devices" ],
         "summary" : "Associate Device",
-        "description" : "This endpoint associates the device to the patient provided in the request body.\n\nIn order to associate a device with a patient, all of the following must apply:\n- The Patient must be associated with the Customer making the request\n- The Device must be owned by the Customer making the request\n- The Device must be associated with a non-Impilo site\n- The Device must have a current status of \"availableAtSite\"\n***\nFor more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).",
+        "description" : "This endpoint associates the device to the patient provided in the request body.\n\nIn order to associate a device with a patient, all of the following must apply:\n- The Patient must be associated with the Customer making the request\n- The Device must be owned by the Customer making the request\n- The Device must be associated with a non-Impilo site\n- The Device must have a current status of \"availableAtSite\"\n***\nFor more information see the [AssociateDeviceRequest Model](/api#model/AssociateDeviceRequest).",
         "operationId" : "associateDevice",
         "requestBody" : {
           "content" : {
@@ -1266,7 +1266,7 @@
         },
         "x-request-example" : "associateDeviceRequest",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_AssociateDeviceRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/AssociateDeviceRequest"
         }
       }
     },
@@ -1274,7 +1274,7 @@
       "patch" : {
         "tags" : [ "Devices" ],
         "summary" : "Disable Readings",
-        "description" : "This endpoint disables readings for the device provided in the request body. Readings received while\nin this status will not be processed or saved. No alerts or webhooks will be triggered for these readings.\n\nIn order to disable readings for a device, all of the following must apply:\n- The Device must be owned by the Customer making the request\n- The Device's \"disabledReadings\" field must be false\n***\nFor more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest).",
+        "description" : "This endpoint disables readings for the device provided in the request body. Readings received while\nin this status will not be processed or saved. No alerts or webhooks will be triggered for these readings.\n\nIn order to disable readings for a device, all of the following must apply:\n- The Device must be owned by the Customer making the request\n- The Device's \"disabledReadings\" field must be false\n***\nFor more information see the [DeviceReferenceRequest Model](/api#model/DeviceReferenceRequest).",
         "operationId" : "disableReadings",
         "requestBody" : {
           "content" : {
@@ -1291,7 +1291,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_DeviceReferenceRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/DeviceReferenceRequest"
         }
       }
     },
@@ -1299,7 +1299,7 @@
       "patch" : {
         "tags" : [ "Devices" ],
         "summary" : "Disassociate Device",
-        "description" : "This endpoint disassociates the device from the patient provided in the Request body.\n\nIn order to disassociate a device from a patient, all of the following must apply:\n- The Patient must be associated with the Customer making the request\n- The Device must be owned by the Customer making the request\n- The Device must already be associated with the provided Patient\n- The Device must be associated with a non-Impilo site\n- The Device must have a current status of \"withPatient\"\n***\nFor more information see the [AssociateDeviceRequest Model](/resources/models#schema_AssociateDeviceRequest).",
+        "description" : "This endpoint disassociates the device from the patient provided in the Request body.\n\nIn order to disassociate a device from a patient, all of the following must apply:\n- The Patient must be associated with the Customer making the request\n- The Device must be owned by the Customer making the request\n- The Device must already be associated with the provided Patient\n- The Device must be associated with a non-Impilo site\n- The Device must have a current status of \"withPatient\"\n***\nFor more information see the [AssociateDeviceRequest Model](/api#model/AssociateDeviceRequest).",
         "operationId" : "disassociateDevice",
         "requestBody" : {
           "content" : {
@@ -1325,7 +1325,7 @@
         },
         "x-request-example" : "disassociateDeviceRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_AssociateDeviceRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/AssociateDeviceRequest"
         }
       }
     },
@@ -1333,7 +1333,7 @@
       "patch" : {
         "tags" : [ "Devices" ],
         "summary" : "Enable Readings",
-        "description" : "This endpoint re-enables readings for the device provided in the request body.\n\nIn order to re-enable readings for a device, all of the following must apply:\n- The Device must be owned by the Customer making the request\n- The Device's \"disabledReadings\" field must be true\n***\nFor more information see the [DeviceReferenceRequest Model](/resources/models#schema_DeviceReferenceRequest).",
+        "description" : "This endpoint re-enables readings for the device provided in the request body.\n\nIn order to re-enable readings for a device, all of the following must apply:\n- The Device must be owned by the Customer making the request\n- The Device's \"disabledReadings\" field must be true\n***\nFor more information see the [DeviceReferenceRequest Model](/api#model/DeviceReferenceRequest).",
         "operationId" : "enableReadings",
         "requestBody" : {
           "content" : {
@@ -1350,7 +1350,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_DeviceReferenceRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/DeviceReferenceRequest"
         }
       }
     },
@@ -1838,7 +1838,7 @@
       "post" : {
         "tags" : [ "Items" ],
         "summary" : "Create Item",
-        "description" : "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.\n\nItems created via this endpoint will:\n- receive a generated SKU and ID\n- have a Manufacturer set to the requesting Customer\n- be set to an Orderable status of FALSE\n\nItems created with this endpoint are not able to be ordered until approved manually by an Impilo Admin.\nItems can still be procured and received within Impilo's system while the orderable parameter is false.\n***\nFor more information see the [ItemRequest Model](/resources/models#schema_ItemRequest).",
+        "description" : "This endpoint creates a new Item in the Impilo platform. This endpoint is only enabled for Customers that are also Manufacturer accounts.\n\nItems created via this endpoint will:\n- receive a generated SKU and ID\n- have a Manufacturer set to the requesting Customer\n- be set to an Orderable status of FALSE\n\nItems created with this endpoint are not able to be ordered until approved manually by an Impilo Admin.\nItems can still be procured and received within Impilo's system while the orderable parameter is false.\n***\nFor more information see the [ItemRequest Model](/api#model/ItemRequest).",
         "operationId" : "createItem",
         "requestBody" : {
           "content" : {
@@ -1906,7 +1906,7 @@
         "x-request-example-with-identifier" : "itemRequestWithIdentifier",
         "x-response-example" : "itemRequestResponse",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_ItemRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/ItemRequest"
         }
       }
     },
@@ -2240,7 +2240,7 @@
       "post" : {
         "tags" : [ "Orders" ],
         "summary" : "Create Order",
-        "description" : "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management).\n***\nFor more information see the [Order Model](/resources/models#schema_Order).",
+        "description" : "This endpoint is for creating orders linked to either a patient or a site, with order content specified by item or kit IDs and an association with a patient or site ID. Optional attributes offer further customization, such as tracking through external order IDs.\\n\\nFor a comprehensive guide on utilizing this endpoint, including examples, required and optional attributes, and additional functionalities like listing and fetching orders, visit the [Order Management Guide](/guides/order-management).\n***\nFor more information see the [Order Model](/api#model/Order).",
         "operationId" : "createOrder",
         "requestBody" : {
           "content" : {
@@ -2432,7 +2432,7 @@
         "x-request-example-new-patient-order" : "createRequestExampleNewPatientOrder",
         "x-request-example-site-order" : "createRequestExampleNewSiteOrder",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Order"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Order"
         }
       }
     },
@@ -2752,7 +2752,7 @@
       "post" : {
         "tags" : [ "Patients" ],
         "summary" : "Create Patient",
-        "description" : "Creates a new patient record with the provided details.\n***\nFor more information see the [Patient Model](/resources/models#schema_Patient).",
+        "description" : "Creates a new patient record with the provided details.\n***\nFor more information see the [Patient Model](/api#model/Patient).",
         "operationId" : "createPatient",
         "requestBody" : {
           "content" : {
@@ -2799,7 +2799,7 @@
         },
         "x-request-example-create-patient" : "ApiV3ControllerExamples.patient",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Patient"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Patient"
         }
       }
     },
@@ -2807,7 +2807,7 @@
       "post" : {
         "tags" : [ "Patients" ],
         "summary" : "Disenroll Patient",
-        "description" : "Disenrolls a Patient from the Impilo platform. Depending on what values are provided, will generate a return for all devices associated with that Patient and/or archive the Patient.\n***\nFor more information see the [DisenrollPatientRequest Model](/resources/models#schema_DisenrollPatientRequest).",
+        "description" : "Disenrolls a Patient from the Impilo platform. Depending on what values are provided, will generate a return for all devices associated with that Patient and/or archive the Patient.\n***\nFor more information see the [DisenrollPatientRequest Model](/api#model/DisenrollPatientRequest).",
         "operationId" : "disenrollPatient",
         "parameters" : [ {
           "name" : "patientId",
@@ -2842,7 +2842,7 @@
         },
         "x-request-example-disenroll-patient" : "disenrollPatientRequest",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_DisenrollPatientRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/DisenrollPatientRequest"
         }
       }
     },
@@ -2988,7 +2988,7 @@
       "put" : {
         "tags" : [ "Patients" ],
         "summary" : "Update Patient",
-        "description" : "Updates an existing patient record with new details provided in the request body.\n***\nFor more information see the [Patient Model](/resources/models#schema_Patient).",
+        "description" : "Updates an existing patient record with new details provided in the request body.\n***\nFor more information see the [Patient Model](/api#model/Patient).",
         "operationId" : "updatePatient",
         "parameters" : [ {
           "name" : "patientId",
@@ -3021,13 +3021,13 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Patient"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Patient"
         }
       },
       "patch" : {
         "tags" : [ "Patients" ],
         "summary" : "Patch Patient",
-        "description" : "Applies a partial update to a patient's record, modifying only the fields provided in the request body.\n***\nFor more information see the [Patient Model](/resources/models#schema_Patient).",
+        "description" : "Applies a partial update to a patient's record, modifying only the fields provided in the request body.\n***\nFor more information see the [Patient Model](/api#model/Patient).",
         "operationId" : "patchPatient",
         "parameters" : [ {
           "name" : "patientId",
@@ -3076,7 +3076,7 @@
         "x-request-example-update-patient-email" : "patchPatientEmailExample",
         "x-request-example-update-patient-external-identifier" : "patchPatientExternalIdentifierExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Patient"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Patient"
         }
       }
     },
@@ -3265,7 +3265,7 @@
       "post" : {
         "tags" : [ "Procurements" ],
         "summary" : "Create Procurement Request",
-        "description" : "Creates a new procurement with the provided details.\n***\nFor more information see the [Procurement Model](/resources/models#schema_Procurement).",
+        "description" : "Creates a new procurement with the provided details.\n***\nFor more information see the [Procurement Model](/api#model/Procurement).",
         "operationId" : "createProcurementRequest",
         "requestBody" : {
           "content" : {
@@ -3290,7 +3290,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Procurement"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Procurement"
         }
       }
     },
@@ -3298,7 +3298,7 @@
       "post" : {
         "tags" : [ "Procurements" ],
         "summary" : "Create Shipping Notice",
-        "description" : "Creates a new procurement shipping receipt with the provided details.\n***\nFor more information see the [Procurement Model](/resources/models#schema_Procurement).",
+        "description" : "Creates a new procurement shipping receipt with the provided details.\n***\nFor more information see the [Procurement Model](/api#model/Procurement).",
         "operationId" : "createShippingNotice",
         "requestBody" : {
           "content" : {
@@ -3323,7 +3323,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Procurement"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Procurement"
         }
       }
     },
@@ -3717,7 +3717,7 @@
       "post" : {
         "tags" : [ "Returns" ],
         "summary" : "Create Return",
-        "description" : "Creates a Return Merchandise Authorization (RMA).\n***\nFor more information see the [CreateReturn Model](/resources/models#schema_CreateReturn).",
+        "description" : "Creates a Return Merchandise Authorization (RMA).\n***\nFor more information see the [CreateReturn Model](/api#model/CreateReturn).",
         "operationId" : "createReturn",
         "requestBody" : {
           "content" : {
@@ -3843,7 +3843,7 @@
         "x-response-example" : "rmaCreateResponseExample",
         "x-request-example-create-return" : "ApiV3ControllerExamples.createReturnPayload",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_CreateReturn"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/CreateReturn"
         }
       }
     },
@@ -4039,7 +4039,7 @@
       "post" : {
         "tags" : [ "Sites" ],
         "summary" : "Create Site",
-        "description" : "Creates a new site with the provided details.\n\nReturns the site.\n***\nFor more information see the [Site Model](/resources/models#schema_Site).",
+        "description" : "Creates a new site with the provided details.\n\nReturns the site.\n***\nFor more information see the [Site Model](/api#model/Site).",
         "operationId" : "createSite",
         "requestBody" : {
           "content" : {
@@ -4099,7 +4099,7 @@
         "x-request-example-create-site" : "ApiV3ControllerExamples.site",
         "x-response-example" : "ApiV3ControllerExamples.site",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Site"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Site"
         }
       }
     },
@@ -4152,7 +4152,7 @@
       "put" : {
         "tags" : [ "Sites" ],
         "summary" : "Update Site",
-        "description" : "Update the site specified by the ID in the URL path with a new site object.\n***\nFor more information see the [Site Model](/resources/models#schema_Site).",
+        "description" : "Update the site specified by the ID in the URL path with a new site object.\n***\nFor more information see the [Site Model](/api#model/Site).",
         "operationId" : "updateSite",
         "parameters" : [ {
           "name" : "siteId",
@@ -4196,13 +4196,13 @@
         },
         "x-request-example-update-site" : "ApiV3ControllerExamples.site",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Site"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Site"
         }
       },
       "patch" : {
         "tags" : [ "Sites" ],
         "summary" : "Patch Site",
-        "description" : "Partially update the site specified by the ID in the URL path with a new site object.\n***\nFor more information see the [Site Model](/resources/models#schema_Site).",
+        "description" : "Partially update the site specified by the ID in the URL path with a new site object.\n***\nFor more information see the [Site Model](/api#model/Site).",
         "operationId" : "patchSite",
         "parameters" : [ {
           "name" : "siteId",
@@ -4271,7 +4271,7 @@
         "x-request-example-patch-site" : "ApiV3ControllerExamples.site",
         "x-response-example" : "ApiV3ControllerExamples.site",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Site"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Site"
         }
       }
     },
@@ -4659,7 +4659,7 @@
       "post" : {
         "tags" : [ "Support Tickets" ],
         "summary" : "Create Support Ticket",
-        "description" : "Creates a new Support Ticket in the Impilo platform.\n***\nFor more information see the [SupportTicketRequest Model](/resources/models#schema_SupportTicketRequest).",
+        "description" : "Creates a new Support Ticket in the Impilo platform.\n***\nFor more information see the [SupportTicketRequest Model](/api#model/SupportTicketRequest).",
         "operationId" : "createSupportTicket",
         "requestBody" : {
           "content" : {
@@ -4696,7 +4696,7 @@
         },
         "x-request-example" : "supportTicketRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SupportTicketRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/SupportTicketRequest"
         }
       }
     },
@@ -4796,7 +4796,7 @@
       "post" : {
         "tags" : [ "Support Tickets" ],
         "summary" : "Update Assignee",
-        "description" : "Updates the assignee on a Support Ticket with an ID provided in the path. You can only assign individuals within your organization via the API.\n***\nFor more information see the [SupportTicketAssigneeRequest Model](/resources/models#schema_SupportTicketAssigneeRequest).",
+        "description" : "Updates the assignee on a Support Ticket with an ID provided in the path. You can only assign individuals within your organization via the API.\n***\nFor more information see the [SupportTicketAssigneeRequest Model](/api#model/SupportTicketAssigneeRequest).",
         "operationId" : "updateAssignee",
         "parameters" : [ {
           "name" : "supportTicketId",
@@ -4837,7 +4837,7 @@
         },
         "x-request-example" : "supportTicketUpdateAssigneeExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SupportTicketAssigneeRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/SupportTicketAssigneeRequest"
         }
       }
     },
@@ -4874,7 +4874,7 @@
       "post" : {
         "tags" : [ "Support Tickets" ],
         "summary" : "Update Status",
-        "description" : "Updates the status of a Support Ticket with an ID provided in the path. If a note is also provided, will also insert a note.\n***\nFor more information see the [SupportTicketEventRequest Model](/resources/models#schema_SupportTicketEventRequest).",
+        "description" : "Updates the status of a Support Ticket with an ID provided in the path. If a note is also provided, will also insert a note.\n***\nFor more information see the [SupportTicketEventRequest Model](/api#model/SupportTicketEventRequest).",
         "operationId" : "updateStatus",
         "parameters" : [ {
           "name" : "supportTicketId",
@@ -4916,7 +4916,7 @@
         },
         "x-request-example" : "supportTicketUpdateStatusExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SupportTicketEventRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/SupportTicketEventRequest"
         }
       }
     },
@@ -4924,7 +4924,7 @@
       "post" : {
         "tags" : [ "Support Tickets" ],
         "summary" : "Create Support Ticket",
-        "description" : "Posts a new note to the Support Ticket ID provided in the path.\n***\nFor more information see the [SupportTicketNoteRequest Model](/resources/models#schema_SupportTicketNoteRequest).",
+        "description" : "Posts a new note to the Support Ticket ID provided in the path.\n***\nFor more information see the [SupportTicketNoteRequest Model](/api#model/SupportTicketNoteRequest).",
         "operationId" : "createSupportTicket",
         "parameters" : [ {
           "name" : "supportTicketId",
@@ -4965,7 +4965,7 @@
         },
         "x-request-example" : "supportTicketNoteRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SupportTicketNoteRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/SupportTicketNoteRequest"
         }
       }
     },
@@ -5039,7 +5039,7 @@
       "post" : {
         "tags" : [ "Transfers" ],
         "summary" : "Create Item Transfer Request",
-        "description" : "Creates a Transfer Request, which consists of Items and Quantities to transfer from a\nCustomer account to one of it's sub-Customer accounts.\n\nTo submit a transfer request, the Target Customer must be a sub-Customer account of the\nrequestor and the body must consist of at least one TransferItem object with a quantity\ngreater than 0.\n\nYou can only request up to 500 items be transferred at a time. If you need to transfer more,\nmultiple Transfer Request submissions are required.\n\nThe only requirement for the TransferItem's item parameter is a JSON object that includes\nan ID of the Item requested.\n***\nFor more information see the [ItemTransferRequest Model](/resources/models#schema_ItemTransferRequest).",
+        "description" : "Creates a Transfer Request, which consists of Items and Quantities to transfer from a\nCustomer account to one of it's sub-Customer accounts.\n\nTo submit a transfer request, the Target Customer must be a sub-Customer account of the\nrequestor and the body must consist of at least one TransferItem object with a quantity\ngreater than 0.\n\nYou can only request up to 500 items be transferred at a time. If you need to transfer more,\nmultiple Transfer Request submissions are required.\n\nThe only requirement for the TransferItem's item parameter is a JSON object that includes\nan ID of the Item requested.\n***\nFor more information see the [ItemTransferRequest Model](/api#model/ItemTransferRequest).",
         "operationId" : "createItemTransferRequest",
         "requestBody" : {
           "content" : {
@@ -5097,7 +5097,7 @@
         },
         "x-request-example" : "createItemTransferRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_ItemTransferRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/ItemTransferRequest"
         }
       }
     },
@@ -5224,7 +5224,7 @@
       "post" : {
         "tags" : [ "Webhooks" ],
         "summary" : "Create Webhook",
-        "description" : "This endpoint creates a V3 webhook subscription of the type provided in the ***type*** attribute of the Webhook object.\n> Note: This endpoint will create a V3 webhook -- you cannot view V3 webhooks from the V1 or V2 endpoints.\n***\nFor more information see the [Webhook Model](/resources/models#schema_Webhook).",
+        "description" : "This endpoint creates a V3 webhook subscription of the type provided in the ***type*** attribute of the Webhook object.\n> Note: This endpoint will create a V3 webhook -- you cannot view V3 webhooks from the V1 or V2 endpoints.\n***\nFor more information see the [Webhook Model](/api#model/Webhook).",
         "operationId" : "createWebhook",
         "requestBody" : {
           "content" : {
@@ -5267,7 +5267,7 @@
         "x-request-example" : "WebhookRequestExample",
         "x-response-example" : "WebhookResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Webhook"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Webhook"
         }
       }
     },
@@ -5293,7 +5293,7 @@
       "post" : {
         "tags" : [ "Webhooks" ],
         "summary" : "Create Webhook Secret",
-        "description" : "Creates a Webhook Secret to use with the Impilo Platform with the provides `secret`. The secret will be passed along as a header with\nWebhooks sent from Impilo.\n\nReturns an error if you already have a Webhook secret created.\n***\nFor more information see the [WebhookSecret Model](/resources/models#schema_WebhookSecret).",
+        "description" : "Creates a Webhook Secret to use with the Impilo Platform with the provides `secret`. The secret will be passed along as a header with\nWebhooks sent from Impilo.\n\nReturns an error if you already have a Webhook secret created.\n***\nFor more information see the [WebhookSecret Model](/api#model/WebhookSecret).",
         "operationId" : "createWebhookSecret",
         "requestBody" : {
           "content" : {
@@ -5317,7 +5317,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_WebhookSecret"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/WebhookSecret"
         }
       },
       "delete" : {
@@ -5334,7 +5334,7 @@
       "patch" : {
         "tags" : [ "Webhooks" ],
         "summary" : "Update Webhook Secret",
-        "description" : "Updates your Webhook Secret if it exists. Requires a `secret` parameter.\n\nReturns an error if you don't have a secret configured.\n***\nFor more information see the [WebhookSecret Model](/resources/models#schema_WebhookSecret).",
+        "description" : "Updates your Webhook Secret if it exists. Requires a `secret` parameter.\n\nReturns an error if you don't have a secret configured.\n***\nFor more information see the [WebhookSecret Model](/api#model/WebhookSecret).",
         "operationId" : "updateWebhookSecret",
         "requestBody" : {
           "content" : {
@@ -5358,7 +5358,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_WebhookSecret"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/WebhookSecret"
         }
       }
     },
@@ -5522,7 +5522,7 @@
       "patch" : {
         "tags" : [ "Webhooks" ],
         "summary" : "Patch Webhook",
-        "description" : "This endpoint updates the specified Webhook with a new URL provided in the request body.\n> Note: The provided URL must be different than the existing URL of the webhook or a 400 response will be returned.\n***\nFor more information see the [Webhook Model](/resources/models#schema_Webhook).",
+        "description" : "This endpoint updates the specified Webhook with a new URL provided in the request body.\n> Note: The provided URL must be different than the existing URL of the webhook or a 400 response will be returned.\n***\nFor more information see the [Webhook Model](/api#model/Webhook).",
         "operationId" : "patchWebhook",
         "parameters" : [ {
           "name" : "webhookId",
@@ -5573,7 +5573,7 @@
         "x-request-example" : "updateWebhookRequestExample",
         "x-response-example" : "updateWebhookResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Webhook"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/Webhook"
         }
       }
     },
@@ -5810,7 +5810,7 @@
       "post" : {
         "tags" : [ "Readings - Blood Glucose" ],
         "summary" : "Record Blood Glucose Reading",
-        "description" : "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [BloodGlucoseReadingRequest Model](/resources/models#schema_BloodGlucoseReadingRequest).",
+        "description" : "Records a blood glucose reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [BloodGlucoseReadingRequest Model](/api#model/BloodGlucoseReadingRequest).",
         "operationId" : "recordBloodGlucoseReading",
         "requestBody" : {
           "content" : {
@@ -5957,7 +5957,7 @@
         "x-request-example-patient" : "bloodGlucoseReadingRequestPatientExample",
         "x-response-example" : "bloodGlucoseReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_BloodGlucoseReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/BloodGlucoseReadingRequest"
         }
       }
     },
@@ -6365,7 +6365,7 @@
       "post" : {
         "tags" : [ "Readings - Blood Oxygen" ],
         "summary" : "Record Blood Oxygen Reading",
-        "description" : "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [BloodOxygenReadingRequest Model](/resources/models#schema_BloodOxygenReadingRequest).",
+        "description" : "Records a blood oxygen reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [BloodOxygenReadingRequest Model](/api#model/BloodOxygenReadingRequest).",
         "operationId" : "recordBloodOxygenReading",
         "requestBody" : {
           "content" : {
@@ -6509,7 +6509,7 @@
         "x-request-example-patient" : "bloodOxygenReadingRequestPatientExample",
         "x-response-example" : "bloodOxygenReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_BloodOxygenReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/BloodOxygenReadingRequest"
         }
       }
     },
@@ -6922,7 +6922,7 @@
       "post" : {
         "tags" : [ "Readings - Blood Pressure" ],
         "summary" : "Record Blood Pressure Reading",
-        "description" : "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [BloodPressureReadingRequest Model](/resources/models#schema_BloodPressureReadingRequest).",
+        "description" : "Records a blood pressure reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [BloodPressureReadingRequest Model](/api#model/BloodPressureReadingRequest).",
         "operationId" : "recordBloodPressureReading",
         "requestBody" : {
           "content" : {
@@ -7071,7 +7071,7 @@
         "x-request-example-patient" : "bloodPressureReadingRequestPatientExample",
         "x-response-example" : "bloodPressureReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_BloodPressureReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/BloodPressureReadingRequest"
         }
       }
     },
@@ -7475,7 +7475,7 @@
       "post" : {
         "tags" : [ "Readings - Heart Rate" ],
         "summary" : "Record Heart Rate Reading",
-        "description" : "Records a heart rate reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [HeartRateReadingRequest Model](/resources/models#schema_HeartRateReadingRequest).",
+        "description" : "Records a heart rate reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [HeartRateReadingRequest Model](/api#model/HeartRateReadingRequest).",
         "operationId" : "recordHeartRateReading",
         "requestBody" : {
           "content" : {
@@ -7594,7 +7594,7 @@
         "x-request-example" : "heartRateReadingRequestExample",
         "x-response-example" : "heartRateReadingExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_HeartRateReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/HeartRateReadingRequest"
         }
       }
     },
@@ -7942,7 +7942,7 @@
       "post" : {
         "tags" : [ "Readings - Heart Rate Variability" ],
         "summary" : "Record Heart Rate Variability Reading",
-        "description" : "Records a heart rate variability reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [HeartRateVariabilityReadingRequest Model](/resources/models#schema_HeartRateVariabilityReadingRequest).",
+        "description" : "Records a heart rate variability reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [HeartRateVariabilityReadingRequest Model](/api#model/HeartRateVariabilityReadingRequest).",
         "operationId" : "recordHeartRateVariabilityReading",
         "requestBody" : {
           "content" : {
@@ -8067,7 +8067,7 @@
         "x-request-example" : "heartRateVariabilityReadingRequestExample",
         "x-response-example" : "heartRateVariabilityReadingExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_HeartRateVariabilityReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/HeartRateVariabilityReadingRequest"
         }
       }
     },
@@ -8509,7 +8509,7 @@
       "post" : {
         "tags" : [ "Readings - Peak Flow" ],
         "summary" : "Record Peak Flow Reading",
-        "description" : "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [PeakFlowReadingRequest Model](/resources/models#schema_PeakFlowReadingRequest).",
+        "description" : "Records a peak flow reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [PeakFlowReadingRequest Model](/api#model/PeakFlowReadingRequest).",
         "operationId" : "recordPeakFlowReading",
         "requestBody" : {
           "content" : {
@@ -8655,7 +8655,7 @@
         "x-request-example-patient" : "peakFlowReadingRequestPatientExample",
         "x-response-example" : "peakFlowReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_PeakFlowReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/PeakFlowReadingRequest"
         }
       }
     },
@@ -9017,7 +9017,7 @@
       "post" : {
         "tags" : [ "Readings - Sleep Mat Activity" ],
         "summary" : "Record Sleep Mat Activity Reading",
-        "description" : "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [SleepMatActivityReadingRequest Model](/resources/models#schema_SleepMatActivityReadingRequest).",
+        "description" : "Records a sleep mat activity reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [SleepMatActivityReadingRequest Model](/api#model/SleepMatActivityReadingRequest).",
         "operationId" : "recordSleepMatActivityReading",
         "requestBody" : {
           "content" : {
@@ -9177,7 +9177,7 @@
         "x-request-example-patient" : "sleepMatActivityReadingRequestPatientExample",
         "x-response-example" : "sleepMatActivityReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SleepMatActivityReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/SleepMatActivityReadingRequest"
         }
       }
     },
@@ -9543,7 +9543,7 @@
       "post" : {
         "tags" : [ "Readings - Sleep Mat Duration" ],
         "summary" : "Record Sleep Mat Duration Reading",
-        "description" : "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [SleepMatDurationReadingRequest Model](/resources/models#schema_SleepMatDurationReadingRequest).",
+        "description" : "Records a sleep mat duration reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [SleepMatDurationReadingRequest Model](/api#model/SleepMatDurationReadingRequest).",
         "operationId" : "recordSleepMatDurationReading",
         "requestBody" : {
           "content" : {
@@ -9707,7 +9707,7 @@
         "x-request-example-patient" : "sleepMatDurationReadingRequestPatientExample",
         "x-response-example" : "sleepMatDurationReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SleepMatDurationReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/SleepMatDurationReadingRequest"
         }
       }
     },
@@ -10057,7 +10057,7 @@
       "post" : {
         "tags" : [ "Readings - Temperature" ],
         "summary" : "Record Temperature Reading",
-        "description" : "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [TemperatureReadingRequest Model](/resources/models#schema_TemperatureReadingRequest).",
+        "description" : "Records a temperature reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [TemperatureReadingRequest Model](/api#model/TemperatureReadingRequest).",
         "operationId" : "recordTemperatureReading",
         "requestBody" : {
           "content" : {
@@ -10198,7 +10198,7 @@
         "x-request-example-patient" : "temperatureReadingRequestPatientExample",
         "x-response-example" : "temperatureReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TemperatureReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/TemperatureReadingRequest"
         }
       }
     },
@@ -10600,7 +10600,7 @@
       "post" : {
         "tags" : [ "Readings - Weight" ],
         "summary" : "Record Weight Reading",
-        "description" : "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [WeightReadingRequest Model](/resources/models#schema_WeightReadingRequest).",
+        "description" : "This endpoint records a weight reading based on the provided request. Either a device ID, device identifier, or patient ID is required.\n***\nFor more information see the [WeightReadingRequest Model](/api#model/WeightReadingRequest).",
         "operationId" : "recordWeightReading",
         "requestBody" : {
           "content" : {
@@ -10739,7 +10739,7 @@
         "x-request-example-patient" : "weightReadingRequestPatientExample",
         "x-response-example" : "weightReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_WeightReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/WeightReadingRequest"
         }
       }
     },
@@ -10910,7 +10910,7 @@
       "post" : {
         "tags" : [ "Tests" ],
         "summary" : "Trigger Blood Glucose Webhook",
-        "description" : "Trigger a test blood glucose webhook\n***\nFor more information see the [TestBloodGlucoseWebhookRequest Model](/resources/models#schema_TestBloodGlucoseWebhookRequest).",
+        "description" : "Trigger a test blood glucose webhook\n***\nFor more information see the [TestBloodGlucoseWebhookRequest Model](/api#model/TestBloodGlucoseWebhookRequest).",
         "operationId" : "triggerBloodGlucoseWebhook",
         "requestBody" : {
           "content" : {
@@ -10936,7 +10936,7 @@
         },
         "x-request-example" : "createTestBloodGlucoseWebhookRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestBloodGlucoseWebhookRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/TestBloodGlucoseWebhookRequest"
         }
       }
     },
@@ -10944,7 +10944,7 @@
       "post" : {
         "tags" : [ "Tests" ],
         "summary" : "Trigger Blood Oxygen Webhook",
-        "description" : "Trigger a test blood oxygen webhook\n***\nFor more information see the [TestBloodOxygenWebhookRequest Model](/resources/models#schema_TestBloodOxygenWebhookRequest).",
+        "description" : "Trigger a test blood oxygen webhook\n***\nFor more information see the [TestBloodOxygenWebhookRequest Model](/api#model/TestBloodOxygenWebhookRequest).",
         "operationId" : "triggerBloodOxygenWebhook",
         "requestBody" : {
           "content" : {
@@ -10971,7 +10971,7 @@
         },
         "x-request-example" : "createTestBloodOxygenWebhookRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestBloodOxygenWebhookRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/TestBloodOxygenWebhookRequest"
         }
       }
     },
@@ -10979,7 +10979,7 @@
       "post" : {
         "tags" : [ "Tests" ],
         "summary" : "Trigger Blood Pressure Webhook",
-        "description" : "Trigger a test blood pressure webhook\n***\nFor more information see the [TestBloodPressureWebhookRequest Model](/resources/models#schema_TestBloodPressureWebhookRequest).",
+        "description" : "Trigger a test blood pressure webhook\n***\nFor more information see the [TestBloodPressureWebhookRequest Model](/api#model/TestBloodPressureWebhookRequest).",
         "operationId" : "triggerBloodPressureWebhook",
         "requestBody" : {
           "content" : {
@@ -11007,7 +11007,7 @@
         },
         "x-request-example" : "createTestBloodPressureWebhookRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestBloodPressureWebhookRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/TestBloodPressureWebhookRequest"
         }
       }
     },
@@ -11015,7 +11015,7 @@
       "post" : {
         "tags" : [ "Tests" ],
         "summary" : "Trigger Device Association Created",
-        "description" : "Trigger a test device association created webhook\n***\nFor more information see the [TestDeviceAssociationWebhook Model](/resources/models#schema_TestDeviceAssociationWebhook).",
+        "description" : "Trigger a test device association created webhook\n***\nFor more information see the [TestDeviceAssociationWebhook Model](/api#model/TestDeviceAssociationWebhook).",
         "operationId" : "triggerDeviceAssociationCreated",
         "requestBody" : {
           "content" : {
@@ -11042,7 +11042,7 @@
         },
         "x-request-example" : "createTestDeviceAssociationWebhookExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestDeviceAssociationWebhook"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/TestDeviceAssociationWebhook"
         }
       }
     },
@@ -11050,7 +11050,7 @@
       "post" : {
         "tags" : [ "Tests" ],
         "summary" : "Trigger Device Association Removed",
-        "description" : "Trigger a test device association removed webhook\n***\nFor more information see the [TestDeviceAssociationWebhook Model](/resources/models#schema_TestDeviceAssociationWebhook).",
+        "description" : "Trigger a test device association removed webhook\n***\nFor more information see the [TestDeviceAssociationWebhook Model](/api#model/TestDeviceAssociationWebhook).",
         "operationId" : "triggerDeviceAssociationRemoved",
         "requestBody" : {
           "content" : {
@@ -11077,7 +11077,7 @@
         },
         "x-request-example" : "createTestDeviceAssociationWebhookExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestDeviceAssociationWebhook"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/TestDeviceAssociationWebhook"
         }
       }
     },
@@ -11085,7 +11085,7 @@
       "post" : {
         "tags" : [ "Tests" ],
         "summary" : "Order Status Full Webhook",
-        "description" : "Trigger a test order status full webhook\n***\nFor more information see the [TestOrderStatusFullWebhook Model](/resources/models#schema_TestOrderStatusFullWebhook).",
+        "description" : "Trigger a test order status full webhook\n***\nFor more information see the [TestOrderStatusFullWebhook Model](/api#model/TestOrderStatusFullWebhook).",
         "operationId" : "orderStatusFullWebhook",
         "requestBody" : {
           "content" : {
@@ -11114,7 +11114,7 @@
         },
         "x-request-example" : "createTestOrderStatusFullWebhookExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestOrderStatusFullWebhook"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/TestOrderStatusFullWebhook"
         }
       }
     },
@@ -11122,7 +11122,7 @@
       "post" : {
         "tags" : [ "Tests" ],
         "summary" : "Trigger Order Status Webhook",
-        "description" : "Send a test order status webhook\n***\nFor more information see the [TestOrderStatusWebhookRequest Model](/resources/models#schema_TestOrderStatusWebhookRequest).",
+        "description" : "Send a test order status webhook\n***\nFor more information see the [TestOrderStatusWebhookRequest Model](/api#model/TestOrderStatusWebhookRequest).",
         "operationId" : "triggerOrderStatusWebhook",
         "requestBody" : {
           "content" : {
@@ -11149,7 +11149,7 @@
         },
         "x-request-example" : "createTestOrderStatusWebhookRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestOrderStatusWebhookRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/TestOrderStatusWebhookRequest"
         }
       }
     },
@@ -11157,7 +11157,7 @@
       "post" : {
         "tags" : [ "Tests" ],
         "summary" : "Trigger Weight Webhook",
-        "description" : "Trigger a test weight webhook\n***\nFor more information see the [TestWeightWebhookRequest Model](/resources/models#schema_TestWeightWebhookRequest).",
+        "description" : "Trigger a test weight webhook\n***\nFor more information see the [TestWeightWebhookRequest Model](/api#model/TestWeightWebhookRequest).",
         "operationId" : "triggerWeightWebhook",
         "requestBody" : {
           "content" : {
@@ -11183,7 +11183,7 @@
         },
         "x-request-example" : "createTestWeightWebhookRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestWeightWebhookRequest"
+          "url" : "https://staging-docs.impiloplatform.com/api#model/TestWeightWebhookRequest"
         }
       }
     }
