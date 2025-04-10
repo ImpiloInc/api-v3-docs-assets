@@ -47,8 +47,7 @@ curl --request POST \
     {"kit": {"id": 1003}, "count": 10}
   ],
   "shippingOption": "standard"
-}
-'
+}'
 ```
 
 Below is an example response containing sample data:
@@ -325,7 +324,6 @@ Below is an example response containing sample data:
   ],
   "shippingOption": "standard"
 }
-
 ```
 
 ### Create Site Order Example
@@ -716,7 +714,6 @@ Response:
   "first": true,
   "last": true
 }
-
 ```
 
 ## Fetching a Single Order
@@ -1003,7 +1000,6 @@ Response:
   ],
   "shippingOption": "standard"
 }
-
 ```
 
 ## More

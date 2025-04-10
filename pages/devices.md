@@ -44,8 +44,7 @@ curl --request GET \
 curl --request PATCH \
 --url https://example.com/api/v3/device/associate-patient \
 --header 'Content-Type: application/json' \
---data '{"deviceId": 1, "patientExternalIdentifier": "external-identifier"}
-'
+--data '{"deviceId": 1, "patientExternalIdentifier": "external-identifier"}'
 ```
 
 ### Updating Device Details
@@ -95,8 +94,7 @@ Send a device update request to change the status of the device:
 curl --request PATCH \
 --url https://example.com/api/v3/device/disable-readings \
 --header 'Content-Type: application/json' \
---data '{"deviceId": 1, "deviceIdentifier": "ABC123"}
-'
+--data '{"deviceId": 1, "deviceIdentifier": "ABC123"}'
 ```
 
 #### Fetch the Updated Device by ID

@@ -17,8 +17,7 @@ curl --request POST \
 --url https://example.com/api/v3/webhook \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---data '{"type": "order.status", "url": "https://impilo.health"}
-'
+--data '{"type": "order.status", "url": "https://impilo.health"}'
 ```
 
 ### Webhook Types
@@ -48,14 +47,12 @@ curl --request POST \
 --url https://example.com/api/v3/webhook-secret \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---data '{"secret": "string"}
-'
+--data '{"secret": "string"}'
 ```
 
 Response:
 ```json
 {"secret": "string"}
-
 ```
 
 ### Webhook Retries
@@ -101,7 +98,6 @@ Response:
   "first": true,
   "last": true
 }
-
 ```
 
 ### Walkthroughs
@@ -168,8 +164,7 @@ For example, to trigger a test blood pressure webhook, use the following endpoin
 curl --request POST \
 --url https://example.com/api/v3/test/blood-pressure-webhook \
 --header 'Content-Type: application/json' \
---data '{"patientId": 1, "systolic": 120, "diastolic": 80, "heartRate": 100}
-'
+--data '{"patientId": 1, "systolic": 120, "diastolic": 80, "heartRate": 100}'
 ```
 
 More endpoints are available in the [tests section](/api-reference/tests) of the API reference.

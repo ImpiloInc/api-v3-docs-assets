@@ -43,8 +43,7 @@ curl --request POST \
     "country": "USA"
   },
   "sex": "unknown"
-}
-'
+}'
 ```
 
 ### Updating a Patient
@@ -95,8 +94,7 @@ curl --request PUT \
   },
   "enrolled": true,
   "sex": "other"
-}
-'
+}'
 ```
 
 ### Using Webhooks for Patient Updates
