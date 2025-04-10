@@ -4,8 +4,9 @@
   "subdomain" : "staging-docs",
   "customDomain" : "staging-docs.impiloplatform.com",
   "siteMeta" : {
-    "title" : "Scalar Documentation",
-    "description" : "Guides for Scalar, covering your favorite frameworks, languages and use cases."
+    "favicon" : "/images/favicon.png",
+    "title" : "Impilo Docs",
+    "description" : "Guides and references for the Impilo API."
   },
   "siteConfig" : {
     "theme" : "impilo",
