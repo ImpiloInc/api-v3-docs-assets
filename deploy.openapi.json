@@ -116,7 +116,7 @@
         },
         "x-request-example" : "AlertConfigurationExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AlertConfiguration"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_AlertConfiguration"
         }
       }
     },
@@ -232,7 +232,7 @@
         },
         "x-request-example" : "AlertConfigurationExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AlertConfiguration"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_AlertConfiguration"
         }
       }
     },
@@ -356,7 +356,7 @@
         },
         "x-request-example" : "AlertConfigurationExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AlertConfiguration"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_AlertConfiguration"
         }
       }
     },
@@ -1266,7 +1266,7 @@
         },
         "x-request-example" : "associateDeviceRequest",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AssociateDeviceRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_AssociateDeviceRequest"
         }
       }
     },
@@ -1291,7 +1291,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DeviceReferenceRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_DeviceReferenceRequest"
         }
       }
     },
@@ -1325,7 +1325,7 @@
         },
         "x-request-example" : "disassociateDeviceRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_AssociateDeviceRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_AssociateDeviceRequest"
         }
       }
     },
@@ -1350,7 +1350,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DeviceReferenceRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_DeviceReferenceRequest"
         }
       }
     },
@@ -1906,7 +1906,7 @@
         "x-request-example-with-identifier" : "itemRequestWithIdentifier",
         "x-response-example" : "itemRequestResponse",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_ItemRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_ItemRequest"
         }
       }
     },
@@ -2432,7 +2432,7 @@
         "x-request-example-new-patient-order" : "createRequestExampleNewPatientOrder",
         "x-request-example-site-order" : "createRequestExampleNewSiteOrder",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Order"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Order"
         }
       }
     },
@@ -2799,7 +2799,7 @@
         },
         "x-request-example-create-patient" : "ApiV3ControllerExamples.patient",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Patient"
         }
       }
     },
@@ -2842,7 +2842,7 @@
         },
         "x-request-example-disenroll-patient" : "disenrollPatientRequest",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_DisenrollPatientRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_DisenrollPatientRequest"
         }
       }
     },
@@ -3021,7 +3021,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Patient"
         }
       },
       "patch" : {
@@ -3076,7 +3076,7 @@
         "x-request-example-update-patient-email" : "patchPatientEmailExample",
         "x-request-example-update-patient-external-identifier" : "patchPatientExternalIdentifierExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Patient"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Patient"
         }
       }
     },
@@ -3290,7 +3290,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Procurement"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Procurement"
         }
       }
     },
@@ -3323,7 +3323,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Procurement"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Procurement"
         }
       }
     },
@@ -3843,7 +3843,7 @@
         "x-response-example" : "rmaCreateResponseExample",
         "x-request-example-create-return" : "ApiV3ControllerExamples.createReturnPayload",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_CreateReturn"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_CreateReturn"
         }
       }
     },
@@ -4099,7 +4099,7 @@
         "x-request-example-create-site" : "ApiV3ControllerExamples.site",
         "x-response-example" : "ApiV3ControllerExamples.site",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Site"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Site"
         }
       }
     },
@@ -4196,7 +4196,7 @@
         },
         "x-request-example-update-site" : "ApiV3ControllerExamples.site",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Site"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Site"
         }
       },
       "patch" : {
@@ -4271,7 +4271,7 @@
         "x-request-example-patch-site" : "ApiV3ControllerExamples.site",
         "x-response-example" : "ApiV3ControllerExamples.site",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Site"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Site"
         }
       }
     },
@@ -4696,7 +4696,7 @@
         },
         "x-request-example" : "supportTicketRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SupportTicketRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SupportTicketRequest"
         }
       }
     },
@@ -4837,7 +4837,7 @@
         },
         "x-request-example" : "supportTicketUpdateAssigneeExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SupportTicketAssigneeRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SupportTicketAssigneeRequest"
         }
       }
     },
@@ -4916,7 +4916,7 @@
         },
         "x-request-example" : "supportTicketUpdateStatusExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SupportTicketEventRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SupportTicketEventRequest"
         }
       }
     },
@@ -4965,7 +4965,7 @@
         },
         "x-request-example" : "supportTicketNoteRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SupportTicketNoteRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SupportTicketNoteRequest"
         }
       }
     },
@@ -5097,7 +5097,7 @@
         },
         "x-request-example" : "createItemTransferRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_ItemTransferRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_ItemTransferRequest"
         }
       }
     },
@@ -5267,7 +5267,7 @@
         "x-request-example" : "WebhookRequestExample",
         "x-response-example" : "WebhookResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Webhook"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Webhook"
         }
       }
     },
@@ -5317,7 +5317,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_WebhookSecret"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_WebhookSecret"
         }
       },
       "delete" : {
@@ -5358,7 +5358,7 @@
           }
         },
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_WebhookSecret"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_WebhookSecret"
         }
       }
     },
@@ -5573,7 +5573,7 @@
         "x-request-example" : "updateWebhookRequestExample",
         "x-response-example" : "updateWebhookResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_Webhook"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_Webhook"
         }
       }
     },
@@ -5957,7 +5957,7 @@
         "x-request-example-patient" : "bloodGlucoseReadingRequestPatientExample",
         "x-response-example" : "bloodGlucoseReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_BloodGlucoseReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_BloodGlucoseReadingRequest"
         }
       }
     },
@@ -6509,7 +6509,7 @@
         "x-request-example-patient" : "bloodOxygenReadingRequestPatientExample",
         "x-response-example" : "bloodOxygenReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_BloodOxygenReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_BloodOxygenReadingRequest"
         }
       }
     },
@@ -7071,7 +7071,7 @@
         "x-request-example-patient" : "bloodPressureReadingRequestPatientExample",
         "x-response-example" : "bloodPressureReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_BloodPressureReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_BloodPressureReadingRequest"
         }
       }
     },
@@ -7594,7 +7594,7 @@
         "x-request-example" : "heartRateReadingRequestExample",
         "x-response-example" : "heartRateReadingExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_HeartRateReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_HeartRateReadingRequest"
         }
       }
     },
@@ -8067,7 +8067,7 @@
         "x-request-example" : "heartRateVariabilityReadingRequestExample",
         "x-response-example" : "heartRateVariabilityReadingExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_HeartRateVariabilityReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_HeartRateVariabilityReadingRequest"
         }
       }
     },
@@ -8655,7 +8655,7 @@
         "x-request-example-patient" : "peakFlowReadingRequestPatientExample",
         "x-response-example" : "peakFlowReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_PeakFlowReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_PeakFlowReadingRequest"
         }
       }
     },
@@ -9177,7 +9177,7 @@
         "x-request-example-patient" : "sleepMatActivityReadingRequestPatientExample",
         "x-response-example" : "sleepMatActivityReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SleepMatActivityReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SleepMatActivityReadingRequest"
         }
       }
     },
@@ -9707,7 +9707,7 @@
         "x-request-example-patient" : "sleepMatDurationReadingRequestPatientExample",
         "x-response-example" : "sleepMatDurationReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_SleepMatDurationReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_SleepMatDurationReadingRequest"
         }
       }
     },
@@ -10198,7 +10198,7 @@
         "x-request-example-patient" : "temperatureReadingRequestPatientExample",
         "x-response-example" : "temperatureReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TemperatureReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TemperatureReadingRequest"
         }
       }
     },
@@ -10739,7 +10739,7 @@
         "x-request-example-patient" : "weightReadingRequestPatientExample",
         "x-response-example" : "weightReadingResponseExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_WeightReadingRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_WeightReadingRequest"
         }
       }
     },
@@ -10936,7 +10936,7 @@
         },
         "x-request-example" : "createTestBloodGlucoseWebhookRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestBloodGlucoseWebhookRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestBloodGlucoseWebhookRequest"
         }
       }
     },
@@ -10971,7 +10971,7 @@
         },
         "x-request-example" : "createTestBloodOxygenWebhookRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestBloodOxygenWebhookRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestBloodOxygenWebhookRequest"
         }
       }
     },
@@ -11007,7 +11007,7 @@
         },
         "x-request-example" : "createTestBloodPressureWebhookRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestBloodPressureWebhookRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestBloodPressureWebhookRequest"
         }
       }
     },
@@ -11042,7 +11042,7 @@
         },
         "x-request-example" : "createTestDeviceAssociationWebhookExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestDeviceAssociationWebhook"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestDeviceAssociationWebhook"
         }
       }
     },
@@ -11077,7 +11077,7 @@
         },
         "x-request-example" : "createTestDeviceAssociationWebhookExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestDeviceAssociationWebhook"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestDeviceAssociationWebhook"
         }
       }
     },
@@ -11114,7 +11114,7 @@
         },
         "x-request-example" : "createTestOrderStatusFullWebhookExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestOrderStatusFullWebhook"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestOrderStatusFullWebhook"
         }
       }
     },
@@ -11149,7 +11149,7 @@
         },
         "x-request-example" : "createTestOrderStatusWebhookRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestOrderStatusWebhookRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestOrderStatusWebhookRequest"
         }
       }
     },
@@ -11183,7 +11183,7 @@
         },
         "x-request-example" : "createTestWeightWebhookRequestExample",
         "externalDocs" : {
-          "url" : "https://staging-impilo.docs.buildwithfern.com/resources/models#schema_TestWeightWebhookRequest"
+          "url" : "https://staging-docs.impiloplatform.com/resources/models#schema_TestWeightWebhookRequest"
         }
       }
     }
@@ -11436,13 +11436,9 @@
         }
       },
       "BloodGlucoseUnit" : {
+        "description" : "* `mgdl` - Blood glucose unit of measurement is milligrams per deciliter.",
         "enum" : [ "mgdl" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "mgdl" : {
-            "description" : "Blood glucose unit of measurement is milligrams per deciliter."
-          }
-        }
+        "type" : "string"
       },
       "BloodOxygenReading" : {
         "description" : "This page describes Impilo's blood oxygen reading model.",
@@ -11563,13 +11559,9 @@
         }
       },
       "BloodOxygenUnit" : {
+        "description" : "* `spo2` - Blood glucose unit of measurement is milligrams per deciliter.",
         "enum" : [ "spo2" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "spo2" : {
-            "description" : "Blood glucose unit of measurement is milligrams per deciliter."
-          }
-        }
+        "type" : "string"
       },
       "BloodPressureAlertConfig" : {
         "description" : "Blood pressure alert configuration",
@@ -11731,13 +11723,9 @@
         }
       },
       "BloodPressureUnit" : {
+        "description" : "* `mmhg` - Pressure unit of measurement is millimeters of mercury.",
         "enum" : [ "mmhg" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "mmhg" : {
-            "description" : "Pressure unit of measurement is millimeters of mercury."
-          }
-        }
+        "type" : "string"
       },
       "ClinicalNote" : {
         "description" : "Clinical note for patients.",
@@ -11858,16 +11846,9 @@
         "type" : "string"
       },
       "ClinicalNoteType" : {
+        "description" : "* `other` - Clinical note of other type.\n* `cptCode` - Clinical note related to a CPT code.",
         "enum" : [ "other", "cptCode" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "other" : {
-            "description" : "Clinical note of other type."
-          },
-          "cptCode" : {
-            "description" : "Clinical note related to a CPT code."
-          }
-        }
+        "type" : "string"
       },
       "CptCode" : {
         "type" : "object",
@@ -11909,18 +11890,10 @@
             }
           },
           "shippingOption" : {
-            "description" : "The shipping service level.",
+            "description" : "* `standard` - Standard shipping option.\n* `overnight` - Overnight shipping option.",
             "default" : "standard",
             "enum" : [ "standard", "overnight" ],
-            "type" : "string",
-            "x-fern-enum" : {
-              "standard" : {
-                "description" : "Standard shipping option."
-              },
-              "overnight" : {
-                "description" : "Overnight shipping option."
-              }
-            }
+            "type" : "string"
           },
           "emailLabel" : {
             "description" : "Indicates if the return shipping label will be emailed or shipped.",
@@ -12093,67 +12066,14 @@
         "type" : "string"
       },
       "DeviceStatus" : {
+        "description" : "* `initiated` - Device initialization has been initiated.\n* `awaitingShipment` - Device is awaiting shipment.\n* `available` - Device is available for use.\n* `withPatient` - Device is currently with a patient.\n* `availableAtSite` - Device is available at a site.\n* `delivered` - Device has been delivered.\n* `used` - Device is currently in use.\n* `refurbishing` - Device is being refurbished.\n* `packedAtSite` - Device is packed in a kit at a site, ready to be assigned to a patient.\n* `receivedInError` - Device was received in error and is no longer available for use.\n* `decommissioned` - Device has been decommissioned.\n* `shipped` - Device has been shipped.\n* `availableRepacked` - Device is available and repacked.\n* `returnedManufacturer` - Device has been returned to the manufacturer.\n* `packed` - Device is packed and ready for shipment or use.",
         "enum" : [ "initiated", "awaitingShipment", "available", "withPatient", "availableAtSite", "delivered", "used", "refurbishing", "packedAtSite", "receivedInError", "decommissioned", "shipped", "availableRepacked", "returnedManufacturer", "packed" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "initiated" : {
-            "description" : "Device initialization has been initiated."
-          },
-          "awaitingShipment" : {
-            "description" : "Device is awaiting shipment."
-          },
-          "available" : {
-            "description" : "Device is available for use."
-          },
-          "withPatient" : {
-            "description" : "Device is currently with a patient."
-          },
-          "availableAtSite" : {
-            "description" : "Device is available at a site."
-          },
-          "delivered" : {
-            "description" : "Device has been delivered."
-          },
-          "used" : {
-            "description" : "Device is currently in use."
-          },
-          "refurbishing" : {
-            "description" : "Device is being refurbished."
-          },
-          "packedAtSite" : {
-            "description" : "Device is packed in a kit at a site, ready to be assigned to a patient."
-          },
-          "receivedInError" : {
-            "description" : "Device was received in error and is no longer available for use."
-          },
-          "decommissioned" : {
-            "description" : "Device has been decommissioned."
-          },
-          "shipped" : {
-            "description" : "Device has been shipped."
-          },
-          "availableRepacked" : {
-            "description" : "Device is available and repacked."
-          },
-          "returnedManufacturer" : {
-            "description" : "Device has been returned to the manufacturer."
-          },
-          "packed" : {
-            "description" : "Device is packed and ready for shipment or use."
-          }
-        }
+        "type" : "string"
       },
       "DimensionUnit" : {
+        "description" : "* `in` - Inches.\n* `cm` - Centimeters.",
         "enum" : [ "in", "cm" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "in" : {
-            "description" : "Inches."
-          },
-          "cm" : {
-            "description" : "Centimeters."
-          }
-        }
+        "type" : "string"
       },
       "DisenrollPatientRequest" : {
         "type" : "object",
@@ -12192,13 +12112,9 @@
         }
       },
       "ForcedExpiratoryVolumeUnit" : {
+        "description" : "* `lps` - Forced expiratory volume unit of measurement is liters per second.",
         "enum" : [ "lps" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "lps" : {
-            "description" : "Forced expiratory volume unit of measurement is liters per second."
-          }
-        }
+        "type" : "string"
       },
       "HeartRateReading" : {
         "description" : "Impilo's heart rate model.",
@@ -12291,28 +12207,14 @@
         }
       },
       "HeartRateUnit" : {
+        "description" : "* `bpm` - Heart rate unit of measurement is beats per minute.",
         "enum" : [ "bpm" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "bpm" : {
-            "description" : "Heart rate unit of measurement is beats per minute."
-          }
-        }
+        "type" : "string"
       },
       "HeartRateVariabilityAlgorithmType" : {
+        "description" : "* `sdann` - Standard deviation of the average NN intervals calculated over short periods.\n* `sdnn` - Standard deviation of all NN intervals.\n* `sdrr` - Standard deviation of the differences between adjacent NN intervals.",
         "enum" : [ "sdann", "sdnn", "sdrr" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "sdann" : {
-            "description" : "Standard deviation of the average NN intervals calculated over short periods."
-          },
-          "sdnn" : {
-            "description" : "Standard deviation of all NN intervals."
-          },
-          "sdrr" : {
-            "description" : "Standard deviation of the differences between adjacent NN intervals."
-          }
-        }
+        "type" : "string"
       },
       "HeartRateVariabilityReading" : {
         "description" : "Impilo's heart rate variability model.",
@@ -12508,58 +12410,9 @@
         }
       },
       "ItemClass" : {
+        "description" : "* `wearable` - Items related to wearable devices.\n* `glucose` - Items related to glucose monitoring.\n* `miscellaneous` - Miscellaneous items.\n* `circulatory` - Items related to the circulatory system.\n* `packaging` - Items related to packaging.\n* `lab` - Items related to laboratory equipment.\n* `body` - Items related to the body.\n* `familyPlanning` - Items related to family planning.\n* `cpap` - Items related to Continuous Positive Airway Pressure (CPAP).\n* `connectivity` - Items related to connectivity.\n* `generalHealth` - Items related to general health.\n* `service` - Service-related items.\n* `thermometer` - Items related to thermometers.\n* `power` - Items related to power supply.\n* `respiratory` - Items related to the respiratory system.\n* `info` - Informational items.",
         "enum" : [ "wearable", "glucose", "miscellaneous", "circulatory", "packaging", "lab", "body", "familyPlanning", "cpap", "connectivity", "generalHealth", "service", "thermometer", "power", "respiratory", "info" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "wearable" : {
-            "description" : "Items related to wearable devices."
-          },
-          "glucose" : {
-            "description" : "Items related to glucose monitoring."
-          },
-          "miscellaneous" : {
-            "description" : "Miscellaneous items."
-          },
-          "circulatory" : {
-            "description" : "Items related to the circulatory system."
-          },
-          "packaging" : {
-            "description" : "Items related to packaging."
-          },
-          "lab" : {
-            "description" : "Items related to laboratory equipment."
-          },
-          "body" : {
-            "description" : "Items related to the body."
-          },
-          "familyPlanning" : {
-            "description" : "Items related to family planning."
-          },
-          "cpap" : {
-            "description" : "Items related to Continuous Positive Airway Pressure (CPAP)."
-          },
-          "connectivity" : {
-            "description" : "Items related to connectivity."
-          },
-          "generalHealth" : {
-            "description" : "Items related to general health."
-          },
-          "service" : {
-            "description" : "Service-related items."
-          },
-          "thermometer" : {
-            "description" : "Items related to thermometers."
-          },
-          "power" : {
-            "description" : "Items related to power supply."
-          },
-          "respiratory" : {
-            "description" : "Items related to the respiratory system."
-          },
-          "info" : {
-            "description" : "Informational items."
-          }
-        }
+        "type" : "string"
       },
       "ItemDetailed" : {
         "description" : "An item is any of the supplies handled by Impilo. Examples include medical devices like a blood pressure monitor or weight scale, but the term 'item' also refers to non-medical supplies like AAA batteries and package inserts. A customer catalog is a subset of all items supported by Impilo. This is set during onboarding and may be modified by your account manager at any time. A customer may view the items in their catalog. Detailed Item views are only seen in the Item list and fetch endpoints -- otherwise, a lighter version of an Item is returned with other non-Item endpoints.",
@@ -12671,25 +12524,9 @@
         }
       },
       "ItemSize" : {
+        "description" : "* `standard` - Standard sized item.\n* `small` - Small sized item.\n* `large` - Large sized item.\n* `extraLarge` - Extra large sized item.\n* `medium` - Medium sized item.",
         "enum" : [ "standard", "small", "large", "extraLarge", "medium" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "standard" : {
-            "description" : "Standard sized item."
-          },
-          "small" : {
-            "description" : "Small sized item."
-          },
-          "large" : {
-            "description" : "Large sized item."
-          },
-          "extraLarge" : {
-            "description" : "Extra large sized item."
-          },
-          "medium" : {
-            "description" : "Medium sized item."
-          }
-        }
+        "type" : "string"
       },
       "ItemSort" : {
         "enum" : [ "itemId", "itemName", "itemModel", "itemSku" ],
@@ -12803,51 +12640,10 @@
             } ]
           },
           "currentStatus" : {
-            "description" : "The current status of the order",
+            "description" : "* `availableForPickup` - Order is waiting for the recipient to pickup at the post office.\n* `onHold` - Order is on hold, possibly due to inventory or internal reviews.\n* `unsuccessfulDelivery` - Delivery of the order was attempted but unsuccessful.\n* `awaitingShipment` - Order is ready to be shipped but is waiting for the next shipment cycle.\n* `returnIssued` - A return process has been initiated for the order.\n* `pendingInventory` - Order is waiting for inventory to become available before it can be fulfilled.\n* `delivered` - Order has been successfully delivered to the recipient.\n* `reconfirmAddress` - Customer needs to reconfirm their address.\n* `unableToFulfill` - Order cannot be fulfilled due to current limitations or issues.\n* `orderPlaced` - Order has been successfully placed and is in the system.\n* `shipped` - Order has been shipped to the recipient.\n* `voided` - Order has been canceled and is no longer valid.\n* `pendingAdditionalInformation` - Order is pending as additional information is required from the recipient.",
             "enum" : [ "availableForPickup", "onHold", "unsuccessfulDelivery", "awaitingShipment", "returnIssued", "pendingInventory", "delivered", "reconfirmAddress", "unableToFulfill", "orderPlaced", "shipped", "voided", "pendingAdditionalInformation" ],
             "type" : "string",
-            "readOnly" : true,
-            "x-fern-enum" : {
-              "availableForPickup" : {
-                "description" : "Order is waiting for the recipient to pickup at the post office."
-              },
-              "onHold" : {
-                "description" : "Order is on hold, possibly due to inventory or internal reviews."
-              },
-              "unsuccessfulDelivery" : {
-                "description" : "Delivery of the order was attempted but unsuccessful."
-              },
-              "awaitingShipment" : {
-                "description" : "Order is ready to be shipped but is waiting for the next shipment cycle."
-              },
-              "returnIssued" : {
-                "description" : "A return process has been initiated for the order."
-              },
-              "pendingInventory" : {
-                "description" : "Order is waiting for inventory to become available before it can be fulfilled."
-              },
-              "delivered" : {
-                "description" : "Order has been successfully delivered to the recipient."
-              },
-              "reconfirmAddress" : {
-                "description" : "Customer needs to reconfirm their address."
-              },
-              "unableToFulfill" : {
-                "description" : "Order cannot be fulfilled due to current limitations or issues."
-              },
-              "orderPlaced" : {
-                "description" : "Order has been successfully placed and is in the system."
-              },
-              "shipped" : {
-                "description" : "Order has been shipped to the recipient."
-              },
-              "voided" : {
-                "description" : "Order has been canceled and is no longer valid."
-              },
-              "pendingAdditionalInformation" : {
-                "description" : "Order is pending as additional information is required from the recipient."
-              }
-            }
+            "readOnly" : true
           },
           "orderItems" : {
             "description" : "Array of items on the order. At least one of orderItems or orderKits must be not null.",
@@ -14022,13 +13818,9 @@
         "type" : "string"
       },
       "PeakExpiratoryFlowUnit" : {
+        "description" : "* `lpm` - Peak expiratory flow unit of measurement is liters per minute.",
         "enum" : [ "lpm" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "lpm" : {
-            "description" : "Peak expiratory flow unit of measurement is liters per minute."
-          }
-        }
+        "type" : "string"
       },
       "PeakFlowReading" : {
         "description" : "This page describes Impilo's peak flow reading model.",
@@ -14207,43 +13999,9 @@
         }
       },
       "ReadingType" : {
+        "description" : "* `bloodPressure` - Blood pressure reading type.\n* `sleepMatActivity` - Sleep Mat Activity reading type.\n* `heartRateVariability` - Heart rate variability reading type.\n* `heartRate` - Heart rate reading type.\n* `spo2` - SPO2 (oxygen saturation) reading type.\n* `temperature` - Temperature reading type.\n* `weight` - Weight reading type.\n* `peakFlow` - Peak Flow expiratory reading type.\n* `continuousBloodGlucose` - Continuous blood glucose reading type.\n* `sleepMatDuration` - Sleep Mat Duration reading type.\n* `bloodGlucose` - Blood glucose reading type.",
         "enum" : [ "bloodPressure", "sleepMatActivity", "heartRateVariability", "heartRate", "spo2", "temperature", "weight", "peakFlow", "continuousBloodGlucose", "sleepMatDuration", "bloodGlucose" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "bloodPressure" : {
-            "description" : "Blood pressure reading type."
-          },
-          "sleepMatActivity" : {
-            "description" : "Sleep Mat Activity reading type."
-          },
-          "heartRateVariability" : {
-            "description" : "Heart rate variability reading type."
-          },
-          "heartRate" : {
-            "description" : "Heart rate reading type."
-          },
-          "spo2" : {
-            "description" : "SPO2 (oxygen saturation) reading type."
-          },
-          "temperature" : {
-            "description" : "Temperature reading type."
-          },
-          "weight" : {
-            "description" : "Weight reading type."
-          },
-          "peakFlow" : {
-            "description" : "Peak Flow expiratory reading type."
-          },
-          "continuousBloodGlucose" : {
-            "description" : "Continuous blood glucose reading type."
-          },
-          "sleepMatDuration" : {
-            "description" : "Sleep Mat Duration reading type."
-          },
-          "bloodGlucose" : {
-            "description" : "Blood glucose reading type."
-          }
-        }
+        "type" : "string"
       },
       "Return" : {
         "description" : "A return is an occurrence of a device(s) or non-tracked item(s) being returned by a Patient.",
@@ -14357,64 +14115,19 @@
         }
       },
       "ReturnMerchAuthStatus" : {
+        "description" : "* `receiving` - Return merchandise authorization is in receiving.\n* `arrived` - Return merchandise authorization has arrived at Impilo.\n* `pendingReturn` - Return merchandise authorization is pending return.\n* `outbound` - Return merchandise authorization is outbound to patient.\n* `rmaPlaced` - Return merchandise authorization has been placed.\n* `voided` - Return merchandise authorization has been voided.\n* `completed` - Return merchandise authorization is complete.\n* `inTransit` - Return merchandise authorization is in transit to Impilo.",
         "enum" : [ "receiving", "arrived", "pendingReturn", "outbound", "rmaPlaced", "voided", "completed", "inTransit" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "receiving" : {
-            "description" : "Return merchandise authorization is in receiving."
-          },
-          "arrived" : {
-            "description" : "Return merchandise authorization has arrived at Impilo."
-          },
-          "pendingReturn" : {
-            "description" : "Return merchandise authorization is pending return."
-          },
-          "outbound" : {
-            "description" : "Return merchandise authorization is outbound to patient."
-          },
-          "rmaPlaced" : {
-            "description" : "Return merchandise authorization has been placed."
-          },
-          "voided" : {
-            "description" : "Return merchandise authorization has been voided."
-          },
-          "completed" : {
-            "description" : "Return merchandise authorization is complete."
-          },
-          "inTransit" : {
-            "description" : "Return merchandise authorization is in transit to Impilo."
-          }
-        }
+        "type" : "string"
       },
       "Sex" : {
+        "description" : "* `other` - Sex other than male or female.\n* `female` - Female sex.\n* `male` - Male sex.\n* `unknown` - Sex is unknown.",
         "enum" : [ "other", "female", "male", "unknown" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "other" : {
-            "description" : "Sex other than male or female."
-          },
-          "female" : {
-            "description" : "Female sex."
-          },
-          "male" : {
-            "description" : "Male sex."
-          },
-          "unknown" : {
-            "description" : "Sex is unknown."
-          }
-        }
+        "type" : "string"
       },
       "ShippingOption" : {
+        "description" : "* `standard` - Standard shipping option.\n* `overnight` - Overnight shipping option.",
         "enum" : [ "standard", "overnight" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "standard" : {
-            "description" : "Standard shipping option."
-          },
-          "overnight" : {
-            "description" : "Overnight shipping option."
-          }
-        }
+        "type" : "string"
       },
       "SimpleReturnItem" : {
         "type" : "object",
@@ -14998,67 +14711,9 @@
         "type" : "string"
       },
       "SupportTicketType" : {
+        "description" : "* `other` - Other general inquiries support ticket.\n* `engagement` - Engagement-related support ticket.\n* `labOrder` - Lab order support ticket.\n* `deviceTechnicalSupport` - Device technical support ticket.\n* `patientSetup` - Patient setup support ticket.\n* `patientEngagement` - Patient engagement support ticket.\n* `returnToSender` - Return to sender support ticket.\n* `mobileSupport` - Mobile support ticket.\n* `customerDeviceInquiry` - Customer device inquiry support ticket.\n* `operations` - Operations-related support ticket.\n* `alert` - Alert related support ticket\n* `clinicalSupport` - Clinical support ticket.\n* `generalInquiry` - General inquiry support ticket.\n* `patientEnrollment` - Patient enrollment support ticket.\n* `technicalSupport` - Technical support ticket.\n* `addressConfirmation` - Address confirmation support ticket.\n* `patientJourney` - Patient journey support ticket.\n* `deviceClaim` - Device claims support ticket.\n* `returnMerchandiseAuthorization` - Return merchandise authorization support ticket.",
         "enum" : [ "other", "engagement", "labOrder", "deviceTechnicalSupport", "patientSetup", "patientEngagement", "returnToSender", "mobileSupport", "customerDeviceInquiry", "operations", "alert", "clinicalSupport", "generalInquiry", "patientEnrollment", "technicalSupport", "addressConfirmation", "patientJourney", "deviceClaim", "returnMerchandiseAuthorization" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "other" : {
-            "description" : "Other general inquiries support ticket."
-          },
-          "engagement" : {
-            "description" : "Engagement-related support ticket."
-          },
-          "labOrder" : {
-            "description" : "Lab order support ticket."
-          },
-          "deviceTechnicalSupport" : {
-            "description" : "Device technical support ticket."
-          },
-          "patientSetup" : {
-            "description" : "Patient setup support ticket."
-          },
-          "patientEngagement" : {
-            "description" : "Patient engagement support ticket."
-          },
-          "returnToSender" : {
-            "description" : "Return to sender support ticket."
-          },
-          "mobileSupport" : {
-            "description" : "Mobile support ticket."
-          },
-          "customerDeviceInquiry" : {
-            "description" : "Customer device inquiry support ticket."
-          },
-          "operations" : {
-            "description" : "Operations-related support ticket."
-          },
-          "alert" : {
-            "description" : "Alert related support ticket"
-          },
-          "clinicalSupport" : {
-            "description" : "Clinical support ticket."
-          },
-          "generalInquiry" : {
-            "description" : "General inquiry support ticket."
-          },
-          "patientEnrollment" : {
-            "description" : "Patient enrollment support ticket."
-          },
-          "technicalSupport" : {
-            "description" : "Technical support ticket."
-          },
-          "addressConfirmation" : {
-            "description" : "Address confirmation support ticket."
-          },
-          "patientJourney" : {
-            "description" : "Patient journey support ticket."
-          },
-          "deviceClaim" : {
-            "description" : "Device claims support ticket."
-          },
-          "returnMerchandiseAuthorization" : {
-            "description" : "Return merchandise authorization support ticket."
-          }
-        }
+        "type" : "string"
       },
       "Team" : {
         "enum" : [ "operations", "engineering", "accounts", "support", "sales" ],
@@ -15179,16 +14834,9 @@
         }
       },
       "TemperatureUnit" : {
+        "description" : "* `C` - Temperature unit of measurement is Celsius.\n* `F` - Temperature unit of measurement is Fahrenheit.",
         "enum" : [ "C", "F" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "C" : {
-            "description" : "Temperature unit of measurement is Celsius."
-          },
-          "F" : {
-            "description" : "Temperature unit of measurement is Fahrenheit."
-          }
-        }
+        "type" : "string"
       },
       "TestBloodGlucoseWebhookRequest" : {
         "description" : "Request model for testing blood glucose webhook.",
@@ -15468,25 +15116,9 @@
         }
       },
       "TransferRequestStatus" : {
+        "description" : "* `requested` - Transfer request has been requested.\n* `approved` - Transfer request has been approved.\n* `pendingInventory` - Transfer request is pending inventory.\n* `voided` - Transfer request has been voided.\n* `completed` - Transfer request has been completed.",
         "enum" : [ "requested", "approved", "pendingInventory", "voided", "completed" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "requested" : {
-            "description" : "Transfer request has been requested."
-          },
-          "approved" : {
-            "description" : "Transfer request has been approved."
-          },
-          "pendingInventory" : {
-            "description" : "Transfer request is pending inventory."
-          },
-          "voided" : {
-            "description" : "Transfer request has been voided."
-          },
-          "completed" : {
-            "description" : "Transfer request has been completed."
-          }
-        }
+        "type" : "string"
       },
       "ValidateDeviceResponse" : {
         "type" : "object",
@@ -15618,82 +15250,9 @@
         }
       },
       "WebhookType" : {
+        "description" : "* `procurement.statusFull` - A procurement status event occurred. The payload includes the full procurement model.\n* `supportTicket.event` - A support ticket event took place.\n* `reading.bloodOxygen` - A reading of blood oxygen was taken.\n* `device.healthcheck` - A device healthcheck was received.\n* `order.status` - An order status event occurred. The payload only includes order id and order event type.\n* `reading.peakFlow` - A peak flow reading was taken.\n* `transferRequest.statusFull` - A transfer request status event occurred. The payload includes the full transfer request model.\n* `device.lowBattery` - A device sent a low battery signal.\n* `return.statusFull` - A return status event was triggered.\n* `patient.updated` - A patient’s details were updated.\n* `reading.sleepMatActivity` - A sleep mat activity reading was taken.\n* `reading.bloodPressure` - A reading of blood pressure was taken.\n* `reading.sleepMatDuration` - A sleep mat duration reading was taken.\n* `procurement.status` - A procurement status event occurred. The payload only includes procurement id and event type.\n* `device.associationCreated` - A patient-device association was created.\n* `device.associationRemoved` - A patient-device association was removed.\n* `patient.created` - A new patient was created.\n* `reading.weight` - A body weight reading was taken.\n* `reading.temperature` - A body temperature reading was taken.\n* `transferRequest.status` - A transfer request status event occurred. The payload only includes transfer request id and transfer request event type.\n* `return.status` - A return status event was triggered.\n* `reading.bloodGlucose` - A reading of blood glucose was taken.\n* `device.weakSignal` - A device sent a weak signal.\n* `order.statusFull` - An order status event occurred. The payload includes the full order model.",
         "enum" : [ "procurement.statusFull", "supportTicket.event", "reading.bloodOxygen", "device.healthcheck", "order.status", "reading.peakFlow", "transferRequest.statusFull", "device.lowBattery", "return.statusFull", "patient.updated", "reading.sleepMatActivity", "reading.bloodPressure", "reading.sleepMatDuration", "procurement.status", "device.associationCreated", "device.associationRemoved", "patient.created", "reading.weight", "reading.temperature", "transferRequest.status", "return.status", "reading.bloodGlucose", "device.weakSignal", "order.statusFull" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "procurement.statusFull" : {
-            "description" : "A procurement status event occurred. The payload includes the full procurement model."
-          },
-          "supportTicket.event" : {
-            "description" : "A support ticket event took place."
-          },
-          "reading.bloodOxygen" : {
-            "description" : "A reading of blood oxygen was taken."
-          },
-          "device.healthcheck" : {
-            "description" : "A device healthcheck was received."
-          },
-          "order.status" : {
-            "description" : "An order status event occurred. The payload only includes order id and order event type."
-          },
-          "reading.peakFlow" : {
-            "description" : "A peak flow reading was taken."
-          },
-          "transferRequest.statusFull" : {
-            "description" : "A transfer request status event occurred. The payload includes the full transfer request model."
-          },
-          "device.lowBattery" : {
-            "description" : "A device sent a low battery signal."
-          },
-          "return.statusFull" : {
-            "description" : "A return status event was triggered."
-          },
-          "patient.updated" : {
-            "description" : "A patient’s details were updated."
-          },
-          "reading.sleepMatActivity" : {
-            "description" : "A sleep mat activity reading was taken."
-          },
-          "reading.bloodPressure" : {
-            "description" : "A reading of blood pressure was taken."
-          },
-          "reading.sleepMatDuration" : {
-            "description" : "A sleep mat duration reading was taken."
-          },
-          "procurement.status" : {
-            "description" : "A procurement status event occurred. The payload only includes procurement id and event type."
-          },
-          "device.associationCreated" : {
-            "description" : "A patient-device association was created."
-          },
-          "device.associationRemoved" : {
-            "description" : "A patient-device association was removed."
-          },
-          "patient.created" : {
-            "description" : "A new patient was created."
-          },
-          "reading.weight" : {
-            "description" : "A body weight reading was taken."
-          },
-          "reading.temperature" : {
-            "description" : "A body temperature reading was taken."
-          },
-          "transferRequest.status" : {
-            "description" : "A transfer request status event occurred. The payload only includes transfer request id and transfer request event type."
-          },
-          "return.status" : {
-            "description" : "A return status event was triggered."
-          },
-          "reading.bloodGlucose" : {
-            "description" : "A reading of blood glucose was taken."
-          },
-          "device.weakSignal" : {
-            "description" : "A device sent a weak signal."
-          },
-          "order.statusFull" : {
-            "description" : "An order status event occurred. The payload includes the full order model."
-          }
-        }
+        "type" : "string"
       },
       "WeightReading" : {
         "description" : "This page describes Impilo's weight reading model.",
@@ -15803,13 +15362,9 @@
         }
       },
       "WeightUnit" : {
+        "description" : "* `lbs` - Weight unit of measurement is pounds.",
         "enum" : [ "lbs" ],
-        "type" : "string",
-        "x-fern-enum" : {
-          "lbs" : {
-            "description" : "Weight unit of measurement is pounds."
-          }
-        }
+        "type" : "string"
       }
     }
   }
