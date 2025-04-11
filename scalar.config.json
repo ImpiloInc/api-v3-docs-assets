@@ -4,9 +4,9 @@
   "subdomain" : "staging-docs",
   "customDomain" : "staging-docs.impiloplatform.com",
   "siteMeta" : {
-    "favicon" : "https://cdn.jsdelivr.net/gh/ImpiloInc/api-v3-docs-assets@hosting-v2/images/favicon.png",
-    "title" : "Impilo Docs</title><style></style><title>",
-    "description" : "Guides and references for the Impilo API.\"><style></style><meta name=\"description\" content=\""
+    "favicon" : "https://cdn.jsdelivr.net/gh/ImpiloInc/api-v3-docs-assets@hosting-v2/images/favicon.png\"><style></style>",
+    "title" : "Impilo Docs",
+    "description" : "Guides and references for the Impilo API."
   },
   "siteConfig" : {
     "theme" : "impilo",
