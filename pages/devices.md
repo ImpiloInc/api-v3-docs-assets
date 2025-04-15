@@ -124,4 +124,4 @@ Truncated response:
 ### More
 
 - [Device API Endpoints](/api-reference/devices)
-- [Download OpenAPI YAML](javascript:window.print())
+
