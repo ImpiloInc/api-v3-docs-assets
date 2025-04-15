@@ -215,4 +215,3 @@ You can use the generated hash as an external identifier in your patient profile
 ### More
 
 - [Create Patient API Reference](/api-reference/patients/create-patient)
-- [Download OpenAPI YAML](javascript:window.print())

@@ -1005,4 +1005,4 @@ Response:
 ## More
 
 - [Create Order API Reference](/api-reference/orders/create-order)
-- [Download OpenAPI YAML](javascript:window.print())
+
