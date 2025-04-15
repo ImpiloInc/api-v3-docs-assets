@@ -17,8 +17,10 @@ curl --request POST \
 --url https://example.com/api/v3/webhook \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---data '{"type": "order.status", "url": "https://impilo.health"}
-'
+--data '{
+  "type" : "order.status",
+  "url" : "https://impilo.health"
+}'
 ```
 
 ### Webhook Types
@@ -48,14 +50,16 @@ curl --request POST \
 --url https://example.com/api/v3/webhook-secret \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---data '{"secret": "string"}
-'
+--data '{
+  "secret" : "string"
+}'
 ```
 
 Response:
 ```json
-{"secret": "string"}
-
+{
+  "secret" : "string"
+}
 ```
 
 ### Webhook Retries
@@ -82,26 +86,23 @@ curl --request GET \
 Response:
 ```json
 {
-  "content": [
-    {
-      "id": 1,
-      "webhookId": 1,
-      "webhookType": "order.status",
-      "webhookUrl": "http://webhookserver.com",
-      "payload": "{'id':1234}",
-      "createTimestamp": "2023-08-22T14:15:30.345Z",
-      "lastResponseStatus": 200,
-      "retryAttempts": 3,
-      "lastRetryTimestamp": "2023-08-22T14:15:30.345Z"
-    }
-  ],
-  "page": 0,
-  "size": 0,
-  "total": 0,
-  "first": true,
-  "last": true
+  "content" : [ {
+    "id" : 1,
+    "webhookId" : 1,
+    "webhookType" : "order.status",
+    "webhookUrl" : "http://webhookserver.com",
+    "payload" : "{'id':1234}",
+    "createTimestamp" : "2023-08-22T14:15:30.345Z",
+    "lastResponseStatus" : 200,
+    "retryAttempts" : 3,
+    "lastRetryTimestamp" : "2023-08-22T14:15:30.345Z"
+  } ],
+  "page" : 0,
+  "size" : 0,
+  "total" : 0,
+  "first" : true,
+  "last" : true
 }
-
 ```
 
 ### Walkthroughs
@@ -168,8 +169,12 @@ For example, to trigger a test blood pressure webhook, use the following endpoin
 curl --request POST \
 --url https://example.com/api/v3/test/blood-pressure-webhook \
 --header 'Content-Type: application/json' \
---data '{"patientId": 1, "systolic": 120, "diastolic": 80, "heartRate": 100}
-'
+--data '{
+  "patientId" : 1,
+  "systolic" : 120,
+  "diastolic" : 80,
+  "heartRate" : 100
+}'
 ```
 
 More endpoints are available in the [tests section](/api-reference/tests) of the API reference.
@@ -178,4 +183,3 @@ More endpoints are available in the [tests section](/api-reference/tests) of the
 
 - [Webhook API Reference](/api-reference/webhooks/create-webhook)
 - [Weight Reading API Reference](/api-reference/weight-reading)
-- [Download OpenAPI YAML](javascript:window.print())
