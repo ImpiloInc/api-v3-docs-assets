@@ -173,4 +173,3 @@ More endpoints are available in the [tests section](/api-reference/tests) of the
 
 - [Webhook API Reference](/api-reference/webhooks/create-webhook)
 - [Weight Reading API Reference](/api-reference/weight-reading)
-- [Download OpenAPI YAML](javascript:window.print())
