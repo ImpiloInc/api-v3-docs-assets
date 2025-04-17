@@ -1,7 +1,7 @@
 {
   "$schema" : "https://cdn.scalar.com/schema/scalar-config.json",
   "publishOnMerge" : true,
-  "subdomain" : "alpha-docs-local-impil-15s1km3",
+  "subdomain" : "alpha-docs",
   "customDomain" : "alpha-docs.local.impiloplatform.com",
   "siteMeta" : {
     "favicon" : "https://cdn.jsdelivr.net/gh/ImpiloInc/api-v3-docs-assets@alpha/images/favicon.png",
