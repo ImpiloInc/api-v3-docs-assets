@@ -80,7 +80,7 @@ paths:
           description: "No Content"
       x-request-example: "AlertConfigurationExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/AlertConfiguration"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/AlertConfiguration"
   /api/v3/alerts/configuration/global/{type}:
     get:
       tags:
@@ -174,7 +174,7 @@ paths:
           description: "No Content"
       x-request-example: "AlertConfigurationExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/AlertConfiguration"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/AlertConfiguration"
   /api/v3/alerts/configuration/patient/{patientId}/{type}:
     get:
       tags:
@@ -274,7 +274,7 @@ paths:
           description: "No Content"
       x-request-example: "AlertConfigurationExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/AlertConfiguration"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/AlertConfiguration"
   /api/v3/alerts/configuration/site/{siteId}/{type}:
     get:
       tags:
@@ -987,7 +987,7 @@ paths:
           description: "No Content"
       x-request-example: "associateDeviceRequest"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/AssociateDeviceRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/AssociateDeviceRequest"
   /api/v3/device/disable-readings:
     patch:
       tags:
@@ -1010,7 +1010,7 @@ paths:
         "204":
           description: "No Content"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/DeviceReferenceRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/DeviceReferenceRequest"
   /api/v3/device/disassociate-patient:
     patch:
       tags:
@@ -1040,7 +1040,7 @@ paths:
           description: "No Content"
       x-request-example: "disassociateDeviceRequestExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/AssociateDeviceRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/AssociateDeviceRequest"
   /api/v3/device/enable-readings:
     patch:
       tags:
@@ -1061,7 +1061,7 @@ paths:
         "204":
           description: "No Content"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/DeviceReferenceRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/DeviceReferenceRequest"
   /api/v3/device/validate/{deviceIdentifier}:
     get:
       tags:
@@ -1495,7 +1495,7 @@ paths:
       x-request-example-with-identifier: "itemRequestWithIdentifier"
       x-response-example: "itemRequestResponse"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/ItemRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/ItemRequest"
   /api/v3/item/{itemId}:
     get:
       tags:
@@ -1892,7 +1892,7 @@ paths:
       x-request-example-new-patient-order: "createRequestExampleNewPatientOrder"
       x-request-example-site-order: "createRequestExampleNewSiteOrder"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Order"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Order"
   /api/v3/order/summary/{orderId}:
     get:
       tags:
@@ -2176,7 +2176,7 @@ paths:
                 $ref: "#/components/schemas/Patient"
       x-request-example-create-patient: "ApiV3ControllerExamples.patient"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Patient"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Patient"
   /api/v3/patient/disenroll/{patientId}:
     post:
       tags:
@@ -2209,7 +2209,7 @@ paths:
           description: "Created"
       x-request-example-disenroll-patient: "disenrollPatientRequest"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/DisenrollPatientRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/DisenrollPatientRequest"
   /api/v3/patient/find-by-email:
     post:
       tags:
@@ -2343,7 +2343,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Patient"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Patient"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Patient"
     patch:
       tags:
       - "Patients"
@@ -2383,7 +2383,7 @@ paths:
       x-request-example-update-patient-email: "patchPatientEmailExample"
       x-request-example-update-patient-external-identifier: "patchPatientExternalIdentifierExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Patient"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Patient"
   /api/v3/procurement:
     get:
       tags:
@@ -2546,7 +2546,7 @@ paths:
                 format: "int64"
                 type: "integer"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Procurement"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Procurement"
   /api/v3/procurement/receipt:
     post:
       tags:
@@ -2569,7 +2569,7 @@ paths:
                 format: "int64"
                 type: "integer"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Procurement"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Procurement"
   /api/v3/procurement/{id}:
     get:
       tags:
@@ -2977,7 +2977,7 @@ paths:
       x-response-example: "rmaCreateResponseExample"
       x-request-example-create-return: "ApiV3ControllerExamples.createReturnPayload"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/CreateReturn"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/CreateReturn"
   /api/v3/return/{id}:
     get:
       tags:
@@ -3177,7 +3177,7 @@ paths:
       x-request-example-create-site: "ApiV3ControllerExamples.site"
       x-response-example: "ApiV3ControllerExamples.site"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Site"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Site"
   /api/v3/site/{siteId}:
     get:
       tags:
@@ -3250,7 +3250,7 @@ paths:
           description: "No Content"
       x-request-example-update-site: "ApiV3ControllerExamples.site"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Site"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Site"
     patch:
       tags:
       - "Sites"
@@ -3306,7 +3306,7 @@ paths:
       x-request-example-patch-site: "ApiV3ControllerExamples.site"
       x-response-example: "ApiV3ControllerExamples.site"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Site"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Site"
   /api/v3/support-ticket:
     get:
       tags:
@@ -3648,7 +3648,7 @@ paths:
                 $ref: "#/components/schemas/SupportTicket"
       x-request-example: "supportTicketRequestExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/SupportTicketRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/SupportTicketRequest"
   /api/v3/support-ticket/{id}:
     get:
       tags:
@@ -3756,7 +3756,7 @@ paths:
                 $ref: "#/components/schemas/SupportTicket"
       x-request-example: "supportTicketUpdateAssigneeExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/SupportTicketAssigneeRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/SupportTicketAssigneeRequest"
   /api/v3/support-ticket/{supportTicketId}/close:
     post:
       tags:
@@ -3813,7 +3813,7 @@ paths:
                 $ref: "#/components/schemas/SupportTicket"
       x-request-example: "supportTicketUpdateStatusExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/SupportTicketEventRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/SupportTicketEventRequest"
   /api/v3/support-ticket/{supportTicketId}/note:
     post:
       tags:
@@ -3847,7 +3847,7 @@ paths:
                 $ref: "#/components/schemas/SupportTicket"
       x-request-example: "supportTicketNoteRequestExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/SupportTicketNoteRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/SupportTicketNoteRequest"
   /api/v3/support-ticket/{supportTicketId}/open:
     post:
       tags:
@@ -3952,7 +3952,7 @@ paths:
                 type: "integer"
       x-request-example: "createItemTransferRequestExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/ItemTransferRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/ItemTransferRequest"
   /api/v3/transfer/transfer-request/{id}:
     get:
       tags:
@@ -4078,7 +4078,7 @@ paths:
       x-request-example: "WebhookRequestExample"
       x-response-example: "WebhookResponseExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Webhook"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Webhook"
   /api/v3/webhook-secret:
     get:
       tags:
@@ -4115,7 +4115,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/WebhookSecret"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/WebhookSecret"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/WebhookSecret"
     delete:
       tags:
       - "Webhooks"
@@ -4147,7 +4147,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/WebhookSecret"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/WebhookSecret"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/WebhookSecret"
   /api/v3/webhook/logs:
     get:
       tags:
@@ -4311,7 +4311,7 @@ paths:
       x-request-example: "updateWebhookRequestExample"
       x-response-example: "updateWebhookResponseExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/Webhook"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/Webhook"
   /api/v3/blood-glucose-reading:
     get:
       tags:
@@ -4626,7 +4626,7 @@ paths:
       x-request-example-patient: "bloodGlucoseReadingRequestPatientExample"
       x-response-example: "bloodGlucoseReadingResponseExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/BloodGlucoseReadingRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/BloodGlucoseReadingRequest"
   /api/v3/blood-glucose-reading/export:
     get:
       tags:
@@ -5077,7 +5077,7 @@ paths:
       x-request-example-patient: "bloodOxygenReadingRequestPatientExample"
       x-response-example: "bloodOxygenReadingResponseExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/BloodOxygenReadingRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/BloodOxygenReadingRequest"
   /api/v3/blood-oxygen-reading/export:
     get:
       tags:
@@ -5538,7 +5538,7 @@ paths:
       x-request-example-patient: "bloodPressureReadingRequestPatientExample"
       x-response-example: "bloodPressureReadingResponseExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/BloodPressureReadingRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/BloodPressureReadingRequest"
   /api/v3/blood-pressure-reading/export:
     get:
       tags:
@@ -5962,7 +5962,7 @@ paths:
       x-request-example: "heartRateReadingRequestExample"
       x-response-example: "heartRateReadingExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/HeartRateReadingRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/HeartRateReadingRequest"
   /api/v3/heart-rate-reading/{readingId}:
     get:
       tags:
@@ -6340,7 +6340,7 @@ paths:
       x-request-example: "heartRateVariabilityReadingRequestExample"
       x-response-example: "heartRateVariabilityReadingExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/HeartRateVariabilityReadingRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/HeartRateVariabilityReadingRequest"
   /api/v3/heart-rate-variability-reading/{readingId}:
     get:
       tags:
@@ -6817,7 +6817,7 @@ paths:
       x-request-example-patient: "peakFlowReadingRequestPatientExample"
       x-response-example: "peakFlowReadingResponseExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/PeakFlowReadingRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/PeakFlowReadingRequest"
   /api/v3/peak-flow-reading/{readingId}:
     get:
       tags:
@@ -7266,7 +7266,7 @@ paths:
       x-request-example-patient: "sleepMatActivityReadingRequestPatientExample"
       x-response-example: "sleepMatActivityReadingResponseExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/SleepMatActivityReadingRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/SleepMatActivityReadingRequest"
   /api/v3/sleep-mat-activity-reading/{readingId}:
     get:
       tags:
@@ -7703,7 +7703,7 @@ paths:
       x-request-example-patient: "sleepMatDurationReadingRequestPatientExample"
       x-response-example: "sleepMatDurationReadingResponseExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/SleepMatDurationReadingRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/SleepMatDurationReadingRequest"
   /api/v3/sleep-mat-duration-reading/{readingId}:
     get:
       tags:
@@ -8096,7 +8096,7 @@ paths:
       x-request-example-patient: "temperatureReadingRequestPatientExample"
       x-response-example: "temperatureReadingResponseExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/TemperatureReadingRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/TemperatureReadingRequest"
   /api/v3/temperature-reading/export:
     get:
       tags:
@@ -8535,7 +8535,7 @@ paths:
       x-request-example-patient: "weightReadingRequestPatientExample"
       x-response-example: "weightReadingResponseExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/WeightReadingRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/WeightReadingRequest"
   /api/v3/weight-reading/export:
     get:
       tags:
@@ -8697,7 +8697,7 @@ paths:
           description: "Created"
       x-request-example: "createTestBloodGlucoseWebhookRequestExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/TestBloodGlucoseWebhookRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/TestBloodGlucoseWebhookRequest"
   /api/v3/test/blood-oxygen-webhook:
     post:
       tags:
@@ -8722,7 +8722,7 @@ paths:
           description: "Created"
       x-request-example: "createTestBloodOxygenWebhookRequestExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/TestBloodOxygenWebhookRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/TestBloodOxygenWebhookRequest"
   /api/v3/test/blood-pressure-webhook:
     post:
       tags:
@@ -8748,7 +8748,7 @@ paths:
           description: "Created"
       x-request-example: "createTestBloodPressureWebhookRequestExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/TestBloodPressureWebhookRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/TestBloodPressureWebhookRequest"
   /api/v3/test/device-association-created:
     post:
       tags:
@@ -8773,7 +8773,7 @@ paths:
           description: "Created"
       x-request-example: "createTestDeviceAssociationWebhookExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/TestDeviceAssociationWebhook"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/TestDeviceAssociationWebhook"
   /api/v3/test/device-association-removed:
     post:
       tags:
@@ -8798,7 +8798,7 @@ paths:
           description: "Created"
       x-request-example: "createTestDeviceAssociationWebhookExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/TestDeviceAssociationWebhook"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/TestDeviceAssociationWebhook"
   /api/v3/test/order-status-full-webhook:
     post:
       tags:
@@ -8827,7 +8827,7 @@ paths:
           description: "Created"
       x-request-example: "createTestOrderStatusFullWebhookExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/TestOrderStatusFullWebhook"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/TestOrderStatusFullWebhook"
   /api/v3/test/order-status-webhook:
     post:
       tags:
@@ -8854,7 +8854,7 @@ paths:
           description: "Created"
       x-request-example: "createTestOrderStatusWebhookRequestExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/TestOrderStatusWebhookRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/TestOrderStatusWebhookRequest"
   /api/v3/test/weight-webhook:
     post:
       tags:
@@ -8878,7 +8878,7 @@ paths:
           description: "Created"
       x-request-example: "createTestWeightWebhookRequestExample"
       externalDocs:
-        url: "https://staging.docs.impiloplatform.com/api#model/TestWeightWebhookRequest"
+        url: "https://alpha-docs.local.impiloplatform.com/api#model/TestWeightWebhookRequest"
 components:
   securitySchemes:
     ApiKeyAuth:

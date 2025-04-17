@@ -32,54 +32,21 @@ curl --request POST \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --data '{
-  "externalOrderIds" : [ "xyz_123_0", "xyz_123_1", "xyz_123_2", "xyz_123_3" ],
-  "patient" : {
-    "id" : 1234,
-    "sex" : "unknown"
-  },
-  "orderItems" : [ {
-    "item" : {
-      "id" : 1000
-    },
-    "count" : 10
-  }, {
-    "item" : {
-      "id" : 1001
-    },
-    "count" : 10
-  }, {
-    "item" : {
-      "id" : 1002
-    },
-    "count" : 10
-  }, {
-    "item" : {
-      "id" : 1003
-    },
-    "count" : 10
-  } ],
-  "orderKits" : [ {
-    "kit" : {
-      "id" : 1000
-    },
-    "count" : 10
-  }, {
-    "kit" : {
-      "id" : 1001
-    },
-    "count" : 10
-  }, {
-    "kit" : {
-      "id" : 1002
-    },
-    "count" : 10
-  }, {
-    "kit" : {
-      "id" : 1003
-    },
-    "count" : 10
-  } ],
-  "shippingOption" : "standard"
+  "externalOrderIds": ["xyz_123_0", "xyz_123_1", "xyz_123_2", "xyz_123_3"],
+  "patient": {"id": 1234, "sex": "unknown"},
+  "orderItems": [
+    {"item": {"id": 1000}, "count": 10},
+    {"item": {"id": 1001}, "count": 10},
+    {"item": {"id": 1002}, "count": 10},
+    {"item": {"id": 1003}, "count": 10}
+  ],
+  "orderKits": [
+    {"kit": {"id": 1000}, "count": 10},
+    {"kit": {"id": 1001}, "count": 10},
+    {"kit": {"id": 1002}, "count": 10},
+    {"kit": {"id": 1003}, "count": 10}
+  ],
+  "shippingOption": "standard"
 }'
 ```
 
@@ -87,301 +54,275 @@ Below is an example response containing sample data:
 
 ```json
 {
-  "id" : 0,
-  "externalOrderIds" : [ "string" ],
-  "patient" : {
-    "id" : 1,
-    "externalIdentifier" : "1234abcd",
-    "firstName" : "John",
-    "lastName" : "Doe",
-    "dateOfBirth" : "1980-01-01",
-    "email" : "john.doe@example.com",
-    "phoneNumber" : "+1234567890",
-    "archived" : true,
-    "address" : {
-      "lineOne" : "string",
-      "lineTwo" : "string",
-      "lineThree" : "string",
-      "city" : "string",
-      "state" : "string",
-      "zipCode" : "string",
-      "country" : "string",
-      "note" : "string"
+  "id": 0,
+  "externalOrderIds": ["string"],
+  "patient": {
+    "id": 1,
+    "externalIdentifier": "1234abcd",
+    "firstName": "John",
+    "lastName": "Doe",
+    "dateOfBirth": "1980-01-01",
+    "email": "john.doe@example.com",
+    "phoneNumber": "+1234567890",
+    "archived": true,
+    "address": {
+      "lineOne": "string",
+      "lineTwo": "string",
+      "lineThree": "string",
+      "city": "string",
+      "state": "string",
+      "zipCode": "string",
+      "country": "string",
+      "note": "string"
     },
-    "site" : {
-      "id" : 1,
-      "name" : "string",
-      "active" : true,
-      "phoneNumber" : "string",
-      "address" : {
-        "lineOne" : "string",
-        "lineTwo" : "string",
-        "lineThree" : "string",
-        "city" : "string",
-        "state" : "string",
-        "zipCode" : "string",
-        "country" : "string",
-        "note" : "string"
+    "site": {
+      "id": 1,
+      "name": "string",
+      "active": true,
+      "phoneNumber": "string",
+      "address": {
+        "lineOne": "string",
+        "lineTwo": "string",
+        "lineThree": "string",
+        "city": "string",
+        "state": "string",
+        "zipCode": "string",
+        "country": "string",
+        "note": "string"
       }
     },
-    "enrolled" : true,
-    "sex" : "other"
+    "enrolled": true,
+    "sex": "other"
   },
-  "site" : {
-    "id" : 1,
-    "name" : "string",
-    "active" : true,
-    "phoneNumber" : "string",
-    "address" : {
-      "lineOne" : "string",
-      "lineTwo" : "string",
-      "lineThree" : "string",
-      "city" : "string",
-      "state" : "string",
-      "zipCode" : "string",
-      "country" : "string",
-      "note" : "string"
+  "site": {
+    "id": 1,
+    "name": "string",
+    "active": true,
+    "phoneNumber": "string",
+    "address": {
+      "lineOne": "string",
+      "lineTwo": "string",
+      "lineThree": "string",
+      "city": "string",
+      "state": "string",
+      "zipCode": "string",
+      "country": "string",
+      "note": "string"
     }
   },
-  "currentStatus" : "availableForPickup",
-  "orderItems" : [ {
-    "item" : {
-      "id" : 1,
-      "manufacturer" : {
-        "id" : 1,
-        "name" : "string"
+  "currentStatus": "availableForPickup",
+  "orderItems": [
+    {
+      "item": {
+        "id": 1,
+        "manufacturer": {"id": 1, "name": "string"},
+        "name": "string",
+        "model": "string",
+        "sku": "string",
+        "orderable": true
       },
-      "name" : "string",
-      "model" : "string",
-      "sku" : "string",
-      "orderable" : true
-    },
-    "count" : 0
-  } ],
-  "orderKits" : [ {
-    "kit" : {
-      "id" : 0,
-      "name" : "string",
-      "archived" : true,
-      "kitItems" : [ {
-        "item" : {
-          "id" : 1,
-          "manufacturer" : {
-            "id" : 1,
-            "name" : "string"
-          },
-          "name" : "string",
-          "model" : "string",
-          "sku" : "string",
-          "orderable" : true
-        },
-        "count" : 0
-      } ]
-    },
-    "count" : 0
-  } ],
-  "orderEvents" : [ {
-    "name" : "string",
-    "eventTimestamp" : "string"
-  } ],
-  "orderNotes" : [ {
-    "note" : "string",
-    "createdAt" : "string",
-    "createdBy" : {
-      "id" : 0,
-      "firstName" : "string",
-      "lastName" : "string",
-      "email" : "string"
+      "count": 0
     }
-  } ],
-  "trackingNumbers" : [ {
-    "carrier" : "string",
-    "value" : "string"
-  } ],
-  "devices" : [ {
-    "id" : 1,
-    "item" : {
-      "id" : 1,
-      "manufacturer" : {
-        "id" : 1,
-        "name" : "string"
+  ],
+  "orderKits": [
+    {
+      "kit": {
+        "id": 0,
+        "name": "string",
+        "archived": true,
+        "kitItems": [
+          {
+            "item": {
+              "id": 1,
+              "manufacturer": {"id": 1, "name": "string"},
+              "name": "string",
+              "model": "string",
+              "sku": "string",
+              "orderable": true
+            },
+            "count": 0
+          }
+        ]
       },
-      "name" : "string",
-      "model" : "string",
-      "sku" : "string",
-      "orderable" : true
-    },
-    "currentStatus" : "string",
-    "used" : true,
-    "currentPatient" : {
-      "id" : 1,
-      "externalIdentifier" : "1234abcd",
-      "firstName" : "John",
-      "lastName" : "Doe",
-      "dateOfBirth" : "1980-01-01",
-      "email" : "john.doe@example.com",
-      "phoneNumber" : "+1234567890",
-      "archived" : true,
-      "address" : {
-        "lineOne" : "string",
-        "lineTwo" : "string",
-        "lineThree" : "string",
-        "city" : "string",
-        "state" : "string",
-        "zipCode" : "string",
-        "country" : "string",
-        "note" : "string"
+      "count": 0
+    }
+  ],
+  "orderEvents": [{"name": "string", "eventTimestamp": "string"}],
+  "orderNotes": [
+    {"note": "string", "createdAt": "string", "createdBy": {"id": 0, "firstName": "string", "lastName": "string", "email": "string"}}
+  ],
+  "trackingNumbers": [{"carrier": "string", "value": "string"}],
+  "devices": [
+    {
+      "id": 1,
+      "item": {
+        "id": 1,
+        "manufacturer": {"id": 1, "name": "string"},
+        "name": "string",
+        "model": "string",
+        "sku": "string",
+        "orderable": true
       },
-      "site" : {
-        "id" : 1,
-        "name" : "string",
-        "active" : true,
-        "phoneNumber" : "string",
-        "address" : {
-          "lineOne" : "string",
-          "lineTwo" : "string",
-          "lineThree" : "string",
-          "city" : "string",
-          "state" : "string",
-          "zipCode" : "string",
-          "country" : "string",
-          "note" : "string"
-        }
-      },
-      "enrolled" : true,
-      "sex" : "other"
-    },
-    "site" : {
-      "id" : 1,
-      "name" : "string",
-      "active" : true,
-      "phoneNumber" : "string",
-      "address" : {
-        "lineOne" : "string",
-        "lineTwo" : "string",
-        "lineThree" : "string",
-        "city" : "string",
-        "state" : "string",
-        "zipCode" : "string",
-        "country" : "string",
-        "note" : "string"
-      }
-    },
-    "lastHealthCheck" : "string",
-    "deviceIdentifiers" : [ {
-      "type" : "string",
-      "value" : "string"
-    } ],
-    "deviceEvents" : [ {
-      "type" : "string",
-      "eventTimestamp" : "string"
-    } ],
-    "externalIdentifier" : "string",
-    "disabledReadings" : true
-  } ],
-  "packedKits" : [ {
-    "kit" : {
-      "id" : 0,
-      "name" : "string",
-      "archived" : true,
-      "kitItems" : [ {
-        "item" : {
-          "id" : 1,
-          "manufacturer" : {
-            "id" : 1,
-            "name" : "string"
-          },
-          "name" : "string",
-          "model" : "string",
-          "sku" : "string",
-          "orderable" : true
+      "currentStatus": "string",
+      "used": true,
+      "currentPatient": {
+        "id": 1,
+        "externalIdentifier": "1234abcd",
+        "firstName": "John",
+        "lastName": "Doe",
+        "dateOfBirth": "1980-01-01",
+        "email": "john.doe@example.com",
+        "phoneNumber": "+1234567890",
+        "archived": true,
+        "address": {
+          "lineOne": "string",
+          "lineTwo": "string",
+          "lineThree": "string",
+          "city": "string",
+          "state": "string",
+          "zipCode": "string",
+          "country": "string",
+          "note": "string"
         },
-        "count" : 0
-      } ]
-    },
-    "devices" : [ {
-      "id" : 1,
-      "item" : {
-        "id" : 1,
-        "manufacturer" : {
-          "id" : 1,
-          "name" : "string"
-        },
-        "name" : "string",
-        "model" : "string",
-        "sku" : "string",
-        "orderable" : true
-      },
-      "currentStatus" : "string",
-      "used" : true,
-      "currentPatient" : {
-        "id" : 1,
-        "externalIdentifier" : "1234abcd",
-        "firstName" : "John",
-        "lastName" : "Doe",
-        "dateOfBirth" : "1980-01-01",
-        "email" : "john.doe@example.com",
-        "phoneNumber" : "+1234567890",
-        "archived" : true,
-        "address" : {
-          "lineOne" : "string",
-          "lineTwo" : "string",
-          "lineThree" : "string",
-          "city" : "string",
-          "state" : "string",
-          "zipCode" : "string",
-          "country" : "string",
-          "note" : "string"
-        },
-        "site" : {
-          "id" : 1,
-          "name" : "string",
-          "active" : true,
-          "phoneNumber" : "string",
-          "address" : {
-            "lineOne" : "string",
-            "lineTwo" : "string",
-            "lineThree" : "string",
-            "city" : "string",
-            "state" : "string",
-            "zipCode" : "string",
-            "country" : "string",
-            "note" : "string"
+        "site": {
+          "id": 1,
+          "name": "string",
+          "active": true,
+          "phoneNumber": "string",
+          "address": {
+            "lineOne": "string",
+            "lineTwo": "string",
+            "lineThree": "string",
+            "city": "string",
+            "state": "string",
+            "zipCode": "string",
+            "country": "string",
+            "note": "string"
           }
         },
-        "enrolled" : true,
-        "sex" : "other"
+        "enrolled": true,
+        "sex": "other"
       },
-      "site" : {
-        "id" : 1,
-        "name" : "string",
-        "active" : true,
-        "phoneNumber" : "string",
-        "address" : {
-          "lineOne" : "string",
-          "lineTwo" : "string",
-          "lineThree" : "string",
-          "city" : "string",
-          "state" : "string",
-          "zipCode" : "string",
-          "country" : "string",
-          "note" : "string"
+      "site": {
+        "id": 1,
+        "name": "string",
+        "active": true,
+        "phoneNumber": "string",
+        "address": {
+          "lineOne": "string",
+          "lineTwo": "string",
+          "lineThree": "string",
+          "city": "string",
+          "state": "string",
+          "zipCode": "string",
+          "country": "string",
+          "note": "string"
         }
       },
-      "lastHealthCheck" : "string",
-      "deviceIdentifiers" : [ {
-        "type" : "string",
-        "value" : "string"
-      } ],
-      "deviceEvents" : [ {
-        "type" : "string",
-        "eventTimestamp" : "string"
-      } ],
-      "externalIdentifier" : "string",
-      "disabledReadings" : true
-    } ]
-  } ],
-  "shippingOption" : "standard"
+      "lastHealthCheck": "string",
+      "deviceIdentifiers": [{"type": "string", "value": "string"}],
+      "deviceEvents": [{"type": "string", "eventTimestamp": "string"}],
+      "externalIdentifier": "string",
+      "disabledReadings": true
+    }
+  ],
+  "packedKits": [
+    {
+      "kit": {
+        "id": 0,
+        "name": "string",
+        "archived": true,
+        "kitItems": [
+          {
+            "item": {
+              "id": 1,
+              "manufacturer": {"id": 1, "name": "string"},
+              "name": "string",
+              "model": "string",
+              "sku": "string",
+              "orderable": true
+            },
+            "count": 0
+          }
+        ]
+      },
+      "devices": [
+        {
+          "id": 1,
+          "item": {
+            "id": 1,
+            "manufacturer": {"id": 1, "name": "string"},
+            "name": "string",
+            "model": "string",
+            "sku": "string",
+            "orderable": true
+          },
+          "currentStatus": "string",
+          "used": true,
+          "currentPatient": {
+            "id": 1,
+            "externalIdentifier": "1234abcd",
+            "firstName": "John",
+            "lastName": "Doe",
+            "dateOfBirth": "1980-01-01",
+            "email": "john.doe@example.com",
+            "phoneNumber": "+1234567890",
+            "archived": true,
+            "address": {
+              "lineOne": "string",
+              "lineTwo": "string",
+              "lineThree": "string",
+              "city": "string",
+              "state": "string",
+              "zipCode": "string",
+              "country": "string",
+              "note": "string"
+            },
+            "site": {
+              "id": 1,
+              "name": "string",
+              "active": true,
+              "phoneNumber": "string",
+              "address": {
+                "lineOne": "string",
+                "lineTwo": "string",
+                "lineThree": "string",
+                "city": "string",
+                "state": "string",
+                "zipCode": "string",
+                "country": "string",
+                "note": "string"
+              }
+            },
+            "enrolled": true,
+            "sex": "other"
+          },
+          "site": {
+            "id": 1,
+            "name": "string",
+            "active": true,
+            "phoneNumber": "string",
+            "address": {
+              "lineOne": "string",
+              "lineTwo": "string",
+              "lineThree": "string",
+              "city": "string",
+              "state": "string",
+              "zipCode": "string",
+              "country": "string",
+              "note": "string"
+            }
+          },
+          "lastHealthCheck": "string",
+          "deviceIdentifiers": [{"type": "string", "value": "string"}],
+          "deviceEvents": [{"type": "string", "eventTimestamp": "string"}],
+          "externalIdentifier": "string",
+          "disabledReadings": true
+        }
+      ]
+    }
+  ],
+  "shippingOption": "standard"
 }
 ```
 
@@ -494,308 +435,284 @@ curl --request GET \
 Response:
 ```json
 {
-  "content" : [ {
-    "id" : 0,
-    "externalOrderIds" : [ "string" ],
-    "patient" : {
-      "id" : 1,
-      "externalIdentifier" : "1234abcd",
-      "firstName" : "John",
-      "lastName" : "Doe",
-      "dateOfBirth" : "1980-01-01",
-      "email" : "john.doe@example.com",
-      "phoneNumber" : "+1234567890",
-      "archived" : true,
-      "address" : {
-        "lineOne" : "string",
-        "lineTwo" : "string",
-        "lineThree" : "string",
-        "city" : "string",
-        "state" : "string",
-        "zipCode" : "string",
-        "country" : "string",
-        "note" : "string"
-      },
-      "site" : {
-        "id" : 1,
-        "name" : "string",
-        "active" : true,
-        "phoneNumber" : "string",
-        "address" : {
-          "lineOne" : "string",
-          "lineTwo" : "string",
-          "lineThree" : "string",
-          "city" : "string",
-          "state" : "string",
-          "zipCode" : "string",
-          "country" : "string",
-          "note" : "string"
-        }
-      },
-      "enrolled" : true,
-      "sex" : "other"
-    },
-    "site" : {
-      "id" : 1,
-      "name" : "string",
-      "active" : true,
-      "phoneNumber" : "string",
-      "address" : {
-        "lineOne" : "string",
-        "lineTwo" : "string",
-        "lineThree" : "string",
-        "city" : "string",
-        "state" : "string",
-        "zipCode" : "string",
-        "country" : "string",
-        "note" : "string"
-      }
-    },
-    "currentStatus" : "availableForPickup",
-    "orderItems" : [ {
-      "item" : {
-        "id" : 1,
-        "manufacturer" : {
-          "id" : 1,
-          "name" : "string"
+  "content": [
+    {
+      "id": 0,
+      "externalOrderIds": ["string"],
+      "patient": {
+        "id": 1,
+        "externalIdentifier": "1234abcd",
+        "firstName": "John",
+        "lastName": "Doe",
+        "dateOfBirth": "1980-01-01",
+        "email": "john.doe@example.com",
+        "phoneNumber": "+1234567890",
+        "archived": true,
+        "address": {
+          "lineOne": "string",
+          "lineTwo": "string",
+          "lineThree": "string",
+          "city": "string",
+          "state": "string",
+          "zipCode": "string",
+          "country": "string",
+          "note": "string"
         },
-        "name" : "string",
-        "model" : "string",
-        "sku" : "string",
-        "orderable" : true
-      },
-      "count" : 0
-    } ],
-    "orderKits" : [ {
-      "kit" : {
-        "id" : 0,
-        "name" : "string",
-        "archived" : true,
-        "kitItems" : [ {
-          "item" : {
-            "id" : 1,
-            "manufacturer" : {
-              "id" : 1,
-              "name" : "string"
-            },
-            "name" : "string",
-            "model" : "string",
-            "sku" : "string",
-            "orderable" : true
-          },
-          "count" : 0
-        } ]
-      },
-      "count" : 0
-    } ],
-    "orderEvents" : [ {
-      "name" : "string",
-      "eventTimestamp" : "string"
-    } ],
-    "orderNotes" : [ {
-      "note" : "string",
-      "createdAt" : "string",
-      "createdBy" : {
-        "id" : 0,
-        "firstName" : "string",
-        "lastName" : "string",
-        "email" : "string"
-      }
-    } ],
-    "trackingNumbers" : [ {
-      "carrier" : "string",
-      "value" : "string"
-    } ],
-    "devices" : [ {
-      "id" : 1,
-      "item" : {
-        "id" : 1,
-        "manufacturer" : {
-          "id" : 1,
-          "name" : "string"
-        },
-        "name" : "string",
-        "model" : "string",
-        "sku" : "string",
-        "orderable" : true
-      },
-      "currentStatus" : "string",
-      "used" : true,
-      "currentPatient" : {
-        "id" : 1,
-        "externalIdentifier" : "1234abcd",
-        "firstName" : "John",
-        "lastName" : "Doe",
-        "dateOfBirth" : "1980-01-01",
-        "email" : "john.doe@example.com",
-        "phoneNumber" : "+1234567890",
-        "archived" : true,
-        "address" : {
-          "lineOne" : "string",
-          "lineTwo" : "string",
-          "lineThree" : "string",
-          "city" : "string",
-          "state" : "string",
-          "zipCode" : "string",
-          "country" : "string",
-          "note" : "string"
-        },
-        "site" : {
-          "id" : 1,
-          "name" : "string",
-          "active" : true,
-          "phoneNumber" : "string",
-          "address" : {
-            "lineOne" : "string",
-            "lineTwo" : "string",
-            "lineThree" : "string",
-            "city" : "string",
-            "state" : "string",
-            "zipCode" : "string",
-            "country" : "string",
-            "note" : "string"
+        "site": {
+          "id": 1,
+          "name": "string",
+          "active": true,
+          "phoneNumber": "string",
+          "address": {
+            "lineOne": "string",
+            "lineTwo": "string",
+            "lineThree": "string",
+            "city": "string",
+            "state": "string",
+            "zipCode": "string",
+            "country": "string",
+            "note": "string"
           }
         },
-        "enrolled" : true,
-        "sex" : "other"
+        "enrolled": true,
+        "sex": "other"
       },
-      "site" : {
-        "id" : 1,
-        "name" : "string",
-        "active" : true,
-        "phoneNumber" : "string",
-        "address" : {
-          "lineOne" : "string",
-          "lineTwo" : "string",
-          "lineThree" : "string",
-          "city" : "string",
-          "state" : "string",
-          "zipCode" : "string",
-          "country" : "string",
-          "note" : "string"
+      "site": {
+        "id": 1,
+        "name": "string",
+        "active": true,
+        "phoneNumber": "string",
+        "address": {
+          "lineOne": "string",
+          "lineTwo": "string",
+          "lineThree": "string",
+          "city": "string",
+          "state": "string",
+          "zipCode": "string",
+          "country": "string",
+          "note": "string"
         }
       },
-      "lastHealthCheck" : "string",
-      "deviceIdentifiers" : [ {
-        "type" : "string",
-        "value" : "string"
-      } ],
-      "deviceEvents" : [ {
-        "type" : "string",
-        "eventTimestamp" : "string"
-      } ],
-      "externalIdentifier" : "string",
-      "disabledReadings" : true
-    } ],
-    "packedKits" : [ {
-      "kit" : {
-        "id" : 0,
-        "name" : "string",
-        "archived" : true,
-        "kitItems" : [ {
-          "item" : {
-            "id" : 1,
-            "manufacturer" : {
-              "id" : 1,
-              "name" : "string"
+      "currentStatus": "availableForPickup",
+      "orderItems": [
+        {
+          "item": {
+            "id": 1,
+            "manufacturer": {"id": 1, "name": "string"},
+            "name": "string",
+            "model": "string",
+            "sku": "string",
+            "orderable": true
+          },
+          "count": 0
+        }
+      ],
+      "orderKits": [
+        {
+          "kit": {
+            "id": 0,
+            "name": "string",
+            "archived": true,
+            "kitItems": [
+              {
+                "item": {
+                  "id": 1,
+                  "manufacturer": {"id": 1, "name": "string"},
+                  "name": "string",
+                  "model": "string",
+                  "sku": "string",
+                  "orderable": true
+                },
+                "count": 0
+              }
+            ]
+          },
+          "count": 0
+        }
+      ],
+      "orderEvents": [{"name": "string", "eventTimestamp": "string"}],
+      "orderNotes": [
+        {"note": "string", "createdAt": "string", "createdBy": {"id": 0, "firstName": "string", "lastName": "string", "email": "string"}}
+      ],
+      "trackingNumbers": [{"carrier": "string", "value": "string"}],
+      "devices": [
+        {
+          "id": 1,
+          "item": {
+            "id": 1,
+            "manufacturer": {"id": 1, "name": "string"},
+            "name": "string",
+            "model": "string",
+            "sku": "string",
+            "orderable": true
+          },
+          "currentStatus": "string",
+          "used": true,
+          "currentPatient": {
+            "id": 1,
+            "externalIdentifier": "1234abcd",
+            "firstName": "John",
+            "lastName": "Doe",
+            "dateOfBirth": "1980-01-01",
+            "email": "john.doe@example.com",
+            "phoneNumber": "+1234567890",
+            "archived": true,
+            "address": {
+              "lineOne": "string",
+              "lineTwo": "string",
+              "lineThree": "string",
+              "city": "string",
+              "state": "string",
+              "zipCode": "string",
+              "country": "string",
+              "note": "string"
             },
-            "name" : "string",
-            "model" : "string",
-            "sku" : "string",
-            "orderable" : true
+            "site": {
+              "id": 1,
+              "name": "string",
+              "active": true,
+              "phoneNumber": "string",
+              "address": {
+                "lineOne": "string",
+                "lineTwo": "string",
+                "lineThree": "string",
+                "city": "string",
+                "state": "string",
+                "zipCode": "string",
+                "country": "string",
+                "note": "string"
+              }
+            },
+            "enrolled": true,
+            "sex": "other"
           },
-          "count" : 0
-        } ]
-      },
-      "devices" : [ {
-        "id" : 1,
-        "item" : {
-          "id" : 1,
-          "manufacturer" : {
-            "id" : 1,
-            "name" : "string"
-          },
-          "name" : "string",
-          "model" : "string",
-          "sku" : "string",
-          "orderable" : true
-        },
-        "currentStatus" : "string",
-        "used" : true,
-        "currentPatient" : {
-          "id" : 1,
-          "externalIdentifier" : "1234abcd",
-          "firstName" : "John",
-          "lastName" : "Doe",
-          "dateOfBirth" : "1980-01-01",
-          "email" : "john.doe@example.com",
-          "phoneNumber" : "+1234567890",
-          "archived" : true,
-          "address" : {
-            "lineOne" : "string",
-            "lineTwo" : "string",
-            "lineThree" : "string",
-            "city" : "string",
-            "state" : "string",
-            "zipCode" : "string",
-            "country" : "string",
-            "note" : "string"
-          },
-          "site" : {
-            "id" : 1,
-            "name" : "string",
-            "active" : true,
-            "phoneNumber" : "string",
-            "address" : {
-              "lineOne" : "string",
-              "lineTwo" : "string",
-              "lineThree" : "string",
-              "city" : "string",
-              "state" : "string",
-              "zipCode" : "string",
-              "country" : "string",
-              "note" : "string"
+          "site": {
+            "id": 1,
+            "name": "string",
+            "active": true,
+            "phoneNumber": "string",
+            "address": {
+              "lineOne": "string",
+              "lineTwo": "string",
+              "lineThree": "string",
+              "city": "string",
+              "state": "string",
+              "zipCode": "string",
+              "country": "string",
+              "note": "string"
             }
           },
-          "enrolled" : true,
-          "sex" : "other"
-        },
-        "site" : {
-          "id" : 1,
-          "name" : "string",
-          "active" : true,
-          "phoneNumber" : "string",
-          "address" : {
-            "lineOne" : "string",
-            "lineTwo" : "string",
-            "lineThree" : "string",
-            "city" : "string",
-            "state" : "string",
-            "zipCode" : "string",
-            "country" : "string",
-            "note" : "string"
-          }
-        },
-        "lastHealthCheck" : "string",
-        "deviceIdentifiers" : [ {
-          "type" : "string",
-          "value" : "string"
-        } ],
-        "deviceEvents" : [ {
-          "type" : "string",
-          "eventTimestamp" : "string"
-        } ],
-        "externalIdentifier" : "string",
-        "disabledReadings" : true
-      } ]
-    } ],
-    "shippingOption" : "standard"
-  } ],
-  "page" : 0,
-  "size" : 0,
-  "total" : 0,
-  "first" : true,
-  "last" : true
+          "lastHealthCheck": "string",
+          "deviceIdentifiers": [{"type": "string", "value": "string"}],
+          "deviceEvents": [{"type": "string", "eventTimestamp": "string"}],
+          "externalIdentifier": "string",
+          "disabledReadings": true
+        }
+      ],
+      "packedKits": [
+        {
+          "kit": {
+            "id": 0,
+            "name": "string",
+            "archived": true,
+            "kitItems": [
+              {
+                "item": {
+                  "id": 1,
+                  "manufacturer": {"id": 1, "name": "string"},
+                  "name": "string",
+                  "model": "string",
+                  "sku": "string",
+                  "orderable": true
+                },
+                "count": 0
+              }
+            ]
+          },
+          "devices": [
+            {
+              "id": 1,
+              "item": {
+                "id": 1,
+                "manufacturer": {"id": 1, "name": "string"},
+                "name": "string",
+                "model": "string",
+                "sku": "string",
+                "orderable": true
+              },
+              "currentStatus": "string",
+              "used": true,
+              "currentPatient": {
+                "id": 1,
+                "externalIdentifier": "1234abcd",
+                "firstName": "John",
+                "lastName": "Doe",
+                "dateOfBirth": "1980-01-01",
+                "email": "john.doe@example.com",
+                "phoneNumber": "+1234567890",
+                "archived": true,
+                "address": {
+                  "lineOne": "string",
+                  "lineTwo": "string",
+                  "lineThree": "string",
+                  "city": "string",
+                  "state": "string",
+                  "zipCode": "string",
+                  "country": "string",
+                  "note": "string"
+                },
+                "site": {
+                  "id": 1,
+                  "name": "string",
+                  "active": true,
+                  "phoneNumber": "string",
+                  "address": {
+                    "lineOne": "string",
+                    "lineTwo": "string",
+                    "lineThree": "string",
+                    "city": "string",
+                    "state": "string",
+                    "zipCode": "string",
+                    "country": "string",
+                    "note": "string"
+                  }
+                },
+                "enrolled": true,
+                "sex": "other"
+              },
+              "site": {
+                "id": 1,
+                "name": "string",
+                "active": true,
+                "phoneNumber": "string",
+                "address": {
+                  "lineOne": "string",
+                  "lineTwo": "string",
+                  "lineThree": "string",
+                  "city": "string",
+                  "state": "string",
+                  "zipCode": "string",
+                  "country": "string",
+                  "note": "string"
+                }
+              },
+              "lastHealthCheck": "string",
+              "deviceIdentifiers": [{"type": "string", "value": "string"}],
+              "deviceEvents": [{"type": "string", "eventTimestamp": "string"}],
+              "externalIdentifier": "string",
+              "disabledReadings": true
+            }
+          ]
+        }
+      ],
+      "shippingOption": "standard"
+    }
+  ],
+  "page": 0,
+  "size": 0,
+  "total": 0,
+  "first": true,
+  "last": true
 }
 ```
 
@@ -813,301 +730,275 @@ Response:
 
 ```json
 {
-  "id" : 0,
-  "externalOrderIds" : [ "string" ],
-  "patient" : {
-    "id" : 1,
-    "externalIdentifier" : "1234abcd",
-    "firstName" : "John",
-    "lastName" : "Doe",
-    "dateOfBirth" : "1980-01-01",
-    "email" : "john.doe@example.com",
-    "phoneNumber" : "+1234567890",
-    "archived" : true,
-    "address" : {
-      "lineOne" : "string",
-      "lineTwo" : "string",
-      "lineThree" : "string",
-      "city" : "string",
-      "state" : "string",
-      "zipCode" : "string",
-      "country" : "string",
-      "note" : "string"
+  "id": 0,
+  "externalOrderIds": ["string"],
+  "patient": {
+    "id": 1,
+    "externalIdentifier": "1234abcd",
+    "firstName": "John",
+    "lastName": "Doe",
+    "dateOfBirth": "1980-01-01",
+    "email": "john.doe@example.com",
+    "phoneNumber": "+1234567890",
+    "archived": true,
+    "address": {
+      "lineOne": "string",
+      "lineTwo": "string",
+      "lineThree": "string",
+      "city": "string",
+      "state": "string",
+      "zipCode": "string",
+      "country": "string",
+      "note": "string"
     },
-    "site" : {
-      "id" : 1,
-      "name" : "string",
-      "active" : true,
-      "phoneNumber" : "string",
-      "address" : {
-        "lineOne" : "string",
-        "lineTwo" : "string",
-        "lineThree" : "string",
-        "city" : "string",
-        "state" : "string",
-        "zipCode" : "string",
-        "country" : "string",
-        "note" : "string"
+    "site": {
+      "id": 1,
+      "name": "string",
+      "active": true,
+      "phoneNumber": "string",
+      "address": {
+        "lineOne": "string",
+        "lineTwo": "string",
+        "lineThree": "string",
+        "city": "string",
+        "state": "string",
+        "zipCode": "string",
+        "country": "string",
+        "note": "string"
       }
     },
-    "enrolled" : true,
-    "sex" : "other"
+    "enrolled": true,
+    "sex": "other"
   },
-  "site" : {
-    "id" : 1,
-    "name" : "string",
-    "active" : true,
-    "phoneNumber" : "string",
-    "address" : {
-      "lineOne" : "string",
-      "lineTwo" : "string",
-      "lineThree" : "string",
-      "city" : "string",
-      "state" : "string",
-      "zipCode" : "string",
-      "country" : "string",
-      "note" : "string"
+  "site": {
+    "id": 1,
+    "name": "string",
+    "active": true,
+    "phoneNumber": "string",
+    "address": {
+      "lineOne": "string",
+      "lineTwo": "string",
+      "lineThree": "string",
+      "city": "string",
+      "state": "string",
+      "zipCode": "string",
+      "country": "string",
+      "note": "string"
     }
   },
-  "currentStatus" : "availableForPickup",
-  "orderItems" : [ {
-    "item" : {
-      "id" : 1,
-      "manufacturer" : {
-        "id" : 1,
-        "name" : "string"
+  "currentStatus": "availableForPickup",
+  "orderItems": [
+    {
+      "item": {
+        "id": 1,
+        "manufacturer": {"id": 1, "name": "string"},
+        "name": "string",
+        "model": "string",
+        "sku": "string",
+        "orderable": true
       },
-      "name" : "string",
-      "model" : "string",
-      "sku" : "string",
-      "orderable" : true
-    },
-    "count" : 0
-  } ],
-  "orderKits" : [ {
-    "kit" : {
-      "id" : 0,
-      "name" : "string",
-      "archived" : true,
-      "kitItems" : [ {
-        "item" : {
-          "id" : 1,
-          "manufacturer" : {
-            "id" : 1,
-            "name" : "string"
-          },
-          "name" : "string",
-          "model" : "string",
-          "sku" : "string",
-          "orderable" : true
-        },
-        "count" : 0
-      } ]
-    },
-    "count" : 0
-  } ],
-  "orderEvents" : [ {
-    "name" : "string",
-    "eventTimestamp" : "string"
-  } ],
-  "orderNotes" : [ {
-    "note" : "string",
-    "createdAt" : "string",
-    "createdBy" : {
-      "id" : 0,
-      "firstName" : "string",
-      "lastName" : "string",
-      "email" : "string"
+      "count": 0
     }
-  } ],
-  "trackingNumbers" : [ {
-    "carrier" : "string",
-    "value" : "string"
-  } ],
-  "devices" : [ {
-    "id" : 1,
-    "item" : {
-      "id" : 1,
-      "manufacturer" : {
-        "id" : 1,
-        "name" : "string"
+  ],
+  "orderKits": [
+    {
+      "kit": {
+        "id": 0,
+        "name": "string",
+        "archived": true,
+        "kitItems": [
+          {
+            "item": {
+              "id": 1,
+              "manufacturer": {"id": 1, "name": "string"},
+              "name": "string",
+              "model": "string",
+              "sku": "string",
+              "orderable": true
+            },
+            "count": 0
+          }
+        ]
       },
-      "name" : "string",
-      "model" : "string",
-      "sku" : "string",
-      "orderable" : true
-    },
-    "currentStatus" : "string",
-    "used" : true,
-    "currentPatient" : {
-      "id" : 1,
-      "externalIdentifier" : "1234abcd",
-      "firstName" : "John",
-      "lastName" : "Doe",
-      "dateOfBirth" : "1980-01-01",
-      "email" : "john.doe@example.com",
-      "phoneNumber" : "+1234567890",
-      "archived" : true,
-      "address" : {
-        "lineOne" : "string",
-        "lineTwo" : "string",
-        "lineThree" : "string",
-        "city" : "string",
-        "state" : "string",
-        "zipCode" : "string",
-        "country" : "string",
-        "note" : "string"
+      "count": 0
+    }
+  ],
+  "orderEvents": [{"name": "string", "eventTimestamp": "string"}],
+  "orderNotes": [
+    {"note": "string", "createdAt": "string", "createdBy": {"id": 0, "firstName": "string", "lastName": "string", "email": "string"}}
+  ],
+  "trackingNumbers": [{"carrier": "string", "value": "string"}],
+  "devices": [
+    {
+      "id": 1,
+      "item": {
+        "id": 1,
+        "manufacturer": {"id": 1, "name": "string"},
+        "name": "string",
+        "model": "string",
+        "sku": "string",
+        "orderable": true
       },
-      "site" : {
-        "id" : 1,
-        "name" : "string",
-        "active" : true,
-        "phoneNumber" : "string",
-        "address" : {
-          "lineOne" : "string",
-          "lineTwo" : "string",
-          "lineThree" : "string",
-          "city" : "string",
-          "state" : "string",
-          "zipCode" : "string",
-          "country" : "string",
-          "note" : "string"
-        }
-      },
-      "enrolled" : true,
-      "sex" : "other"
-    },
-    "site" : {
-      "id" : 1,
-      "name" : "string",
-      "active" : true,
-      "phoneNumber" : "string",
-      "address" : {
-        "lineOne" : "string",
-        "lineTwo" : "string",
-        "lineThree" : "string",
-        "city" : "string",
-        "state" : "string",
-        "zipCode" : "string",
-        "country" : "string",
-        "note" : "string"
-      }
-    },
-    "lastHealthCheck" : "string",
-    "deviceIdentifiers" : [ {
-      "type" : "string",
-      "value" : "string"
-    } ],
-    "deviceEvents" : [ {
-      "type" : "string",
-      "eventTimestamp" : "string"
-    } ],
-    "externalIdentifier" : "string",
-    "disabledReadings" : true
-  } ],
-  "packedKits" : [ {
-    "kit" : {
-      "id" : 0,
-      "name" : "string",
-      "archived" : true,
-      "kitItems" : [ {
-        "item" : {
-          "id" : 1,
-          "manufacturer" : {
-            "id" : 1,
-            "name" : "string"
-          },
-          "name" : "string",
-          "model" : "string",
-          "sku" : "string",
-          "orderable" : true
+      "currentStatus": "string",
+      "used": true,
+      "currentPatient": {
+        "id": 1,
+        "externalIdentifier": "1234abcd",
+        "firstName": "John",
+        "lastName": "Doe",
+        "dateOfBirth": "1980-01-01",
+        "email": "john.doe@example.com",
+        "phoneNumber": "+1234567890",
+        "archived": true,
+        "address": {
+          "lineOne": "string",
+          "lineTwo": "string",
+          "lineThree": "string",
+          "city": "string",
+          "state": "string",
+          "zipCode": "string",
+          "country": "string",
+          "note": "string"
         },
-        "count" : 0
-      } ]
-    },
-    "devices" : [ {
-      "id" : 1,
-      "item" : {
-        "id" : 1,
-        "manufacturer" : {
-          "id" : 1,
-          "name" : "string"
-        },
-        "name" : "string",
-        "model" : "string",
-        "sku" : "string",
-        "orderable" : true
-      },
-      "currentStatus" : "string",
-      "used" : true,
-      "currentPatient" : {
-        "id" : 1,
-        "externalIdentifier" : "1234abcd",
-        "firstName" : "John",
-        "lastName" : "Doe",
-        "dateOfBirth" : "1980-01-01",
-        "email" : "john.doe@example.com",
-        "phoneNumber" : "+1234567890",
-        "archived" : true,
-        "address" : {
-          "lineOne" : "string",
-          "lineTwo" : "string",
-          "lineThree" : "string",
-          "city" : "string",
-          "state" : "string",
-          "zipCode" : "string",
-          "country" : "string",
-          "note" : "string"
-        },
-        "site" : {
-          "id" : 1,
-          "name" : "string",
-          "active" : true,
-          "phoneNumber" : "string",
-          "address" : {
-            "lineOne" : "string",
-            "lineTwo" : "string",
-            "lineThree" : "string",
-            "city" : "string",
-            "state" : "string",
-            "zipCode" : "string",
-            "country" : "string",
-            "note" : "string"
+        "site": {
+          "id": 1,
+          "name": "string",
+          "active": true,
+          "phoneNumber": "string",
+          "address": {
+            "lineOne": "string",
+            "lineTwo": "string",
+            "lineThree": "string",
+            "city": "string",
+            "state": "string",
+            "zipCode": "string",
+            "country": "string",
+            "note": "string"
           }
         },
-        "enrolled" : true,
-        "sex" : "other"
+        "enrolled": true,
+        "sex": "other"
       },
-      "site" : {
-        "id" : 1,
-        "name" : "string",
-        "active" : true,
-        "phoneNumber" : "string",
-        "address" : {
-          "lineOne" : "string",
-          "lineTwo" : "string",
-          "lineThree" : "string",
-          "city" : "string",
-          "state" : "string",
-          "zipCode" : "string",
-          "country" : "string",
-          "note" : "string"
+      "site": {
+        "id": 1,
+        "name": "string",
+        "active": true,
+        "phoneNumber": "string",
+        "address": {
+          "lineOne": "string",
+          "lineTwo": "string",
+          "lineThree": "string",
+          "city": "string",
+          "state": "string",
+          "zipCode": "string",
+          "country": "string",
+          "note": "string"
         }
       },
-      "lastHealthCheck" : "string",
-      "deviceIdentifiers" : [ {
-        "type" : "string",
-        "value" : "string"
-      } ],
-      "deviceEvents" : [ {
-        "type" : "string",
-        "eventTimestamp" : "string"
-      } ],
-      "externalIdentifier" : "string",
-      "disabledReadings" : true
-    } ]
-  } ],
-  "shippingOption" : "standard"
+      "lastHealthCheck": "string",
+      "deviceIdentifiers": [{"type": "string", "value": "string"}],
+      "deviceEvents": [{"type": "string", "eventTimestamp": "string"}],
+      "externalIdentifier": "string",
+      "disabledReadings": true
+    }
+  ],
+  "packedKits": [
+    {
+      "kit": {
+        "id": 0,
+        "name": "string",
+        "archived": true,
+        "kitItems": [
+          {
+            "item": {
+              "id": 1,
+              "manufacturer": {"id": 1, "name": "string"},
+              "name": "string",
+              "model": "string",
+              "sku": "string",
+              "orderable": true
+            },
+            "count": 0
+          }
+        ]
+      },
+      "devices": [
+        {
+          "id": 1,
+          "item": {
+            "id": 1,
+            "manufacturer": {"id": 1, "name": "string"},
+            "name": "string",
+            "model": "string",
+            "sku": "string",
+            "orderable": true
+          },
+          "currentStatus": "string",
+          "used": true,
+          "currentPatient": {
+            "id": 1,
+            "externalIdentifier": "1234abcd",
+            "firstName": "John",
+            "lastName": "Doe",
+            "dateOfBirth": "1980-01-01",
+            "email": "john.doe@example.com",
+            "phoneNumber": "+1234567890",
+            "archived": true,
+            "address": {
+              "lineOne": "string",
+              "lineTwo": "string",
+              "lineThree": "string",
+              "city": "string",
+              "state": "string",
+              "zipCode": "string",
+              "country": "string",
+              "note": "string"
+            },
+            "site": {
+              "id": 1,
+              "name": "string",
+              "active": true,
+              "phoneNumber": "string",
+              "address": {
+                "lineOne": "string",
+                "lineTwo": "string",
+                "lineThree": "string",
+                "city": "string",
+                "state": "string",
+                "zipCode": "string",
+                "country": "string",
+                "note": "string"
+              }
+            },
+            "enrolled": true,
+            "sex": "other"
+          },
+          "site": {
+            "id": 1,
+            "name": "string",
+            "active": true,
+            "phoneNumber": "string",
+            "address": {
+              "lineOne": "string",
+              "lineTwo": "string",
+              "lineThree": "string",
+              "city": "string",
+              "state": "string",
+              "zipCode": "string",
+              "country": "string",
+              "note": "string"
+            }
+          },
+          "lastHealthCheck": "string",
+          "deviceIdentifiers": [{"type": "string", "value": "string"}],
+          "deviceEvents": [{"type": "string", "eventTimestamp": "string"}],
+          "externalIdentifier": "string",
+          "disabledReadings": true
+        }
+      ]
+    }
+  ],
+  "shippingOption": "standard"
 }
 ```
 
