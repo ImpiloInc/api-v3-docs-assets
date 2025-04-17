@@ -1,7 +1,7 @@
 {
   "$schema" : "https://cdn.scalar.com/schema/scalar-config.json",
   "publishOnMerge" : true,
-  "subdomain" : "hosting-v2-docs-local-impiloplatform-com",
+  "subdomain" : "hosting-v2-docs-local-i-vrthia",
   "customDomain" : "hosting-v2-docs.local.impiloplatform.com",
   "siteMeta" : {
     "favicon" : "https://cdn.jsdelivr.net/gh/ImpiloInc/api-v3-docs-assets@hosting-v2/images/favicon.png",
