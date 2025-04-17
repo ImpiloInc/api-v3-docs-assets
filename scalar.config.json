@@ -1,7 +1,7 @@
 {
   "$schema" : "https://cdn.scalar.com/schema/scalar-config.json",
   "publishOnMerge" : true,
-  "subdomain" : "staging-docs-impiloplatform-com",
+  "subdomain" : "staging-docs-impiloplat-j7gnqi",
   "customDomain" : "staging.docs.impiloplatform.com",
   "siteMeta" : {
     "favicon" : "https://cdn.jsdelivr.net/gh/ImpiloInc/api-v3-docs-assets@staging/images/favicon.png",
