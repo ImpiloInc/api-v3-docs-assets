@@ -27,22 +27,22 @@ curl --request POST \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --data '{
-  "id": 456,
-  "externalIdentifier": "external-identifier-123",
-  "firstName": "John",
-  "lastName": "Doe",
-  "dateOfBirth": "1987-09-13",
-  "email": "email@example.com",
-  "phoneNumber": "111-222-3333",
-  "address": {
-    "lineOne": "1234 Market Street",
-    "lineTwo": "Suite 110",
-    "city": "Philadelphia",
-    "state": "PA",
-    "zipCode": "19137",
-    "country": "USA"
+  "id" : 456,
+  "externalIdentifier" : "external-identifier-123",
+  "firstName" : "John",
+  "lastName" : "Doe",
+  "dateOfBirth" : "1987-09-13",
+  "email" : "email@example.com",
+  "phoneNumber" : "111-222-3333",
+  "address" : {
+    "lineOne" : "1234 Market Street",
+    "lineTwo" : "Suite 110",
+    "city" : "Philadelphia",
+    "state" : "PA",
+    "zipCode" : "19137",
+    "country" : "USA"
   },
-  "sex": "unknown"
+  "sex" : "unknown"
 }'
 ```
 
@@ -60,40 +60,40 @@ curl --request PUT \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --data '{
-  "externalIdentifier": "1234abcd",
-  "firstName": "John",
-  "lastName": "Doe",
-  "dateOfBirth": "1980-01-01",
-  "email": "john.doe@example.com",
-  "phoneNumber": "+1234567890",
-  "archived": true,
-  "address": {
-    "lineOne": "string",
-    "lineTwo": "string",
-    "lineThree": "string",
-    "city": "string",
-    "state": "string",
-    "zipCode": "string",
-    "country": "string",
-    "note": "string"
+  "externalIdentifier" : "1234abcd",
+  "firstName" : "John",
+  "lastName" : "Doe",
+  "dateOfBirth" : "1980-01-01",
+  "email" : "john.doe@example.com",
+  "phoneNumber" : "+1234567890",
+  "archived" : true,
+  "address" : {
+    "lineOne" : "string",
+    "lineTwo" : "string",
+    "lineThree" : "string",
+    "city" : "string",
+    "state" : "string",
+    "zipCode" : "string",
+    "country" : "string",
+    "note" : "string"
   },
-  "site": {
-    "name": "string",
-    "active": true,
-    "phoneNumber": "string",
-    "address": {
-      "lineOne": "string",
-      "lineTwo": "string",
-      "lineThree": "string",
-      "city": "string",
-      "state": "string",
-      "zipCode": "string",
-      "country": "string",
-      "note": "string"
+  "site" : {
+    "name" : "string",
+    "active" : true,
+    "phoneNumber" : "string",
+    "address" : {
+      "lineOne" : "string",
+      "lineTwo" : "string",
+      "lineThree" : "string",
+      "city" : "string",
+      "state" : "string",
+      "zipCode" : "string",
+      "country" : "string",
+      "note" : "string"
     }
   },
-  "enrolled": true,
-  "sex": "other"
+  "enrolled" : true,
+  "sex" : "other"
 }'
 ```
 
