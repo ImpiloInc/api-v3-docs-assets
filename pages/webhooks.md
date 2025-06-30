@@ -120,6 +120,7 @@ The `reading.*` webhook types can be utilized to receive patient reading data vi
 | `reading.bloodGlucose`    |
 | `reading.bloodOxygen`     |
 | `reading.bloodPressure`   |
+| `reading.ecg`             |
 | `reading.temperature`     |
 | `reading.weight`          |
 
